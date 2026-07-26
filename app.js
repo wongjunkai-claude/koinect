@@ -218,7 +218,10 @@ function renderLessonShell(lesson, state, bodyHtml) {
   `);
   app.appendChild(wrapper);
   app.querySelector("#back-btn").addEventListener("click", goHome);
-  app.querySelector("#lesson-body").appendChild(el(bodyHtml));
+  // bodyHtml may contain multiple top-level elements (content + sticky footer),
+  // so set innerHTML directly rather than using el(), which only returns
+  // a single first element and would silently drop the footer/button.
+  app.querySelector("#lesson-body").innerHTML = bodyHtml;
 }
 
 function renderLessonStep(lesson, state) {
