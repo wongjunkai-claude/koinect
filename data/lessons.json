@@ -6,30 +6,136 @@
       "subtitle": "第一课 · Greeting people at church",
       "scenario": "You've just arrived at church on a Sunday morning. People are greeting each other warmly at the door.",
       "dialogue": [
-        { "speaker": "Wei", "chinese": "你好！", "pinyin": "Nǐ hǎo!", "english": "Hello!" },
-        { "speaker": "You", "chinese": "你好！早安！", "pinyin": "Nǐ hǎo! Zǎo ān!", "english": "Hello! Good morning!" },
-        { "speaker": "Wei", "chinese": "欢迎来教会！", "pinyin": "Huānyíng lái jiàohuì!", "english": "Welcome to church!" },
-        { "speaker": "You", "chinese": "谢谢你！", "pinyin": "Xièxie nǐ!", "english": "Thank you!" },
-        { "speaker": "Wei", "chinese": "平安！", "pinyin": "Píng'ān!", "english": "Peace be with you!" },
-        { "speaker": "You", "chinese": "平安！再见！", "pinyin": "Píng'ān! Zàijiàn!", "english": "Peace! See you later!" }
+        {
+          "speaker": "Wei",
+          "chinese": "你好！",
+          "pinyin": "Nǐ hǎo!",
+          "english": "Hello!"
+        },
+        {
+          "speaker": "You",
+          "chinese": "你好！早安！",
+          "pinyin": "Nǐ hǎo! Zǎo ān!",
+          "english": "Hello! Good morning!"
+        },
+        {
+          "speaker": "Wei",
+          "chinese": "欢迎来教会！",
+          "pinyin": "Huānyíng lái jiàohuì!",
+          "english": "Welcome to church!"
+        },
+        {
+          "speaker": "You",
+          "chinese": "谢谢你！",
+          "pinyin": "Xièxie nǐ!",
+          "english": "Thank you!"
+        },
+        {
+          "speaker": "Wei",
+          "chinese": "平安！",
+          "pinyin": "Píng'ān!",
+          "english": "Peace be with you!"
+        },
+        {
+          "speaker": "You",
+          "chinese": "平安！再见！",
+          "pinyin": "Píng'ān! Zàijiàn!",
+          "english": "Peace! See you later!"
+        }
       ],
       "vocabulary": [
-        { "chinese": "你好", "pinyin": "nǐ hǎo", "english": "hello", "note": "The most common everyday greeting." },
-        { "chinese": "早安", "pinyin": "zǎo ān", "english": "good morning", "note": "Used before noon." },
-        { "chinese": "欢迎", "pinyin": "huānyíng", "english": "welcome", "note": "Often heard from greeters at the door." },
-        { "chinese": "教会", "pinyin": "jiàohuì", "english": "church", "note": "The community, not just the building." },
-        { "chinese": "谢谢", "pinyin": "xièxie", "english": "thank you", "note": "Polite and warm, used often." },
-        { "chinese": "平安", "pinyin": "píng'ān", "english": "peace", "note": "A common Christian greeting and blessing." },
-        { "chinese": "再见", "pinyin": "zàijiàn", "english": "goodbye", "note": "Literally 'see again.'" }
+        {
+          "chinese": "你好",
+          "pinyin": "nǐ hǎo",
+          "english": "hello",
+          "note": "The most common everyday greeting."
+        },
+        {
+          "chinese": "早安",
+          "pinyin": "zǎo ān",
+          "english": "good morning",
+          "note": "Used before noon."
+        },
+        {
+          "chinese": "欢迎",
+          "pinyin": "huānyíng",
+          "english": "welcome",
+          "note": "Often heard from greeters at the door."
+        },
+        {
+          "chinese": "教会",
+          "pinyin": "jiàohuì",
+          "english": "church",
+          "note": "The community, not just the building."
+        },
+        {
+          "chinese": "谢谢",
+          "pinyin": "xièxie",
+          "english": "thank you",
+          "note": "Polite and warm, used often."
+        },
+        {
+          "chinese": "平安",
+          "pinyin": "píng'ān",
+          "english": "peace",
+          "note": "A common greeting among Singapore Protestant believers, often short for 主内平安 ('peace in the Lord')."
+        },
+        {
+          "chinese": "再见",
+          "pinyin": "zàijiàn",
+          "english": "goodbye",
+          "note": "Literally 'see again.'"
+        }
       ],
       "quiz": [
-        { "question": "How do you say \"hello\"?", "options": ["你好", "谢谢", "再见"], "answer": "你好" },
-        { "question": "What does 教会 mean?", "options": ["church", "morning", "peace"], "answer": "church" },
-        { "question": "How would a greeter welcome you at the door?", "options": ["欢迎", "谢谢", "早安"], "answer": "欢迎" },
-        { "question": "What does 平安 mean?", "options": ["peace", "goodbye", "hello"], "answer": "peace" },
-        { "question": "How do you say \"thank you\"?", "options": ["谢谢", "你好", "再见"], "answer": "谢谢" }
+        {
+          "question": "How do you say \"hello\"?",
+          "options": [
+            "你好",
+            "谢谢",
+            "再见"
+          ],
+          "answer": "你好"
+        },
+        {
+          "question": "What does 教会 mean?",
+          "options": [
+            "church",
+            "morning",
+            "peace"
+          ],
+          "answer": "church"
+        },
+        {
+          "question": "How would a greeter welcome you at the door?",
+          "options": [
+            "欢迎",
+            "谢谢",
+            "早安"
+          ],
+          "answer": "欢迎"
+        },
+        {
+          "question": "What does 平安 mean?",
+          "options": [
+            "peace",
+            "goodbye",
+            "hello"
+          ],
+          "answer": "peace"
+        },
+        {
+          "question": "How do you say \"thank you\"?",
+          "options": [
+            "谢谢",
+            "你好",
+            "再见"
+          ],
+          "answer": "谢谢"
+        }
       ],
-      "challenge": "Greet one person in Chinese this week — even just \"你好\" or \"平安.\""
+      "challenge": "Greet one person in Chinese this week — even just \"你好\" or \"平安.\"",
+      "stage": "Connect"
     },
     {
       "id": 2,
@@ -37,29 +143,130 @@
       "subtitle": "第二课 · Meeting someone after service",
       "scenario": "After the service, someone new sits next to you at the fellowship table and asks your name.",
       "dialogue": [
-        { "speaker": "Mei", "chinese": "你叫什么名字？", "pinyin": "Nǐ jiào shénme míngzi?", "english": "What's your name?" },
-        { "speaker": "You", "chinese": "我叫大卫。你呢？", "pinyin": "Wǒ jiào Dàwèi. Nǐ ne?", "english": "My name is David. And you?" },
-        { "speaker": "Mei", "chinese": "我叫美。很高兴认识你。", "pinyin": "Wǒ jiào Měi. Hěn gāoxìng rènshi nǐ.", "english": "My name is Mei. Nice to meet you." },
-        { "speaker": "You", "chinese": "我也很高兴认识你。", "pinyin": "Wǒ yě hěn gāoxìng rènshi nǐ.", "english": "Nice to meet you too." },
-        { "speaker": "Mei", "chinese": "你是弟兄还是姊妹的朋友？", "pinyin": "Nǐ shì dìxiōng háishì zǐmèi de péngyǒu?", "english": "Are you a brother's or sister's friend?" }
+        {
+          "speaker": "Mei",
+          "chinese": "你叫什么名字？",
+          "pinyin": "Nǐ jiào shénme míngzi?",
+          "english": "What's your name?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "我叫大卫。你呢？",
+          "pinyin": "Wǒ jiào Dàwèi. Nǐ ne?",
+          "english": "My name is David. And you?"
+        },
+        {
+          "speaker": "Mei",
+          "chinese": "我叫美。很高兴认识你。",
+          "pinyin": "Wǒ jiào Měi. Hěn gāoxìng rènshi nǐ.",
+          "english": "My name is Mei. Nice to meet you."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我也很高兴认识你。",
+          "pinyin": "Wǒ yě hěn gāoxìng rènshi nǐ.",
+          "english": "Nice to meet you too."
+        },
+        {
+          "speaker": "Mei",
+          "chinese": "你是弟兄还是姊妹的朋友？",
+          "pinyin": "Nǐ shì dìxiōng háishì zǐmèi de péngyǒu?",
+          "english": "Are you a brother's or sister's friend?"
+        }
       ],
       "vocabulary": [
-        { "chinese": "名字", "pinyin": "míngzi", "english": "name", "note": "" },
-        { "chinese": "我叫...", "pinyin": "wǒ jiào...", "english": "my name is...", "note": "Standard way to introduce yourself." },
-        { "chinese": "认识", "pinyin": "rènshi", "english": "to know / meet", "note": "" },
-        { "chinese": "高兴", "pinyin": "gāoxìng", "english": "happy / glad", "note": "" },
-        { "chinese": "弟兄", "pinyin": "dìxiōng", "english": "brother (in Christ)", "note": "Common term for male fellow believers." },
-        { "chinese": "姊妹", "pinyin": "zǐmèi", "english": "sister (in Christ)", "note": "Common term for female fellow believers." },
-        { "chinese": "朋友", "pinyin": "péngyǒu", "english": "friend", "note": "" }
+        {
+          "chinese": "名字",
+          "pinyin": "míngzi",
+          "english": "name",
+          "note": ""
+        },
+        {
+          "chinese": "我叫...",
+          "pinyin": "wǒ jiào...",
+          "english": "my name is...",
+          "note": "Standard way to introduce yourself."
+        },
+        {
+          "chinese": "认识",
+          "pinyin": "rènshi",
+          "english": "to know / meet",
+          "note": ""
+        },
+        {
+          "chinese": "高兴",
+          "pinyin": "gāoxìng",
+          "english": "happy / glad",
+          "note": ""
+        },
+        {
+          "chinese": "弟兄",
+          "pinyin": "dìxiōng",
+          "english": "brother (in Christ)",
+          "note": "Common term for male fellow believers."
+        },
+        {
+          "chinese": "姊妹",
+          "pinyin": "zǐmèi",
+          "english": "sister (in Christ)",
+          "note": "Common term for female fellow believers."
+        },
+        {
+          "chinese": "朋友",
+          "pinyin": "péngyǒu",
+          "english": "friend",
+          "note": ""
+        }
       ],
       "quiz": [
-        { "question": "How do you ask someone's name?", "options": ["你叫什么名字？", "你好吗？", "再见"], "answer": "你叫什么名字？" },
-        { "question": "What does 弟兄 mean?", "options": ["brother in Christ", "friend", "teacher"], "answer": "brother in Christ" },
-        { "question": "How do you say \"nice to meet you\"?", "options": ["很高兴认识你", "谢谢你", "早安"], "answer": "很高兴认识你" },
-        { "question": "What does 姊妹 mean?", "options": ["sister in Christ", "mother", "neighbour"], "answer": "sister in Christ" },
-        { "question": "How do you introduce yourself?", "options": ["我叫...", "你叫...", "他叫..."], "answer": "我叫..." }
+        {
+          "question": "How do you ask someone's name?",
+          "options": [
+            "你叫什么名字？",
+            "你好吗？",
+            "再见"
+          ],
+          "answer": "你叫什么名字？"
+        },
+        {
+          "question": "What does 弟兄 mean?",
+          "options": [
+            "brother in Christ",
+            "friend",
+            "teacher"
+          ],
+          "answer": "brother in Christ"
+        },
+        {
+          "question": "How do you say \"nice to meet you\"?",
+          "options": [
+            "很高兴认识你",
+            "谢谢你",
+            "早安"
+          ],
+          "answer": "很高兴认识你"
+        },
+        {
+          "question": "What does 姊妹 mean?",
+          "options": [
+            "sister in Christ",
+            "mother",
+            "neighbour"
+          ],
+          "answer": "sister in Christ"
+        },
+        {
+          "question": "How do you introduce yourself?",
+          "options": [
+            "我叫...",
+            "你叫...",
+            "他叫..."
+          ],
+          "answer": "我叫..."
+        }
       ],
-      "challenge": "Introduce yourself in Chinese to someone at church this week."
+      "challenge": "Introduce yourself in Chinese to someone at church this week.",
+      "stage": "Connect"
     },
     {
       "id": 3,
@@ -67,29 +274,130 @@
       "subtitle": "第三课 · Small talk after the service",
       "scenario": "You're chatting with a newcomer over coffee after the service, learning a little about them.",
       "dialogue": [
-        { "speaker": "You", "chinese": "你是第一次来吗？", "pinyin": "Nǐ shì dì yī cì lái ma?", "english": "Is this your first time here?" },
-        { "speaker": "Sam", "chinese": "是的，我是第一次来。", "pinyin": "Shì de, wǒ shì dì yī cì lái.", "english": "Yes, this is my first time." },
-        { "speaker": "You", "chinese": "你住在附近吗？", "pinyin": "Nǐ zhù zài fùjìn ma?", "english": "Do you live nearby?" },
-        { "speaker": "Sam", "chinese": "对，我住得不远。", "pinyin": "Duì, wǒ zhù de bù yuǎn.", "english": "Yes, I don't live far." },
-        { "speaker": "You", "chinese": "太好了！希望你下周再来。", "pinyin": "Tài hǎo le! Xīwàng nǐ xià zhōu zài lái.", "english": "Great! I hope you'll come again next week." }
+        {
+          "speaker": "You",
+          "chinese": "你是第一次来吗？",
+          "pinyin": "Nǐ shì dì yī cì lái ma?",
+          "english": "Is this your first time here?"
+        },
+        {
+          "speaker": "Sam",
+          "chinese": "是的，我是第一次来。",
+          "pinyin": "Shì de, wǒ shì dì yī cì lái.",
+          "english": "Yes, this is my first time."
+        },
+        {
+          "speaker": "You",
+          "chinese": "你住在附近吗？",
+          "pinyin": "Nǐ zhù zài fùjìn ma?",
+          "english": "Do you live nearby?"
+        },
+        {
+          "speaker": "Sam",
+          "chinese": "对，我住得不远。",
+          "pinyin": "Duì, wǒ zhù de bù yuǎn.",
+          "english": "Yes, I don't live far."
+        },
+        {
+          "speaker": "You",
+          "chinese": "太好了！希望你下周再来。",
+          "pinyin": "Tài hǎo le! Xīwàng nǐ xià zhōu zài lái.",
+          "english": "Great! I hope you'll come again next week."
+        }
       ],
       "vocabulary": [
-        { "chinese": "第一次", "pinyin": "dì yī cì", "english": "first time", "note": "" },
-        { "chinese": "附近", "pinyin": "fùjìn", "english": "nearby", "note": "" },
-        { "chinese": "希望", "pinyin": "xīwàng", "english": "to hope", "note": "" },
-        { "chinese": "下周", "pinyin": "xià zhōu", "english": "next week", "note": "" },
-        { "chinese": "太好了", "pinyin": "tài hǎo le", "english": "that's great", "note": "A warm, common expression of enthusiasm." },
-        { "chinese": "住", "pinyin": "zhù", "english": "to live (reside)", "note": "" },
-        { "chinese": "对", "pinyin": "duì", "english": "correct / yes", "note": "" }
+        {
+          "chinese": "第一次",
+          "pinyin": "dì yī cì",
+          "english": "first time",
+          "note": ""
+        },
+        {
+          "chinese": "附近",
+          "pinyin": "fùjìn",
+          "english": "nearby",
+          "note": ""
+        },
+        {
+          "chinese": "希望",
+          "pinyin": "xīwàng",
+          "english": "to hope",
+          "note": ""
+        },
+        {
+          "chinese": "下周",
+          "pinyin": "xià zhōu",
+          "english": "next week",
+          "note": ""
+        },
+        {
+          "chinese": "太好了",
+          "pinyin": "tài hǎo le",
+          "english": "that's great",
+          "note": "A warm, common expression of enthusiasm."
+        },
+        {
+          "chinese": "住",
+          "pinyin": "zhù",
+          "english": "to live (reside)",
+          "note": ""
+        },
+        {
+          "chinese": "对",
+          "pinyin": "duì",
+          "english": "correct / yes",
+          "note": ""
+        }
       ],
       "quiz": [
-        { "question": "How do you ask \"is this your first time?\"", "options": ["你是第一次来吗？", "你叫什么名字？", "你好吗？"], "answer": "你是第一次来吗？" },
-        { "question": "What does 希望 mean?", "options": ["to hope", "to live", "to welcome"], "answer": "to hope" },
-        { "question": "What does 附近 mean?", "options": ["nearby", "next week", "church"], "answer": "nearby" },
-        { "question": "How do you say \"that's great\"?", "options": ["太好了", "谢谢你", "对不起"], "answer": "太好了" },
-        { "question": "What does 下周 mean?", "options": ["next week", "this morning", "last year"], "answer": "next week" }
+        {
+          "question": "How do you ask \"is this your first time?\"",
+          "options": [
+            "你是第一次来吗？",
+            "你叫什么名字？",
+            "你好吗？"
+          ],
+          "answer": "你是第一次来吗？"
+        },
+        {
+          "question": "What does 希望 mean?",
+          "options": [
+            "to hope",
+            "to live",
+            "to welcome"
+          ],
+          "answer": "to hope"
+        },
+        {
+          "question": "What does 附近 mean?",
+          "options": [
+            "nearby",
+            "next week",
+            "church"
+          ],
+          "answer": "nearby"
+        },
+        {
+          "question": "How do you say \"that's great\"?",
+          "options": [
+            "太好了",
+            "谢谢你",
+            "对不起"
+          ],
+          "answer": "太好了"
+        },
+        {
+          "question": "What does 下周 mean?",
+          "options": [
+            "next week",
+            "this morning",
+            "last year"
+          ],
+          "answer": "next week"
+        }
       ],
-      "challenge": "Ask someone new at church one question about themselves in Chinese."
+      "challenge": "Ask someone new at church one question about themselves in Chinese.",
+      "stage": "Connect"
     },
     {
       "id": 4,
@@ -97,29 +405,130 @@
       "subtitle": "第四课 · Finding your way around",
       "scenario": "A volunteer is showing a newcomer around the church building before the service starts.",
       "dialogue": [
-        { "speaker": "Guide", "chinese": "这是主堂。", "pinyin": "Zhè shì zhǔ táng.", "english": "This is the main sanctuary." },
-        { "speaker": "You", "chinese": "洗手间在哪里？", "pinyin": "Xǐshǒujiān zài nǎlǐ?", "english": "Where's the restroom?" },
-        { "speaker": "Guide", "chinese": "在那边，右边。", "pinyin": "Zài nà biān, yòu biān.", "english": "Over there, on the right." },
-        { "speaker": "You", "chinese": "儿童主日学在哪里？", "pinyin": "Értóng zhǔrìxué zài nǎlǐ?", "english": "Where's children's Sunday school?" },
-        { "speaker": "Guide", "chinese": "在楼上，左边第二间教室。", "pinyin": "Zài lóu shàng, zuǒ biān dì èr jiān jiàoshì.", "english": "Upstairs, the second classroom on the left." }
+        {
+          "speaker": "Guide",
+          "chinese": "这是主堂。",
+          "pinyin": "Zhè shì zhǔ táng.",
+          "english": "This is the main sanctuary."
+        },
+        {
+          "speaker": "You",
+          "chinese": "洗手间在哪里？",
+          "pinyin": "Xǐshǒujiān zài nǎlǐ?",
+          "english": "Where's the restroom?"
+        },
+        {
+          "speaker": "Guide",
+          "chinese": "在那边，右边。",
+          "pinyin": "Zài nà biān, yòu biān.",
+          "english": "Over there, on the right."
+        },
+        {
+          "speaker": "You",
+          "chinese": "儿童主日学在哪里？",
+          "pinyin": "Értóng zhǔrìxué zài nǎlǐ?",
+          "english": "Where's children's Sunday school?"
+        },
+        {
+          "speaker": "Guide",
+          "chinese": "在楼上，左边第二间教室。",
+          "pinyin": "Zài lóu shàng, zuǒ biān dì èr jiān jiàoshì.",
+          "english": "Upstairs, the second classroom on the left."
+        }
       ],
       "vocabulary": [
-        { "chinese": "主堂", "pinyin": "zhǔ táng", "english": "main sanctuary", "note": "" },
-        { "chinese": "洗手间", "pinyin": "xǐshǒujiān", "english": "restroom", "note": "" },
-        { "chinese": "哪里", "pinyin": "nǎlǐ", "english": "where", "note": "" },
-        { "chinese": "右边", "pinyin": "yòu biān", "english": "right side", "note": "" },
-        { "chinese": "左边", "pinyin": "zuǒ biān", "english": "left side", "note": "" },
-        { "chinese": "儿童主日学", "pinyin": "értóng zhǔrìxué", "english": "children's Sunday school", "note": "" },
-        { "chinese": "教室", "pinyin": "jiàoshì", "english": "classroom", "note": "" }
+        {
+          "chinese": "主堂",
+          "pinyin": "zhǔ táng",
+          "english": "main sanctuary",
+          "note": ""
+        },
+        {
+          "chinese": "洗手间",
+          "pinyin": "xǐshǒujiān",
+          "english": "restroom",
+          "note": ""
+        },
+        {
+          "chinese": "哪里",
+          "pinyin": "nǎlǐ",
+          "english": "where",
+          "note": ""
+        },
+        {
+          "chinese": "右边",
+          "pinyin": "yòu biān",
+          "english": "right side",
+          "note": ""
+        },
+        {
+          "chinese": "左边",
+          "pinyin": "zuǒ biān",
+          "english": "left side",
+          "note": ""
+        },
+        {
+          "chinese": "儿童主日学",
+          "pinyin": "értóng zhǔrìxué",
+          "english": "children's Sunday school",
+          "note": ""
+        },
+        {
+          "chinese": "教室",
+          "pinyin": "jiàoshì",
+          "english": "classroom",
+          "note": ""
+        }
       ],
       "quiz": [
-        { "question": "How do you ask \"where is it?\"", "options": ["在哪里？", "是什么？", "你好吗？"], "answer": "在哪里？" },
-        { "question": "What does 洗手间 mean?", "options": ["restroom", "sanctuary", "classroom"], "answer": "restroom" },
-        { "question": "What does 右边 mean?", "options": ["right side", "left side", "upstairs"], "answer": "right side" },
-        { "question": "What does 主堂 mean?", "options": ["main sanctuary", "kitchen", "office"], "answer": "main sanctuary" },
-        { "question": "What does 儿童主日学 mean?", "options": ["children's Sunday school", "youth group", "choir practice"], "answer": "children's Sunday school" }
+        {
+          "question": "How do you ask \"where is it?\"",
+          "options": [
+            "在哪里？",
+            "是什么？",
+            "你好吗？"
+          ],
+          "answer": "在哪里？"
+        },
+        {
+          "question": "What does 洗手间 mean?",
+          "options": [
+            "restroom",
+            "sanctuary",
+            "classroom"
+          ],
+          "answer": "restroom"
+        },
+        {
+          "question": "What does 右边 mean?",
+          "options": [
+            "right side",
+            "left side",
+            "upstairs"
+          ],
+          "answer": "right side"
+        },
+        {
+          "question": "What does 主堂 mean?",
+          "options": [
+            "main sanctuary",
+            "kitchen",
+            "office"
+          ],
+          "answer": "main sanctuary"
+        },
+        {
+          "question": "What does 儿童主日学 mean?",
+          "options": [
+            "children's Sunday school",
+            "youth group",
+            "choir practice"
+          ],
+          "answer": "children's Sunday school"
+        }
       ],
-      "challenge": "Practice asking \"洗手间在哪里？\" out loud three times this week."
+      "challenge": "Practice asking \"洗手间在哪里？\" out loud three times this week.",
+      "stage": "Connect"
     },
     {
       "id": 5,
@@ -127,29 +536,767 @@
       "subtitle": "第五课 · Following along in worship",
       "scenario": "The service is about to begin. An usher gives you a bulletin and a friend tells you what's coming up.",
       "dialogue": [
-        { "speaker": "Usher", "chinese": "请坐，礼拜快开始了。", "pinyin": "Qǐng zuò, lǐbài kuài kāishǐ le.", "english": "Please sit, the service is about to start." },
-        { "speaker": "You", "chinese": "谢谢。今天讲道是关于什么？", "pinyin": "Xièxie. Jīntiān jiǎngdào shì guānyú shénme?", "english": "Thanks. What's today's sermon about?" },
-        { "speaker": "Friend", "chinese": "是关于恩典的。", "pinyin": "Shì guānyú ēndiǎn de.", "english": "It's about grace." },
-        { "speaker": "You", "chinese": "太好了，我们先唱诗歌吗？", "pinyin": "Tài hǎo le, wǒmen xiān chàng shīgē ma?", "english": "Great, do we sing songs first?" },
-        { "speaker": "Friend", "chinese": "对，然后祷告，再讲道。", "pinyin": "Duì, ránhòu dǎogào, zài jiǎngdào.", "english": "Yes, then prayer, then the sermon." }
+        {
+          "speaker": "Usher",
+          "chinese": "请坐，崇拜快开始了。",
+          "pinyin": "Qǐng zuò, chóngbài kuài kāishǐ le.",
+          "english": "Please sit, the service is about to start."
+        },
+        {
+          "speaker": "You",
+          "chinese": "谢谢。今天讲道是关于什么？",
+          "pinyin": "Xièxie. Jīntiān jiǎngdào shì guānyú shénme?",
+          "english": "Thanks. What's today's sermon about?"
+        },
+        {
+          "speaker": "Friend",
+          "chinese": "是关于恩典的。",
+          "pinyin": "Shì guānyú ēndiǎn de.",
+          "english": "It's about grace."
+        },
+        {
+          "speaker": "You",
+          "chinese": "太好了，我们先唱诗歌吗？",
+          "pinyin": "Tài hǎo le, wǒmen xiān chàng shīgē ma?",
+          "english": "Great, do we sing songs first?"
+        },
+        {
+          "speaker": "Friend",
+          "chinese": "对，然后祷告，再讲道。",
+          "pinyin": "Duì, ránhòu dǎogào, zài jiǎngdào.",
+          "english": "Yes, then prayer, then the sermon."
+        }
       ],
       "vocabulary": [
-        { "chinese": "礼拜", "pinyin": "lǐbài", "english": "worship service", "note": "" },
-        { "chinese": "讲道", "pinyin": "jiǎngdào", "english": "sermon", "note": "" },
-        { "chinese": "恩典", "pinyin": "ēndiǎn", "english": "grace", "note": "" },
-        { "chinese": "诗歌", "pinyin": "shīgē", "english": "hymn / worship song", "note": "" },
-        { "chinese": "祷告", "pinyin": "dǎogào", "english": "prayer", "note": "" },
-        { "chinese": "开始", "pinyin": "kāishǐ", "english": "to begin", "note": "" },
-        { "chinese": "然后", "pinyin": "ránhòu", "english": "then / afterwards", "note": "" }
+        {
+          "chinese": "崇拜",
+          "pinyin": "chóngbài",
+          "english": "worship service",
+          "note": "The standard term in Singapore Protestant churches (as in 主日崇拜, 'Sunday worship service'). You may also hear 礼拜 used colloquially, especially for 'attending church' (做礼拜)."
+        },
+        {
+          "chinese": "讲道",
+          "pinyin": "jiǎngdào",
+          "english": "sermon",
+          "note": ""
+        },
+        {
+          "chinese": "恩典",
+          "pinyin": "ēndiǎn",
+          "english": "grace",
+          "note": "The term used throughout the Chinese Union Version (和合本, CUVS) Bible."
+        },
+        {
+          "chinese": "诗歌",
+          "pinyin": "shīgē",
+          "english": "hymn / worship song",
+          "note": ""
+        },
+        {
+          "chinese": "祷告",
+          "pinyin": "dǎogào",
+          "english": "prayer",
+          "note": ""
+        },
+        {
+          "chinese": "开始",
+          "pinyin": "kāishǐ",
+          "english": "to begin",
+          "note": ""
+        },
+        {
+          "chinese": "然后",
+          "pinyin": "ránhòu",
+          "english": "then / afterwards",
+          "note": ""
+        }
       ],
       "quiz": [
-        { "question": "What does 讲道 mean?", "options": ["sermon", "hymn", "prayer"], "answer": "sermon" },
-        { "question": "What does 恩典 mean?", "options": ["grace", "peace", "welcome"], "answer": "grace" },
-        { "question": "What does 祷告 mean?", "options": ["prayer", "sermon", "song"], "answer": "prayer" },
-        { "question": "What does 诗歌 mean?", "options": ["worship song", "classroom", "sanctuary"], "answer": "worship song" },
-        { "question": "What does 礼拜 mean?", "options": ["worship service", "restroom", "friend"], "answer": "worship service" }
+        {
+          "question": "What does 讲道 mean?",
+          "options": [
+            "sermon",
+            "hymn",
+            "prayer"
+          ],
+          "answer": "sermon"
+        },
+        {
+          "question": "What does 恩典 mean?",
+          "options": [
+            "grace",
+            "peace",
+            "welcome"
+          ],
+          "answer": "grace"
+        },
+        {
+          "question": "What does 祷告 mean?",
+          "options": [
+            "prayer",
+            "sermon",
+            "song"
+          ],
+          "answer": "prayer"
+        },
+        {
+          "question": "What does 诗歌 mean?",
+          "options": [
+            "worship song",
+            "classroom",
+            "sanctuary"
+          ],
+          "answer": "worship song"
+        },
+        {
+          "question": "What does 崇拜 mean?",
+          "options": [
+            "worship service",
+            "restroom",
+            "friend"
+          ],
+          "answer": "worship service"
+        }
       ],
-      "challenge": "Listen for the words 讲道, 诗歌, and 祷告 during this week's service."
+      "challenge": "Listen for the words 讲道, 诗歌, and 祷告 during this week's service.",
+      "stage": "Connect"
+    },
+    {
+      "id": 6,
+      "stage": "Belong",
+      "title": "Joining a Small Group",
+      "subtitle": "第六课 · 加入小组",
+      "scenario": "You'd like to join a small group (cell group) that meets weekly to study the Bible and pray together.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "请问，你们小组什么时候聚会？",
+          "pinyin": "Qǐngwèn, nǐmen xiǎozǔ shénme shíhòu jùhuì?",
+          "english": "Excuse me, when does your small group meet?"
+        },
+        {
+          "speaker": "Leader",
+          "chinese": "我们星期三晚上聚会。",
+          "pinyin": "Wǒmen xīngqísān wǎnshàng jùhuì.",
+          "english": "We meet on Wednesday evenings."
+        },
+        {
+          "speaker": "You",
+          "chinese": "在哪里聚会？",
+          "pinyin": "Zài nǎlǐ jùhuì?",
+          "english": "Where do you meet?"
+        },
+        {
+          "speaker": "Leader",
+          "chinese": "在弟兄姊妹的家里。",
+          "pinyin": "Zài dìxiōng zǐmèi de jiā lǐ.",
+          "english": "At a brother's or sister's home."
+        },
+        {
+          "speaker": "You",
+          "chinese": "太好了，我可以加入吗？",
+          "pinyin": "Tài hǎo le, wǒ kěyǐ jiārù ma?",
+          "english": "Great, can I join?"
+        },
+        {
+          "speaker": "Leader",
+          "chinese": "当然可以，欢迎你！",
+          "pinyin": "Dāngrán kěyǐ, huānyíng nǐ!",
+          "english": "Of course, welcome!"
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "小组",
+          "pinyin": "xiǎozǔ",
+          "english": "small group / cell group",
+          "note": "The common Singapore-church term for a home-based Bible study group."
+        },
+        {
+          "chinese": "聚会",
+          "pinyin": "jùhuì",
+          "english": "to gather / a gathering",
+          "note": ""
+        },
+        {
+          "chinese": "星期三",
+          "pinyin": "xīngqísān",
+          "english": "Wednesday",
+          "note": ""
+        },
+        {
+          "chinese": "晚上",
+          "pinyin": "wǎnshàng",
+          "english": "evening",
+          "note": ""
+        },
+        {
+          "chinese": "加入",
+          "pinyin": "jiārù",
+          "english": "to join",
+          "note": ""
+        },
+        {
+          "chinese": "当然",
+          "pinyin": "dāngrán",
+          "english": "of course",
+          "note": ""
+        },
+        {
+          "chinese": "家",
+          "pinyin": "jiā",
+          "english": "home",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 小组 mean?",
+          "options": [
+            "small group",
+            "sermon",
+            "sanctuary"
+          ],
+          "answer": "small group"
+        },
+        {
+          "question": "What does 聚会 mean?",
+          "options": [
+            "to gather",
+            "to sing",
+            "to pray"
+          ],
+          "answer": "to gather"
+        },
+        {
+          "question": "How do you ask \"can I join?\"",
+          "options": [
+            "我可以加入吗？",
+            "你叫什么名字？",
+            "你好吗？"
+          ],
+          "answer": "我可以加入吗？"
+        },
+        {
+          "question": "What does 当然 mean?",
+          "options": [
+            "of course",
+            "maybe",
+            "never"
+          ],
+          "answer": "of course"
+        },
+        {
+          "question": "What does 星期三 mean?",
+          "options": [
+            "Wednesday",
+            "Sunday",
+            "Friday"
+          ],
+          "answer": "Wednesday"
+        }
+      ],
+      "challenge": "Ask a small group leader \"你们小组什么时候聚会？\" this week."
+    },
+    {
+      "id": 7,
+      "stage": "Belong",
+      "title": "Sharing Prayer Requests",
+      "subtitle": "第七课 · 分享代祷事项",
+      "scenario": "During small group, members take turns sharing what they'd like the group to pray for.",
+      "dialogue": [
+        {
+          "speaker": "Leader",
+          "chinese": "有没有代祷事项？",
+          "pinyin": "Yǒu méiyǒu dàidǎo shìxiàng?",
+          "english": "Does anyone have a prayer request?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "请为我的家人祷告。",
+          "pinyin": "Qǐng wèi wǒ de jiārén dǎogào.",
+          "english": "Please pray for my family."
+        },
+        {
+          "speaker": "Leader",
+          "chinese": "好的，我们一起为你祷告。",
+          "pinyin": "Hǎo de, wǒmen yīqǐ wèi nǐ dǎogào.",
+          "english": "Okay, let's pray for you together."
+        },
+        {
+          "speaker": "Friend",
+          "chinese": "我也想请大家为我的工作祷告。",
+          "pinyin": "Wǒ yě xiǎng qǐng dàjiā wèi wǒ de gōngzuò dǎogào.",
+          "english": "I'd also like everyone to pray for my work."
+        },
+        {
+          "speaker": "Leader",
+          "chinese": "没问题，我们记下来。",
+          "pinyin": "Méi wèntí, wǒmen jì xiàlái.",
+          "english": "No problem, we'll note it down."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "代祷事项",
+          "pinyin": "dàidǎo shìxiàng",
+          "english": "prayer request",
+          "note": ""
+        },
+        {
+          "chinese": "家人",
+          "pinyin": "jiārén",
+          "english": "family",
+          "note": ""
+        },
+        {
+          "chinese": "一起",
+          "pinyin": "yīqǐ",
+          "english": "together",
+          "note": ""
+        },
+        {
+          "chinese": "工作",
+          "pinyin": "gōngzuò",
+          "english": "work / job",
+          "note": ""
+        },
+        {
+          "chinese": "记下来",
+          "pinyin": "jì xiàlái",
+          "english": "to note down",
+          "note": ""
+        },
+        {
+          "chinese": "大家",
+          "pinyin": "dàjiā",
+          "english": "everyone",
+          "note": ""
+        },
+        {
+          "chinese": "没问题",
+          "pinyin": "méi wèntí",
+          "english": "no problem",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 代祷事项 mean?",
+          "options": [
+            "prayer request",
+            "sermon topic",
+            "church notice"
+          ],
+          "answer": "prayer request"
+        },
+        {
+          "question": "What does 家人 mean?",
+          "options": [
+            "family",
+            "friend",
+            "neighbour"
+          ],
+          "answer": "family"
+        },
+        {
+          "question": "How do you say \"together\"?",
+          "options": [
+            "一起",
+            "一次",
+            "一半"
+          ],
+          "answer": "一起"
+        },
+        {
+          "question": "What does 工作 mean?",
+          "options": [
+            "work / job",
+            "worship",
+            "wisdom"
+          ],
+          "answer": "work / job"
+        },
+        {
+          "question": "How do you say \"no problem\"?",
+          "options": [
+            "没问题",
+            "对不起",
+            "不客气"
+          ],
+          "answer": "没问题"
+        }
+      ],
+      "challenge": "Share one prayer request with a brother or sister this week, using 请为...祷告."
+    },
+    {
+      "id": 8,
+      "stage": "Belong",
+      "title": "Encouraging Others",
+      "subtitle": "第八课 · 鼓励弟兄姊妹",
+      "scenario": "After a hard week, you want to encourage a friend from church who seems discouraged.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "你还好吗？",
+          "pinyin": "Nǐ hái hǎo ma?",
+          "english": "Are you doing okay?"
+        },
+        {
+          "speaker": "Friend",
+          "chinese": "这个星期有点辛苦。",
+          "pinyin": "Zhège xīngqí yǒudiǎn xīnkǔ.",
+          "english": "This week has been a bit hard."
+        },
+        {
+          "speaker": "You",
+          "chinese": "神与你同在，不要灰心。",
+          "pinyin": "Shén yǔ nǐ tóngzài, bùyào huīxīn.",
+          "english": "God is with you, don't be discouraged."
+        },
+        {
+          "speaker": "Friend",
+          "chinese": "谢谢你的鼓励。",
+          "pinyin": "Xièxie nǐ de gǔlì.",
+          "english": "Thank you for your encouragement."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我会为你祷告的。",
+          "pinyin": "Wǒ huì wèi nǐ dǎogào de.",
+          "english": "I'll pray for you."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "辛苦",
+          "pinyin": "xīnkǔ",
+          "english": "hard / tough",
+          "note": ""
+        },
+        {
+          "chinese": "同在",
+          "pinyin": "tóngzài",
+          "english": "to be present with",
+          "note": ""
+        },
+        {
+          "chinese": "灰心",
+          "pinyin": "huīxīn",
+          "english": "discouraged",
+          "note": ""
+        },
+        {
+          "chinese": "鼓励",
+          "pinyin": "gǔlì",
+          "english": "encouragement / to encourage",
+          "note": ""
+        },
+        {
+          "chinese": "神",
+          "pinyin": "shén",
+          "english": "God",
+          "note": "The standard CUVS term for God."
+        },
+        {
+          "chinese": "星期",
+          "pinyin": "xīngqí",
+          "english": "week",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 鼓励 mean?",
+          "options": [
+            "encouragement",
+            "sermon",
+            "worship"
+          ],
+          "answer": "encouragement"
+        },
+        {
+          "question": "What does 灰心 mean?",
+          "options": [
+            "discouraged",
+            "happy",
+            "tired"
+          ],
+          "answer": "discouraged"
+        },
+        {
+          "question": "How do you say \"God is with you\"?",
+          "options": [
+            "神与你同在",
+            "神爱你",
+            "神原谅你"
+          ],
+          "answer": "神与你同在"
+        },
+        {
+          "question": "What does 辛苦 mean?",
+          "options": [
+            "hard / tough",
+            "easy",
+            "fun"
+          ],
+          "answer": "hard / tough"
+        },
+        {
+          "question": "How do you say \"thank you for your encouragement\"?",
+          "options": [
+            "谢谢你的鼓励",
+            "谢谢你的帮助",
+            "谢谢你的礼物"
+          ],
+          "answer": "谢谢你的鼓励"
+        }
+      ],
+      "challenge": "Encourage someone at church this week with \"神与你同在。\""
+    },
+    {
+      "id": 9,
+      "stage": "Belong",
+      "title": "Giving Thanks",
+      "subtitle": "第九课 · 感恩",
+      "scenario": "At the end of a fellowship meal, someone asks you to share what you're thankful for.",
+      "dialogue": [
+        {
+          "speaker": "Leader",
+          "chinese": "我们来分享感恩事项吧。",
+          "pinyin": "Wǒmen lái fēnxiǎng gǎn'ēn shìxiàng ba.",
+          "english": "Let's share what we're thankful for."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我感谢神赐给我的教会家庭。",
+          "pinyin": "Wǒ gǎnxiè shén cì gěi wǒ de jiàohuì jiātíng.",
+          "english": "I'm thankful for the church family God has given me."
+        },
+        {
+          "speaker": "Friend",
+          "chinese": "我感恩这次的团契。",
+          "pinyin": "Wǒ gǎn'ēn zhè cì de tuánqì.",
+          "english": "I'm thankful for this fellowship gathering."
+        },
+        {
+          "speaker": "Leader",
+          "chinese": "让我们一起感谢神。",
+          "pinyin": "Ràng wǒmen yīqǐ gǎnxiè shén.",
+          "english": "Let's give thanks to God together."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "感恩",
+          "pinyin": "gǎn'ēn",
+          "english": "thankfulness / to be thankful",
+          "note": ""
+        },
+        {
+          "chinese": "感谢",
+          "pinyin": "gǎnxiè",
+          "english": "to thank",
+          "note": ""
+        },
+        {
+          "chinese": "赐给",
+          "pinyin": "cìgěi",
+          "english": "to grant / give",
+          "note": "Used especially of God giving something."
+        },
+        {
+          "chinese": "家庭",
+          "pinyin": "jiātíng",
+          "english": "family",
+          "note": ""
+        },
+        {
+          "chinese": "团契",
+          "pinyin": "tuánqì",
+          "english": "fellowship (group)",
+          "note": "A common Singapore-church term for a fellowship group, distinct from 小组 (small group)."
+        },
+        {
+          "chinese": "分享",
+          "pinyin": "fēnxiǎng",
+          "english": "to share",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 感恩 mean?",
+          "options": [
+            "thankfulness",
+            "forgiveness",
+            "sermon"
+          ],
+          "answer": "thankfulness"
+        },
+        {
+          "question": "What does 团契 mean?",
+          "options": [
+            "fellowship group",
+            "Sunday school",
+            "choir"
+          ],
+          "answer": "fellowship group"
+        },
+        {
+          "question": "How do you say \"I'm thankful for...\"?",
+          "options": [
+            "我感谢...",
+            "我需要...",
+            "我认识..."
+          ],
+          "answer": "我感谢..."
+        },
+        {
+          "question": "What does 分享 mean?",
+          "options": [
+            "to share",
+            "to sing",
+            "to pray"
+          ],
+          "answer": "to share"
+        },
+        {
+          "question": "What does 赐给 mean?",
+          "options": [
+            "to grant / give",
+            "to forgive",
+            "to welcome"
+          ],
+          "answer": "to grant / give"
+        }
+      ],
+      "challenge": "Share one thing you're thankful for with someone at church this week."
+    },
+    {
+      "id": 10,
+      "stage": "Belong",
+      "title": "Inviting a Friend to Church",
+      "subtitle": "第十课 · 邀请朋友来教会",
+      "scenario": "You'd like to invite a friend to join you at church this Sunday.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "这个主日你有空吗？",
+          "pinyin": "Zhège zhǔrì nǐ yǒu kòng ma?",
+          "english": "Are you free this Sunday?"
+        },
+        {
+          "speaker": "Friend",
+          "chinese": "有空，怎么了？",
+          "pinyin": "Yǒu kòng, zěnme le?",
+          "english": "I'm free, why?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "要不要跟我一起去教会？",
+          "pinyin": "Yào bùyào gēn wǒ yīqǐ qù jiàohuì?",
+          "english": "Would you like to go to church with me?"
+        },
+        {
+          "speaker": "Friend",
+          "chinese": "好啊，几点开始？",
+          "pinyin": "Hǎo a, jǐ diǎn kāishǐ?",
+          "english": "Sure, what time does it start?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "早上十点。我可以载你。",
+          "pinyin": "Zǎoshang shí diǎn. Wǒ kěyǐ zài nǐ.",
+          "english": "10am. I can give you a ride."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "主日",
+          "pinyin": "zhǔrì",
+          "english": "the Lord's Day / Sunday",
+          "note": "The common Singapore-church term for Sunday, as in 主日崇拜 and 主日学."
+        },
+        {
+          "chinese": "有空",
+          "pinyin": "yǒu kòng",
+          "english": "to be free / have time",
+          "note": ""
+        },
+        {
+          "chinese": "邀请",
+          "pinyin": "yāoqǐng",
+          "english": "to invite",
+          "note": ""
+        },
+        {
+          "chinese": "几点",
+          "pinyin": "jǐ diǎn",
+          "english": "what time",
+          "note": ""
+        },
+        {
+          "chinese": "载",
+          "pinyin": "zài",
+          "english": "to give a ride",
+          "note": ""
+        },
+        {
+          "chinese": "早上",
+          "pinyin": "zǎoshang",
+          "english": "morning",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 主日 mean?",
+          "options": [
+            "the Lord's Day / Sunday",
+            "Saturday",
+            "holiday"
+          ],
+          "answer": "the Lord's Day / Sunday"
+        },
+        {
+          "question": "What does 有空 mean?",
+          "options": [
+            "to be free",
+            "to be busy",
+            "to be tired"
+          ],
+          "answer": "to be free"
+        },
+        {
+          "question": "How would you invite someone to church?",
+          "options": [
+            "要不要跟我一起去教会？",
+            "你叫什么名字？",
+            "你住在哪里？"
+          ],
+          "answer": "要不要跟我一起去教会？"
+        },
+        {
+          "question": "What does 载 mean?",
+          "options": [
+            "to give a ride",
+            "to carry",
+            "to walk"
+          ],
+          "answer": "to give a ride"
+        },
+        {
+          "question": "What does 邀请 mean?",
+          "options": [
+            "to invite",
+            "to welcome",
+            "to introduce"
+          ],
+          "answer": "to invite"
+        }
+      ],
+      "challenge": "Invite a friend to church this week using \"要不要跟我一起去教会？\""
     }
   ]
 }

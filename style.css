@@ -94,6 +94,15 @@ p { margin: 0; line-height: 1.55; }
   color: var(--color-primary);
   font-size: 1.1rem;
 }
+.streak-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: #EFEAE0;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
 .brand-mark {
   width: 30px; height: 30px;
   border-radius: var(--radius-sm);
@@ -176,7 +185,80 @@ main.screen {
 }
 .stone-label { font-size: 0.7rem; opacity: 0.85; text-align: center; }
 
+.stone.not-ready .stone-dot {
+  border-style: dashed;
+  border-color: rgba(255,255,255,0.3);
+  background: transparent;
+  opacity: 0.6;
+}
+.stone.not-ready .stone-label { opacity: 0.5; }
+
+/* ===== Greeting ===== */
+.greeting {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 4px 0 16px;
+}
+
+/* ===== Today's Focus row ===== */
+.focus-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.focus-tile {
+  flex: 1;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.focus-tile h3 { font-size: 1.05rem; margin: 4px 0 10px; }
+.focus-tile .btn { margin-top: auto; }
+
+/* ===== Stats strip ===== */
+.stats-strip {
+  display: flex;
+  justify-content: space-around;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) 0;
+  margin-bottom: 8px;
+}
+.stat { text-align: center; }
+.stat-num { font-size: 1.3rem; font-weight: 700; color: var(--color-primary); }
+.stat-den { font-size: 0.9rem; font-weight: 500; color: var(--color-text-muted); }
+.stat-label { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 2px; }
+
+/* ===== Stage groups ===== */
+.stage-group { margin-bottom: 20px; }
+.stage-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  margin: 0 0 10px;
+}
+.stage-empty-note { font-size: 0.85rem; margin-bottom: 4px; }
+
+/* ===== Review word card ===== */
+.review-word-card {
+  text-align: center;
+  padding: var(--space-lg) 0;
+}
+.review-word-zh { font-size: 2.4rem; font-weight: 600; color: var(--color-primary); }
+.review-word-card .pinyin { margin-top: 6px; font-size: 1rem; }
+.review-word-card .icon-btn { margin-top: 10px; }
+
 /* ===== Cards ===== */
+
 .card {
   background: var(--color-surface);
   border-radius: var(--radius-md);
@@ -289,6 +371,11 @@ main.screen {
 .dialogue-bubble .pinyin { color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 4px; }
 .dialogue-bubble .en { font-size: 0.9rem; color: var(--color-text-muted); }
 .dialogue-line.you .dialogue-bubble { background: #EFF4F8; border-color: #D9E4EC; }
+.dialogue-line.speaking .dialogue-bubble {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 2px rgba(201,162,39,0.35);
+  background: #FFFBEE;
+}
 
 .vocab-grid { display: flex; flex-direction: column; gap: var(--space-sm); }
 .vocab-card {
@@ -305,6 +392,9 @@ main.screen {
 
 .quiz-question { margin-bottom: var(--space-lg); }
 .quiz-options { display: flex; flex-direction: column; gap: var(--space-xs); margin-top: var(--space-sm); }
+.option-row { display: flex; align-items: center; gap: 8px; }
+.option-row .option-btn { flex: 1; }
+.option-speak-btn { flex-shrink: 0; font-size: 1.1rem; padding: 8px; }
 .option-btn {
   text-align: left;
   padding: 14px 16px;
@@ -318,6 +408,7 @@ main.screen {
 }
 .option-btn.correct { border-color: var(--color-success); background: #F1F6ED; }
 .option-btn.incorrect { border-color: var(--color-error); background: #FBF0ED; }
+.option-btn.eliminated { opacity: 0.4; text-decoration: line-through; background: var(--color-bg); }
 .option-btn:disabled { cursor: default; }
 .feedback-text { margin-top: var(--space-sm); font-weight: 600; }
 .feedback-text.correct { color: var(--color-success); }
