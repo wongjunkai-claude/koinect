@@ -8,49 +8,49 @@
           "pinyin": "shén",
           "english": "God",
           "note": "The standard CUVS term for God.",
-          "taughtInLesson": 8
+          "taughtInLesson": 11
         },
         {
           "chinese": "天父",
           "pinyin": "tiānfù",
           "english": "Heavenly Father",
           "note": "",
-          "taughtInLesson": 23
+          "taughtInLesson": 24
         },
         {
           "chinese": "主",
           "pinyin": "zhǔ",
           "english": "Lord",
           "note": "",
-          "taughtInLesson": 23
+          "taughtInLesson": 24
         },
         {
           "chinese": "圣灵",
           "pinyin": "shènglíng",
           "english": "Holy Spirit",
           "note": "",
-          "taughtInLesson": 23
+          "taughtInLesson": 24
         },
         {
           "chinese": "耶稣基督",
           "pinyin": "Yēsū Jīdū",
           "english": "Jesus Christ",
           "note": "",
-          "taughtInLesson": 12
+          "taughtInLesson": 18
         },
         {
           "chinese": "救主",
           "pinyin": "jiùzhǔ",
           "english": "Savior",
           "note": "",
-          "taughtInLesson": 20
+          "taughtInLesson": 33
         },
         {
           "chinese": "三位一体",
           "pinyin": "sānwèiyītǐ",
           "english": "Trinity",
           "note": "",
-          "taughtInLesson": 23
+          "taughtInLesson": 24
         },
         {
           "chinese": "羔羊",
@@ -76,21 +76,21 @@
           "pinyin": "jiùyuē",
           "english": "Old Testament",
           "note": "",
-          "taughtInLesson": 21
+          "taughtInLesson": 22
         },
         {
           "chinese": "新约",
           "pinyin": "xīnyuē",
           "english": "New Testament",
           "note": "",
-          "taughtInLesson": 21
+          "taughtInLesson": 22
         },
         {
           "chinese": "创世记",
           "pinyin": "Chuàngshìjì",
           "english": "Genesis",
           "note": "The first book of the Bible.",
-          "taughtInLesson": 21
+          "taughtInLesson": 22
         },
         {
           "chinese": "出埃及记",
@@ -104,7 +104,7 @@
           "pinyin": "shīpiān",
           "english": "Psalms",
           "note": "",
-          "taughtInLesson": 21
+          "taughtInLesson": 22
         },
         {
           "chinese": "箴言",
@@ -118,7 +118,7 @@
           "pinyin": "fúyīnshū",
           "english": "the Gospels",
           "note": "Refers to Matthew, Mark, Luke, and John.",
-          "taughtInLesson": 21
+          "taughtInLesson": 22
         },
         {
           "chinese": "罗马书",
@@ -144,14 +144,14 @@
           "pinyin": "Móxī",
           "english": "Moses",
           "note": "",
-          "taughtInLesson": 22
+          "taughtInLesson": 23
         },
         {
           "chinese": "亚伯拉罕",
           "pinyin": "Yàbólāhǎn",
           "english": "Abraham",
           "note": "Known as the father of faith.",
-          "taughtInLesson": 22
+          "taughtInLesson": 23
         },
         {
           "chinese": "大卫王",
@@ -179,7 +179,7 @@
           "pinyin": "Bǎoluó",
           "english": "Paul",
           "note": "An apostle who wrote much of the New Testament.",
-          "taughtInLesson": 22
+          "taughtInLesson": 23
         },
         {
           "chinese": "约翰",
@@ -193,21 +193,21 @@
           "pinyin": "méntú",
           "english": "disciple",
           "note": "",
-          "taughtInLesson": 22
+          "taughtInLesson": 23
         },
         {
           "chinese": "使徒",
           "pinyin": "shǐtú",
           "english": "apostle",
           "note": "",
-          "taughtInLesson": 22
+          "taughtInLesson": 23
         },
         {
           "chinese": "先知",
           "pinyin": "xiānzhī",
           "english": "prophet",
           "note": "",
-          "taughtInLesson": 22
+          "taughtInLesson": 23
         }
       ]
     },
@@ -219,28 +219,28 @@
           "pinyin": "Yēlùsālěng",
           "english": "Jerusalem",
           "note": "",
-          "taughtInLesson": 26
+          "taughtInLesson": 34
         },
         {
           "chinese": "伯利恒",
           "pinyin": "Bólìhéng",
           "english": "Bethlehem",
           "note": "Where Jesus was born.",
-          "taughtInLesson": 24
+          "taughtInLesson": 14
         },
         {
           "chinese": "拿撒勒",
           "pinyin": "Násèlè",
           "english": "Nazareth",
           "note": "Where Jesus grew up.",
-          "taughtInLesson": 26
+          "taughtInLesson": 34
         },
         {
           "chinese": "加利利",
           "pinyin": "Jiālìlì",
           "english": "Galilee",
           "note": "",
-          "taughtInLesson": 26
+          "taughtInLesson": 34
         },
         {
           "chinese": "埃及",
@@ -261,7 +261,7 @@
           "pinyin": "shèngdiàn",
           "english": "Temple",
           "note": "",
-          "taughtInLesson": 26
+          "taughtInLesson": 34
         }
       ]
     },
@@ -273,7 +273,7 @@
           "pinyin": "shèngdànjié",
           "english": "Christmas",
           "note": "",
-          "taughtInLesson": 24
+          "taughtInLesson": 14
         },
         {
           "chinese": "受难日",
@@ -341,14 +341,14 @@
           "pinyin": "xìntú",
           "english": "believer",
           "note": "",
-          "taughtInLesson": 14
+          "taughtInLesson": 20
         },
         {
           "chinese": "基督徒",
           "pinyin": "Jīdūtú",
           "english": "Christian",
           "note": "",
-          "taughtInLesson": 20
+          "taughtInLesson": 33
         }
       ]
     },
@@ -360,14 +360,14 @@
           "pinyin": "fǎlìsàirén",
           "english": "Pharisees",
           "note": "A Jewish religious group known for strict observance of the Law.",
-          "taughtInLesson": 27
+          "taughtInLesson": 26
         },
         {
           "chinese": "撒都该人",
           "pinyin": "sādūgāirén",
           "english": "Sadducees",
           "note": "A priestly Jewish group that didn't believe in resurrection.",
-          "taughtInLesson": 27
+          "taughtInLesson": 26
         },
         {
           "chinese": "利未人",
@@ -388,7 +388,7 @@
           "pinyin": "jìsī",
           "english": "priest",
           "note": "A biblical priestly role, distinct from 牧师 (a modern-day pastor).",
-          "taughtInLesson": 27
+          "taughtInLesson": 26
         },
         {
           "chinese": "大祭司",
@@ -402,28 +402,28 @@
           "pinyin": "shuìlì",
           "english": "tax collector(s)",
           "note": "",
-          "taughtInLesson": 27
+          "taughtInLesson": 26
         },
         {
           "chinese": "撒玛利亚人",
           "pinyin": "sāmǎlìyǎrén",
           "english": "Samaritan(s)",
           "note": "A people group historically at odds with the Jews of Jesus's time.",
-          "taughtInLesson": 27
+          "taughtInLesson": 26
         },
         {
           "chinese": "犹太人",
           "pinyin": "Yóutàirén",
           "english": "Jew(s) / Jewish people",
           "note": "",
-          "taughtInLesson": 27
+          "taughtInLesson": 26
         },
         {
           "chinese": "以色列人",
           "pinyin": "Yǐsèlièrén",
           "english": "Israelites",
           "note": "",
-          "taughtInLesson": 22
+          "taughtInLesson": 23
         },
         {
           "chinese": "外邦人",
@@ -451,7 +451,7 @@
           "pinyin": "lǜfǎ",
           "english": "the Law",
           "note": "",
-          "taughtInLesson": 27
+          "taughtInLesson": 26
         }
       ]
     }

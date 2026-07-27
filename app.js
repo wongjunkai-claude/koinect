@@ -2,6 +2,10 @@
 // No frameworks, no build step. Progress is saved to localStorage so
 // learners can close the app and continue tomorrow exactly where they left off.
 
+// Bump this whenever a notable change ships — shown on the Help screen so
+// anyone reporting a bug can say which version they're on.
+const APP_VERSION = "1.0.0";
+
 const STORAGE_KEY = "koinect-progress-v1";
 const app = document.getElementById("app");
 
@@ -40,6 +44,7 @@ const AudioFX = (() => {
   }
 
   function tone(freq, startTime, duration, gain = 0.16, type = "sine") {
+    if (!isSoundEnabled()) return;
     const audioCtx = getCtx();
     if (!audioCtx) return;
     const osc = audioCtx.createOscillator();
@@ -86,7 +91,7 @@ const Speech = (() => {
 
   function speak(text, lang = "zh-CN", rate = 0.92, voice = null) {
     return new Promise((resolve) => {
-      if (!supported) {
+      if (!supported || !isSoundEnabled()) {
         resolve();
         return;
       }
@@ -138,6 +143,27 @@ const CHARACTER_GENDER = {
   "Auntie Tan": "female",
   "Rachel": "female",
 };
+
+// Chinese-character form of each cast member's name, shown alongside the
+// English spelling in dialogue speaker labels (e.g. "慧玲 Hui Ling"). Purely
+// a display concern — CHARACTER_GENDER and everywhere else still key off
+// the plain English speaker string, so this doesn't touch voice logic.
+const CHARACTER_CHINESE_NAME = {
+  "Wei Ming": "伟明",
+  "Hui Ling": "慧玲",
+  "Jia Hui": "嘉慧",
+  "Kevin": "家豪",
+  "Grace Lim": "林嘉恩",
+  "Pastor Koh": "高牧师",
+  "Auntie Tan": "陈阿姨",
+  "Rachel": "瑞秋",
+  "Daniel": "丹尼尔",
+};
+
+function displaySpeakerName(speaker) {
+  const chinese = CHARACTER_CHINESE_NAME[speaker];
+  return chinese ? `<span class="zh">${chinese}</span> ${speaker}` : speaker;
+}
 
 // Best-effort name hints for common Chinese TTS voices across platforms.
 // This is inherently fragile (voice names vary by OS/browser), so it's a
@@ -219,6 +245,9 @@ function loadProgress() {
     dismissedChallenges: [], // lesson ids whose challenge card has been marked done
     completedReadings: [], // curated Bible reading plan ids marked as read
     readChapters: [], // "BOOKID-N" chapter keys marked as read in the full Bible browser
+    userName: null, // name entered on first launch, or null if skipped
+    nameOnboardingSeen: false, // whether the name prompt has been shown/dismissed
+    settings: { soundEnabled: true }, // master toggle for chimes + spoken audio
   };
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -406,6 +435,9 @@ function goExplore() {
 function goRead() {
   location.hash = "#/read";
 }
+function goSettings() {
+  location.hash = "#/settings";
+}
 function goReading(id) {
   location.hash = "#/read/" + id;
 }
@@ -417,6 +449,36 @@ function goBibleChapters(bookId) {
 }
 function goBibleChapter(bookId, chapterNum) {
   location.hash = "#/bible/" + bookId + "/" + chapterNum;
+}
+
+// ---------- Bottom navigation (persistent tab bar) ----------
+const BOTTOM_NAV_TABS = [
+  { id: "home", icon: "🏠", label: "Home", go: goHome },
+  { id: "read", icon: "📜", label: "Read", go: goRead },
+  { id: "explore", icon: "📖", label: "Explore", go: goExplore },
+  { id: "settings", icon: "⚙️", label: "Settings", go: goSettings },
+];
+
+function bottomNavHtml(activeId) {
+  return `
+    <nav class="bottom-nav">
+      ${BOTTOM_NAV_TABS.map(
+        (tab) => `
+        <button class="bottom-nav-tab ${tab.id === activeId ? "active" : ""}" data-tab="${tab.id}">
+          <span class="bottom-nav-icon">${tab.icon}</span>
+          <span class="bottom-nav-label">${tab.label}</span>
+        </button>
+      `
+      ).join("")}
+    </nav>
+  `;
+}
+
+function wireBottomNav(container) {
+  container.querySelectorAll(".bottom-nav-tab").forEach((btn) => {
+    const tab = BOTTOM_NAV_TABS.find((t) => t.id === btn.dataset.tab);
+    btn.addEventListener("click", () => tab.go());
+  });
 }
 
 window.addEventListener("hashchange", route);
@@ -461,6 +523,10 @@ function route() {
     renderRead();
     return;
   }
+  if (hash === "#/settings") {
+    renderSettings();
+    return;
+  }
   if (hash === "#/bible") {
     renderBibleBooks();
     return;
@@ -471,20 +537,22 @@ function route() {
 function getGreeting() {
   const doneCount = progress.completedLessons.length;
   const total = LESSONS.length;
-  if (doneCount === 0) return "Welcome to Koinect.";
-  if (doneCount >= total) return "You're all caught up.";
+  const namePart = progress.userName ? `, ${progress.userName}` : "";
+
+  if (doneCount === 0) return `Welcome to Koinect${namePart}.`;
+  if (doneCount >= total) return `You're all caught up${namePart}.`;
 
   const today = todayStr();
   const daysSinceLastVisit =
     previousVisitDate && previousVisitDate !== today
       ? Math.round((new Date(today) - new Date(previousVisitDate)) / 86400000)
       : 0;
-  if (daysSinceLastVisit > 2) return "Welcome back.";
+  if (daysSinceLastVisit > 2) return `Welcome back${namePart}.`;
 
   const hour = new Date().getHours();
-  if (hour < 12) return "Good morning.";
-  if (hour < 18) return "Good afternoon.";
-  return "Good evening.";
+  if (hour < 12) return `Good morning${namePart}.`;
+  if (hour < 18) return `Good afternoon${namePart}.`;
+  return `Good evening${namePart}.`;
 }
 
 // ---------- Journey (per-stage progress) ----------
@@ -521,21 +589,17 @@ function renderHome() {
   app.innerHTML = "";
   app.appendChild(
     el(`
-    <div>
+    <div class="has-bottom-nav">
       <div class="topbar">
         <div class="brand">
           <span class="brand-mark zh">语</span>
           <span>Koinect</span>
         </div>
-        <div class="topbar-actions">
-          <button class="icon-btn" id="read-nav-btn" aria-label="Read the Bible">📜</button>
-          <button class="icon-btn" id="explore-nav-btn" aria-label="Explore reference glossary">📖</button>
-          ${
-            progress.streak > 1
-              ? `<span class="streak-pill" aria-label="${progress.streak} day streak">${progress.streak} day streak</span>`
-              : ""
-          }
-        </div>
+        ${
+          progress.streak > 1
+            ? `<span class="streak-pill" aria-label="${progress.streak} day streak">${progress.streak} day streak</span>`
+            : ""
+        }
       </div>
 
       <div class="journey">
@@ -582,33 +646,12 @@ function renderHome() {
 
         <h3 style="margin:24px 0 12px;">All Lessons</h3>
         <div id="lesson-groups"></div>
-
-        <div class="card explore-card" id="read-card">
-          <p class="eyebrow">Bible Reading</p>
-          <h3 style="margin:6px 0 4px;">Read the Chinese Bible</h3>
-          <p class="muted" style="margin-bottom:12px;">${
-            progress.completedReadings.length > 0
-              ? `${progress.completedReadings.length} of ${BIBLE_READINGS.length} passages read so far.`
-              : "Start with a short, well-known passage."
-          }</p>
-          <button class="btn btn-secondary btn-block" id="read-card-btn">Open Read</button>
-        </div>
-
-        <div class="card explore-card" id="explore-card">
-          <p class="eyebrow">Reference</p>
-          <h3 style="margin:6px 0 4px;">Explore Bible names, places & terms</h3>
-          <p class="muted" style="margin-bottom:12px;">Look up Bible books, biblical people, places, festivals, and church terms any time.</p>
-          <button class="btn btn-secondary btn-block" id="explore-card-btn">Open Explore</button>
-        </div>
       </main>
+      ${bottomNavHtml("home")}
     </div>
   `)
   );
-
-  app.querySelector("#explore-nav-btn")?.addEventListener("click", goExplore);
-  app.querySelector("#explore-card-btn")?.addEventListener("click", goExplore);
-  app.querySelector("#read-nav-btn")?.addEventListener("click", goRead);
-  app.querySelector("#read-card-btn")?.addEventListener("click", goRead);
+  wireBottomNav(app);
 
   // --- Continue card (three variants) ---
   const continueCard = app.querySelector("#continue-card");
@@ -766,12 +809,31 @@ function renderLessonStep(lesson, state) {
         <p class="eyebrow step-eyebrow">Lesson ${lesson.id} · ${lesson.title}</p>
         <h1 class="zh">${lesson.subtitle}</h1>
         <p class="scenario-text">${lesson.scenario}</p>
+        ${
+          lesson.verse
+            ? `<div class="scripture-block lesson-verse">
+                <p class="eyebrow" style="margin-bottom:6px;">${lesson.verse.reference} <span class="muted" style="font-weight:400;text-transform:none;letter-spacing:0;">· ${lesson.verse.referenceEnglish}</span></p>
+                <div class="zh scripture-text">${lesson.verse.chinese}</div>
+                <div class="pinyin">${lesson.verse.pinyin}</div>
+                ${
+                  Speech.supported
+                    ? `<button class="icon-btn" id="play-verse-btn" aria-label="Hear this verse" style="margin-top:8px;">🔊</button>`
+                    : ""
+                }
+              </div>`
+            : ""
+        }
       </div>
       <div class="sticky-footer">
         <button class="btn btn-primary" id="next-btn">Start Lesson</button>
       </div>
     `
     );
+    if (lesson.verse) {
+      app
+        .querySelector("#play-verse-btn")
+        ?.addEventListener("click", () => Speech.speak(lesson.verse.chinese, "zh-CN"));
+    }
   }
 
   if (step === "dialogue") {
@@ -787,10 +849,20 @@ function renderLessonStep(lesson, state) {
             : `<p class="muted" style="margin-bottom:20px;">Audio playback isn't supported in this browser.</p>`
         }
         ${lesson.dialogue
-          .map(
-            (line) => `
+          .map((line) =>
+            line.speaker === "Narrator"
+              ? `
+          <div class="dialogue-line narrator">
+            <div class="narrator-caption">
+              <div class="zh">${line.chinese}</div>
+              <div class="pinyin">${line.pinyin}</div>
+              <div class="en">${line.english}</div>
+            </div>
+          </div>
+        `
+              : `
           <div class="dialogue-line ${line.speaker === "You" ? "you" : ""}">
-            <div class="dialogue-speaker">${line.speaker}</div>
+            <div class="dialogue-speaker">${displaySpeakerName(line.speaker)}</div>
             <div class="dialogue-bubble">
               <div class="zh">${line.chinese}</div>
               <div class="pinyin">${line.pinyin}</div>
@@ -1161,16 +1233,16 @@ function renderExplore(query = "") {
   stopDialogue();
   app.innerHTML = "";
   const wrapper = el(`
-    <div>
-      <div class="lesson-header">
-        <button class="icon-btn" id="back-btn" aria-label="Back to home">←</button>
-        <h2 style="margin:0;font-size:1.1rem;">Explore</h2>
+    <div class="has-bottom-nav">
+      <div class="topbar">
+        <div class="brand"><span>Explore</span></div>
       </div>
       <main class="screen" id="explore-body"></main>
+      ${bottomNavHtml("explore")}
     </div>
   `);
   app.appendChild(wrapper);
-  app.querySelector("#back-btn").addEventListener("click", goHome);
+  wireBottomNav(app);
 
   const body = app.querySelector("#explore-body");
   body.innerHTML = `
@@ -1287,6 +1359,83 @@ function chaptersReadInBook(book) {
   return book.chapters.filter((_, i) => isChapterRead(book.id, i + 1)).length;
 }
 
+// ---------- Help / About ----------
+function isSoundEnabled() {
+  return progress.settings?.soundEnabled !== false;
+}
+
+function toggleSound() {
+  progress.settings = progress.settings || {};
+  progress.settings.soundEnabled = !isSoundEnabled();
+  saveProgress();
+}
+
+function renderSettings() {
+  stopDialogue();
+  app.innerHTML = "";
+  const wrapper = el(`
+    <div class="has-bottom-nav">
+      <div class="topbar">
+        <div class="brand"><span>Settings</span></div>
+      </div>
+      <main class="screen" id="settings-body"></main>
+      ${bottomNavHtml("settings")}
+    </div>
+  `);
+  app.appendChild(wrapper);
+  wireBottomNav(app);
+
+  const body = app.querySelector("#settings-body");
+  body.innerHTML = `
+    <div class="stage-group">
+      <p class="stage-heading">Sound</p>
+      <button class="lesson-card" id="sound-toggle-btn">
+        <div class="lesson-num">${isSoundEnabled() ? "🔊" : "🔇"}</div>
+        <div class="lesson-info">
+          <h3>Sound Effects & Speech</h3>
+          <p class="zh" style="font-family:var(--font-ui);">Chimes, and spoken audio throughout the app</p>
+        </div>
+        <div class="lesson-status">${isSoundEnabled() ? "On" : "Off"}</div>
+      </button>
+    </div>
+
+    <div class="card" style="text-align:center;margin:20px 0;">
+      <span class="brand-mark zh" style="display:inline-flex;width:44px;height:44px;font-size:1.3rem;margin-bottom:10px;">语</span>
+      <h2 style="margin:0 0 4px;">Koinect</h2>
+      <p class="muted">Version ${APP_VERSION}</p>
+    </div>
+
+    <div class="stage-group">
+      <p class="stage-heading">How Koinect Works</p>
+      <div class="help-item">
+        <h3>Lessons</h3>
+        <p class="muted">Each lesson walks through a real church scenario — a scenario, a dialogue, vocabulary, a quiz, and a real-world challenge. Lessons unlock in order as you complete them.</p>
+      </div>
+      <div class="help-item">
+        <h3>Sound</h3>
+        <p class="muted">Tap 🔊 on any word, or "Play Conversation" on a dialogue, to hear it spoken aloud. This uses your device's built-in Chinese voice — if a lesson stays silent, your browser may not have one installed.</p>
+      </div>
+      <div class="help-item">
+        <h3>Daily Review</h3>
+        <p class="muted">Finishing a lesson schedules its vocabulary for spaced review. Check Home for words due today.</p>
+      </div>
+      <div class="help-item">
+        <h3>Explore & Read</h3>
+        <p class="muted">📖 Explore is a searchable glossary of Bible books, people, places, and church terms. 📜 Read has a short curated passage list, plus the complete Bible (all 66 books) to browse chapter by chapter.</p>
+      </div>
+      <div class="help-item">
+        <h3>Your progress</h3>
+        <p class="muted">Everything is saved on this device only — no account, no login, nothing sent anywhere. Progress persists across visits, but won't sync to another device or browser, and clearing your browser's site data will reset it.</p>
+      </div>
+    </div>
+  `;
+
+  body.querySelector("#sound-toggle-btn").addEventListener("click", () => {
+    toggleSound();
+    renderSettings();
+  });
+}
+
 function renderRead() {
   stopDialogue();
   app.innerHTML = "";
@@ -1295,16 +1444,16 @@ function renderRead() {
   const pct = total > 0 ? Math.round((doneCount / total) * 100) : 0;
 
   const wrapper = el(`
-    <div>
-      <div class="lesson-header">
-        <button class="icon-btn" id="back-btn" aria-label="Back to home">←</button>
-        <h2 style="margin:0;font-size:1.1rem;">Read</h2>
+    <div class="has-bottom-nav">
+      <div class="topbar">
+        <div class="brand"><span>Read</span></div>
       </div>
       <main class="screen" id="read-body"></main>
+      ${bottomNavHtml("read")}
     </div>
   `);
   app.appendChild(wrapper);
-  app.querySelector("#back-btn").addEventListener("click", goHome);
+  wireBottomNav(app);
 
   const body = app.querySelector("#read-body");
   body.innerHTML = `
@@ -1627,6 +1776,40 @@ function renderLessonComplete(lesson) {
 }
 
 // ---------- Boot ----------
+// ---------- First-launch name modal ----------
+function renderNameModal(onDone) {
+  const overlay = el(`
+    <div class="modal-overlay" id="name-modal-overlay">
+      <div class="modal-card">
+        <span class="brand-mark zh" style="display:inline-flex;width:44px;height:44px;font-size:1.3rem;margin-bottom:14px;">语</span>
+        <h2 style="margin-bottom:6px;">Welcome to Koinect</h2>
+        <p class="muted" style="margin-bottom:20px;">Input Name for this Learning Journey</p>
+        <input type="text" id="name-modal-input" class="explore-search" style="margin-bottom:16px;text-align:center;" placeholder="Your name" maxlength="40">
+        <button class="btn btn-primary" id="name-modal-start-btn" style="margin-bottom:10px;">Start My Journey</button>
+        <button class="btn btn-secondary" id="name-modal-skip-btn">Skip for now</button>
+      </div>
+    </div>
+  `);
+  document.body.appendChild(overlay);
+
+  const input = overlay.querySelector("#name-modal-input");
+  input.focus();
+
+  function finish(name) {
+    progress.userName = name ? name.slice(0, 40) : null;
+    progress.nameOnboardingSeen = true;
+    saveProgress();
+    overlay.remove();
+    onDone();
+  }
+
+  overlay.querySelector("#name-modal-start-btn").addEventListener("click", () => finish(input.value.trim()));
+  overlay.querySelector("#name-modal-skip-btn").addEventListener("click", () => finish(null));
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") finish(input.value.trim());
+  });
+}
+
 async function boot() {
   try {
     const [lessonsRes, referenceRes, readingRes] = await Promise.all([
@@ -1641,7 +1824,11 @@ async function boot() {
     buildVocabIndex();
     updateStreak();
     await Speech.ready();
-    route();
+    if (!progress.nameOnboardingSeen) {
+      renderNameModal(() => route());
+    } else {
+      route();
+    }
   } catch (e) {
     app.innerHTML = `
       <main class="screen empty-state">

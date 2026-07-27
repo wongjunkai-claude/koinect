@@ -313,6 +313,7 @@ main.screen {
   border-left-color: var(--color-primary);
   background: #F0F5FA;
 }
+.lesson-verse { margin-top: 20px; }
 
 /* ===== Chapter grid (Bible browser) ===== */
 .chapter-grid {
@@ -342,6 +343,64 @@ main.screen {
 }
 .chapter-nav-footer .btn { width: auto; flex: 1; padding-left: 8px; padding-right: 8px; font-size: 0.85rem; }
 .chapter-nav-footer #mark-chapter-btn { flex: 1.4; }
+
+/* ===== Help screen ===== */
+.help-item { margin-bottom: 16px; }
+.help-item h3 { font-size: 0.95rem; margin-bottom: 4px; color: var(--color-primary); }
+
+/* ===== Bottom Navigation ===== */
+.has-bottom-nav { padding-bottom: 0; }
+.has-bottom-nav main.screen { padding-bottom: 90px; }
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -2px 12px rgba(27, 58, 92, 0.06);
+  z-index: 10;
+}
+.bottom-nav-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 4px 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-family: var(--font-ui);
+}
+.bottom-nav-icon { font-size: 1.25rem; line-height: 1; }
+.bottom-nav-label { font-size: 0.68rem; font-weight: 600; }
+.bottom-nav-tab.active { color: var(--color-primary); }
+
+/* ===== Name modal (first launch) ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(51, 48, 46, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: var(--space-md);
+}
+.modal-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
 
 /* ===== Cards ===== */
 
@@ -457,6 +516,14 @@ main.screen {
 .dialogue-bubble .pinyin { color: var(--color-text-muted); font-size: 0.85rem; margin-bottom: 4px; }
 .dialogue-bubble .en { font-size: 0.9rem; color: var(--color-text-muted); }
 .dialogue-line.you .dialogue-bubble { background: #EFF4F8; border-color: #D9E4EC; }
+.dialogue-line.narrator { text-align: center; margin-bottom: 20px; }
+.narrator-caption .zh {
+  font-style: italic;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+.narrator-caption .pinyin,
+.narrator-caption .en { color: var(--color-text-muted); font-size: 0.85rem; }
 .dialogue-line.speaking .dialogue-bubble {
   border-color: var(--color-secondary);
   box-shadow: 0 0 0 2px rgba(201,162,39,0.35);

@@ -142,8 +142,8 @@ re-scoring.
 Some vocabulary doesn't naturally emerge from a conversation — Bible book
 names, biblical people and places, festivals, and church roles are reference
 knowledge, not dialogue practice. Rather than force these into lesson
-dialogues, they live in a separate, searchable glossary (📖 icon on Home, or
-the "Explore" card at the bottom of the lesson list).
+dialogues, they live in a separate, searchable glossary — the 📖 Explore
+tab in the bottom navigation.
 
 - Organised into six categories: Names & Titles of God, Books of the Bible,
   Bible People, Bible Places, Festivals & Special Days, and Church Roles &
@@ -164,11 +164,27 @@ lesson: copy an existing object, fill in `chinese`, `pinyin`, `english`,
 ## Cast & dialogue voices
 
 Dialogues use a small recurring cast rather than generic labels like
-"Leader" or "Friend" — Wei Ming, Hui Ling, Jia Hui, Kevin, Grace Lim, Pastor
-Koh, Auntie Tan, Rachel, and Daniel. Names mix Chinese given names (the way
-Singaporeans actually address each other), English first names common among
-Singapore Christians, and honorifics like "Auntie" and "Pastor" for elders —
-deliberately not mainland-style full pinyin names.
+"Leader" or "Friend" — each shown as Chinese characters plus English
+spelling together (e.g. "慧玲 Hui Ling"), so every appearance reinforces
+name recognition in both forms:
+
+- 伟明 Wei Ming
+- 慧玲 Hui Ling
+- 嘉慧 Jia Hui
+- 家豪 Kevin
+- 林嘉恩 Grace Lim
+- 高牧师 Pastor Koh
+- 陈阿姨 Auntie Tan
+- 瑞秋 Rachel
+- 丹尼尔 Daniel
+
+Names mix Chinese given names (the way Singaporeans actually address each
+other), English first names common among Singapore Christians, and
+honorifics like "Auntie" and "Pastor" for elders — deliberately not
+mainland-style full pinyin names. The Chinese-character mapping lives in
+`CHARACTER_CHINESE_NAME` in `app.js`, purely a display concern — the voice
+gender logic (`CHARACTER_GENDER`) still keys off the plain English label,
+so adding a name here never affects the audio.
 
 When you tap **Play Conversation**, each named character is assigned a
 gender, and "You" is automatically given the opposite gender of whoever
@@ -179,10 +195,31 @@ nothing to pick between and both roles will sound the same. Nothing breaks
 either way; it just can't sound like two people if the device only offers
 one voice to begin with.
 
+## A Bible verse for every lesson
+
+Each of the 38 lessons now opens with one Bible verse chosen specifically
+for what that lesson teaches — not a generic highlight, a real thematic
+match. A few examples: Lesson 8 ("Exchanging Contact Info") pairs with
+Proverbs 27:17, "as iron sharpens iron"; Lesson 15 ("When Someone is Sick")
+pairs with James 5:14, about calling the church's elders to pray over the
+sick; Lesson 36 ("Giving & Tithing") pairs with 2 Corinthians 9:7, "God
+loves a cheerful giver" — which directly echoes that lesson's own
+vocabulary word 甘心乐意 ("willingly and cheerfully").
+
+The verse shows on the first screen of the lesson, right after the
+scenario — verse-by-verse Chinese text with pinyin (same `scripture-block`
+styling used in Read), and a 🔊 to hear it spoken. All 38 verses were pulled
+directly from the same verified `data/bible-full.json` used for the Read
+tab, not retyped or recalled from memory, so they carry the same sourcing
+guarantees documented above.
+
+Each lesson's tagged verse lives in its `verse` field (`reference`,
+`referenceEnglish`, `chinese`, `pinyin`) — same shape as a Read tab passage,
+just singular and lesson-scoped.
+
 ## Bible Reading (Read tab)
 
-A 📜 icon on Home (and a card on the lesson list) opens **Read**, which has
-two parts:
+The 📜 Read tab in the bottom navigation has two parts:
 
 **1. A curated reading plan** — 19 short, well-known passages (Genesis 1,
 the Ten Commandments, Psalm 23, the Beatitudes, John 3:16, the Lord's
@@ -241,6 +278,89 @@ Duolingo-style curriculum design — deliberately writing *new* dialogue that
 reuses prior vocabulary as a designed prerequisite chain — remains a
 separate, ongoing content-writing effort for future lessons, not something
 this pass created retroactively.
+
+## Every taught word actually appears in its lesson
+
+Each lesson's vocabulary list is meant to reflect words genuinely used in
+that lesson's dialogue — not just a word bank sitting alongside it. An
+audit found 9 lessons where a taught word never actually appeared in the
+spoken lines (e.g. Lesson 33 taught 传福音, "to share the Gospel," but
+nobody in the conversation ever says it — which makes sense, since it's an
+awkward thing to say about yourself mid-conversation). All 9 are fixed now,
+two different ways depending on the word:
+
+- **Small wording tweaks**, where the word just needed the right verb tense
+  or phrasing to appear exactly as taught (e.g. Lesson 21's "我信了主"
+  became "我决定信主" so 信主 appears as its own unit; Lesson 31's "我来带
+  查经" became "我来带领查经" to use the full taught verb 带领).
+- **A narrator line**, for words that are inherently *about* a
+  conversation rather than something said *within* one — 传福音 (to
+  evangelize) and 邀请 (to invite) are things you'd describe someone doing,
+  not things you'd say aloud to them. These lessons now open with a short
+  italicized, third-person scene-setter above the dialogue (e.g. "大卫今天
+  约了Daniel，要向他传福音" — "David arranged to meet Daniel today,
+  planning to share the Gospel with him"), read aloud as part of "Play
+  Conversation" like any other line, but visually distinct — no speech
+  bubble, no speaker name, just italic caption text.
+
+To add a narrator line to a future lesson, give it `"speaker": "Narrator"`
+in the dialogue array — the app renders it as scene-setting text
+automatically rather than a spoken bubble.
+
+## Lesson numbering
+
+Lessons are numbered in clean, sequential stage blocks: Connect 1–8, Belong
+9–16, Grow 17–28, Serve 29–38. Earlier on, lessons got their ids in the
+order they were written rather than the order they appear in the app, so a
+lesson like "Christmas at Church" (Belong) ended up sitting between two
+Grow-stage lessons in the numbering — confusing if you ever looked at the
+raw data or wondered why "Lesson 24" wasn't where you expected. That's
+fixed now; the id order matches the actual learner path.
+
+If you add a new lesson, give it the next free id *within its stage's
+block* to keep this clean — e.g. a new Connect lesson should be inserted
+before Belong's first id (9), which means shifting every later id up by
+one. It's a bit of manual bookkeeping, but keeps `id` a meaningful "lesson
+number" rather than just an arbitrary key.
+
+**Note on existing saved progress:** if anyone tested an earlier version
+of this app before the renumbering, their browser's saved progress refers
+to the *old* lesson ids. After this update, their previously-completed
+lessons won't be recognized as complete (harmless — nothing crashes, it
+just looks like starting over). This is a one-time consequence of the
+renumbering, not an ongoing concern.
+
+## First launch: name prompt
+
+The very first time the app opens, a short modal asks you to "Input Name
+for this Learning Journey." Entering a name personalizes greetings on Home
+("Good morning, Rachel." instead of just "Good morning."); tapping "Skip
+for now" is equally valid and just uses the generic greeting instead.
+Either way, this only appears once — stored as `nameOnboardingSeen` in
+progress, so it won't nag on later visits. Your name lives in
+`progress.userName`, same local-only storage as everything else.
+
+## Bottom navigation
+
+Home, Read, Explore, and Settings are the four persistent tabs, shown as a
+fixed bottom bar on those four top-level screens. Diving into something
+specific — a lesson, a single Bible reading, a Bible chapter, a review
+session — switches to a focused "task mode" instead: the bottom bar
+disappears and a back arrow takes its place, since at that point you're
+drilling into one thing rather than switching between sections.
+
+## Settings
+
+⚙️ Settings (in the bottom nav) now houses what used to be a separate Help
+screen, plus a real setting:
+
+- **Sound Effects & Speech** — a single on/off toggle that mutes both the
+  chime sounds (correct answer, lesson complete, etc.) and all spoken
+  audio (Play Conversation, 🔊 buttons, everywhere). One switch rather than
+  splitting into separate toggles, since most people either want audio or
+  don't. Stored in `progress.settings.soundEnabled`.
+- The app version number and the same "how Koinect works" explanations
+  that used to live on the Help screen.
 
 ## Adding more lessons
 
