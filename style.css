@@ -103,6 +103,11 @@ p { margin: 0; line-height: 1.55; }
   border-radius: var(--radius-pill);
   white-space: nowrap;
 }
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .brand-mark {
   width: 30px; height: 30px;
   border-radius: var(--radius-sm);
@@ -257,6 +262,87 @@ main.screen {
 .review-word-card .pinyin { margin-top: 6px; font-size: 1rem; }
 .review-word-card .icon-btn { margin-top: 10px; }
 
+/* ===== Explore ===== */
+.explore-card { margin-top: 24px; }
+.explore-search {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border);
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+.explore-search:focus-visible { outline: 3px solid var(--color-secondary); outline-offset: 1px; }
+.reference-card { margin-bottom: 10px; }
+.reference-card .vocab-top { display: flex; align-items: center; gap: 10px; }
+.reference-card .icon-btn { margin-left: auto; font-size: 1rem; padding: 4px 8px; }
+.ref-lesson-link {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* ===== Scripture Block (Bible reading) ===== */
+.scripture-block {
+  position: relative;
+  background: #FBF9F3;
+  border-left: 4px solid var(--color-secondary);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px 14px 44px;
+  margin-bottom: 14px;
+}
+.scripture-block .verse-number {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+.scripture-block .scripture-text { font-size: 1.15rem; line-height: 1.7; margin-bottom: 6px; }
+.scripture-block.speaking {
+  border-left-color: var(--color-primary);
+  background: #F0F5FA;
+}
+
+/* ===== Chapter grid (Bible browser) ===== */
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+  gap: 8px;
+}
+.chapter-tile {
+  aspect-ratio: 1;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+.chapter-tile.done {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: #fff;
+}
+.chapter-nav-footer {
+  display: flex;
+  gap: 8px;
+}
+.chapter-nav-footer .btn { width: auto; flex: 1; padding-left: 8px; padding-right: 8px; font-size: 0.85rem; }
+.chapter-nav-footer #mark-chapter-btn { flex: 1.4; }
+
 /* ===== Cards ===== */
 
 .card {
@@ -386,6 +472,17 @@ main.screen {
 }
 .vocab-top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-sm); }
 .vocab-top .zh { font-size: 1.3rem; font-weight: 600; color: var(--color-primary); }
+.vocab-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+.vocab-badge.new { background: #FBF6E7; color: var(--color-secondary); border: 1px solid #EEDFA8; }
+.vocab-badge.review { background: #F1F6ED; color: var(--color-success); border: 1px solid #D3E4C4; }
 .vocab-pinyin { color: var(--color-text-muted); font-size: 0.9rem; }
 .vocab-en { margin-top: 4px; font-weight: 500; }
 .vocab-note { margin-top: 6px; font-size: 0.82rem; color: var(--color-text-muted); }

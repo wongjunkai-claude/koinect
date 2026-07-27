@@ -1,0 +1,594 @@
+{
+  "readings": [
+    {
+      "id": "genesis-1-1-5",
+      "reference": "创世记 1:1-5",
+      "referenceEnglish": "Genesis 1:1-5",
+      "title": "神创造光",
+      "titleEnglish": "God Creates Light",
+      "verses": [
+        {
+          "number": 1,
+          "chinese": "起初神创造天地。",
+          "pinyin": "qǐ chū shén chuàng zào tiān dì。"
+        },
+        {
+          "number": 2,
+          "chinese": "地是空虚混沌，渊面黑暗；神的灵运行在水面上。",
+          "pinyin": "dì shì kōng xū hùn dùn， yuān miàn hēi àn； shén de líng yùn xíng zài shuǐ miàn shàng。"
+        },
+        {
+          "number": 3,
+          "chinese": "神说：「要有光」，就有了光。",
+          "pinyin": "shén shuō ：「 yào yǒu guāng 」， jiù yǒu le guāng。"
+        },
+        {
+          "number": 4,
+          "chinese": "神看光是好的，就把光暗分开了。",
+          "pinyin": "shén kàn guāng shì hǎo de， jiù bǎ guāng àn fēn kāi le。"
+        },
+        {
+          "number": 5,
+          "chinese": "神称光为「昼」，称暗为「夜」。有晚上，有早晨，这是头一日。",
+          "pinyin": "shén chēng guāng wèi「 zhòu 」， chēng àn wèi「 yè 」。 yǒu wǎn shàng， yǒu zǎo chén， zhè shì tóu yī rì。"
+        }
+      ],
+      "gloss": "The first day of creation — before anything else, God spoke, and there was light."
+    },
+    {
+      "id": "exodus-20-1-17",
+      "reference": "出埃及记 20:1-17",
+      "referenceEnglish": "Exodus 20:1-17",
+      "title": "十诫",
+      "titleEnglish": "The Ten Commandments",
+      "verses": [
+        {
+          "number": 1,
+          "chinese": "神吩咐这一切的话说：",
+          "pinyin": "shén fēn fù zhè yī qiè de huà shuō："
+        },
+        {
+          "number": 2,
+          "chinese": "「我是耶和华你的神，曾将你从埃及地为奴之家领出来。",
+          "pinyin": "「 wǒ shì yē hé huá nǐ de shén， céng jiāng nǐ cóng āi jí dì wèi nú zhī jiā lǐng chū lái。"
+        },
+        {
+          "number": 3,
+          "chinese": "「除了我以外，你不可有别的神。",
+          "pinyin": "「 chú le wǒ yǐ wài， nǐ bù kě yǒu bié de shén。"
+        },
+        {
+          "number": 4,
+          "chinese": "「不可为自己雕刻偶像，也不可作甚么形像仿佛上天、下地，和地底下、水中的百物。",
+          "pinyin": "「 bù kě wèi zì jǐ diāo kè ǒu xiàng， yě bù kě zuò shén me xíng xiàng fǎng fú shàng tiān、 xià dì， hé dì dǐ xià、 shuǐ zhōng de bǎi wù。"
+        },
+        {
+          "number": 5,
+          "chinese": "不可跪拜那些像，也不可事奉它，因为我耶和华你的神是忌邪的神。恨我的，我必追讨他的罪，自父及子，直到三四代；",
+          "pinyin": "bù kě guì bài nà xiē xiàng， yě bù kě shì fèng tā， yīn wèi wǒ yē hé huá nǐ de shén shì jì xié de shén。 hèn wǒ de， wǒ bì zhuī tǎo tā de zuì， zì fù jí zi， zhí dào sān sì dài；"
+        },
+        {
+          "number": 6,
+          "chinese": "爱我、守我诫命的，我必向他们发慈爱，直到千代。",
+          "pinyin": "ài wǒ、 shǒu wǒ jiè mìng de， wǒ bì xiàng tā men fā cí ài， zhí dào qiān dài。"
+        },
+        {
+          "number": 7,
+          "chinese": "「不可妄称耶和华你神的名；因为妄称耶和华名的，耶和华必不以他为无罪。",
+          "pinyin": "「 bù kě wàng chēng yē hé huá nǐ shén de míng； yīn wèi wàng chēng yē hé huá míng de， yē hé huá bì bù yǐ tā wèi wú zuì。"
+        },
+        {
+          "number": 8,
+          "chinese": "「当记念安息日，守为圣日。",
+          "pinyin": "「 dāng jì niàn ān xī rì， shǒu wèi shèng rì。"
+        },
+        {
+          "number": 9,
+          "chinese": "六日要劳碌作你一切的工，",
+          "pinyin": "liù rì yào láo lù zuò nǐ yī qiè de gōng，"
+        },
+        {
+          "number": 10,
+          "chinese": "但第七日是向耶和华你神当守的安息日。这一日你和你的儿女、仆婢、牲畜，并你城里寄居的客旅，无论何工都不可作；",
+          "pinyin": "dàn dì qī rì shì xiàng yē hé huá nǐ shén dāng shǒu de ān xī rì。 zhè yī rì nǐ hé nǐ de ér nǚ、 pū bì、 shēng chù， bìng nǐ chéng lǐ jì jū de kè lǚ， wú lùn hé gōng dōu bù kě zuò；"
+        },
+        {
+          "number": 11,
+          "chinese": "因为六日之内，耶和华造天、地、海，和其中的万物，第七日便安息，所以耶和华赐福与安息日，定为圣日。",
+          "pinyin": "yīn wèi liù rì zhī nèi， yē hé huá zào tiān、 dì、 hǎi， hé qí zhōng de wàn wù， dì qī rì biàn ān xī， suǒ yǐ yē hé huá cì fú yǔ ān xī rì， dìng wèi shèng rì。"
+        },
+        {
+          "number": 12,
+          "chinese": "「当孝敬父母，使你的日子在耶和华你神所赐你的地上得以长久。",
+          "pinyin": "「 dāng xiào jìng fù mǔ， shǐ nǐ de rì zi zài yē hé huá nǐ shén suǒ cì nǐ de dì shàng dé yǐ cháng jiǔ。"
+        },
+        {
+          "number": 13,
+          "chinese": "「不可杀人。",
+          "pinyin": "「 bù kě shā rén。"
+        },
+        {
+          "number": 14,
+          "chinese": "「不可奸淫。",
+          "pinyin": "「 bù kě jiān yín。"
+        },
+        {
+          "number": 15,
+          "chinese": "「不可偷盗。",
+          "pinyin": "「 bù kě tōu dào。"
+        },
+        {
+          "number": 16,
+          "chinese": "「不可作假见证陷害人。",
+          "pinyin": "「 bù kě zuò jiǎ jiàn zhèng xiàn hài rén。"
+        },
+        {
+          "number": 17,
+          "chinese": "「不可贪恋人的房屋；也不可贪恋人的妻子、仆婢、牛驴，并他一切所有的。」",
+          "pinyin": "「 bù kě tān liàn rén de fáng wū； yě bù kě tān liàn rén de qī zǐ、 pū bì、 niú lǘ， bìng tā yī qiè suǒ yǒu de 。」"
+        }
+      ],
+      "gloss": "The commandments God gave Moses at Mount Sinai — the foundation of God's moral law."
+    },
+    {
+      "id": "psalm-23",
+      "reference": "诗篇 23:1-6",
+      "referenceEnglish": "Psalm 23:1-6",
+      "title": "耶和华是我的牧者",
+      "titleEnglish": "The Lord is My Shepherd",
+      "verses": [
+        {
+          "number": 1,
+          "chinese": "（大卫的诗）耶和华是我的牧者，我必不至缺乏。",
+          "pinyin": "（ dà wèi de shī） yē hé huá shì wǒ de mù zhě， wǒ bì bù zhì quē fá。"
+        },
+        {
+          "number": 2,
+          "chinese": "他使我躺卧在青草地上，领我在可安歇的水边。",
+          "pinyin": "tā shǐ wǒ tǎng wò zài qīng cǎo dì shàng， lǐng wǒ zài kě ān xiē de shuǐ biān。"
+        },
+        {
+          "number": 3,
+          "chinese": "他使我的灵魂苏醒，为自己的名引导我走义路。",
+          "pinyin": "tā shǐ wǒ de líng hún sū xǐng， wèi zì jǐ de míng yǐn dǎo wǒ zǒu yì lù。"
+        },
+        {
+          "number": 4,
+          "chinese": "我虽然行过死荫的幽谷，也不怕遭害，因为你与我同在；你的杖，你的竿，都安慰我。",
+          "pinyin": "wǒ suī rán xíng guò sǐ yīn de yōu gǔ， yě bù pà zāo hài， yīn wèi nǐ yǔ wǒ tóng zài； nǐ de zhàng， nǐ de gān， dōu ān wèi wǒ。"
+        },
+        {
+          "number": 5,
+          "chinese": "在我敌人面前，你为我摆设筵席；你用油膏了我的头，使我的福杯满溢。",
+          "pinyin": "zài wǒ dí rén miàn qián， nǐ wèi wǒ bǎi shè yán xí； nǐ yòng yóu gāo le wǒ de tóu， shǐ wǒ de fú bēi mǎn yì。"
+        },
+        {
+          "number": 6,
+          "chinese": "我一生一世必有恩惠慈爱随着我；我且要住在耶和华的殿中，直到永远。",
+          "pinyin": "wǒ yì shēng yí shì bì yǒu ēn huì cí ài suí zhe wǒ； wǒ qiě yào zhù zài yē hé huá de diàn zhōng， zhí dào yǒng yuǎn。"
+        }
+      ],
+      "gloss": "One of the most loved psalms in full — David's picture of God's complete care for him."
+    },
+    {
+      "id": "psalm-100",
+      "reference": "诗篇 100:1-5",
+      "referenceEnglish": "Psalm 100:1-5",
+      "title": "普天同乐",
+      "titleEnglish": "A Psalm of Praise",
+      "verses": [
+        {
+          "number": 1,
+          "chinese": "（称谢诗）普天下当向耶和华欢呼！",
+          "pinyin": "（ chēng xiè shī） pǔ tiān xià dāng xiàng yē hé huá huān hū！"
+        },
+        {
+          "number": 2,
+          "chinese": "你们当乐意事奉耶和华，当来向他歌唱！",
+          "pinyin": "nǐ men dāng lè yì shì fèng yē hé huá， dāng lái xiàng tā gē chàng！"
+        },
+        {
+          "number": 3,
+          "chinese": "你们当晓得耶和华是神！我们是他造的，也是属他的；我们是他的民，也是他草场的羊。",
+          "pinyin": "nǐ men dāng xiǎo de yē hé huá shì shén！ wǒ men shì tā zào de， yě shì shǔ tā de； wǒ men shì tā de mín， yě shì tā cǎo chǎng de yáng。"
+        },
+        {
+          "number": 4,
+          "chinese": "当称谢进入他的门；当赞美进入他的院。当感谢他，称颂他的名！",
+          "pinyin": "dāng chēng xiè jìn rù tā de mén； dāng zàn měi jìn rù tā de yuàn。 dāng gǎn xiè tā， chēng sòng tā de míng！"
+        },
+        {
+          "number": 5,
+          "chinese": "因为耶和华本为善。他的慈爱存到永远；他的信实直到万代。",
+          "pinyin": "yīn wèi yē hé huá běn wèi shàn。 tā de cí ài cún dào yǒng yuǎn； tā de xìn shí zhí dào wàn dài。"
+        }
+      ],
+      "gloss": "A short psalm calling all the earth to worship the Lord with joy."
+    },
+    {
+      "id": "proverbs-3-5-6",
+      "reference": "箴言 3:5-6",
+      "referenceEnglish": "Proverbs 3:5-6",
+      "title": "倚靠耶和华",
+      "titleEnglish": "Trust in the Lord",
+      "verses": [
+        {
+          "number": 5,
+          "chinese": "你要专心仰赖耶和华，不可倚靠自己的聪明，",
+          "pinyin": "nǐ yào zhuān xīn yǎng lài yē hé huá， bù kě yǐ kào zì jǐ de cōng míng，"
+        },
+        {
+          "number": 6,
+          "chinese": "在你一切所行的事上都要认定他，他必指引你的路。",
+          "pinyin": "zài nǐ yī qiè suǒ xíng de shì shàng dōu yào rèn dìng tā， tā bì zhǐ yǐn nǐ de lù。"
+        }
+      ],
+      "gloss": "One of the most quoted verses in Proverbs — trusting God rather than our own understanding."
+    },
+    {
+      "id": "isaiah-53-4-6",
+      "reference": "以赛亚书 53:4-6",
+      "referenceEnglish": "Isaiah 53:4-6",
+      "title": "受苦的仆人",
+      "titleEnglish": "The Suffering Servant",
+      "verses": [
+        {
+          "number": 4,
+          "chinese": "他诚然担当我们的忧患，背负我们的痛苦；我们却以为他受责罚，被神击打苦待了。",
+          "pinyin": "tā chéng rán dān dāng wǒ men de yōu huàn， bēi fù wǒ men de tòng kǔ； wǒ men què yǐ wéi tā shòu zé fá， bèi shén jī dǎ kǔ dài le。"
+        },
+        {
+          "number": 5,
+          "chinese": "哪知他为我们的过犯受害，为我们的罪孽压伤。因他受的刑罚，我们得平安；因他受的鞭伤，我们得医治。",
+          "pinyin": "nǎ zhī tā wèi wǒ men de guò fàn shòu hài， wèi wǒ men de zuì niè yā shāng。 yīn tā shòu de xíng fá， wǒ men dé píng ān； yīn tā shòu de biān shāng， wǒ men dé yī zhì。"
+        },
+        {
+          "number": 6,
+          "chinese": "我们都如羊走迷；各人偏行己路；耶和华使我们众人的罪孽都归在他身上。",
+          "pinyin": "wǒ men dōu rú yáng zǒu mí； gè rén piān xíng jǐ lù； yē hé huá shǐ wǒ men zhòng rén de zuì niè dōu guī zài tā shēn shàng。"
+        }
+      ],
+      "gloss": "A prophecy written centuries before Christ, describing His suffering on our behalf."
+    },
+    {
+      "id": "matthew-5-3-12",
+      "reference": "马太福音 5:3-12",
+      "referenceEnglish": "Matthew 5:3-12",
+      "title": "登山宝训：八福",
+      "titleEnglish": "The Beatitudes",
+      "verses": [
+        {
+          "number": 3,
+          "chinese": "虚心的人有福了！因为天国是他们的。",
+          "pinyin": "xū xīn de rén yǒu fú le！ yīn wèi tiān guó shì tā men de。"
+        },
+        {
+          "number": 4,
+          "chinese": "哀恸的人有福了！因为他们必得安慰。",
+          "pinyin": "āi tòng de rén yǒu fú le！ yīn wèi tā men bì děi ān wèi。"
+        },
+        {
+          "number": 5,
+          "chinese": "温柔的人有福了！因为他们必承受地土。",
+          "pinyin": "wēn róu de rén yǒu fú le！ yīn wèi tā men bì chéng shòu dì tǔ。"
+        },
+        {
+          "number": 6,
+          "chinese": "饥渴慕义的人有福了！因为他们必得饱足。",
+          "pinyin": "jī kě mù yì de rén yǒu fú le！ yīn wèi tā men bì děi bǎo zú。"
+        },
+        {
+          "number": 7,
+          "chinese": "怜恤人的人有福了！因为他们必蒙怜恤。",
+          "pinyin": "lián xù rén de rén yǒu fú le！ yīn wèi tā men bì méng lián xù。"
+        },
+        {
+          "number": 8,
+          "chinese": "清心的人有福了！因为他们必得见神。",
+          "pinyin": "qīng xīn de rén yǒu fú le！ yīn wèi tā men bì děi jiàn shén。"
+        },
+        {
+          "number": 9,
+          "chinese": "使人和睦的人有福了！因为他们必称为神的儿子。",
+          "pinyin": "shǐ rén hé mù de rén yǒu fú le！ yīn wèi tā men bì chēng wéi shén de ér zi。"
+        },
+        {
+          "number": 10,
+          "chinese": "为义受逼迫的人有福了！因为天国是他们的。",
+          "pinyin": "wèi yì shòu bī pò de rén yǒu fú le！ yīn wèi tiān guó shì tā men de。"
+        },
+        {
+          "number": 11,
+          "chinese": "「人若因我辱骂你们，逼迫你们，捏造各样坏话毁谤你们，你们就有福了！",
+          "pinyin": "「 rén ruò yīn wǒ rǔ mà nǐ men， bī pò nǐ men， niē zào gè yàng huài huà huǐ bàng nǐ men， nǐ men jiù yǒu fú le！"
+        },
+        {
+          "number": 12,
+          "chinese": "应当欢喜快乐，因为你们在天上的赏赐是大的。在你们以前的先知，人也是这样逼迫他们。」",
+          "pinyin": "yīng dāng huān xǐ kuài lè， yīn wèi nǐ men zài tiān shàng de shǎng cì shì dà de。 zài nǐ men yǐ qián de xiān zhī， rén yě shì zhè yàng bī pò tā men 。」"
+        }
+      ],
+      "gloss": "The opening of Jesus's most famous sermon — a full set of blessings for those the world often overlooks."
+    },
+    {
+      "id": "matthew-6-9-13",
+      "reference": "马太福音 6:9-13",
+      "referenceEnglish": "Matthew 6:9-13",
+      "title": "主祷文",
+      "titleEnglish": "The Lord's Prayer",
+      "verses": [
+        {
+          "number": 9,
+          "chinese": "所以，你们祷告要这样说：『我们在天上的父：愿人都尊你的名为圣。",
+          "pinyin": "suǒ yǐ， nǐ men dǎo gào yào zhè yàng shuō ：『 wǒ men zài tiān shàng de fù： yuàn rén dōu zūn nǐ de míng wèi shèng。"
+        },
+        {
+          "number": 10,
+          "chinese": "愿你的国降临；愿你的旨意行在地上，如同行在天上。",
+          "pinyin": "yuàn nǐ de guó jiàng lín； yuàn nǐ de zhǐ yì xíng zài dì shàng， rú tóng xíng zài tiān shàng。"
+        },
+        {
+          "number": 11,
+          "chinese": "我们日用的饮食，今日赐给我们。",
+          "pinyin": "wǒ men rì yòng de yǐn shí， jīn rì cì gěi wǒ men。"
+        },
+        {
+          "number": 12,
+          "chinese": "免我们的债，如同我们免了人的债。",
+          "pinyin": "miǎn wǒ men de zhài， rú tóng wǒ men miǎn le rén de zhài。"
+        },
+        {
+          "number": 13,
+          "chinese": "不叫我们遇见试探；救我们脱离凶恶〔或作：脱离恶者〕。因为国度、权柄、荣耀，全是你的，直到永远。阿们〔有古卷无因为至阿们等字〕！』",
+          "pinyin": "bù jiào wǒ men yù jiàn shì tàn； jiù wǒ men tuō lí xiōng è 〔 huò zuò： tuō lí è zhě 〕。 yīn wèi guó dù、 quán bǐng、 róng yào， quán shì nǐ de， zhí dào yǒng yuǎn。 ā men 〔 yǒu gǔ juǎn wú yīn wèi zhì ā men děng zì 〕！』"
+        }
+      ],
+      "gloss": "The prayer Jesus taught His disciples — many Chinese-speaking Christians know this by heart."
+    },
+    {
+      "id": "matthew-28-18-20",
+      "reference": "马太福音 28:18-20",
+      "referenceEnglish": "Matthew 28:18-20",
+      "title": "大使命",
+      "titleEnglish": "The Great Commission",
+      "verses": [
+        {
+          "number": 18,
+          "chinese": "耶稣进前来，对他们说：「天上地下所有的权柄都赐给我了。",
+          "pinyin": "yē sū jìn qián lái， duì tā men shuō ：「 tiān shàng dì xià suǒ yǒu de quán bǐng dōu cì gěi wǒ le。"
+        },
+        {
+          "number": 19,
+          "chinese": "所以，你们要去，使万民作我的门徒，奉父、子、圣灵的名给他们施洗〔或作：给他们施洗，归于父、子、圣灵的名〕。",
+          "pinyin": "suǒ yǐ， nǐ men yào qù， shǐ wàn mín zuò wǒ de mén tú， fèng fù、 zi、 shèng líng de míng gěi tā men shī xǐ 〔 huò zuò： gěi tā men shī xǐ， guī yú fù、 zi、 shèng líng de míng 〕。"
+        },
+        {
+          "number": 20,
+          "chinese": "凡我所吩咐你们的，都教训他们遵守，我就常与你们同在，直到世界的末了。",
+          "pinyin": "fán wǒ suǒ fēn fù nǐ men de， dōu jiào xùn tā men zūn shǒu， wǒ jiù cháng yǔ nǐ men tóng zài， zhí dào shì jiè de mò liǎo。"
+        }
+      ],
+      "gloss": "Jesus's final instruction to His disciples before He ascended — go and make disciples of all nations."
+    },
+    {
+      "id": "john-1-1-5",
+      "reference": "约翰福音 1:1-5",
+      "referenceEnglish": "John 1:1-5",
+      "title": "太初有道",
+      "titleEnglish": "In the Beginning Was the Word",
+      "verses": [
+        {
+          "number": 1,
+          "chinese": "太初有道，道与神同在，道就是神。",
+          "pinyin": "tài chū yǒu dào， dào yǔ shén tóng zài， dào jiù shì shén。"
+        },
+        {
+          "number": 2,
+          "chinese": "这道太初与神同在。",
+          "pinyin": "zhè dào tài chū yǔ shén tóng zài。"
+        },
+        {
+          "number": 3,
+          "chinese": "万物是借着他造的；凡被造的，没有一样不是借着他造的。",
+          "pinyin": "wàn wù shì jiè zhe tā zào de； fán bèi zào de， méi yǒu yī yàng bú shì jiè zhe tā zào de。"
+        },
+        {
+          "number": 4,
+          "chinese": "生命在他里头，这生命就是人的光。",
+          "pinyin": "shēng mìng zài tā lǐ tou， zhè shēng mìng jiù shì rén de guāng。"
+        },
+        {
+          "number": 5,
+          "chinese": "光照在黑暗里，黑暗却不接受光。",
+          "pinyin": "guāng zhào zài hēi àn lǐ， hēi àn què bù jiē shòu guāng。"
+        }
+      ],
+      "gloss": "The opening of John's Gospel — identifying Jesus as the eternal Word of God."
+    },
+    {
+      "id": "john-3-16",
+      "reference": "约翰福音 3:16",
+      "referenceEnglish": "John 3:16",
+      "title": "神爱世人",
+      "titleEnglish": "For God So Loved the World",
+      "verses": [
+        {
+          "number": 16,
+          "chinese": "神爱世人，甚至将他的独生子赐给他们，叫一切信他的，不至灭亡，反得永生。",
+          "pinyin": "shén ài shì rén， shèn zhì jiāng tā de dú shēng zi cì gěi tā men， jiào yī qiè xìn tā de， bù zhì miè wáng， fǎn dé yǒng shēng。"
+        }
+      ],
+      "gloss": "Perhaps the single most quoted verse in the Bible — the Gospel in one sentence."
+    },
+    {
+      "id": "john-14-6",
+      "reference": "约翰福音 14:6",
+      "referenceEnglish": "John 14:6",
+      "title": "我就是道路",
+      "titleEnglish": "I Am the Way",
+      "verses": [
+        {
+          "number": 6,
+          "chinese": "耶稣说：「我就是道路、真理、生命；若不借着我，没有人能到父那里去。",
+          "pinyin": "yē sū shuō ：「 wǒ jiù shì dào lù、 zhēn lǐ、 shēng mìng； ruò bù jiè zhe wǒ， méi yǒu rén néng dào fù nà lǐ qù。"
+        }
+      ],
+      "gloss": "Jesus's answer to Thomas's question about how to reach the Father."
+    },
+    {
+      "id": "romans-8-28",
+      "reference": "罗马书 8:28",
+      "referenceEnglish": "Romans 8:28",
+      "title": "万事互相效力",
+      "titleEnglish": "All Things Work Together for Good",
+      "verses": [
+        {
+          "number": 28,
+          "chinese": "我们晓得万事都互相效力，叫爱神的人得益处，就是按他旨意被召的人。",
+          "pinyin": "wǒ men xiǎo de wàn shì dōu hù xiāng xiào lì， jiào ài shén de rén dé yì chù， jiù shì àn tā zhǐ yì bèi zhào de rén。"
+        }
+      ],
+      "gloss": "A well-known verse of comfort — God works through every circumstance for the good of those who love Him."
+    },
+    {
+      "id": "romans-12-1-2",
+      "reference": "罗马书 12:1-2",
+      "referenceEnglish": "Romans 12:1-2",
+      "title": "当作活祭",
+      "titleEnglish": "A Living Sacrifice",
+      "verses": [
+        {
+          "number": 1,
+          "chinese": "所以弟兄们，我以神的慈悲劝你们，将身体献上，当作活祭，是圣洁的，是神所喜悦的；你们如此事奉乃是理所当然的。",
+          "pinyin": "suǒ yǐ dì xiōng men， wǒ yǐ shén de cí bēi quàn nǐ men， jiāng shēn tǐ xiàn shàng， dàng zuò huó jì， shì shèng jié de， shì shén suǒ xǐ yuè de； nǐ men rú cǐ shì fèng nǎi shì lǐ suǒ dāng rán de。"
+        },
+        {
+          "number": 2,
+          "chinese": "不要效法这个世界，只要心意更新而变化，叫你们察验何为神的善良、纯全、可喜悦的旨意。",
+          "pinyin": "bú yào xiào fǎ zhè ge shì jiè， zhǐ yào xīn yì gēng xīn ér biàn huà， jiào nǐ men chá yàn hé wèi shén de shàn liáng、 chún quán、 kě xǐ yuè de zhǐ yì。"
+        }
+      ],
+      "gloss": "Paul's call to offer our whole lives to God as an act of worship."
+    },
+    {
+      "id": "1corinthians-13-4-8",
+      "reference": "哥林多前书 13:4-8",
+      "referenceEnglish": "1 Corinthians 13:4-8",
+      "title": "爱的真谛",
+      "titleEnglish": "The Nature of Love",
+      "verses": [
+        {
+          "number": 4,
+          "chinese": "爱是恒久忍耐，又有恩慈；爱是不嫉妒；爱是不自夸，不张狂，",
+          "pinyin": "ài shì héng jiǔ rěn nài， yòu yǒu ēn cí； ài shì bù jí dù； ài shì bù zì kuā， bù zhāng kuáng，"
+        },
+        {
+          "number": 5,
+          "chinese": "不作害羞的事，不求自己的益处，不轻易发怒，不计算人的恶，",
+          "pinyin": "bù zuò hài xiū de shì， bù qiú zì jǐ de yì chù， bù qīng yì fā nù， bù jì suàn rén de è，"
+        },
+        {
+          "number": 6,
+          "chinese": "不喜欢不义，只喜欢真理；",
+          "pinyin": "bù xǐ huān bú yì， zhǐ xǐ huān zhēn lǐ；"
+        },
+        {
+          "number": 7,
+          "chinese": "凡事包容，凡事相信，凡事盼望，凡事忍耐。",
+          "pinyin": "fán shì bāo róng， fán shì xiāng xìn， fán shì pàn wàng， fán shì rěn nài。"
+        },
+        {
+          "number": 8,
+          "chinese": "爱是永不止息。先知讲道之能终必归于无有；说方言之能终必停止；知识也终必归于无有。",
+          "pinyin": "ài shì yǒng bù zhǐ xī。 xiān zhī jiǎng dào zhī néng zhōng bì guī yú wú yǒu； shuō fāng yán zhī néng zhōng bì tíng zhǐ； zhī shí yě zhōng bì guī yú wú yǒu。"
+        }
+      ],
+      "gloss": "Often read at weddings — Paul's description of what real love looks like."
+    },
+    {
+      "id": "ephesians-2-8-9",
+      "reference": "以弗所书 2:8-9",
+      "referenceEnglish": "Ephesians 2:8-9",
+      "title": "因信称义",
+      "titleEnglish": "Saved by Grace Through Faith",
+      "verses": [
+        {
+          "number": 8,
+          "chinese": "你们得救是本乎恩，也因着信；这并不是出于自己，乃是神所赐的；",
+          "pinyin": "nǐ men dé jiù shì běn hū ēn， yě yīn zhe xìn； zhè bìng bú shì chū yú zì jǐ， nǎi shì shén suǒ cì de；"
+        },
+        {
+          "number": 9,
+          "chinese": "也不是出于行为，免得有人自夸。",
+          "pinyin": "yě bú shì chū yú xíng wéi， miǎn de yǒu rén zì kuā。"
+        }
+      ],
+      "gloss": "A concise statement of the Gospel — salvation as a gift, not something earned."
+    },
+    {
+      "id": "philippians-4-4-7",
+      "reference": "腓立比书 4:4-7",
+      "referenceEnglish": "Philippians 4:4-7",
+      "title": "应当喜乐",
+      "titleEnglish": "Rejoice in the Lord",
+      "verses": [
+        {
+          "number": 4,
+          "chinese": "你们要靠主常常喜乐。我再说，你们要喜乐。",
+          "pinyin": "nǐ men yào kào zhǔ cháng cháng xǐ lè。 wǒ zài shuō， nǐ men yào xǐ lè。"
+        },
+        {
+          "number": 5,
+          "chinese": "当叫众人知道你们谦让的心。主已经近了。",
+          "pinyin": "dāng jiào zhòng rén zhī dào nǐ men qiān ràng de xīn。 zhǔ yǐ jīng jìn le。"
+        },
+        {
+          "number": 6,
+          "chinese": "应当一无挂虑，只要凡事借着祷告、祈求，和感谢，将你们所要的告诉神。",
+          "pinyin": "yīng dāng yī wú guà lǜ， zhǐ yào fán shì jiè zhe dǎo gào、 qí qiú， hé gǎn xiè， jiāng nǐ men suǒ yào de gào sù shén。"
+        },
+        {
+          "number": 7,
+          "chinese": "神所赐出人意外的平安，必在基督耶稣里保守你们的心怀意念。",
+          "pinyin": "shén suǒ cì chū rén yì wài de píng ān， bì zài jī dū yē sū lǐ bǎo shǒu nǐ men de xīn huái yì niàn。"
+        }
+      ],
+      "gloss": "Paul's instruction to bring every anxiety to God in prayer, and receive His peace."
+    },
+    {
+      "id": "philippians-4-13",
+      "reference": "腓立比书 4:13",
+      "referenceEnglish": "Philippians 4:13",
+      "title": "靠主凡事都能做",
+      "titleEnglish": "I Can Do All Things Through Christ",
+      "verses": [
+        {
+          "number": 13,
+          "chinese": "我靠着那加给我力量的，凡事都能作。",
+          "pinyin": "wǒ kào zhe nà jiā gěi wǒ lì liàng de， fán shì dōu néng zuò。"
+        }
+      ],
+      "gloss": "Paul's declaration of strength — not from himself, but from Christ."
+    },
+    {
+      "id": "revelation-21-3-4",
+      "reference": "启示录 21:3-4",
+      "referenceEnglish": "Revelation 21:3-4",
+      "title": "神要擦去眼泪",
+      "titleEnglish": "God Will Wipe Away Every Tear",
+      "verses": [
+        {
+          "number": 3,
+          "chinese": "我听见有大声音从宝座出来说：「看哪，神的帐幕在人间。他要与人同住，他们要作他的子民。神要亲自与他们同在，作他们的神。",
+          "pinyin": "wǒ tīng jiàn yǒu dà shēng yīn cóng bǎo zuò chū lái shuō ：「 kàn nǎ， shén de zhàng mù zài rén jiān。 tā yào yǔ rén tóng zhù， tā men yào zuò tā de zi mín。 shén yào qīn zì yǔ tā men tóng zài， zuò tā men de shén。"
+        },
+        {
+          "number": 4,
+          "chinese": "神要擦去他们一切的眼泪；不再有死亡，也不再有悲哀、哭号、疼痛，因为以前的事都过去了。」",
+          "pinyin": "shén yào cā qù tā men yī qiè de yǎn lèi； bù zài yǒu sǐ wáng， yě bù zài yǒu bēi āi、 kū hào、 téng tòng， yīn wèi yǐ qián de shì dōu guò qù le 。」"
+        }
+      ],
+      "gloss": "A picture of the future hope Christians hold onto — God making all things new."
+    }
+  ]
+}

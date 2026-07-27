@@ -137,6 +137,111 @@ back of the queue and comes back around, with that specific wrong option
 greyed out on the retry. Only your *first* attempt at each word feeds the
 schedule — later retries in the same session are for reinforcement, not
 re-scoring.
+## Explore (reference glossary)
+
+Some vocabulary doesn't naturally emerge from a conversation — Bible book
+names, biblical people and places, festivals, and church roles are reference
+knowledge, not dialogue practice. Rather than force these into lesson
+dialogues, they live in a separate, searchable glossary (📖 icon on Home, or
+the "Explore" card at the bottom of the lesson list).
+
+- Organised into six categories: Names & Titles of God, Books of the Bible,
+  Bible People, Bible Places, Festivals & Special Days, and Church Roles &
+  Groups.
+- Search works by Chinese, pinyin (no need to type tone marks), or English,
+  and updates as you type.
+- Entries that are also taught inside a lesson show a "Taught in Lesson N"
+  link that jumps straight there — so the glossary can point back to real
+  context instead of becoming just a word list.
+- The glossary intentionally includes a few terms beyond what's taught in
+  lessons (e.g. 出埃及记 Exodus, 彼得 Peter, 圣灵降临节 Pentecost) so it's a
+  genuinely useful lookup tool, not just an index of lesson content.
+
+Data lives in `data/reference.json` — add entries the same way you'd add a
+lesson: copy an existing object, fill in `chinese`, `pinyin`, `english`,
+`note`, and `taughtInLesson` (or `null` if it isn't taught anywhere yet).
+
+## Cast & dialogue voices
+
+Dialogues use a small recurring cast rather than generic labels like
+"Leader" or "Friend" — Wei Ming, Hui Ling, Jia Hui, Kevin, Grace Lim, Pastor
+Koh, Auntie Tan, Rachel, and Daniel. Names mix Chinese given names (the way
+Singaporeans actually address each other), English first names common among
+Singapore Christians, and honorifics like "Auntie" and "Pastor" for elders —
+deliberately not mainland-style full pinyin names.
+
+When you tap **Play Conversation**, each named character is assigned a
+gender, and "You" is automatically given the opposite gender of whoever
+else is in the scene, so a two-person dialogue has two distinct voices.
+This depends on the device having more than one Chinese voice installed —
+some browsers/OSes only ship a single Chinese voice, in which case there's
+nothing to pick between and both roles will sound the same. Nothing breaks
+either way; it just can't sound like two people if the device only offers
+one voice to begin with.
+
+## Bible Reading (Read tab)
+
+A 📜 icon on Home (and a card on the lesson list) opens **Read**, which has
+two parts:
+
+**1. A curated reading plan** — 19 short, well-known passages (Genesis 1,
+the Ten Commandments, Psalm 23, the Beatitudes, John 3:16, the Lord's
+Prayer, etc.) with a progress bar, good as a starting point.
+
+**2. The complete Bible, browsable** — all 66 books, every chapter (1,189
+chapters, 31,100 verses), navigable Book → Chapter → verse-by-verse reader,
+with Previous/Next chapter buttons for reading straight through, and its
+own per-book progress ("Genesis · 3 of 50 chapters read"). This is the real
+"read the Chinese Bible" experience — the curated list above is a taster,
+not the whole thing.
+
+Both share the same reader: verse-by-verse Chinese text with pinyin, audio
+playback (Web Speech API), and a "Mark as Read" button.
+
+**Source and licensing:** The text is the Chinese Union Version, Simplified
+(和合本 / CUVS) — first published 1919, confirmed public domain (copyright
+expired; see [Wikipedia: Chinese Union
+Version](https://en.wikipedia.org/wiki/Chinese_Union_Version)). All 66
+books were parsed directly from the
+[seven1m/open-bibles](https://github.com/seven1m/open-bibles) repository's
+`chi-cuv-simp.usfx.xml` — a source that explicitly labels each translation's
+license per file (this one: Public Domain), rather than a source with a
+blanket "all rights reserved" disclaimer covering many translations at once.
+Pinyin for all 31,100 verses was generated automatically from that verified
+Chinese text using the `pypinyin` library — a deterministic transliteration
+tool, not a creative or copyrighted work.
+
+**A practical note on size:** `data/bible-full.json` is about 8.5MB — small
+for a modern app, but worth knowing about if you're watching total repo
+size or mobile data usage on first install. It's fetched lazily (only when
+someone actually opens "Browse the Bible," not at every app launch) and
+cached by the service worker afterward, so it only costs bandwidth once.
+
+## Vocabulary: New vs. Review
+
+Each lesson's Vocabulary step labels every word **New** or **Review** —
+Review means that word was already introduced in an earlier lesson.
+
+This used to be mostly theoretical: an earlier version of this feature
+found that although lessons' *dialogue* naturally reused earlier words all
+the time (common connective vocabulary like 教会, 谢谢, 神, 一起, 祷告,
+对), those reused words were never actually added to the *vocabulary list*
+of the lessons reusing them — so the badge had almost nothing to show. An
+audit of all 38 lessons found **142 such hidden reuse instances** across
+the dialogues. Those have now all been formalized as explicit vocabulary
+entries in the lessons that use them, so the New/Review distinction (and
+therefore the spaced-repetition schedule) reflects what's actually in the
+dialogue text, not just what was originally listed. Lesson 38, for example,
+now correctly shows "5 new, 7 you've met before" instead of "12 new."
+
+This is a real content audit fix, not a rewrite — no dialogue text changed,
+no new Chinese was written or needed verification. It simply catalogues
+prior-knowledge reuse that was already present but invisible. Real
+Duolingo-style curriculum design — deliberately writing *new* dialogue that
+reuses prior vocabulary as a designed prerequisite chain — remains a
+separate, ongoing content-writing effort for future lessons, not something
+this pass created retroactively.
+
 ## Adding more lessons
 
 Open `data/lessons.json` and copy an existing lesson object. Each lesson needs:

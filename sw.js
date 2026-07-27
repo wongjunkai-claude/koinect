@@ -9,6 +9,9 @@ const ASSETS = [
   "./app.js",
   "./manifest.json",
   "./data/lessons.json",
+  "./data/reference.json",
+  "./data/bible-reading.json",
+  "./data/bible-full.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon-maskable-512.png"

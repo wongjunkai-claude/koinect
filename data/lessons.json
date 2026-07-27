@@ -7,7 +7,7 @@
       "scenario": "You've just arrived at church on a Sunday morning. People are greeting each other warmly at the door.",
       "dialogue": [
         {
-          "speaker": "Wei",
+          "speaker": "Wei Ming",
           "chinese": "你好！",
           "pinyin": "Nǐ hǎo!",
           "english": "Hello!"
@@ -19,7 +19,7 @@
           "english": "Hello! Good morning!"
         },
         {
-          "speaker": "Wei",
+          "speaker": "Wei Ming",
           "chinese": "欢迎来教会！",
           "pinyin": "Huānyíng lái jiàohuì!",
           "english": "Welcome to church!"
@@ -31,7 +31,7 @@
           "english": "Thank you!"
         },
         {
-          "speaker": "Wei",
+          "speaker": "Wei Ming",
           "chinese": "平安！",
           "pinyin": "Píng'ān!",
           "english": "Peace be with you!"
@@ -144,7 +144,7 @@
       "scenario": "After the service, someone new sits next to you at the fellowship table and asks your name.",
       "dialogue": [
         {
-          "speaker": "Mei",
+          "speaker": "Hui Ling",
           "chinese": "你叫什么名字？",
           "pinyin": "Nǐ jiào shénme míngzi?",
           "english": "What's your name?"
@@ -156,7 +156,7 @@
           "english": "My name is David. And you?"
         },
         {
-          "speaker": "Mei",
+          "speaker": "Hui Ling",
           "chinese": "我叫美。很高兴认识你。",
           "pinyin": "Wǒ jiào Měi. Hěn gāoxìng rènshi nǐ.",
           "english": "My name is Mei. Nice to meet you."
@@ -168,7 +168,7 @@
           "english": "Nice to meet you too."
         },
         {
-          "speaker": "Mei",
+          "speaker": "Hui Ling",
           "chinese": "你是弟兄还是姊妹的朋友？",
           "pinyin": "Nǐ shì dìxiōng háishì zǐmèi de péngyǒu?",
           "english": "Are you a brother's or sister's friend?"
@@ -281,7 +281,7 @@
           "english": "Is this your first time here?"
         },
         {
-          "speaker": "Sam",
+          "speaker": "Jia Hui",
           "chinese": "是的，我是第一次来。",
           "pinyin": "Shì de, wǒ shì dì yī cì lái.",
           "english": "Yes, this is my first time."
@@ -293,7 +293,7 @@
           "english": "Do you live nearby?"
         },
         {
-          "speaker": "Sam",
+          "speaker": "Jia Hui",
           "chinese": "对，我住得不远。",
           "pinyin": "Duì, wǒ zhù de bù yuǎn.",
           "english": "Yes, I don't live far."
@@ -406,7 +406,7 @@
       "scenario": "A volunteer is showing a newcomer around the church building before the service starts.",
       "dialogue": [
         {
-          "speaker": "Guide",
+          "speaker": "Wei Ming",
           "chinese": "这是主堂。",
           "pinyin": "Zhè shì zhǔ táng.",
           "english": "This is the main sanctuary."
@@ -418,7 +418,7 @@
           "english": "Where's the restroom?"
         },
         {
-          "speaker": "Guide",
+          "speaker": "Wei Ming",
           "chinese": "在那边，右边。",
           "pinyin": "Zài nà biān, yòu biān.",
           "english": "Over there, on the right."
@@ -430,7 +430,7 @@
           "english": "Where's children's Sunday school?"
         },
         {
-          "speaker": "Guide",
+          "speaker": "Wei Ming",
           "chinese": "在楼上，左边第二间教室。",
           "pinyin": "Zài lóu shàng, zuǒ biān dì èr jiān jiàoshì.",
           "english": "Upstairs, the second classroom on the left."
@@ -537,7 +537,7 @@
       "scenario": "The service is about to begin. An usher gives you a bulletin and a friend tells you what's coming up.",
       "dialogue": [
         {
-          "speaker": "Usher",
+          "speaker": "Kevin",
           "chinese": "请坐，崇拜快开始了。",
           "pinyin": "Qǐng zuò, chóngbài kuài kāishǐ le.",
           "english": "Please sit, the service is about to start."
@@ -549,7 +549,7 @@
           "english": "Thanks. What's today's sermon about?"
         },
         {
-          "speaker": "Friend",
+          "speaker": "Hui Ling",
           "chinese": "是关于恩典的。",
           "pinyin": "Shì guānyú ēndiǎn de.",
           "english": "It's about grace."
@@ -561,7 +561,7 @@
           "english": "Great, do we sing songs first?"
         },
         {
-          "speaker": "Friend",
+          "speaker": "Hui Ling",
           "chinese": "对，然后祷告，再讲道。",
           "pinyin": "Duì, ránhòu dǎogào, zài jiǎngdào.",
           "english": "Yes, then prayer, then the sermon."
@@ -608,6 +608,24 @@
           "chinese": "然后",
           "pinyin": "ránhòu",
           "english": "then / afterwards",
+          "note": ""
+        },
+        {
+          "chinese": "谢谢",
+          "pinyin": "xièxie",
+          "english": "thank you",
+          "note": "Polite and warm, used often."
+        },
+        {
+          "chinese": "太好了",
+          "pinyin": "tài hǎo le",
+          "english": "that's great",
+          "note": "A warm, common expression of enthusiasm."
+        },
+        {
+          "chinese": "对",
+          "pinyin": "duì",
+          "english": "correct / yes",
           "note": ""
         }
       ],
@@ -675,7 +693,7 @@
           "english": "Excuse me, when does your small group meet?"
         },
         {
-          "speaker": "Leader",
+          "speaker": "Grace Lim",
           "chinese": "我们星期三晚上聚会。",
           "pinyin": "Wǒmen xīngqísān wǎnshàng jùhuì.",
           "english": "We meet on Wednesday evenings."
@@ -687,7 +705,7 @@
           "english": "Where do you meet?"
         },
         {
-          "speaker": "Leader",
+          "speaker": "Grace Lim",
           "chinese": "在弟兄姊妹的家里。",
           "pinyin": "Zài dìxiōng zǐmèi de jiā lǐ.",
           "english": "At a brother's or sister's home."
@@ -699,7 +717,7 @@
           "english": "Great, can I join?"
         },
         {
-          "speaker": "Leader",
+          "speaker": "Grace Lim",
           "chinese": "当然可以，欢迎你！",
           "pinyin": "Dāngrán kěyǐ, huānyíng nǐ!",
           "english": "Of course, welcome!"
@@ -746,6 +764,36 @@
           "chinese": "家",
           "pinyin": "jiā",
           "english": "home",
+          "note": ""
+        },
+        {
+          "chinese": "欢迎",
+          "pinyin": "huānyíng",
+          "english": "welcome",
+          "note": "Often heard from greeters at the door."
+        },
+        {
+          "chinese": "弟兄",
+          "pinyin": "dìxiōng",
+          "english": "brother (in Christ)",
+          "note": "Common term for male fellow believers."
+        },
+        {
+          "chinese": "姊妹",
+          "pinyin": "zǐmèi",
+          "english": "sister (in Christ)",
+          "note": "Common term for female fellow believers."
+        },
+        {
+          "chinese": "太好了",
+          "pinyin": "tài hǎo le",
+          "english": "that's great",
+          "note": "A warm, common expression of enthusiasm."
+        },
+        {
+          "chinese": "哪里",
+          "pinyin": "nǎlǐ",
+          "english": "where",
           "note": ""
         }
       ],
@@ -806,7 +854,7 @@
       "scenario": "During small group, members take turns sharing what they'd like the group to pray for.",
       "dialogue": [
         {
-          "speaker": "Leader",
+          "speaker": "Grace Lim",
           "chinese": "有没有代祷事项？",
           "pinyin": "Yǒu méiyǒu dàidǎo shìxiàng?",
           "english": "Does anyone have a prayer request?"
@@ -818,19 +866,19 @@
           "english": "Please pray for my family."
         },
         {
-          "speaker": "Leader",
+          "speaker": "Grace Lim",
           "chinese": "好的，我们一起为你祷告。",
           "pinyin": "Hǎo de, wǒmen yīqǐ wèi nǐ dǎogào.",
           "english": "Okay, let's pray for you together."
         },
         {
-          "speaker": "Friend",
+          "speaker": "Kevin",
           "chinese": "我也想请大家为我的工作祷告。",
           "pinyin": "Wǒ yě xiǎng qǐng dàjiā wèi wǒ de gōngzuò dǎogào.",
           "english": "I'd also like everyone to pray for my work."
         },
         {
-          "speaker": "Leader",
+          "speaker": "Grace Lim",
           "chinese": "没问题，我们记下来。",
           "pinyin": "Méi wèntí, wǒmen jì xiàlái.",
           "english": "No problem, we'll note it down."
@@ -877,6 +925,18 @@
           "chinese": "没问题",
           "pinyin": "méi wèntí",
           "english": "no problem",
+          "note": ""
+        },
+        {
+          "chinese": "祷告",
+          "pinyin": "dǎogào",
+          "english": "prayer",
+          "note": ""
+        },
+        {
+          "chinese": "家",
+          "pinyin": "jiā",
+          "english": "home",
           "note": ""
         }
       ],
@@ -943,7 +1003,7 @@
           "english": "Are you doing okay?"
         },
         {
-          "speaker": "Friend",
+          "speaker": "Jia Hui",
           "chinese": "这个星期有点辛苦。",
           "pinyin": "Zhège xīngqí yǒudiǎn xīnkǔ.",
           "english": "This week has been a bit hard."
@@ -955,7 +1015,7 @@
           "english": "God is with you, don't be discouraged."
         },
         {
-          "speaker": "Friend",
+          "speaker": "Jia Hui",
           "chinese": "谢谢你的鼓励。",
           "pinyin": "Xièxie nǐ de gǔlì.",
           "english": "Thank you for your encouragement."
@@ -1002,6 +1062,18 @@
           "chinese": "星期",
           "pinyin": "xīngqí",
           "english": "week",
+          "note": ""
+        },
+        {
+          "chinese": "谢谢",
+          "pinyin": "xièxie",
+          "english": "thank you",
+          "note": "Polite and warm, used often."
+        },
+        {
+          "chinese": "祷告",
+          "pinyin": "dǎogào",
+          "english": "prayer",
           "note": ""
         }
       ],
@@ -1062,7 +1134,7 @@
       "scenario": "At the end of a fellowship meal, someone asks you to share what you're thankful for.",
       "dialogue": [
         {
-          "speaker": "Leader",
+          "speaker": "Grace Lim",
           "chinese": "我们来分享感恩事项吧。",
           "pinyin": "Wǒmen lái fēnxiǎng gǎn'ēn shìxiàng ba.",
           "english": "Let's share what we're thankful for."
@@ -1074,13 +1146,13 @@
           "english": "I'm thankful for the church family God has given me."
         },
         {
-          "speaker": "Friend",
+          "speaker": "Wei Ming",
           "chinese": "我感恩这次的团契。",
           "pinyin": "Wǒ gǎn'ēn zhè cì de tuánqì.",
           "english": "I'm thankful for this fellowship gathering."
         },
         {
-          "speaker": "Leader",
+          "speaker": "Grace Lim",
           "chinese": "让我们一起感谢神。",
           "pinyin": "Ràng wǒmen yīqǐ gǎnxiè shén.",
           "english": "Let's give thanks to God together."
@@ -1122,6 +1194,30 @@
           "pinyin": "fēnxiǎng",
           "english": "to share",
           "note": ""
+        },
+        {
+          "chinese": "教会",
+          "pinyin": "jiàohuì",
+          "english": "church",
+          "note": "The community, not just the building."
+        },
+        {
+          "chinese": "家",
+          "pinyin": "jiā",
+          "english": "home",
+          "note": ""
+        },
+        {
+          "chinese": "一起",
+          "pinyin": "yīqǐ",
+          "english": "together",
+          "note": ""
+        },
+        {
+          "chinese": "神",
+          "pinyin": "shén",
+          "english": "God",
+          "note": "The standard CUVS term for God."
         }
       ],
       "quiz": [
@@ -1187,7 +1283,7 @@
           "english": "Are you free this Sunday?"
         },
         {
-          "speaker": "Friend",
+          "speaker": "Kevin",
           "chinese": "有空，怎么了？",
           "pinyin": "Yǒu kòng, zěnme le?",
           "english": "I'm free, why?"
@@ -1199,7 +1295,7 @@
           "english": "Would you like to go to church with me?"
         },
         {
-          "speaker": "Friend",
+          "speaker": "Kevin",
           "chinese": "好啊，几点开始？",
           "pinyin": "Hǎo a, jǐ diǎn kāishǐ?",
           "english": "Sure, what time does it start?"
@@ -1246,6 +1342,24 @@
           "chinese": "早上",
           "pinyin": "zǎoshang",
           "english": "morning",
+          "note": ""
+        },
+        {
+          "chinese": "教会",
+          "pinyin": "jiàohuì",
+          "english": "church",
+          "note": "The community, not just the building."
+        },
+        {
+          "chinese": "开始",
+          "pinyin": "kāishǐ",
+          "english": "to begin",
+          "note": ""
+        },
+        {
+          "chinese": "一起",
+          "pinyin": "yīqǐ",
+          "english": "together",
           "note": ""
         }
       ],
@@ -1297,6 +1411,4322 @@
         }
       ],
       "challenge": "Invite a friend to church this week using \"要不要跟我一起去教会？\""
+    },
+    {
+      "id": 11,
+      "stage": "Grow",
+      "title": "Reading the Bible",
+      "subtitle": "第十一课 · 灵修与读经",
+      "scenario": "You want to start a daily devotional habit and ask a friend how they do their personal Bible reading time.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "你每天都灵修吗？",
+          "pinyin": "Nǐ měitiān dōu língxiū ma?",
+          "english": "Do you have a quiet time every day?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "是的，我每天早上读经祷告。",
+          "pinyin": "Shì de, wǒ měitiān zǎoshang dú jīng dǎogào.",
+          "english": "Yes, I read the Bible and pray every morning."
+        },
+        {
+          "speaker": "You",
+          "chinese": "你用什么灵修材料？",
+          "pinyin": "Nǐ yòng shénme língxiū cáiliào?",
+          "english": "What devotional material do you use?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "我用一本读经手册，每天一章。",
+          "pinyin": "Wǒ yòng yī běn dú jīng shǒucè, měitiān yī zhāng.",
+          "english": "I use a devotional guide, one chapter a day."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我也想开始，你可以介绍给我吗？",
+          "pinyin": "Wǒ yě xiǎng kāishǐ, nǐ kěyǐ jièshào gěi wǒ ma?",
+          "english": "I'd like to start too — can you recommend one to me?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "当然可以！",
+          "pinyin": "Dāngrán kěyǐ!",
+          "english": "Of course!"
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "灵修",
+          "pinyin": "língxiū",
+          "english": "quiet time / devotion",
+          "note": ""
+        },
+        {
+          "chinese": "读经",
+          "pinyin": "dú jīng",
+          "english": "to read Scripture",
+          "note": ""
+        },
+        {
+          "chinese": "圣经",
+          "pinyin": "shèngjīng",
+          "english": "Bible",
+          "note": ""
+        },
+        {
+          "chinese": "手册",
+          "pinyin": "shǒucè",
+          "english": "handbook / guide",
+          "note": ""
+        },
+        {
+          "chinese": "章",
+          "pinyin": "zhāng",
+          "english": "chapter",
+          "note": ""
+        },
+        {
+          "chinese": "介绍",
+          "pinyin": "jièshào",
+          "english": "to introduce / recommend",
+          "note": ""
+        },
+        {
+          "chinese": "每天",
+          "pinyin": "měitiān",
+          "english": "every day",
+          "note": ""
+        },
+        {
+          "chinese": "祷告",
+          "pinyin": "dǎogào",
+          "english": "prayer",
+          "note": ""
+        },
+        {
+          "chinese": "开始",
+          "pinyin": "kāishǐ",
+          "english": "to begin",
+          "note": ""
+        },
+        {
+          "chinese": "当然",
+          "pinyin": "dāngrán",
+          "english": "of course",
+          "note": ""
+        },
+        {
+          "chinese": "早上",
+          "pinyin": "zǎoshang",
+          "english": "morning",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 灵修 mean?",
+          "options": [
+            "quiet time / devotion",
+            "sermon",
+            "communion"
+          ],
+          "answer": "quiet time / devotion"
+        },
+        {
+          "question": "What does 圣经 mean?",
+          "options": [
+            "Bible",
+            "hymn book",
+            "bulletin"
+          ],
+          "answer": "Bible"
+        },
+        {
+          "question": "What does 读经 mean?",
+          "options": [
+            "to read Scripture",
+            "to sing",
+            "to pray aloud"
+          ],
+          "answer": "to read Scripture"
+        },
+        {
+          "question": "What does 每天 mean?",
+          "options": [
+            "every day",
+            "every week",
+            "every year"
+          ],
+          "answer": "every day"
+        },
+        {
+          "question": "What does 介绍 mean?",
+          "options": [
+            "to introduce / recommend",
+            "to forget",
+            "to worry"
+          ],
+          "answer": "to introduce / recommend"
+        }
+      ],
+      "challenge": "Start a daily 灵修 this week — read one chapter and note what stood out to you."
+    },
+    {
+      "id": 12,
+      "stage": "Grow",
+      "title": "Salvation",
+      "subtitle": "第十二课 · 救恩",
+      "scenario": "A friend asks you to explain what it means to be saved, and you share simply what the Bible teaches.",
+      "dialogue": [
+        {
+          "speaker": "Jia Hui",
+          "chinese": "什么是救恩？",
+          "pinyin": "Shénme shì jiù'ēn?",
+          "english": "What is salvation?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "救恩是神因着恩典赦免我们的罪。",
+          "pinyin": "Jiù'ēn shì shén yīnzhe ēndiǎn shèmiǎn wǒmen de zuì.",
+          "english": "Salvation is God forgiving our sins by grace."
+        },
+        {
+          "speaker": "Jia Hui",
+          "chinese": "我们要怎么得到救恩？",
+          "pinyin": "Wǒmen yào zěnme dédào jiù'ēn?",
+          "english": "How do we receive salvation?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "因信耶稣基督，我们就得救了。",
+          "pinyin": "Yīn xìn Yēsū Jīdū, wǒmen jiù déjiù le.",
+          "english": "By believing in Jesus Christ, we are saved."
+        },
+        {
+          "speaker": "Jia Hui",
+          "chinese": "这是靠行为吗？",
+          "pinyin": "Zhè shì kào xíngwéi ma?",
+          "english": "Is this based on good works?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "不是，是神的恩典，不是行为。",
+          "pinyin": "Bùshì, shì shén de ēndiǎn, bùshì xíngwéi.",
+          "english": "No, it's by God's grace, not works."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "救恩",
+          "pinyin": "jiù'ēn",
+          "english": "salvation",
+          "note": ""
+        },
+        {
+          "chinese": "罪",
+          "pinyin": "zuì",
+          "english": "sin",
+          "note": ""
+        },
+        {
+          "chinese": "赦免",
+          "pinyin": "shèmiǎn",
+          "english": "to forgive",
+          "note": ""
+        },
+        {
+          "chinese": "信",
+          "pinyin": "xìn",
+          "english": "to believe",
+          "note": ""
+        },
+        {
+          "chinese": "耶稣基督",
+          "pinyin": "Yēsū Jīdū",
+          "english": "Jesus Christ",
+          "note": ""
+        },
+        {
+          "chinese": "得救",
+          "pinyin": "déjiù",
+          "english": "to be saved",
+          "note": ""
+        },
+        {
+          "chinese": "行为",
+          "pinyin": "xíngwéi",
+          "english": "works / deeds",
+          "note": ""
+        },
+        {
+          "chinese": "恩典",
+          "pinyin": "ēndiǎn",
+          "english": "grace",
+          "note": "The term used throughout the Chinese Union Version (和合本, CUVS) Bible."
+        },
+        {
+          "chinese": "神",
+          "pinyin": "shén",
+          "english": "God",
+          "note": "The standard CUVS term for God."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 救恩 mean?",
+          "options": [
+            "salvation",
+            "communion",
+            "baptism"
+          ],
+          "answer": "salvation"
+        },
+        {
+          "question": "What does 罪 mean?",
+          "options": [
+            "sin",
+            "grace",
+            "faith"
+          ],
+          "answer": "sin"
+        },
+        {
+          "question": "What does 赦免 mean?",
+          "options": [
+            "to forgive",
+            "to punish",
+            "to forget"
+          ],
+          "answer": "to forgive"
+        },
+        {
+          "question": "What does 得救 mean?",
+          "options": [
+            "to be saved",
+            "to be baptised",
+            "to be blessed"
+          ],
+          "answer": "to be saved"
+        },
+        {
+          "question": "What does 行为 mean?",
+          "options": [
+            "works / deeds",
+            "faith",
+            "prayer"
+          ],
+          "answer": "works / deeds"
+        }
+      ],
+      "challenge": "Practice explaining 救恩 in one simple sentence to a friend this week."
+    },
+    {
+      "id": 13,
+      "stage": "Grow",
+      "title": "Baptism",
+      "subtitle": "第十三课 · 洗礼",
+      "scenario": "You're thinking about getting baptised and ask a church leader what the process involves.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "我想受洗，应该怎么做？",
+          "pinyin": "Wǒ xiǎng shòuxǐ, yīnggāi zěnme zuò?",
+          "english": "I'd like to be baptised — what should I do?"
+        },
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "太好了！你需要先上洗礼班。",
+          "pinyin": "Tài hǎo le! Nǐ xūyào xiān shàng xǐlǐ bān.",
+          "english": "Wonderful! You'll need to attend the baptism class first."
+        },
+        {
+          "speaker": "You",
+          "chinese": "洗礼班教些什么？",
+          "pinyin": "Xǐlǐ bān jiāo xiē shénme?",
+          "english": "What does the baptism class teach?"
+        },
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "教你信仰的基本要道。",
+          "pinyin": "Jiāo nǐ xìnyǎng de jīběn yàodào.",
+          "english": "It teaches the basics of the faith."
+        },
+        {
+          "speaker": "You",
+          "chinese": "洗礼是什么时候举行？",
+          "pinyin": "Xǐlǐ shì shénme shíhòu jǔxíng?",
+          "english": "When is the baptism held?"
+        },
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "通常在主日崇拜的时候。",
+          "pinyin": "Tōngcháng zài zhǔrì chóngbài de shíhòu.",
+          "english": "Usually during the Sunday worship service."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "洗礼",
+          "pinyin": "xǐlǐ",
+          "english": "baptism",
+          "note": ""
+        },
+        {
+          "chinese": "受洗",
+          "pinyin": "shòuxǐ",
+          "english": "to be baptised",
+          "note": ""
+        },
+        {
+          "chinese": "信仰",
+          "pinyin": "xìnyǎng",
+          "english": "faith / belief",
+          "note": ""
+        },
+        {
+          "chinese": "要道",
+          "pinyin": "yàodào",
+          "english": "basic teaching / doctrine",
+          "note": ""
+        },
+        {
+          "chinese": "举行",
+          "pinyin": "jǔxíng",
+          "english": "to hold (an event)",
+          "note": ""
+        },
+        {
+          "chinese": "通常",
+          "pinyin": "tōngcháng",
+          "english": "usually",
+          "note": ""
+        },
+        {
+          "chinese": "基本",
+          "pinyin": "jīběn",
+          "english": "basic",
+          "note": ""
+        },
+        {
+          "chinese": "太好了",
+          "pinyin": "tài hǎo le",
+          "english": "that's great",
+          "note": "A warm, common expression of enthusiasm."
+        },
+        {
+          "chinese": "崇拜",
+          "pinyin": "chóngbài",
+          "english": "worship service",
+          "note": "The standard term in Singapore Protestant churches (as in 主日崇拜, 'Sunday worship service'). You may also hear 礼拜 used colloquially, especially for 'attending church' (做礼拜)."
+        },
+        {
+          "chinese": "主日",
+          "pinyin": "zhǔrì",
+          "english": "the Lord's Day / Sunday",
+          "note": "The common Singapore-church term for Sunday, as in 主日崇拜 and 主日学."
+        },
+        {
+          "chinese": "信",
+          "pinyin": "xìn",
+          "english": "to believe",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 洗礼 mean?",
+          "options": [
+            "baptism",
+            "communion",
+            "wedding"
+          ],
+          "answer": "baptism"
+        },
+        {
+          "question": "What does 受洗 mean?",
+          "options": [
+            "to be baptised",
+            "to be saved",
+            "to be married"
+          ],
+          "answer": "to be baptised"
+        },
+        {
+          "question": "What does 信仰 mean?",
+          "options": [
+            "faith / belief",
+            "sermon",
+            "hymn"
+          ],
+          "answer": "faith / belief"
+        },
+        {
+          "question": "What does 通常 mean?",
+          "options": [
+            "usually",
+            "never",
+            "rarely"
+          ],
+          "answer": "usually"
+        },
+        {
+          "question": "What does 举行 mean?",
+          "options": [
+            "to hold (an event)",
+            "to cancel",
+            "to postpone"
+          ],
+          "answer": "to hold (an event)"
+        }
+      ],
+      "challenge": "Ask a church leader this week what the 洗礼班 (baptism class) involves."
+    },
+    {
+      "id": 14,
+      "stage": "Grow",
+      "title": "Communion",
+      "subtitle": "第十四课 · 圣餐",
+      "scenario": "It's your first time attending a communion service, and you ask a friend what to expect.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "今天有圣餐礼，是怎样的？",
+          "pinyin": "Jīntiān yǒu shèngcān lǐ, shì zěnyàng de?",
+          "english": "There's communion today — what's it like?"
+        },
+        {
+          "speaker": "Wei Ming",
+          "chinese": "我们领饼和杯，记念主耶稣。",
+          "pinyin": "Wǒmen lǐng bǐng hé bēi, jìniàn zhǔ Yēsū.",
+          "english": "We receive bread and the cup, remembering the Lord Jesus."
+        },
+        {
+          "speaker": "You",
+          "chinese": "饼和杯代表什么？",
+          "pinyin": "Bǐng hé bēi dàibiǎo shénme?",
+          "english": "What do the bread and cup represent?"
+        },
+        {
+          "speaker": "Wei Ming",
+          "chinese": "代表主的身体和宝血。",
+          "pinyin": "Dàibiǎo zhǔ de shēntǐ hé bǎoxuè.",
+          "english": "They represent the Lord's body and precious blood."
+        },
+        {
+          "speaker": "You",
+          "chinese": "谁可以领圣餐？",
+          "pinyin": "Shéi kěyǐ lǐng shèngcān?",
+          "english": "Who can take communion?"
+        },
+        {
+          "speaker": "Wei Ming",
+          "chinese": "已经受洗的信徒都可以。",
+          "pinyin": "Yǐjīng shòuxǐ de xìntú dōu kěyǐ.",
+          "english": "Any baptised believer can."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "圣餐",
+          "pinyin": "shèngcān",
+          "english": "communion / the Lord's Supper",
+          "note": ""
+        },
+        {
+          "chinese": "饼",
+          "pinyin": "bǐng",
+          "english": "bread",
+          "note": ""
+        },
+        {
+          "chinese": "杯",
+          "pinyin": "bēi",
+          "english": "cup",
+          "note": ""
+        },
+        {
+          "chinese": "记念",
+          "pinyin": "jìniàn",
+          "english": "to remember / commemorate",
+          "note": ""
+        },
+        {
+          "chinese": "代表",
+          "pinyin": "dàibiǎo",
+          "english": "to represent",
+          "note": ""
+        },
+        {
+          "chinese": "身体",
+          "pinyin": "shēntǐ",
+          "english": "body",
+          "note": ""
+        },
+        {
+          "chinese": "信徒",
+          "pinyin": "xìntú",
+          "english": "believer",
+          "note": ""
+        },
+        {
+          "chinese": "信",
+          "pinyin": "xìn",
+          "english": "to believe",
+          "note": ""
+        },
+        {
+          "chinese": "受洗",
+          "pinyin": "shòuxǐ",
+          "english": "to be baptised",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 圣餐 mean?",
+          "options": [
+            "communion",
+            "baptism",
+            "worship service"
+          ],
+          "answer": "communion"
+        },
+        {
+          "question": "What does 记念 mean?",
+          "options": [
+            "to remember / commemorate",
+            "to forget",
+            "to celebrate"
+          ],
+          "answer": "to remember / commemorate"
+        },
+        {
+          "question": "What does 信徒 mean?",
+          "options": [
+            "believer",
+            "pastor",
+            "visitor"
+          ],
+          "answer": "believer"
+        },
+        {
+          "question": "What does 代表 mean?",
+          "options": [
+            "to represent",
+            "to replace",
+            "to reject"
+          ],
+          "answer": "to represent"
+        },
+        {
+          "question": "What does 饼 mean?",
+          "options": [
+            "bread",
+            "cup",
+            "wine"
+          ],
+          "answer": "bread"
+        }
+      ],
+      "challenge": "During communion this week, take a moment to reflect on what 记念主耶稣 means to you."
+    },
+    {
+      "id": 15,
+      "stage": "Grow",
+      "title": "Sharing Your Testimony",
+      "subtitle": "第十五课 · 分享见证",
+      "scenario": "Your small group leader invites you to share your testimony — the story of how you came to know Christ.",
+      "dialogue": [
+        {
+          "speaker": "Grace Lim",
+          "chinese": "你愿意分享你的见证吗？",
+          "pinyin": "Nǐ yuànyì fēnxiǎng nǐ de jiànzhèng ma?",
+          "english": "Would you like to share your testimony?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "好的。我以前不认识神。",
+          "pinyin": "Hǎo de. Wǒ yǐqián bù rènshi shén.",
+          "english": "Okay. I didn't know God before."
+        },
+        {
+          "speaker": "You",
+          "chinese": "后来朋友带我去教会，我信了主。",
+          "pinyin": "Hòulái péngyǒu dài wǒ qù jiàohuì, wǒ xìn le zhǔ.",
+          "english": "Later a friend brought me to church, and I believed in the Lord."
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "神怎样改变了你的生命？",
+          "pinyin": "Shén zěnyàng gǎibiàn le nǐ de shēngmìng?",
+          "english": "How has God changed your life?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "我学会了饶恕，也更有平安。",
+          "pinyin": "Wǒ xuéhuì le ráoshù, yě gèng yǒu píng'ān.",
+          "english": "I learned to forgive, and I have more peace."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "见证",
+          "pinyin": "jiànzhèng",
+          "english": "testimony",
+          "note": ""
+        },
+        {
+          "chinese": "以前",
+          "pinyin": "yǐqián",
+          "english": "before / previously",
+          "note": ""
+        },
+        {
+          "chinese": "后来",
+          "pinyin": "hòulái",
+          "english": "afterwards / later",
+          "note": ""
+        },
+        {
+          "chinese": "改变",
+          "pinyin": "gǎibiàn",
+          "english": "to change",
+          "note": ""
+        },
+        {
+          "chinese": "生命",
+          "pinyin": "shēngmìng",
+          "english": "life",
+          "note": ""
+        },
+        {
+          "chinese": "饶恕",
+          "pinyin": "ráoshù",
+          "english": "to forgive",
+          "note": ""
+        },
+        {
+          "chinese": "信主",
+          "pinyin": "xìn zhǔ",
+          "english": "to believe in the Lord",
+          "note": ""
+        },
+        {
+          "chinese": "教会",
+          "pinyin": "jiàohuì",
+          "english": "church",
+          "note": "The community, not just the building."
+        },
+        {
+          "chinese": "平安",
+          "pinyin": "píng'ān",
+          "english": "peace",
+          "note": "A common greeting among Singapore Protestant believers, often short for 主内平安 ('peace in the Lord')."
+        },
+        {
+          "chinese": "认识",
+          "pinyin": "rènshi",
+          "english": "to know / meet",
+          "note": ""
+        },
+        {
+          "chinese": "朋友",
+          "pinyin": "péngyǒu",
+          "english": "friend",
+          "note": ""
+        },
+        {
+          "chinese": "神",
+          "pinyin": "shén",
+          "english": "God",
+          "note": "The standard CUVS term for God."
+        },
+        {
+          "chinese": "分享",
+          "pinyin": "fēnxiǎng",
+          "english": "to share",
+          "note": ""
+        },
+        {
+          "chinese": "信",
+          "pinyin": "xìn",
+          "english": "to believe",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 见证 mean?",
+          "options": [
+            "testimony",
+            "sermon",
+            "hymn"
+          ],
+          "answer": "testimony"
+        },
+        {
+          "question": "What does 改变 mean?",
+          "options": [
+            "to change",
+            "to remain",
+            "to forget"
+          ],
+          "answer": "to change"
+        },
+        {
+          "question": "What does 饶恕 mean?",
+          "options": [
+            "to forgive",
+            "to punish",
+            "to doubt"
+          ],
+          "answer": "to forgive"
+        },
+        {
+          "question": "What does 生命 mean?",
+          "options": [
+            "life",
+            "death",
+            "work"
+          ],
+          "answer": "life"
+        },
+        {
+          "question": "What does 信主 mean?",
+          "options": [
+            "to believe in the Lord",
+            "to visit church",
+            "to sing a hymn"
+          ],
+          "answer": "to believe in the Lord"
+        }
+      ],
+      "challenge": "Write down two or three sentences of your own 见证 this week."
+    },
+    {
+      "id": 16,
+      "stage": "Serve",
+      "title": "Welcoming Visitors",
+      "subtitle": "第十六课 · 接待新朋友",
+      "scenario": "You're on the welcome team this Sunday, greeting first-time visitors at the door.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "你好！欢迎你来！这是你第一次来吗？",
+          "pinyin": "Nǐ hǎo! Huānyíng nǐ lái! Zhè shì nǐ dì yī cì lái ma?",
+          "english": "Hello! Welcome! Is this your first time here?"
+        },
+        {
+          "speaker": "Rachel",
+          "chinese": "是的，谢谢你的接待。",
+          "pinyin": "Shì de, xièxie nǐ de jiēdài.",
+          "english": "Yes, thank you for the welcome."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我带你去找位子，好吗？",
+          "pinyin": "Wǒ dài nǐ qù zhǎo wèizi, hǎo ma?",
+          "english": "Let me take you to find a seat, okay?"
+        },
+        {
+          "speaker": "Rachel",
+          "chinese": "好的，谢谢。",
+          "pinyin": "Hǎo de, xièxie.",
+          "english": "Okay, thank you."
+        },
+        {
+          "speaker": "You",
+          "chinese": "崇拜后欢迎留下来喝茶。",
+          "pinyin": "Chóngbài hòu huānyíng liú xiàlái hē chá.",
+          "english": "After the service, you're welcome to stay for tea."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "接待",
+          "pinyin": "jiēdài",
+          "english": "to welcome / host",
+          "note": ""
+        },
+        {
+          "chinese": "位子",
+          "pinyin": "wèizi",
+          "english": "seat",
+          "note": ""
+        },
+        {
+          "chinese": "留下来",
+          "pinyin": "liú xiàlái",
+          "english": "to stay",
+          "note": ""
+        },
+        {
+          "chinese": "喝茶",
+          "pinyin": "hē chá",
+          "english": "to have tea",
+          "note": "A common Singapore-church term for staying on for fellowship refreshments after service."
+        },
+        {
+          "chinese": "带",
+          "pinyin": "dài",
+          "english": "to lead / bring someone",
+          "note": ""
+        },
+        {
+          "chinese": "你好",
+          "pinyin": "nǐ hǎo",
+          "english": "hello",
+          "note": "The most common everyday greeting."
+        },
+        {
+          "chinese": "欢迎",
+          "pinyin": "huānyíng",
+          "english": "welcome",
+          "note": "Often heard from greeters at the door."
+        },
+        {
+          "chinese": "谢谢",
+          "pinyin": "xièxie",
+          "english": "thank you",
+          "note": "Polite and warm, used often."
+        },
+        {
+          "chinese": "第一次",
+          "pinyin": "dì yī cì",
+          "english": "first time",
+          "note": ""
+        },
+        {
+          "chinese": "崇拜",
+          "pinyin": "chóngbài",
+          "english": "worship service",
+          "note": "The standard term in Singapore Protestant churches (as in 主日崇拜, 'Sunday worship service'). You may also hear 礼拜 used colloquially, especially for 'attending church' (做礼拜)."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 接待 mean?",
+          "options": [
+            "to welcome / host",
+            "to teach",
+            "to lead worship"
+          ],
+          "answer": "to welcome / host"
+        },
+        {
+          "question": "What does 位子 mean?",
+          "options": [
+            "seat",
+            "door",
+            "stage"
+          ],
+          "answer": "seat"
+        },
+        {
+          "question": "What does 留下来 mean?",
+          "options": [
+            "to stay",
+            "to leave",
+            "to arrive"
+          ],
+          "answer": "to stay"
+        },
+        {
+          "question": "What does 喝茶 mean?",
+          "options": [
+            "to have tea",
+            "to eat lunch",
+            "to sing"
+          ],
+          "answer": "to have tea"
+        },
+        {
+          "question": "How do you ask \"is this your first time?\"",
+          "options": [
+            "这是你第一次来吗？",
+            "你叫什么名字？",
+            "你住附近吗？"
+          ],
+          "answer": "这是你第一次来吗？"
+        }
+      ],
+      "challenge": "Welcome a first-time visitor at church this week using 接待."
+    },
+    {
+      "id": 17,
+      "stage": "Serve",
+      "title": "Serving in Children's Ministry",
+      "subtitle": "第十七课 · 儿童主日学服事",
+      "scenario": "You've volunteered to help teach in Sunday school and are talking with the coordinator about your role.",
+      "dialogue": [
+        {
+          "speaker": "Grace Lim",
+          "chinese": "谢谢你来服事儿童主日学。",
+          "pinyin": "Xièxie nǐ lái fúshì értóng zhǔrìxué.",
+          "english": "Thank you for coming to serve in children's Sunday school."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我需要做什么？",
+          "pinyin": "Wǒ xūyào zuò shénme?",
+          "english": "What do I need to do?"
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "你可以带一个圣经故事和游戏。",
+          "pinyin": "Nǐ kěyǐ dài yīgè shèngjīng gùshì hé yóuxì.",
+          "english": "You can lead a Bible story and a game."
+        },
+        {
+          "speaker": "You",
+          "chinese": "孩子们大概几岁？",
+          "pinyin": "Háizimen dàgài jǐ suì?",
+          "english": "About how old are the children?"
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "大概六到十岁。",
+          "pinyin": "Dàgài liù dào shí suì.",
+          "english": "About six to ten years old."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "服事",
+          "pinyin": "fúshì",
+          "english": "to serve (in ministry)",
+          "note": ""
+        },
+        {
+          "chinese": "故事",
+          "pinyin": "gùshì",
+          "english": "story",
+          "note": ""
+        },
+        {
+          "chinese": "游戏",
+          "pinyin": "yóuxì",
+          "english": "game",
+          "note": ""
+        },
+        {
+          "chinese": "孩子",
+          "pinyin": "háizi",
+          "english": "child",
+          "note": ""
+        },
+        {
+          "chinese": "大概",
+          "pinyin": "dàgài",
+          "english": "about / approximately",
+          "note": ""
+        },
+        {
+          "chinese": "岁",
+          "pinyin": "suì",
+          "english": "years old",
+          "note": ""
+        },
+        {
+          "chinese": "谢谢",
+          "pinyin": "xièxie",
+          "english": "thank you",
+          "note": "Polite and warm, used often."
+        },
+        {
+          "chinese": "儿童主日学",
+          "pinyin": "értóng zhǔrìxué",
+          "english": "children's Sunday school",
+          "note": ""
+        },
+        {
+          "chinese": "主日",
+          "pinyin": "zhǔrì",
+          "english": "the Lord's Day / Sunday",
+          "note": "The common Singapore-church term for Sunday, as in 主日崇拜 and 主日学."
+        },
+        {
+          "chinese": "圣经",
+          "pinyin": "shèngjīng",
+          "english": "Bible",
+          "note": ""
+        },
+        {
+          "chinese": "带",
+          "pinyin": "dài",
+          "english": "to lead / bring someone",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 服事 mean?",
+          "options": [
+            "to serve (in ministry)",
+            "to teach",
+            "to pray"
+          ],
+          "answer": "to serve (in ministry)"
+        },
+        {
+          "question": "What does 故事 mean?",
+          "options": [
+            "story",
+            "song",
+            "prayer"
+          ],
+          "answer": "story"
+        },
+        {
+          "question": "What does 孩子 mean?",
+          "options": [
+            "child",
+            "adult",
+            "teacher"
+          ],
+          "answer": "child"
+        },
+        {
+          "question": "What does 大概 mean?",
+          "options": [
+            "about / approximately",
+            "exactly",
+            "never"
+          ],
+          "answer": "about / approximately"
+        },
+        {
+          "question": "What does 游戏 mean?",
+          "options": [
+            "game",
+            "lesson",
+            "snack"
+          ],
+          "answer": "game"
+        }
+      ],
+      "challenge": "Offer to help with 儿童主日学 (children's Sunday school) at least once this month."
+    },
+    {
+      "id": 18,
+      "stage": "Serve",
+      "title": "Leading a Bible Study Discussion",
+      "subtitle": "第十八课 · 带领查经",
+      "scenario": "You've been asked to lead the discussion questions at your small group's Bible study this week.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "今天我来带查经，可以吗？",
+          "pinyin": "Jīntiān wǒ lái dài cházīng, kěyǐ ma?",
+          "english": "I'll lead the Bible study today, is that okay?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "好啊，我们准备好了。",
+          "pinyin": "Hǎo a, wǒmen zhǔnbèi hǎo le.",
+          "english": "Sure, we're ready."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我们先读经文，然后讨论问题。",
+          "pinyin": "Wǒmen xiān dú jīngwén, ránhòu tǎolùn wèntí.",
+          "english": "Let's read the passage first, then discuss the questions."
+        },
+        {
+          "speaker": "Kevin",
+          "chinese": "这段经文的意思是什么？",
+          "pinyin": "Zhè duàn jīngwén de yìsi shì shénme?",
+          "english": "What does this passage mean?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "我们一起来讨论吧。",
+          "pinyin": "Wǒmen yīqǐ lái tǎolùn ba.",
+          "english": "Let's discuss it together."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "查经",
+          "pinyin": "cházīng",
+          "english": "Bible study",
+          "note": "Refers to the activity itself, distinct from 小组 (the group) or 团契 (fellowship gathering)."
+        },
+        {
+          "chinese": "带领",
+          "pinyin": "dàilǐng",
+          "english": "to lead",
+          "note": ""
+        },
+        {
+          "chinese": "经文",
+          "pinyin": "jīngwén",
+          "english": "Scripture passage",
+          "note": ""
+        },
+        {
+          "chinese": "讨论",
+          "pinyin": "tǎolùn",
+          "english": "to discuss",
+          "note": ""
+        },
+        {
+          "chinese": "意思",
+          "pinyin": "yìsi",
+          "english": "meaning",
+          "note": ""
+        },
+        {
+          "chinese": "准备",
+          "pinyin": "zhǔnbèi",
+          "english": "to prepare",
+          "note": ""
+        },
+        {
+          "chinese": "然后",
+          "pinyin": "ránhòu",
+          "english": "then / afterwards",
+          "note": ""
+        },
+        {
+          "chinese": "一起",
+          "pinyin": "yīqǐ",
+          "english": "together",
+          "note": ""
+        },
+        {
+          "chinese": "读经",
+          "pinyin": "dú jīng",
+          "english": "to read Scripture",
+          "note": ""
+        },
+        {
+          "chinese": "带",
+          "pinyin": "dài",
+          "english": "to lead / bring someone",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 查经 mean?",
+          "options": [
+            "Bible study",
+            "worship service",
+            "fellowship meal"
+          ],
+          "answer": "Bible study"
+        },
+        {
+          "question": "What does 带领 mean?",
+          "options": [
+            "to lead",
+            "to follow",
+            "to visit"
+          ],
+          "answer": "to lead"
+        },
+        {
+          "question": "What does 讨论 mean?",
+          "options": [
+            "to discuss",
+            "to sing",
+            "to read silently"
+          ],
+          "answer": "to discuss"
+        },
+        {
+          "question": "What does 经文 mean?",
+          "options": [
+            "Scripture passage",
+            "hymn lyrics",
+            "church notice"
+          ],
+          "answer": "Scripture passage"
+        },
+        {
+          "question": "What does 意思 mean?",
+          "options": [
+            "meaning",
+            "sound",
+            "letter"
+          ],
+          "answer": "meaning"
+        }
+      ],
+      "challenge": "Offer to help lead one discussion question at your next 查经 (Bible study)."
+    },
+    {
+      "id": 19,
+      "stage": "Serve",
+      "title": "Home Visitation",
+      "subtitle": "第十九课 · 家庭探访",
+      "scenario": "You're visiting an elderly church member at home together with a pastoral care volunteer.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "我们是从教会来探访你的。",
+          "pinyin": "Wǒmen shì cóng jiàohuì lái tànfǎng nǐ de.",
+          "english": "We're visiting you from the church."
+        },
+        {
+          "speaker": "Auntie Tan",
+          "chinese": "谢谢你们特地来看我。",
+          "pinyin": "Xièxie nǐmen tèdì lái kàn wǒ.",
+          "english": "Thank you for coming specially to see me."
+        },
+        {
+          "speaker": "You",
+          "chinese": "你最近身体好吗？",
+          "pinyin": "Nǐ zuìjìn shēntǐ hǎo ma?",
+          "english": "How has your health been lately?"
+        },
+        {
+          "speaker": "Auntie Tan",
+          "chinese": "还好，谢谢关心。",
+          "pinyin": "Hái hǎo, xièxie guānxīn.",
+          "english": "It's okay, thank you for your concern."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我们可以为你祷告吗？",
+          "pinyin": "Wǒmen kěyǐ wèi nǐ dǎogào ma?",
+          "english": "May we pray for you?"
+        },
+        {
+          "speaker": "Auntie Tan",
+          "chinese": "当然可以，谢谢你们。",
+          "pinyin": "Dāngrán kěyǐ, xièxie nǐmen.",
+          "english": "Of course, thank you."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "探访",
+          "pinyin": "tànfǎng",
+          "english": "to visit (pastoral care)",
+          "note": ""
+        },
+        {
+          "chinese": "特地",
+          "pinyin": "tèdì",
+          "english": "especially / specially",
+          "note": ""
+        },
+        {
+          "chinese": "最近",
+          "pinyin": "zuìjìn",
+          "english": "recently",
+          "note": ""
+        },
+        {
+          "chinese": "关心",
+          "pinyin": "guānxīn",
+          "english": "to care / be concerned",
+          "note": ""
+        },
+        {
+          "chinese": "教会",
+          "pinyin": "jiàohuì",
+          "english": "church",
+          "note": "The community, not just the building."
+        },
+        {
+          "chinese": "谢谢",
+          "pinyin": "xièxie",
+          "english": "thank you",
+          "note": "Polite and warm, used often."
+        },
+        {
+          "chinese": "祷告",
+          "pinyin": "dǎogào",
+          "english": "prayer",
+          "note": ""
+        },
+        {
+          "chinese": "当然",
+          "pinyin": "dāngrán",
+          "english": "of course",
+          "note": ""
+        },
+        {
+          "chinese": "身体",
+          "pinyin": "shēntǐ",
+          "english": "body",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 探访 mean?",
+          "options": [
+            "to visit (pastoral care)",
+            "to invite",
+            "to welcome"
+          ],
+          "answer": "to visit (pastoral care)"
+        },
+        {
+          "question": "What does 关心 mean?",
+          "options": [
+            "to care / be concerned",
+            "to forget",
+            "to ignore"
+          ],
+          "answer": "to care / be concerned"
+        },
+        {
+          "question": "What does 最近 mean?",
+          "options": [
+            "recently",
+            "long ago",
+            "next year"
+          ],
+          "answer": "recently"
+        },
+        {
+          "question": "What does 特地 mean?",
+          "options": [
+            "especially / specially",
+            "occasionally",
+            "rarely"
+          ],
+          "answer": "especially / specially"
+        },
+        {
+          "question": "How do you ask \"may we pray for you?\"",
+          "options": [
+            "我们可以为你祷告吗？",
+            "你叫什么名字？",
+            "你住在哪里？"
+          ],
+          "answer": "我们可以为你祷告吗？"
+        }
+      ],
+      "challenge": "Join a 探访 (home visitation) team, or check in on an older church member this week."
+    },
+    {
+      "id": 20,
+      "stage": "Serve",
+      "title": "Explaining the Gospel",
+      "subtitle": "第二十课 · 传福音",
+      "scenario": "A coworker asks you what Christians actually believe, and you have the chance to share the Gospel simply.",
+      "dialogue": [
+        {
+          "speaker": "Daniel",
+          "chinese": "基督徒到底信什么？",
+          "pinyin": "Jīdūtú dàodǐ xìn shénme?",
+          "english": "What do Christians actually believe?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "我们相信神爱世人，差祂的儿子耶稣来。",
+          "pinyin": "Wǒmen xiāngxìn shén ài shìrén, chāi tā de érzi Yēsū lái.",
+          "english": "We believe God loves the world and sent His Son Jesus."
+        },
+        {
+          "speaker": "Daniel",
+          "chinese": "耶稣为什么要来？",
+          "pinyin": "Yēsū wèishéme yào lái?",
+          "english": "Why did Jesus come?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "祂为我们的罪死在十字架上。",
+          "pinyin": "Tā wèi wǒmen de zuì sǐ zài shízìjià shàng.",
+          "english": "He died on the cross for our sins."
+        },
+        {
+          "speaker": "Daniel",
+          "chinese": "那我们要怎么回应？",
+          "pinyin": "Nà wǒmen yào zěnme huíyìng?",
+          "english": "So how should we respond?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "只要相信祂，接受祂做救主。",
+          "pinyin": "Zhǐyào xiāngxìn tā, jiēshòu tā zuò jiùzhǔ.",
+          "english": "Just believe in Him and receive Him as Savior."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "传福音",
+          "pinyin": "chuán fúyīn",
+          "english": "to share the Gospel / evangelise",
+          "note": ""
+        },
+        {
+          "chinese": "世人",
+          "pinyin": "shìrén",
+          "english": "the world / humankind",
+          "note": ""
+        },
+        {
+          "chinese": "十字架",
+          "pinyin": "shízìjià",
+          "english": "cross",
+          "note": ""
+        },
+        {
+          "chinese": "接受",
+          "pinyin": "jiēshòu",
+          "english": "to receive / accept",
+          "note": ""
+        },
+        {
+          "chinese": "救主",
+          "pinyin": "jiùzhǔ",
+          "english": "Savior",
+          "note": ""
+        },
+        {
+          "chinese": "回应",
+          "pinyin": "huíyìng",
+          "english": "to respond",
+          "note": ""
+        },
+        {
+          "chinese": "神",
+          "pinyin": "shén",
+          "english": "God",
+          "note": "The standard CUVS term for God."
+        },
+        {
+          "chinese": "罪",
+          "pinyin": "zuì",
+          "english": "sin",
+          "note": ""
+        },
+        {
+          "chinese": "信",
+          "pinyin": "xìn",
+          "english": "to believe",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 传福音 mean?",
+          "options": [
+            "to share the Gospel",
+            "to lead worship",
+            "to read Scripture"
+          ],
+          "answer": "to share the Gospel"
+        },
+        {
+          "question": "What does 十字架 mean?",
+          "options": [
+            "cross",
+            "altar",
+            "Bible"
+          ],
+          "answer": "cross"
+        },
+        {
+          "question": "What does 救主 mean?",
+          "options": [
+            "Savior",
+            "pastor",
+            "teacher"
+          ],
+          "answer": "Savior"
+        },
+        {
+          "question": "What does 接受 mean?",
+          "options": [
+            "to receive / accept",
+            "to reject",
+            "to forget"
+          ],
+          "answer": "to receive / accept"
+        },
+        {
+          "question": "What does 回应 mean?",
+          "options": [
+            "to respond",
+            "to ignore",
+            "to complain"
+          ],
+          "answer": "to respond"
+        }
+      ],
+      "challenge": "Look for one natural opportunity to share part of the Gospel with someone this week."
+    },
+    {
+      "id": 21,
+      "stage": "Grow",
+      "title": "Finding Your Way in the Bible",
+      "subtitle": "第二十一课 · 认识圣经的书卷",
+      "scenario": "Before your first Bible study, a friend helps you understand how the Bible is organised so you can find passages quickly.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "圣经要怎么分？我不太懂。",
+          "pinyin": "Shèngjīng yào zěnme fēn? Wǒ bù tài dǒng.",
+          "english": "How is the Bible divided? I don't quite understand."
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "圣经分成旧约和新约。",
+          "pinyin": "Shèngjīng fēnchéng jiùyuē hé xīnyuē.",
+          "english": "The Bible is divided into the Old Testament and New Testament."
+        },
+        {
+          "speaker": "You",
+          "chinese": "旧约讲什么？",
+          "pinyin": "Jiùyuē jiǎng shénme?",
+          "english": "What does the Old Testament talk about?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "从创世记开始，讲神创造世界。",
+          "pinyin": "Cóng Chuàngshìjì kāishǐ, jiǎng shén chuàngzào shìjiè.",
+          "english": "It starts with Genesis, about God creating the world."
+        },
+        {
+          "speaker": "You",
+          "chinese": "那新约呢？",
+          "pinyin": "Nà xīnyuē ne?",
+          "english": "And the New Testament?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "新约有四福音书，讲耶稣的生平。",
+          "pinyin": "Xīnyuē yǒu sì fúyīnshū, jiǎng Yēsū de shēngpíng.",
+          "english": "The New Testament has the four Gospels, about Jesus's life."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "旧约",
+          "pinyin": "jiùyuē",
+          "english": "Old Testament",
+          "note": ""
+        },
+        {
+          "chinese": "新约",
+          "pinyin": "xīnyuē",
+          "english": "New Testament",
+          "note": ""
+        },
+        {
+          "chinese": "创世记",
+          "pinyin": "Chuàngshìjì",
+          "english": "Genesis",
+          "note": "The first book of the Bible."
+        },
+        {
+          "chinese": "福音书",
+          "pinyin": "fúyīnshū",
+          "english": "the Gospels",
+          "note": "Refers to Matthew, Mark, Luke, and John."
+        },
+        {
+          "chinese": "诗篇",
+          "pinyin": "shīpiān",
+          "english": "Psalms",
+          "note": ""
+        },
+        {
+          "chinese": "创造",
+          "pinyin": "chuàngzào",
+          "english": "to create",
+          "note": ""
+        },
+        {
+          "chinese": "开始",
+          "pinyin": "kāishǐ",
+          "english": "to begin",
+          "note": ""
+        },
+        {
+          "chinese": "神",
+          "pinyin": "shén",
+          "english": "God",
+          "note": "The standard CUVS term for God."
+        },
+        {
+          "chinese": "圣经",
+          "pinyin": "shèngjīng",
+          "english": "Bible",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 旧约 mean?",
+          "options": [
+            "Old Testament",
+            "New Testament",
+            "Psalms"
+          ],
+          "answer": "Old Testament"
+        },
+        {
+          "question": "What does 创世记 mean?",
+          "options": [
+            "Genesis",
+            "Exodus",
+            "Revelation"
+          ],
+          "answer": "Genesis"
+        },
+        {
+          "question": "What does 福音书 mean?",
+          "options": [
+            "the Gospels",
+            "the Psalms",
+            "the Prophets"
+          ],
+          "answer": "the Gospels"
+        },
+        {
+          "question": "What does 新约 mean?",
+          "options": [
+            "New Testament",
+            "Old Testament",
+            "Hymnal"
+          ],
+          "answer": "New Testament"
+        },
+        {
+          "question": "What does 诗篇 mean?",
+          "options": [
+            "Psalms",
+            "Genesis",
+            "Proverbs"
+          ],
+          "answer": "Psalms"
+        }
+      ],
+      "challenge": "Before your next Bible study, look up where 诗篇 (Psalms) is in your Bible's contents page."
+    },
+    {
+      "id": 22,
+      "stage": "Grow",
+      "title": "Bible People You'll Hear About",
+      "subtitle": "第二十二课 · 圣经中的人物",
+      "scenario": "After a sermon that mentioned several names, a friend explains who they were.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "牧师今天讲道提到摩西，他是谁？",
+          "pinyin": "Mùshī jīntiān jiǎngdào tídào Móxī, tā shì shéi?",
+          "english": "The pastor mentioned Moses today — who is he?"
+        },
+        {
+          "speaker": "Kevin",
+          "chinese": "摩西带领以色列人出埃及。",
+          "pinyin": "Móxī dàilǐng Yǐsèliè rén chū Āijí.",
+          "english": "Moses led the Israelites out of Egypt."
+        },
+        {
+          "speaker": "You",
+          "chinese": "那亚伯拉罕呢？",
+          "pinyin": "Nà Yàbólāhǎn ne?",
+          "english": "What about Abraham?"
+        },
+        {
+          "speaker": "Kevin",
+          "chinese": "亚伯拉罕是信心之父。",
+          "pinyin": "Yàbólāhǎn shì xìnxīn zhī fù.",
+          "english": "Abraham is the father of faith."
+        },
+        {
+          "speaker": "You",
+          "chinese": "保罗是耶稣的门徒吗？",
+          "pinyin": "Bǎoluó shì Yēsū de méntú ma?",
+          "english": "Is Paul one of Jesus's disciples?"
+        },
+        {
+          "speaker": "Kevin",
+          "chinese": "不是，他是使徒，写了很多书信。",
+          "pinyin": "Bùshì, tā shì shǐtú, xiěle hěnduō shūxìn.",
+          "english": "No, he's an apostle who wrote many letters."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "摩西",
+          "pinyin": "Móxī",
+          "english": "Moses",
+          "note": ""
+        },
+        {
+          "chinese": "亚伯拉罕",
+          "pinyin": "Yàbólāhǎn",
+          "english": "Abraham",
+          "note": ""
+        },
+        {
+          "chinese": "保罗",
+          "pinyin": "Bǎoluó",
+          "english": "Paul",
+          "note": ""
+        },
+        {
+          "chinese": "门徒",
+          "pinyin": "méntú",
+          "english": "disciple",
+          "note": ""
+        },
+        {
+          "chinese": "使徒",
+          "pinyin": "shǐtú",
+          "english": "apostle",
+          "note": ""
+        },
+        {
+          "chinese": "先知",
+          "pinyin": "xiānzhī",
+          "english": "prophet",
+          "note": ""
+        },
+        {
+          "chinese": "提到",
+          "pinyin": "tídào",
+          "english": "to mention",
+          "note": ""
+        },
+        {
+          "chinese": "以色列人",
+          "pinyin": "Yǐsèlièrén",
+          "english": "Israelites",
+          "note": ""
+        },
+        {
+          "chinese": "讲道",
+          "pinyin": "jiǎngdào",
+          "english": "sermon",
+          "note": ""
+        },
+        {
+          "chinese": "信",
+          "pinyin": "xìn",
+          "english": "to believe",
+          "note": ""
+        },
+        {
+          "chinese": "带",
+          "pinyin": "dài",
+          "english": "to lead / bring someone",
+          "note": ""
+        },
+        {
+          "chinese": "带领",
+          "pinyin": "dàilǐng",
+          "english": "to lead",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Who is 摩西?",
+          "options": [
+            "Moses",
+            "Paul",
+            "Abraham"
+          ],
+          "answer": "Moses"
+        },
+        {
+          "question": "What does 门徒 mean?",
+          "options": [
+            "disciple",
+            "prophet",
+            "priest"
+          ],
+          "answer": "disciple"
+        },
+        {
+          "question": "What does 使徒 mean?",
+          "options": [
+            "apostle",
+            "king",
+            "prophet"
+          ],
+          "answer": "apostle"
+        },
+        {
+          "question": "亚伯拉罕 is known as...?",
+          "options": [
+            "the father of faith",
+            "the first king",
+            "a prophet"
+          ],
+          "answer": "the father of faith"
+        },
+        {
+          "question": "What does 先知 mean?",
+          "options": [
+            "prophet",
+            "apostle",
+            "disciple"
+          ],
+          "answer": "prophet"
+        }
+      ],
+      "challenge": "Next time a sermon mentions a Bible name you don't know, ask a friend \"他是谁？\" (who is he?)."
+    },
+    {
+      "id": 23,
+      "stage": "Grow",
+      "title": "The Father, Son, and Spirit",
+      "subtitle": "第二十三课 · 天父、圣子、圣灵",
+      "scenario": "At the end of the service, the pastor gives a blessing mentioning the Father, Son, and Spirit — a friend explains what it means.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "牧师说\"愿天父、圣子、圣灵与你们同在\"，是什么意思？",
+          "pinyin": "Mùshī shuō \"yuàn tiānfù, shèngzǐ, shènglíng yǔ nǐmen tóngzài\", shì shénme yìsi?",
+          "english": "The pastor said \"may the Father, Son, and Holy Spirit be with you\" — what does that mean?"
+        },
+        {
+          "speaker": "Wei Ming",
+          "chinese": "这是三位一体：天父、耶稣、圣灵。",
+          "pinyin": "Zhè shì sānwèiyītǐ: tiānfù, Yēsū, shènglíng.",
+          "english": "This is the Trinity: the Father, Jesus, and the Holy Spirit."
+        },
+        {
+          "speaker": "You",
+          "chinese": "圣灵住在信徒心里吗？",
+          "pinyin": "Shènglíng zhù zài xìntú xīnlǐ ma?",
+          "english": "Does the Holy Spirit live in believers' hearts?"
+        },
+        {
+          "speaker": "Wei Ming",
+          "chinese": "对，圣灵帮助我们、引导我们。",
+          "pinyin": "Duì, shènglíng bāngzhù wǒmen, yǐndǎo wǒmen.",
+          "english": "Yes, the Holy Spirit helps and guides us."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "天父",
+          "pinyin": "tiānfù",
+          "english": "Heavenly Father",
+          "note": ""
+        },
+        {
+          "chinese": "圣灵",
+          "pinyin": "shènglíng",
+          "english": "Holy Spirit",
+          "note": ""
+        },
+        {
+          "chinese": "三位一体",
+          "pinyin": "sānwèiyītǐ",
+          "english": "Trinity",
+          "note": ""
+        },
+        {
+          "chinese": "主",
+          "pinyin": "zhǔ",
+          "english": "Lord",
+          "note": ""
+        },
+        {
+          "chinese": "引导",
+          "pinyin": "yǐndǎo",
+          "english": "to guide",
+          "note": ""
+        },
+        {
+          "chinese": "帮助",
+          "pinyin": "bāngzhù",
+          "english": "to help",
+          "note": ""
+        },
+        {
+          "chinese": "住",
+          "pinyin": "zhù",
+          "english": "to live (reside)",
+          "note": ""
+        },
+        {
+          "chinese": "对",
+          "pinyin": "duì",
+          "english": "correct / yes",
+          "note": ""
+        },
+        {
+          "chinese": "同在",
+          "pinyin": "tóngzài",
+          "english": "to be present with",
+          "note": ""
+        },
+        {
+          "chinese": "信",
+          "pinyin": "xìn",
+          "english": "to believe",
+          "note": ""
+        },
+        {
+          "chinese": "信徒",
+          "pinyin": "xìntú",
+          "english": "believer",
+          "note": ""
+        },
+        {
+          "chinese": "意思",
+          "pinyin": "yìsi",
+          "english": "meaning",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 天父 mean?",
+          "options": [
+            "Heavenly Father",
+            "Holy Spirit",
+            "Savior"
+          ],
+          "answer": "Heavenly Father"
+        },
+        {
+          "question": "What does 圣灵 mean?",
+          "options": [
+            "Holy Spirit",
+            "angel",
+            "prophet"
+          ],
+          "answer": "Holy Spirit"
+        },
+        {
+          "question": "What does 三位一体 mean?",
+          "options": [
+            "Trinity",
+            "Bible",
+            "sermon"
+          ],
+          "answer": "Trinity"
+        },
+        {
+          "question": "What does 主 mean?",
+          "options": [
+            "Lord",
+            "teacher",
+            "pastor"
+          ],
+          "answer": "Lord"
+        },
+        {
+          "question": "What does 引导 mean?",
+          "options": [
+            "to guide",
+            "to forgive",
+            "to bless"
+          ],
+          "answer": "to guide"
+        }
+      ],
+      "challenge": "Listen for the words 天父, 圣灵, and 主 during this week's service or prayer."
+    },
+    {
+      "id": 24,
+      "stage": "Belong",
+      "title": "Christmas at Church",
+      "subtitle": "第二十四课 · 教会的圣诞节",
+      "scenario": "It's December, and your small group is preparing to go carolling and helping with the church's Christmas program.",
+      "dialogue": [
+        {
+          "speaker": "Grace Lim",
+          "chinese": "我们圣诞节要去报佳音。",
+          "pinyin": "Wǒmen shèngdànjié yào qù bào jiāyīn.",
+          "english": "We're going carolling for Christmas."
+        },
+        {
+          "speaker": "You",
+          "chinese": "报佳音是做什么？",
+          "pinyin": "Bào jiāyīn shì zuò shénme?",
+          "english": "What does carolling involve?"
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "我们唱圣诞歌，分享耶稣降生的好消息。",
+          "pinyin": "Wǒmen chàng shèngdàn gē, fēnxiǎng Yēsū jiàngshēng de hǎo xiāoxi.",
+          "english": "We sing Christmas songs and share the good news of Jesus's birth."
+        },
+        {
+          "speaker": "You",
+          "chinese": "耶稣是在伯利恒出生的吗？",
+          "pinyin": "Yēsū shì zài Bólìhéng chūshēng de ma?",
+          "english": "Was Jesus born in Bethlehem?"
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "对，在马槽里。",
+          "pinyin": "Duì, zài mácáo lǐ.",
+          "english": "Yes, in a manger."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "圣诞节",
+          "pinyin": "shèngdànjié",
+          "english": "Christmas",
+          "note": ""
+        },
+        {
+          "chinese": "报佳音",
+          "pinyin": "bào jiāyīn",
+          "english": "to go carolling",
+          "note": "Literally 'to proclaim good news' — the common Singapore-church term for Christmas carolling visits."
+        },
+        {
+          "chinese": "降生",
+          "pinyin": "jiàngshēng",
+          "english": "to be born",
+          "note": "Used specifically of Christ's birth."
+        },
+        {
+          "chinese": "伯利恒",
+          "pinyin": "Bólìhéng",
+          "english": "Bethlehem",
+          "note": ""
+        },
+        {
+          "chinese": "马槽",
+          "pinyin": "mácáo",
+          "english": "manger",
+          "note": ""
+        },
+        {
+          "chinese": "出生",
+          "pinyin": "chūshēng",
+          "english": "to be born (general)",
+          "note": ""
+        },
+        {
+          "chinese": "对",
+          "pinyin": "duì",
+          "english": "correct / yes",
+          "note": ""
+        },
+        {
+          "chinese": "分享",
+          "pinyin": "fēnxiǎng",
+          "english": "to share",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 圣诞节 mean?",
+          "options": [
+            "Christmas",
+            "Easter",
+            "Good Friday"
+          ],
+          "answer": "Christmas"
+        },
+        {
+          "question": "What does 报佳音 mean?",
+          "options": [
+            "to go carolling",
+            "to go visiting",
+            "to lead worship"
+          ],
+          "answer": "to go carolling"
+        },
+        {
+          "question": "Where was Jesus born?",
+          "options": [
+            "伯利恒",
+            "耶路撒冷",
+            "加利利"
+          ],
+          "answer": "伯利恒"
+        },
+        {
+          "question": "What does 马槽 mean?",
+          "options": [
+            "manger",
+            "cross",
+            "altar"
+          ],
+          "answer": "manger"
+        },
+        {
+          "question": "What does 降生 mean?",
+          "options": [
+            "to be born",
+            "to die",
+            "to rise"
+          ],
+          "answer": "to be born"
+        }
+      ],
+      "challenge": "Invite a friend to your church's 圣诞节 (Christmas) service or program this year."
+    },
+    {
+      "id": 25,
+      "stage": "Grow",
+      "title": "Easter: He is Risen",
+      "subtitle": "第二十五课 · 复活节：主复活了",
+      "scenario": "It's the week of Good Friday and Easter Sunday, and you're talking with a friend about what the church is remembering.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "这个星期是受难日和复活节吗？",
+          "pinyin": "Zhège xīngqí shì nànrì hé fùhuójié ma?",
+          "english": "Is this week Good Friday and Easter?"
+        },
+        {
+          "speaker": "Jia Hui",
+          "chinese": "对，受难日记念主耶稣钉十字架。",
+          "pinyin": "Duì, nànrì jìniàn zhǔ Yēsū dīng shízìjià.",
+          "english": "Yes, Good Friday remembers the Lord Jesus's crucifixion."
+        },
+        {
+          "speaker": "You",
+          "chinese": "复活节呢？",
+          "pinyin": "Fùhuójié ne?",
+          "english": "And Easter?"
+        },
+        {
+          "speaker": "Jia Hui",
+          "chinese": "复活节庆祝耶稣从死里复活。",
+          "pinyin": "Fùhuójié qìngzhù Yēsū cóng sǐ lǐ fùhuó.",
+          "english": "Easter celebrates Jesus rising from the dead."
+        },
+        {
+          "speaker": "You",
+          "chinese": "坟墓是空的吗？",
+          "pinyin": "Fénmù shì kōng de ma?",
+          "english": "Was the tomb empty?"
+        },
+        {
+          "speaker": "Jia Hui",
+          "chinese": "是的，坟墓是空的！",
+          "pinyin": "Shì de, fénmù shì kōng de!",
+          "english": "Yes, the tomb was empty!"
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "复活节",
+          "pinyin": "fùhuójié",
+          "english": "Easter",
+          "note": ""
+        },
+        {
+          "chinese": "受难日",
+          "pinyin": "nànrì",
+          "english": "Good Friday",
+          "note": ""
+        },
+        {
+          "chinese": "复活",
+          "pinyin": "fùhuó",
+          "english": "to rise / resurrection",
+          "note": ""
+        },
+        {
+          "chinese": "钉十字架",
+          "pinyin": "dīng shízìjià",
+          "english": "to be crucified",
+          "note": ""
+        },
+        {
+          "chinese": "坟墓",
+          "pinyin": "fénmù",
+          "english": "tomb",
+          "note": ""
+        },
+        {
+          "chinese": "庆祝",
+          "pinyin": "qìngzhù",
+          "english": "to celebrate",
+          "note": ""
+        },
+        {
+          "chinese": "对",
+          "pinyin": "duì",
+          "english": "correct / yes",
+          "note": ""
+        },
+        {
+          "chinese": "星期",
+          "pinyin": "xīngqí",
+          "english": "week",
+          "note": ""
+        },
+        {
+          "chinese": "记念",
+          "pinyin": "jìniàn",
+          "english": "to remember / commemorate",
+          "note": ""
+        },
+        {
+          "chinese": "十字架",
+          "pinyin": "shízìjià",
+          "english": "cross",
+          "note": ""
+        },
+        {
+          "chinese": "主",
+          "pinyin": "zhǔ",
+          "english": "Lord",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 复活节 mean?",
+          "options": [
+            "Easter",
+            "Christmas",
+            "Good Friday"
+          ],
+          "answer": "Easter"
+        },
+        {
+          "question": "What does 受难日 mean?",
+          "options": [
+            "Good Friday",
+            "Easter Sunday",
+            "Christmas Eve"
+          ],
+          "answer": "Good Friday"
+        },
+        {
+          "question": "What does 复活 mean?",
+          "options": [
+            "to rise / resurrection",
+            "to be born",
+            "to be baptised"
+          ],
+          "answer": "to rise / resurrection"
+        },
+        {
+          "question": "What does 坟墓 mean?",
+          "options": [
+            "tomb",
+            "cross",
+            "altar"
+          ],
+          "answer": "tomb"
+        },
+        {
+          "question": "What does 庆祝 mean?",
+          "options": [
+            "to celebrate",
+            "to mourn",
+            "to fast"
+          ],
+          "answer": "to celebrate"
+        }
+      ],
+      "challenge": "Explain to someone this week in one sentence why Easter matters to you."
+    },
+    {
+      "id": 26,
+      "stage": "Serve",
+      "title": "Where Bible Stories Happened",
+      "subtitle": "第二十六课 · 圣经中的地方",
+      "scenario": "You're preparing a Sunday school lesson and want to show the children on a map where a few Bible stories happened.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "这个故事发生在哪里？",
+          "pinyin": "Zhège gùshì fāshēng zài nǎlǐ?",
+          "english": "Where did this story happen?"
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "耶稣出生在伯利恒，长大在拿撒勒。",
+          "pinyin": "Yēsū chūshēng zài Bólìhéng, zhǎngdà zài Násèlè.",
+          "english": "Jesus was born in Bethlehem and grew up in Nazareth."
+        },
+        {
+          "speaker": "You",
+          "chinese": "耶路撒冷是什么地方？",
+          "pinyin": "Yēlùsālěng shì shénme dìfāng?",
+          "english": "What kind of place is Jerusalem?"
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "是圣殿所在的城市，很重要。",
+          "pinyin": "Shì shèngdiàn suǒzài de chéngshì, hěn zhòngyào.",
+          "english": "It's the city where the Temple was, very important."
+        },
+        {
+          "speaker": "You",
+          "chinese": "那加利利呢？",
+          "pinyin": "Nà Jiālìlì ne?",
+          "english": "What about Galilee?"
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "耶稣在加利利传道，呼召门徒。",
+          "pinyin": "Yēsū zài Jiālìlì chuándào, hūzhào méntú.",
+          "english": "Jesus preached and called His disciples in Galilee."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "耶路撒冷",
+          "pinyin": "Yēlùsālěng",
+          "english": "Jerusalem",
+          "note": ""
+        },
+        {
+          "chinese": "加利利",
+          "pinyin": "Jiālìlì",
+          "english": "Galilee",
+          "note": ""
+        },
+        {
+          "chinese": "拿撒勒",
+          "pinyin": "Násèlè",
+          "english": "Nazareth",
+          "note": ""
+        },
+        {
+          "chinese": "圣殿",
+          "pinyin": "shèngdiàn",
+          "english": "Temple",
+          "note": ""
+        },
+        {
+          "chinese": "地方",
+          "pinyin": "dìfāng",
+          "english": "place",
+          "note": ""
+        },
+        {
+          "chinese": "传道",
+          "pinyin": "chuándào",
+          "english": "to preach",
+          "note": ""
+        },
+        {
+          "chinese": "呼召",
+          "pinyin": "hūzhào",
+          "english": "to call (to ministry)",
+          "note": ""
+        },
+        {
+          "chinese": "哪里",
+          "pinyin": "nǎlǐ",
+          "english": "where",
+          "note": ""
+        },
+        {
+          "chinese": "故事",
+          "pinyin": "gùshì",
+          "english": "story",
+          "note": ""
+        },
+        {
+          "chinese": "门徒",
+          "pinyin": "méntú",
+          "english": "disciple",
+          "note": ""
+        },
+        {
+          "chinese": "伯利恒",
+          "pinyin": "Bólìhéng",
+          "english": "Bethlehem",
+          "note": ""
+        },
+        {
+          "chinese": "出生",
+          "pinyin": "chūshēng",
+          "english": "to be born (general)",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 耶路撒冷 mean?",
+          "options": [
+            "Jerusalem",
+            "Bethlehem",
+            "Egypt"
+          ],
+          "answer": "Jerusalem"
+        },
+        {
+          "question": "What does 加利利 mean?",
+          "options": [
+            "Galilee",
+            "Jerusalem",
+            "Nazareth"
+          ],
+          "answer": "Galilee"
+        },
+        {
+          "question": "What does 圣殿 mean?",
+          "options": [
+            "Temple",
+            "church building",
+            "tomb"
+          ],
+          "answer": "Temple"
+        },
+        {
+          "question": "Where did Jesus grow up?",
+          "options": [
+            "拿撒勒",
+            "伯利恒",
+            "耶路撒冷"
+          ],
+          "answer": "拿撒勒"
+        },
+        {
+          "question": "What does 传道 mean?",
+          "options": [
+            "to preach",
+            "to pray",
+            "to sing"
+          ],
+          "answer": "to preach"
+        }
+      ],
+      "challenge": "Look up 耶路撒冷 and 加利利 on a Bible map this week and see how close they are to each other."
+    },
+    {
+      "id": 27,
+      "stage": "Grow",
+      "title": "Groups Jesus Met",
+      "subtitle": "第二十七课 · 耶稣时代的群体",
+      "scenario": "During Bible study, you keep coming across group names in a Gospel story you don't recognize — a friend explains who they were.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "经文里常常提到法利赛人，他们是谁？",
+          "pinyin": "Jīngwén lǐ chángcháng tídào fǎlìsàirén, tāmen shì shéi?",
+          "english": "The passage often mentions the Pharisees — who were they?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "法利赛人很看重遵守律法。",
+          "pinyin": "Fǎlìsàirén hěn kànzhòng zūnshǒu lǜfǎ.",
+          "english": "The Pharisees placed great importance on keeping the Law."
+        },
+        {
+          "speaker": "You",
+          "chinese": "撒都该人呢？",
+          "pinyin": "Sādūgāirén ne?",
+          "english": "What about the Sadducees?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "撒都该人是祭司，不相信复活。",
+          "pinyin": "Sādūgāirén shì jìsī, bù xiāngxìn fùhuó.",
+          "english": "The Sadducees were priests who didn't believe in resurrection."
+        },
+        {
+          "speaker": "You",
+          "chinese": "税吏为什么不受欢迎？",
+          "pinyin": "Shuìlì wèishéme bù shòu huānyíng?",
+          "english": "Why were tax collectors unpopular?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "因为他们为罗马人收税。",
+          "pinyin": "Yīnwèi tāmen wèi Luómǎrén shōushuì.",
+          "english": "Because they collected taxes for the Romans."
+        },
+        {
+          "speaker": "You",
+          "chinese": "撒玛利亚人和犹太人的关系呢？",
+          "pinyin": "Sāmǎlìyǎrén hé Yóutàirén de guānxi ne?",
+          "english": "What about the relationship between Samaritans and Jews?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "他们通常互相看不起。",
+          "pinyin": "Tāmen tōngcháng hùxiāng kànbùqǐ.",
+          "english": "They usually looked down on each other."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "法利赛人",
+          "pinyin": "fǎlìsàirén",
+          "english": "Pharisees",
+          "note": ""
+        },
+        {
+          "chinese": "撒都该人",
+          "pinyin": "sādūgāirén",
+          "english": "Sadducees",
+          "note": ""
+        },
+        {
+          "chinese": "税吏",
+          "pinyin": "shuìlì",
+          "english": "tax collector(s)",
+          "note": ""
+        },
+        {
+          "chinese": "撒玛利亚人",
+          "pinyin": "sāmǎlìyǎrén",
+          "english": "Samaritan(s)",
+          "note": ""
+        },
+        {
+          "chinese": "犹太人",
+          "pinyin": "Yóutàirén",
+          "english": "Jew(s) / Jewish people",
+          "note": ""
+        },
+        {
+          "chinese": "祭司",
+          "pinyin": "jìsī",
+          "english": "priest",
+          "note": "A biblical priestly role, distinct from 牧师 (a modern-day pastor)."
+        },
+        {
+          "chinese": "律法",
+          "pinyin": "lǜfǎ",
+          "english": "the Law",
+          "note": ""
+        },
+        {
+          "chinese": "欢迎",
+          "pinyin": "huānyíng",
+          "english": "welcome",
+          "note": "Often heard from greeters at the door."
+        },
+        {
+          "chinese": "信",
+          "pinyin": "xìn",
+          "english": "to believe",
+          "note": ""
+        },
+        {
+          "chinese": "通常",
+          "pinyin": "tōngcháng",
+          "english": "usually",
+          "note": ""
+        },
+        {
+          "chinese": "经文",
+          "pinyin": "jīngwén",
+          "english": "Scripture passage",
+          "note": ""
+        },
+        {
+          "chinese": "提到",
+          "pinyin": "tídào",
+          "english": "to mention",
+          "note": ""
+        },
+        {
+          "chinese": "复活",
+          "pinyin": "fùhuó",
+          "english": "to rise / resurrection",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 法利赛人 mean?",
+          "options": [
+            "Pharisees",
+            "Sadducees",
+            "priests"
+          ],
+          "answer": "Pharisees"
+        },
+        {
+          "question": "What does 撒都该人 mean?",
+          "options": [
+            "Sadducees",
+            "Pharisees",
+            "disciples"
+          ],
+          "answer": "Sadducees"
+        },
+        {
+          "question": "What does 税吏 mean?",
+          "options": [
+            "tax collector(s)",
+            "priest",
+            "prophet"
+          ],
+          "answer": "tax collector(s)"
+        },
+        {
+          "question": "What does 撒玛利亚人 mean?",
+          "options": [
+            "Samaritan(s)",
+            "Roman(s)",
+            "Levite(s)"
+          ],
+          "answer": "Samaritan(s)"
+        },
+        {
+          "question": "What does 律法 mean?",
+          "options": [
+            "the Law",
+            "the Gospel",
+            "a prayer"
+          ],
+          "answer": "the Law"
+        }
+      ],
+      "challenge": "Next time you read a Gospel story, notice which group (法利赛人, 税吏, etc.) is mentioned and why."
+    },
+    {
+      "id": 28,
+      "stage": "Connect",
+      "title": "Numbers & Time",
+      "subtitle": "第二十八课 · 数字与时间",
+      "scenario": "You're arranging a time to meet a friend for coffee before Bible study.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "我们星期几见面比较好？",
+          "pinyin": "Wǒmen xīngqí jǐ jiànmiàn bǐjiào hǎo?",
+          "english": "Which day is better for us to meet?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "星期五比星期四方便。",
+          "pinyin": "Xīngqíwǔ bǐ xīngqísì fāngbiàn.",
+          "english": "Friday is more convenient than Thursday."
+        },
+        {
+          "speaker": "You",
+          "chinese": "几点见面？",
+          "pinyin": "Jǐ diǎn jiànmiàn?",
+          "english": "What time shall we meet?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "下午三点，可以吗？",
+          "pinyin": "Xiàwǔ sān diǎn, kěyǐ ma?",
+          "english": "3pm, is that okay?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "可以。查经是几点开始？",
+          "pinyin": "Kěyǐ. Cházīng shì jǐ diǎn kāishǐ?",
+          "english": "Okay. What time does Bible study start?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "晚上七点半。",
+          "pinyin": "Wǎnshàng qī diǎn bàn.",
+          "english": "7:30pm."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "星期几",
+          "pinyin": "xīngqí jǐ",
+          "english": "which day of the week",
+          "note": ""
+        },
+        {
+          "chinese": "比较",
+          "pinyin": "bǐjiào",
+          "english": "comparatively / more",
+          "note": ""
+        },
+        {
+          "chinese": "方便",
+          "pinyin": "fāngbiàn",
+          "english": "convenient",
+          "note": ""
+        },
+        {
+          "chinese": "下午",
+          "pinyin": "xiàwǔ",
+          "english": "afternoon",
+          "note": ""
+        },
+        {
+          "chinese": "点",
+          "pinyin": "diǎn",
+          "english": "o'clock",
+          "note": ""
+        },
+        {
+          "chinese": "半",
+          "pinyin": "bàn",
+          "english": "half (past the hour)",
+          "note": ""
+        },
+        {
+          "chinese": "开始",
+          "pinyin": "kāishǐ",
+          "english": "to begin",
+          "note": ""
+        },
+        {
+          "chinese": "晚上",
+          "pinyin": "wǎnshàng",
+          "english": "evening",
+          "note": ""
+        },
+        {
+          "chinese": "星期",
+          "pinyin": "xīngqí",
+          "english": "week",
+          "note": ""
+        },
+        {
+          "chinese": "几点",
+          "pinyin": "jǐ diǎn",
+          "english": "what time",
+          "note": ""
+        },
+        {
+          "chinese": "查经",
+          "pinyin": "cházīng",
+          "english": "Bible study",
+          "note": "Refers to the activity itself, distinct from 小组 (the group) or 团契 (fellowship gathering)."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 方便 mean?",
+          "options": [
+            "convenient",
+            "difficult",
+            "early"
+          ],
+          "answer": "convenient"
+        },
+        {
+          "question": "What does 比较 mean?",
+          "options": [
+            "comparatively / more",
+            "exactly",
+            "never"
+          ],
+          "answer": "comparatively / more"
+        },
+        {
+          "question": "What does 下午 mean?",
+          "options": [
+            "afternoon",
+            "morning",
+            "midnight"
+          ],
+          "answer": "afternoon"
+        },
+        {
+          "question": "How do you ask \"which day\"?",
+          "options": [
+            "星期几",
+            "几点",
+            "什么时候"
+          ],
+          "answer": "星期几"
+        },
+        {
+          "question": "What does 半 mean?",
+          "options": [
+            "half (past the hour)",
+            "whole",
+            "quarter"
+          ],
+          "answer": "half (past the hour)"
+        }
+      ],
+      "challenge": "Practice arranging a time with someone this week using 比较方便 (more convenient)."
+    },
+    {
+      "id": 29,
+      "stage": "Connect",
+      "title": "Talking About Family",
+      "subtitle": "第二十九课 · 家人与近况",
+      "scenario": "After service, Kevin asks about your family while catching up over coffee.",
+      "dialogue": [
+        {
+          "speaker": "Kevin",
+          "chinese": "你的家人都好吗？",
+          "pinyin": "Nǐ de jiārén dōu hǎo ma?",
+          "english": "Is your family doing well?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "都好，谢谢关心。你呢？有兄弟姐妹吗？",
+          "pinyin": "Dōu hǎo, xièxie guānxīn. Nǐ ne? Yǒu xiōngdì jiěmèi ma?",
+          "english": "All good, thanks for asking. And you? Do you have siblings?"
+        },
+        {
+          "speaker": "Kevin",
+          "chinese": "我有一个哥哥和一个妹妹。",
+          "pinyin": "Wǒ yǒu yīgè gēge hé yīgè mèimei.",
+          "english": "I have an older brother and a younger sister."
+        },
+        {
+          "speaker": "You",
+          "chinese": "他们也是基督徒吗？",
+          "pinyin": "Tāmen yě shì Jīdūtú ma?",
+          "english": "Are they also Christians?"
+        },
+        {
+          "speaker": "Kevin",
+          "chinese": "我妹妹是，我哥哥还没信主。",
+          "pinyin": "Wǒ mèimei shì, wǒ gēge hái méi xìn zhǔ.",
+          "english": "My sister is, my brother hasn't believed in the Lord yet."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我会为他祷告。",
+          "pinyin": "Wǒ huì wèi tā dǎogào.",
+          "english": "I'll pray for him."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "家人",
+          "pinyin": "jiārén",
+          "english": "family",
+          "note": ""
+        },
+        {
+          "chinese": "兄弟姐妹",
+          "pinyin": "xiōngdì jiěmèi",
+          "english": "siblings",
+          "note": ""
+        },
+        {
+          "chinese": "哥哥",
+          "pinyin": "gēge",
+          "english": "older brother",
+          "note": ""
+        },
+        {
+          "chinese": "妹妹",
+          "pinyin": "mèimei",
+          "english": "younger sister",
+          "note": ""
+        },
+        {
+          "chinese": "还没",
+          "pinyin": "hái méi",
+          "english": "not yet",
+          "note": ""
+        },
+        {
+          "chinese": "近况",
+          "pinyin": "jìnkuàng",
+          "english": "recent situation / how one's been",
+          "note": ""
+        },
+        {
+          "chinese": "谢谢",
+          "pinyin": "xièxie",
+          "english": "thank you",
+          "note": "Polite and warm, used often."
+        },
+        {
+          "chinese": "祷告",
+          "pinyin": "dǎogào",
+          "english": "prayer",
+          "note": ""
+        },
+        {
+          "chinese": "家",
+          "pinyin": "jiā",
+          "english": "home",
+          "note": ""
+        },
+        {
+          "chinese": "信",
+          "pinyin": "xìn",
+          "english": "to believe",
+          "note": ""
+        },
+        {
+          "chinese": "信主",
+          "pinyin": "xìn zhǔ",
+          "english": "to believe in the Lord",
+          "note": ""
+        },
+        {
+          "chinese": "关心",
+          "pinyin": "guānxīn",
+          "english": "to care / be concerned",
+          "note": ""
+        },
+        {
+          "chinese": "主",
+          "pinyin": "zhǔ",
+          "english": "Lord",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 兄弟姐妹 mean?",
+          "options": [
+            "siblings",
+            "parents",
+            "grandparents"
+          ],
+          "answer": "siblings"
+        },
+        {
+          "question": "What does 哥哥 mean?",
+          "options": [
+            "older brother",
+            "younger brother",
+            "father"
+          ],
+          "answer": "older brother"
+        },
+        {
+          "question": "What does 还没 mean?",
+          "options": [
+            "not yet",
+            "already",
+            "never"
+          ],
+          "answer": "not yet"
+        },
+        {
+          "question": "What does 妹妹 mean?",
+          "options": [
+            "younger sister",
+            "older sister",
+            "daughter"
+          ],
+          "answer": "younger sister"
+        },
+        {
+          "question": "What does 近况 mean?",
+          "options": [
+            "recent situation",
+            "ancient history",
+            "future plan"
+          ],
+          "answer": "recent situation"
+        }
+      ],
+      "challenge": "Ask a friend about their 家人 (family) this week, and share about yours too."
+    },
+    {
+      "id": 30,
+      "stage": "Connect",
+      "title": "Exchanging Contact Info",
+      "subtitle": "第三十课 · 交换联络方式",
+      "scenario": "You've just met someone new at church and want to stay in touch.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "可以加你的联络方式吗？",
+          "pinyin": "Kěyǐ jiā nǐ de liánluò fāngshì ma?",
+          "english": "Can I get your contact info?"
+        },
+        {
+          "speaker": "Jia Hui",
+          "chinese": "可以，我给你我的手机号码。",
+          "pinyin": "Kěyǐ, wǒ gěi nǐ wǒ de shǒujī hàomǎ.",
+          "english": "Sure, I'll give you my phone number."
+        },
+        {
+          "speaker": "You",
+          "chinese": "你用WhatsApp吗？",
+          "pinyin": "Nǐ yòng WhatsApp ma?",
+          "english": "Do you use WhatsApp?"
+        },
+        {
+          "speaker": "Jia Hui",
+          "chinese": "用，你可以加我。",
+          "pinyin": "Yòng, nǐ kěyǐ jiā wǒ.",
+          "english": "Yes, you can add me."
+        },
+        {
+          "speaker": "You",
+          "chinese": "太好了，我们保持联络。",
+          "pinyin": "Tài hǎo le, wǒmen bǎochí liánluò.",
+          "english": "Great, let's stay in touch."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "联络方式",
+          "pinyin": "liánluò fāngshì",
+          "english": "contact info",
+          "note": ""
+        },
+        {
+          "chinese": "手机号码",
+          "pinyin": "shǒujī hàomǎ",
+          "english": "mobile phone number",
+          "note": ""
+        },
+        {
+          "chinese": "加",
+          "pinyin": "jiā",
+          "english": "to add (a contact)",
+          "note": ""
+        },
+        {
+          "chinese": "保持联络",
+          "pinyin": "bǎochí liánluò",
+          "english": "to stay in touch",
+          "note": ""
+        },
+        {
+          "chinese": "号码",
+          "pinyin": "hàomǎ",
+          "english": "number",
+          "note": ""
+        },
+        {
+          "chinese": "太好了",
+          "pinyin": "tài hǎo le",
+          "english": "that's great",
+          "note": "A warm, common expression of enthusiasm."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 联络方式 mean?",
+          "options": [
+            "contact info",
+            "home address",
+            "family name"
+          ],
+          "answer": "contact info"
+        },
+        {
+          "question": "What does 手机号码 mean?",
+          "options": [
+            "mobile phone number",
+            "email address",
+            "home number"
+          ],
+          "answer": "mobile phone number"
+        },
+        {
+          "question": "What does 加 mean here?",
+          "options": [
+            "to add (a contact)",
+            "to subtract",
+            "to multiply"
+          ],
+          "answer": "to add (a contact)"
+        },
+        {
+          "question": "What does 保持联络 mean?",
+          "options": [
+            "to stay in touch",
+            "to say goodbye",
+            "to introduce"
+          ],
+          "answer": "to stay in touch"
+        },
+        {
+          "question": "What does 号码 mean?",
+          "options": [
+            "number",
+            "name",
+            "address"
+          ],
+          "answer": "number"
+        }
+      ],
+      "challenge": "Exchange 联络方式 with someone new at church this week."
+    },
+    {
+      "id": 31,
+      "stage": "Belong",
+      "title": "When Someone is Sick",
+      "subtitle": "第三十一课 · 探病与代祷",
+      "scenario": "A member of your small group is in the hospital, and you're figuring out how to support them.",
+      "dialogue": [
+        {
+          "speaker": "Grace Lim",
+          "chinese": "你听说了吗？王姐妹住院了。",
+          "pinyin": "Nǐ tīngshuō le ma? Wáng zǐmèi zhùyuàn le.",
+          "english": "Did you hear? Sister Wang is hospitalised."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我不知道，她怎么了？",
+          "pinyin": "Wǒ bù zhīdào, tā zěnme le?",
+          "english": "I didn't know, what happened to her?"
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "她发烧，医生在检查。",
+          "pinyin": "Tā fāshāo, yīshēng zài jiǎnchá.",
+          "english": "She has a fever, the doctor is examining her."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我们应该去探病吗？",
+          "pinyin": "Wǒmen yīnggāi qù tànbìng ma?",
+          "english": "Should we go visit her?"
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "好，我们也一起为她代祷。",
+          "pinyin": "Hǎo, wǒmen yě yīqǐ wèi tā dàidǎo.",
+          "english": "Yes, let's also pray for her together."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "住院",
+          "pinyin": "zhùyuàn",
+          "english": "to be hospitalised",
+          "note": ""
+        },
+        {
+          "chinese": "发烧",
+          "pinyin": "fāshāo",
+          "english": "to have a fever",
+          "note": ""
+        },
+        {
+          "chinese": "医生",
+          "pinyin": "yīshēng",
+          "english": "doctor",
+          "note": ""
+        },
+        {
+          "chinese": "探病",
+          "pinyin": "tànbìng",
+          "english": "to visit the sick",
+          "note": ""
+        },
+        {
+          "chinese": "代祷",
+          "pinyin": "dàidǎo",
+          "english": "to pray on someone's behalf",
+          "note": ""
+        },
+        {
+          "chinese": "检查",
+          "pinyin": "jiǎnchá",
+          "english": "to examine",
+          "note": ""
+        },
+        {
+          "chinese": "住",
+          "pinyin": "zhù",
+          "english": "to live (reside)",
+          "note": ""
+        },
+        {
+          "chinese": "一起",
+          "pinyin": "yīqǐ",
+          "english": "together",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 住院 mean?",
+          "options": [
+            "to be hospitalised",
+            "to be healed",
+            "to be tired"
+          ],
+          "answer": "to be hospitalised"
+        },
+        {
+          "question": "What does 探病 mean?",
+          "options": [
+            "to visit the sick",
+            "to visit a newcomer",
+            "to lead worship"
+          ],
+          "answer": "to visit the sick"
+        },
+        {
+          "question": "What does 代祷 mean?",
+          "options": [
+            "to pray on someone's behalf",
+            "to give thanks",
+            "to sing"
+          ],
+          "answer": "to pray on someone's behalf"
+        },
+        {
+          "question": "What does 发烧 mean?",
+          "options": [
+            "to have a fever",
+            "to feel cold",
+            "to feel tired"
+          ],
+          "answer": "to have a fever"
+        },
+        {
+          "question": "What does 医生 mean?",
+          "options": [
+            "doctor",
+            "nurse",
+            "patient"
+          ],
+          "answer": "doctor"
+        }
+      ],
+      "challenge": "If someone in your church is unwell this week, offer to 探病 or 代祷 for them."
+    },
+    {
+      "id": 32,
+      "stage": "Belong",
+      "title": "A Church Wedding",
+      "subtitle": "第三十二课 · 教会婚礼",
+      "scenario": "You're attending a fellow church member's wedding and talking with a friend about the ceremony.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "今天的婚礼在哪里举行？",
+          "pinyin": "Jīntiān de hūnlǐ zài nǎlǐ jǔxíng?",
+          "english": "Where is today's wedding being held?"
+        },
+        {
+          "speaker": "Wei Ming",
+          "chinese": "在主堂举行，牧师会证婚。",
+          "pinyin": "Zài zhǔ táng jǔxíng, mùshī huì zhènghūn.",
+          "english": "It's in the main sanctuary, the pastor will officiate."
+        },
+        {
+          "speaker": "You",
+          "chinese": "新郎新娘是我们教会的吗？",
+          "pinyin": "Xīnláng xīnniáng shì wǒmen jiàohuì de ma?",
+          "english": "Are the bride and groom from our church?"
+        },
+        {
+          "speaker": "Wei Ming",
+          "chinese": "是的，他们在小组认识的。",
+          "pinyin": "Shì de, tāmen zài xiǎozǔ rènshi de.",
+          "english": "Yes, they met in small group."
+        },
+        {
+          "speaker": "You",
+          "chinese": "真感恩！我们祝福他们。",
+          "pinyin": "Zhēn gǎn'ēn! Wǒmen zhùfú tāmen.",
+          "english": "What a blessing! Let's bless them."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "婚礼",
+          "pinyin": "hūnlǐ",
+          "english": "wedding",
+          "note": ""
+        },
+        {
+          "chinese": "新郎",
+          "pinyin": "xīnláng",
+          "english": "groom",
+          "note": ""
+        },
+        {
+          "chinese": "新娘",
+          "pinyin": "xīnniáng",
+          "english": "bride",
+          "note": ""
+        },
+        {
+          "chinese": "证婚",
+          "pinyin": "zhènghūn",
+          "english": "to officiate a wedding",
+          "note": ""
+        },
+        {
+          "chinese": "祝福",
+          "pinyin": "zhùfú",
+          "english": "to bless",
+          "note": ""
+        },
+        {
+          "chinese": "教会",
+          "pinyin": "jiàohuì",
+          "english": "church",
+          "note": "The community, not just the building."
+        },
+        {
+          "chinese": "认识",
+          "pinyin": "rènshi",
+          "english": "to know / meet",
+          "note": ""
+        },
+        {
+          "chinese": "主堂",
+          "pinyin": "zhǔ táng",
+          "english": "main sanctuary",
+          "note": ""
+        },
+        {
+          "chinese": "哪里",
+          "pinyin": "nǎlǐ",
+          "english": "where",
+          "note": ""
+        },
+        {
+          "chinese": "小组",
+          "pinyin": "xiǎozǔ",
+          "english": "small group / cell group",
+          "note": "The common Singapore-church term for a home-based Bible study group."
+        },
+        {
+          "chinese": "感恩",
+          "pinyin": "gǎn'ēn",
+          "english": "thankfulness / to be thankful",
+          "note": ""
+        },
+        {
+          "chinese": "举行",
+          "pinyin": "jǔxíng",
+          "english": "to hold (an event)",
+          "note": ""
+        },
+        {
+          "chinese": "主",
+          "pinyin": "zhǔ",
+          "english": "Lord",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 婚礼 mean?",
+          "options": [
+            "wedding",
+            "funeral",
+            "baptism"
+          ],
+          "answer": "wedding"
+        },
+        {
+          "question": "What does 新郎 mean?",
+          "options": [
+            "groom",
+            "bride",
+            "best man"
+          ],
+          "answer": "groom"
+        },
+        {
+          "question": "What does 新娘 mean?",
+          "options": [
+            "bride",
+            "groom",
+            "bridesmaid"
+          ],
+          "answer": "bride"
+        },
+        {
+          "question": "What does 证婚 mean?",
+          "options": [
+            "to officiate a wedding",
+            "to attend a wedding",
+            "to plan a wedding"
+          ],
+          "answer": "to officiate a wedding"
+        },
+        {
+          "question": "What does 祝福 mean?",
+          "options": [
+            "to bless",
+            "to congratulate loudly",
+            "to cry"
+          ],
+          "answer": "to bless"
+        }
+      ],
+      "challenge": "Next time you attend a church 婚礼 (wedding), offer the couple a blessing in Chinese."
+    },
+    {
+      "id": 33,
+      "stage": "Grow",
+      "title": "Repentance & Growing in Christ",
+      "subtitle": "第三十三课 · 悔改与生命成长",
+      "scenario": "In Bible study, the group discusses what it means to repent and keep growing spiritually.",
+      "dialogue": [
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "悔改是什么意思？",
+          "pinyin": "Huǐgǎi shì shénme yìsi?",
+          "english": "What does it mean to repent?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "是承认自己的罪，转向神。",
+          "pinyin": "Shì chéngrèn zìjǐ de zuì, zhuǎnxiàng shén.",
+          "english": "It's admitting our sin and turning to God."
+        },
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "如果我们跌倒了呢？",
+          "pinyin": "Rúguǒ wǒmen diēdǎo le ne?",
+          "english": "What if we stumble?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "我们可以再次悔改，神会赦免。",
+          "pinyin": "Wǒmen kěyǐ zàicì huǐgǎi, shén huì shèmiǎn.",
+          "english": "We can repent again, and God will forgive."
+        },
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "生命成长需要时间。",
+          "pinyin": "Shēngmìng chéngzhǎng xūyào shíjiān.",
+          "english": "Growing in Christ takes time."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "悔改",
+          "pinyin": "huǐgǎi",
+          "english": "to repent",
+          "note": ""
+        },
+        {
+          "chinese": "承认",
+          "pinyin": "chéngrèn",
+          "english": "to admit / confess",
+          "note": ""
+        },
+        {
+          "chinese": "转向",
+          "pinyin": "zhuǎnxiàng",
+          "english": "to turn towards",
+          "note": ""
+        },
+        {
+          "chinese": "跌倒",
+          "pinyin": "diēdǎo",
+          "english": "to stumble / fall",
+          "note": ""
+        },
+        {
+          "chinese": "成长",
+          "pinyin": "chéngzhǎng",
+          "english": "to grow (spiritually/personally)",
+          "note": ""
+        },
+        {
+          "chinese": "如果",
+          "pinyin": "rúguǒ",
+          "english": "if",
+          "note": ""
+        },
+        {
+          "chinese": "神",
+          "pinyin": "shén",
+          "english": "God",
+          "note": "The standard CUVS term for God."
+        },
+        {
+          "chinese": "罪",
+          "pinyin": "zuì",
+          "english": "sin",
+          "note": ""
+        },
+        {
+          "chinese": "赦免",
+          "pinyin": "shèmiǎn",
+          "english": "to forgive",
+          "note": ""
+        },
+        {
+          "chinese": "生命",
+          "pinyin": "shēngmìng",
+          "english": "life",
+          "note": ""
+        },
+        {
+          "chinese": "意思",
+          "pinyin": "yìsi",
+          "english": "meaning",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 悔改 mean?",
+          "options": [
+            "to repent",
+            "to celebrate",
+            "to forgive"
+          ],
+          "answer": "to repent"
+        },
+        {
+          "question": "What does 承认 mean?",
+          "options": [
+            "to admit / confess",
+            "to deny",
+            "to forget"
+          ],
+          "answer": "to admit / confess"
+        },
+        {
+          "question": "What does 跌倒 mean?",
+          "options": [
+            "to stumble / fall",
+            "to succeed",
+            "to rest"
+          ],
+          "answer": "to stumble / fall"
+        },
+        {
+          "question": "What does 成长 mean?",
+          "options": [
+            "to grow",
+            "to shrink",
+            "to stop"
+          ],
+          "answer": "to grow"
+        },
+        {
+          "question": "What does 如果 mean?",
+          "options": [
+            "if",
+            "because",
+            "although"
+          ],
+          "answer": "if"
+        }
+      ],
+      "challenge": "Reflect this week: is there an area where you need to 悔改 (repent) and keep growing?"
+    },
+    {
+      "id": 34,
+      "stage": "Grow",
+      "title": "Spiritual Gifts & the Fruit of the Spirit",
+      "subtitle": "第三十四课 · 恩赐与圣灵的果子",
+      "scenario": "Your small group discusses spiritual gifts and the fruit of the Spirit during a study on 1 Corinthians and Galatians.",
+      "dialogue": [
+        {
+          "speaker": "Hui Ling",
+          "chinese": "你知道自己的恩赐是什么吗？",
+          "pinyin": "Nǐ zhīdào zìjǐ de ēncì shì shénme ma?",
+          "english": "Do you know what your spiritual gift is?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "我觉得是教导。你呢？",
+          "pinyin": "Wǒ juéde shì jiàodǎo. Nǐ ne?",
+          "english": "I think it's teaching. What about you?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "我比较有服事的恩赐。",
+          "pinyin": "Wǒ bǐjiào yǒu fúshì de ēncì.",
+          "english": "I have more of a gift for serving."
+        },
+        {
+          "speaker": "You",
+          "chinese": "圣灵的果子和恩赐不一样吗？",
+          "pinyin": "Shènglíng de guǒzi hé ēncì bù yīyàng ma?",
+          "english": "Are the fruit of the Spirit and gifts different?"
+        },
+        {
+          "speaker": "Hui Ling",
+          "chinese": "对，果子是品格，恩赐是能力。",
+          "pinyin": "Duì, guǒzi shì pǐngé, ēncì shì nénglì.",
+          "english": "Right, fruit is character, gifts are abilities."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "恩赐",
+          "pinyin": "ēncì",
+          "english": "spiritual gift",
+          "note": ""
+        },
+        {
+          "chinese": "圣灵的果子",
+          "pinyin": "shènglíng de guǒzi",
+          "english": "fruit of the Spirit",
+          "note": ""
+        },
+        {
+          "chinese": "教导",
+          "pinyin": "jiàodǎo",
+          "english": "teaching",
+          "note": ""
+        },
+        {
+          "chinese": "品格",
+          "pinyin": "pǐngé",
+          "english": "character",
+          "note": ""
+        },
+        {
+          "chinese": "能力",
+          "pinyin": "nénglì",
+          "english": "ability",
+          "note": ""
+        },
+        {
+          "chinese": "对",
+          "pinyin": "duì",
+          "english": "correct / yes",
+          "note": ""
+        },
+        {
+          "chinese": "服事",
+          "pinyin": "fúshì",
+          "english": "to serve (in ministry)",
+          "note": ""
+        },
+        {
+          "chinese": "圣灵",
+          "pinyin": "shènglíng",
+          "english": "Holy Spirit",
+          "note": ""
+        },
+        {
+          "chinese": "比较",
+          "pinyin": "bǐjiào",
+          "english": "comparatively / more",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 恩赐 mean?",
+          "options": [
+            "spiritual gift",
+            "sin",
+            "blessing"
+          ],
+          "answer": "spiritual gift"
+        },
+        {
+          "question": "What does 圣灵的果子 mean?",
+          "options": [
+            "fruit of the Spirit",
+            "gift of the Spirit",
+            "name of God"
+          ],
+          "answer": "fruit of the Spirit"
+        },
+        {
+          "question": "What does 品格 mean?",
+          "options": [
+            "character",
+            "ability",
+            "gift"
+          ],
+          "answer": "character"
+        },
+        {
+          "question": "What does 能力 mean?",
+          "options": [
+            "ability",
+            "character",
+            "faith"
+          ],
+          "answer": "ability"
+        },
+        {
+          "question": "What does 教导 mean?",
+          "options": [
+            "teaching",
+            "singing",
+            "praying"
+          ],
+          "answer": "teaching"
+        }
+      ],
+      "challenge": "Ask a friend or leader what they think your 恩赐 (spiritual gift) might be."
+    },
+    {
+      "id": 35,
+      "stage": "Serve",
+      "title": "Worship & Music Ministry",
+      "subtitle": "第三十五课 · 敬拜服事",
+      "scenario": "You're considering joining the worship team and talking to a team member about it.",
+      "dialogue": [
+        {
+          "speaker": "You",
+          "chinese": "我想加入敬拜队，可以吗？",
+          "pinyin": "Wǒ xiǎng jiārù jìngbài duì, kěyǐ ma?",
+          "english": "I'd like to join the worship team, is that okay?"
+        },
+        {
+          "speaker": "Kevin",
+          "chinese": "当然可以！你弹过乐器吗？",
+          "pinyin": "Dāngrán kěyǐ! Nǐ tánguò yuèqì ma?",
+          "english": "Of course! Have you played an instrument before?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "我弹过一点钢琴。",
+          "pinyin": "Wǒ tánguò yīdiǎn gāngqín.",
+          "english": "I've played a little piano before."
+        },
+        {
+          "speaker": "Kevin",
+          "chinese": "太好了！我们也需要人唱诗。",
+          "pinyin": "Tài hǎo le! Wǒmen yě xūyào rén chàng shī.",
+          "english": "Great! We also need people to sing."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我可以两个都试试。",
+          "pinyin": "Wǒ kěyǐ liǎng gè dōu shìshi.",
+          "english": "I can try both."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "敬拜队",
+          "pinyin": "jìngbài duì",
+          "english": "worship team",
+          "note": ""
+        },
+        {
+          "chinese": "乐器",
+          "pinyin": "yuèqì",
+          "english": "musical instrument",
+          "note": ""
+        },
+        {
+          "chinese": "弹",
+          "pinyin": "tán",
+          "english": "to play (an instrument)",
+          "note": ""
+        },
+        {
+          "chinese": "钢琴",
+          "pinyin": "gāngqín",
+          "english": "piano",
+          "note": ""
+        },
+        {
+          "chinese": "唱诗",
+          "pinyin": "chàng shī",
+          "english": "to sing (hymns/worship songs)",
+          "note": ""
+        },
+        {
+          "chinese": "太好了",
+          "pinyin": "tài hǎo le",
+          "english": "that's great",
+          "note": "A warm, common expression of enthusiasm."
+        },
+        {
+          "chinese": "加入",
+          "pinyin": "jiārù",
+          "english": "to join",
+          "note": ""
+        },
+        {
+          "chinese": "当然",
+          "pinyin": "dāngrán",
+          "english": "of course",
+          "note": ""
+        },
+        {
+          "chinese": "点",
+          "pinyin": "diǎn",
+          "english": "o'clock",
+          "note": ""
+        },
+        {
+          "chinese": "加",
+          "pinyin": "jiā",
+          "english": "to add (a contact)",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 敬拜队 mean?",
+          "options": [
+            "worship team",
+            "choir",
+            "Sunday school"
+          ],
+          "answer": "worship team"
+        },
+        {
+          "question": "What does 乐器 mean?",
+          "options": [
+            "musical instrument",
+            "hymn book",
+            "microphone"
+          ],
+          "answer": "musical instrument"
+        },
+        {
+          "question": "What does 弹 mean?",
+          "options": [
+            "to play (an instrument)",
+            "to sing",
+            "to conduct"
+          ],
+          "answer": "to play (an instrument)"
+        },
+        {
+          "question": "What does 唱诗 mean?",
+          "options": [
+            "to sing (hymns)",
+            "to read Scripture",
+            "to pray"
+          ],
+          "answer": "to sing (hymns)"
+        },
+        {
+          "question": "What does 钢琴 mean?",
+          "options": [
+            "piano",
+            "guitar",
+            "drums"
+          ],
+          "answer": "piano"
+        }
+      ],
+      "challenge": "If you play an instrument or enjoy singing, ask about joining your church's 敬拜队 (worship team)."
+    },
+    {
+      "id": 36,
+      "stage": "Serve",
+      "title": "Giving & Tithing",
+      "subtitle": "第三十六课 · 奉献",
+      "scenario": "A newcomer asks you about the offering bag being passed around during the service.",
+      "dialogue": [
+        {
+          "speaker": "Rachel",
+          "chinese": "刚才传的袋子是做什么的？",
+          "pinyin": "Gāngcái chuán de dàizi shì zuò shénme de?",
+          "english": "What was that bag being passed around for?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "那是奉献袋，用来收奉献的。",
+          "pinyin": "Nà shì fèngxiàn dài, yòng lái shōu fèngxiàn de.",
+          "english": "That's the offering bag, used to collect offerings."
+        },
+        {
+          "speaker": "Rachel",
+          "chinese": "奉献是必须的吗？",
+          "pinyin": "Fèngxiàn shì bìxū de ma?",
+          "english": "Is giving an offering required?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "不是必须，是甘心乐意的。",
+          "pinyin": "Bùshì bìxū, shì gānxīn lèyì de.",
+          "english": "It's not required, it's given willingly and cheerfully."
+        },
+        {
+          "speaker": "Rachel",
+          "chinese": "我明白了，谢谢你解释。",
+          "pinyin": "Wǒ míngbái le, xièxie nǐ jiěshì.",
+          "english": "I understand, thanks for explaining."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "奉献",
+          "pinyin": "fèngxiàn",
+          "english": "offering / to give (an offering)",
+          "note": ""
+        },
+        {
+          "chinese": "甘心乐意",
+          "pinyin": "gānxīn lèyì",
+          "english": "willingly and cheerfully",
+          "note": ""
+        },
+        {
+          "chinese": "必须",
+          "pinyin": "bìxū",
+          "english": "must / required",
+          "note": ""
+        },
+        {
+          "chinese": "袋子",
+          "pinyin": "dàizi",
+          "english": "bag",
+          "note": ""
+        },
+        {
+          "chinese": "收",
+          "pinyin": "shōu",
+          "english": "to collect",
+          "note": ""
+        },
+        {
+          "chinese": "谢谢",
+          "pinyin": "xièxie",
+          "english": "thank you",
+          "note": "Polite and warm, used often."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 奉献 mean?",
+          "options": [
+            "offering",
+            "sermon",
+            "hymn"
+          ],
+          "answer": "offering"
+        },
+        {
+          "question": "What does 甘心乐意 mean?",
+          "options": [
+            "willingly and cheerfully",
+            "reluctantly",
+            "secretly"
+          ],
+          "answer": "willingly and cheerfully"
+        },
+        {
+          "question": "What does 必须 mean?",
+          "options": [
+            "must / required",
+            "optional",
+            "forbidden"
+          ],
+          "answer": "must / required"
+        },
+        {
+          "question": "What does 收 mean?",
+          "options": [
+            "to collect",
+            "to give",
+            "to lose"
+          ],
+          "answer": "to collect"
+        },
+        {
+          "question": "What does 袋子 mean?",
+          "options": [
+            "bag",
+            "envelope",
+            "basket"
+          ],
+          "answer": "bag"
+        }
+      ],
+      "challenge": "If you give an offering this week, reflect on doing so 甘心乐意 (willingly and cheerfully)."
+    },
+    {
+      "id": 37,
+      "stage": "Serve",
+      "title": "Discipling a New Believer",
+      "subtitle": "第三十七课 · 栽培新信徒",
+      "scenario": "You've been asked to help disciple someone who recently became a Christian, meeting regularly to help them grow.",
+      "dialogue": [
+        {
+          "speaker": "Grace Lim",
+          "chinese": "你愿意栽培他吗？",
+          "pinyin": "Nǐ yuànyì zāipéi tā ma?",
+          "english": "Would you be willing to disciple him?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "好的，我们应该多久见一次面？",
+          "pinyin": "Hǎo de, wǒmen yīnggāi duōjiǔ jiàn yī cì miàn?",
+          "english": "Okay, how often should we meet?"
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "每个星期一次比较好。",
+          "pinyin": "Měige xīngqí yī cì bǐjiào hǎo.",
+          "english": "Once a week is better."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我们可以一起读经、祷告。",
+          "pinyin": "Wǒmen kěyǐ yīqǐ dú jīng, dǎogào.",
+          "english": "We can read Scripture and pray together."
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "对，也可以回答他的问题。",
+          "pinyin": "Duì, yě kěyǐ huídá tā de wèntí.",
+          "english": "Yes, and answer his questions too."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "栽培",
+          "pinyin": "zāipéi",
+          "english": "to disciple / mentor",
+          "note": "Literally 'to cultivate' — the common church term for mentoring a newer believer."
+        },
+        {
+          "chinese": "愿意",
+          "pinyin": "yuànyì",
+          "english": "to be willing",
+          "note": ""
+        },
+        {
+          "chinese": "多久",
+          "pinyin": "duōjiǔ",
+          "english": "how long / how often",
+          "note": ""
+        },
+        {
+          "chinese": "回答",
+          "pinyin": "huídá",
+          "english": "to answer",
+          "note": ""
+        },
+        {
+          "chinese": "问题",
+          "pinyin": "wèntí",
+          "english": "question",
+          "note": ""
+        },
+        {
+          "chinese": "对",
+          "pinyin": "duì",
+          "english": "correct / yes",
+          "note": ""
+        },
+        {
+          "chinese": "祷告",
+          "pinyin": "dǎogào",
+          "english": "prayer",
+          "note": ""
+        },
+        {
+          "chinese": "一起",
+          "pinyin": "yīqǐ",
+          "english": "together",
+          "note": ""
+        },
+        {
+          "chinese": "星期",
+          "pinyin": "xīngqí",
+          "english": "week",
+          "note": ""
+        },
+        {
+          "chinese": "读经",
+          "pinyin": "dú jīng",
+          "english": "to read Scripture",
+          "note": ""
+        },
+        {
+          "chinese": "比较",
+          "pinyin": "bǐjiào",
+          "english": "comparatively / more",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 栽培 mean?",
+          "options": [
+            "to disciple / mentor",
+            "to baptise",
+            "to ordain"
+          ],
+          "answer": "to disciple / mentor"
+        },
+        {
+          "question": "What does 愿意 mean?",
+          "options": [
+            "to be willing",
+            "to be unwilling",
+            "to be unable"
+          ],
+          "answer": "to be willing"
+        },
+        {
+          "question": "What does 多久 mean?",
+          "options": [
+            "how long / how often",
+            "how many",
+            "how far"
+          ],
+          "answer": "how long / how often"
+        },
+        {
+          "question": "What does 回答 mean?",
+          "options": [
+            "to answer",
+            "to ask",
+            "to ignore"
+          ],
+          "answer": "to answer"
+        },
+        {
+          "question": "What does 问题 mean?",
+          "options": [
+            "question",
+            "answer",
+            "sermon"
+          ],
+          "answer": "question"
+        }
+      ],
+      "challenge": "If you're able to, offer to 栽培 (disciple) someone newer in the faith this month."
+    },
+    {
+      "id": 38,
+      "stage": "Serve",
+      "title": "Preparing for a Mission Trip",
+      "subtitle": "第三十八课 · 短宣准备",
+      "scenario": "You're preparing for a short-term mission trip and meeting with the team to go over details.",
+      "dialogue": [
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "短宣队下个月出发。",
+          "pinyin": "Duǎnxuān duì xià gè yuè chūfā.",
+          "english": "The short-term mission team departs next month."
+        },
+        {
+          "speaker": "You",
+          "chinese": "如果我参加，需要准备什么？",
+          "pinyin": "Rúguǒ wǒ cānjiā, xūyào zhǔnbèi shénme?",
+          "english": "If I join, what do I need to prepare?"
+        },
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "需要护照，也要为当地人祷告。",
+          "pinyin": "Xūyào hùzhào, yě yào wèi dāngdì rén dǎogào.",
+          "english": "You'll need a passport, and also to pray for the local people."
+        },
+        {
+          "speaker": "You",
+          "chinese": "我们会做什么服事？",
+          "pinyin": "Wǒmen huì zuò shénme fúshì?",
+          "english": "What kind of ministry will we do?"
+        },
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "探访、教儿童，也分享福音。",
+          "pinyin": "Tànfǎng, jiāo értóng, yě fēnxiǎng fúyīn.",
+          "english": "Visitation, teaching children, and sharing the Gospel."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "短宣",
+          "pinyin": "duǎnxuān",
+          "english": "short-term mission trip",
+          "note": ""
+        },
+        {
+          "chinese": "出发",
+          "pinyin": "chūfā",
+          "english": "to depart",
+          "note": ""
+        },
+        {
+          "chinese": "护照",
+          "pinyin": "hùzhào",
+          "english": "passport",
+          "note": ""
+        },
+        {
+          "chinese": "当地人",
+          "pinyin": "dāngdì rén",
+          "english": "local people",
+          "note": ""
+        },
+        {
+          "chinese": "参加",
+          "pinyin": "cānjiā",
+          "english": "to join / participate",
+          "note": ""
+        },
+        {
+          "chinese": "祷告",
+          "pinyin": "dǎogào",
+          "english": "prayer",
+          "note": ""
+        },
+        {
+          "chinese": "分享",
+          "pinyin": "fēnxiǎng",
+          "english": "to share",
+          "note": ""
+        },
+        {
+          "chinese": "服事",
+          "pinyin": "fúshì",
+          "english": "to serve (in ministry)",
+          "note": ""
+        },
+        {
+          "chinese": "准备",
+          "pinyin": "zhǔnbèi",
+          "english": "to prepare",
+          "note": ""
+        },
+        {
+          "chinese": "探访",
+          "pinyin": "tànfǎng",
+          "english": "to visit (pastoral care)",
+          "note": ""
+        },
+        {
+          "chinese": "加",
+          "pinyin": "jiā",
+          "english": "to add (a contact)",
+          "note": ""
+        },
+        {
+          "chinese": "如果",
+          "pinyin": "rúguǒ",
+          "english": "if",
+          "note": ""
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 短宣 mean?",
+          "options": [
+            "short-term mission trip",
+            "church camp",
+            "Bible study"
+          ],
+          "answer": "short-term mission trip"
+        },
+        {
+          "question": "What does 护照 mean?",
+          "options": [
+            "passport",
+            "visa",
+            "ticket"
+          ],
+          "answer": "passport"
+        },
+        {
+          "question": "What does 当地人 mean?",
+          "options": [
+            "local people",
+            "tourists",
+            "missionaries"
+          ],
+          "answer": "local people"
+        },
+        {
+          "question": "What does 出发 mean?",
+          "options": [
+            "to depart",
+            "to arrive",
+            "to return"
+          ],
+          "answer": "to depart"
+        },
+        {
+          "question": "What does 参加 mean?",
+          "options": [
+            "to join / participate",
+            "to lead",
+            "to cancel"
+          ],
+          "answer": "to join / participate"
+        }
+      ],
+      "challenge": "Pray for a missions team from your church this week, even if you're not going yourself."
     }
   ]
 }
