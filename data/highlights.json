@@ -1,0 +1,144 @@
+{
+  "highlights": [
+    {
+      "id": "apostles-creed",
+      "reference": "使徒信经",
+      "referenceEnglish": "The Apostles' Creed",
+      "verses": [
+        {
+          "number": 1,
+          "chinese": "我信上帝，全能的父，创造天地的主。",
+          "pinyin": "wǒ xìn shàng dì， quán néng de fù， chuàng zào tiān dì de zhǔ。"
+        },
+        {
+          "number": 2,
+          "chinese": "我信我主耶稣基督，上帝的独生子；因着圣灵感孕，从童贞女马利亚所生；",
+          "pinyin": "wǒ xìn wǒ zhǔ yē sū jī dū， shàng dì de dú shēng zi； yīn zhe shèng líng gǎn yùn， cóng tóng zhēn nǚ mǎ lì yà suǒ shēng；"
+        },
+        {
+          "number": 3,
+          "chinese": "在本丢彼拉多手下受难，被钉在十字架上，受死，埋葬；降在阴间；第三天从死里复活；",
+          "pinyin": "zài běn diū bǐ lā duō shǒu xià shòu nàn， bèi dīng zài shí zì jià shàng， shòu sǐ， mái zàng； jiàng zài yīn jiān； dì sān tiān cóng sǐ lǐ fù huó；"
+        },
+        {
+          "number": 4,
+          "chinese": "升天，坐在全能父上帝的右边；将来必从那里降临，审判活人，死人。",
+          "pinyin": "shēng tiān， zuò zài quán néng fù shàng dì de yòu biān； jiāng lái bì cóng nà lǐ jiàng lín， shěn pàn huó rén， sǐ rén。"
+        },
+        {
+          "number": 5,
+          "chinese": "我信圣灵；我信圣而公之教会；我信圣徒相通；",
+          "pinyin": "wǒ xìn shèng líng； wǒ xìn shèng ér gōng zhī jiào huì； wǒ xìn shèng tú xiāng tōng；"
+        },
+        {
+          "number": 6,
+          "chinese": "我信罪得赦免，我信身体复活；我信永生。阿们。",
+          "pinyin": "wǒ xìn zuì dé shè miǎn， wǒ xìn shēn tǐ fù huó； wǒ xìn yǒng shēng。 ā men。"
+        }
+      ],
+      "note": "Not a Bible passage — an early Christian statement of faith (no later than the 4th century), used across many church traditions. This translation is cross-checked against three independent Protestant Chinese sources. Uses 上帝 for God, as all three sources do — elsewhere in this app, Bible text uses 神; both are standard, valid Chinese terms for God used by different Bible/confession editions.",
+      "fixed": true
+    },
+    {
+      "id": "lords-prayer",
+      "reference": "马太福音 6:9-13",
+      "referenceEnglish": "The Lord's Prayer (Matthew 6:9-13)",
+      "verses": [
+        {
+          "number": 9,
+          "chinese": "所以，你们祷告要这样说：『我们在天上的父：愿人都尊你的名为圣。",
+          "pinyin": "suǒ yǐ， nǐ men dǎo gào yào zhè yàng shuō ：『 wǒ men zài tiān shàng de fù： yuàn rén dōu zūn nǐ de míng wèi shèng。"
+        },
+        {
+          "number": 10,
+          "chinese": "愿你的国降临；愿你的旨意行在地上，如同行在天上。",
+          "pinyin": "yuàn nǐ de guó jiàng lín； yuàn nǐ de zhǐ yì xíng zài dì shàng， rú tóng xíng zài tiān shàng。"
+        },
+        {
+          "number": 11,
+          "chinese": "我们日用的饮食，今日赐给我们。",
+          "pinyin": "wǒ men rì yòng de yǐn shí， jīn rì cì gěi wǒ men。"
+        },
+        {
+          "number": 12,
+          "chinese": "免我们的债，如同我们免了人的债。",
+          "pinyin": "miǎn wǒ men de zhài， rú tóng wǒ men miǎn le rén de zhài。"
+        },
+        {
+          "number": 13,
+          "chinese": "不叫我们遇见试探；救我们脱离凶恶〔或作：脱离恶者〕。因为国度、权柄、荣耀，全是你的，直到永远。阿们〔有古卷无因为至阿们等字〕！』",
+          "pinyin": "bù jiào wǒ men yù jiàn shì tàn； jiù wǒ men tuō lí xiōng è 〔 huò zuò： tuō lí è zhě 〕。 yīn wèi guó dù、 quán bǐng、 róng yào， quán shì nǐ de， zhí dào yǒng yuǎn。 ā men 〔 yǒu gǔ juǎn wú yīn wèi zhì ā men děng zì 〕！』"
+        }
+      ],
+      "note": "The prayer Jesus taught His disciples.",
+      "fixed": true
+    },
+    {
+      "id": "great-commission",
+      "reference": "马太福音 28:18-20",
+      "referenceEnglish": "The Great Commission (Matthew 28:18-20)",
+      "verses": [
+        {
+          "number": 18,
+          "chinese": "耶稣进前来，对他们说：「天上地下所有的权柄都赐给我了。",
+          "pinyin": "yē sū jìn qián lái， duì tā men shuō ：「 tiān shàng dì xià suǒ yǒu de quán bǐng dōu cì gěi wǒ le。"
+        },
+        {
+          "number": 19,
+          "chinese": "所以，你们要去，使万民作我的门徒，奉父、子、圣灵的名给他们施洗〔或作：给他们施洗，归于父、子、圣灵的名〕。",
+          "pinyin": "suǒ yǐ， nǐ men yào qù， shǐ wàn mín zuò wǒ de mén tú， fèng fù、 zi、 shèng líng de míng gěi tā men shī xǐ 〔 huò zuò： gěi tā men shī xǐ， guī yú fù、 zi、 shèng líng de míng 〕。"
+        },
+        {
+          "number": 20,
+          "chinese": "凡我所吩咐你们的，都教训他们遵守，我就常与你们同在，直到世界的末了。",
+          "pinyin": "fán wǒ suǒ fēn fù nǐ men de， dōu jiào xùn tā men zūn shǒu， wǒ jiù cháng yǔ nǐ men tóng zài， zhí dào shì jiè de mò liǎo。"
+        }
+      ],
+      "note": "Jesus's final instruction to His disciples before He ascended.",
+      "fixed": true
+    },
+    {
+      "id": "great-commandment",
+      "reference": "马太福音 22:37-40",
+      "referenceEnglish": "The Great Commandment (Matthew 22:37-40)",
+      "verses": [
+        {
+          "number": 37,
+          "chinese": "耶稣对他说：「你要尽心、尽性、尽意爱主你的神。",
+          "pinyin": "yē sū duì tā shuō ：「 nǐ yào jìn xīn、 jìn xìng、 jìn yì ài zhǔ nǐ de shén。"
+        },
+        {
+          "number": 38,
+          "chinese": "这是诫命中的第一，且是最大的。",
+          "pinyin": "zhè shì jiè mìng zhòng de dì yī， qiě shì zuì dà de。"
+        },
+        {
+          "number": 39,
+          "chinese": "其次也相倣，就是要爱人如己。",
+          "pinyin": "qí cì yě xiāng fǎng， jiù shì yào ài rén rú jǐ。"
+        },
+        {
+          "number": 40,
+          "chinese": "这两条诫命是律法和先知一切道理的总纲。」",
+          "pinyin": "zhè liǎng tiáo jiè mìng shì lǜ fǎ hé xiān zhī yī qiè dào lǐ de zǒng gāng 。」"
+        }
+      ],
+      "note": "Jesus's summary of the entire Law and the Prophets.",
+      "fixed": true
+    },
+    {
+      "id": "john-3-16",
+      "reference": "约翰福音 3:16",
+      "referenceEnglish": "John 3:16",
+      "verses": [
+        {
+          "number": 16,
+          "chinese": "神爱世人，甚至将他的独生子赐给他们，叫一切信他的，不至灭亡，反得永生。",
+          "pinyin": "shén ài shì rén， shèn zhì jiāng tā de dú shēng zi cì gěi tā men， jiào yī qiè xìn tā de， bù zhì miè wáng， fǎn dé yǒng shēng。"
+        }
+      ],
+      "note": "Perhaps the single most quoted verse in the Bible — the Gospel in one sentence.",
+      "fixed": true
+    }
+  ]
+}

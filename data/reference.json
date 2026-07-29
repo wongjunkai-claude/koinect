@@ -4,6 +4,13 @@
       "name": "Names & Titles of God",
       "entries": [
         {
+          "chinese": "耶和华",
+          "pinyin": "Yēhéhuá",
+          "english": "the LORD (Yahweh/Jehovah)",
+          "note": "God's personal covenant name in the Old Testament — by far the most frequent name for God in the whole Bible. Rendered 'the LORD' (small caps) in most English translations.",
+          "taughtInLesson": null
+        },
+        {
           "chinese": "神",
           "pinyin": "shén",
           "english": "God",
@@ -168,31 +175,10 @@
           "taughtInLesson": null
         },
         {
-          "chinese": "彼得",
-          "pinyin": "Bǐdé",
-          "english": "Peter",
-          "note": "One of Jesus's twelve disciples.",
-          "taughtInLesson": null
-        },
-        {
           "chinese": "保罗",
           "pinyin": "Bǎoluó",
           "english": "Paul",
           "note": "An apostle who wrote much of the New Testament.",
-          "taughtInLesson": 23
-        },
-        {
-          "chinese": "约翰",
-          "pinyin": "Yuēhàn",
-          "english": "John",
-          "note": "One of Jesus's twelve disciples.",
-          "taughtInLesson": null
-        },
-        {
-          "chinese": "门徒",
-          "pinyin": "méntú",
-          "english": "disciple",
-          "note": "",
           "taughtInLesson": 23
         },
         {
@@ -208,6 +194,125 @@
           "english": "prophet",
           "note": "",
           "taughtInLesson": 23
+        },
+        {
+          "chinese": "西门彼得",
+          "pinyin": "Xīmén Bǐdé",
+          "english": "Simon Peter",
+          "note": "Also simply called 彼得 (Peter). One of the twelve disciples.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "安得烈",
+          "pinyin": "Āndéliè",
+          "english": "Andrew",
+          "note": "Peter's brother, one of the twelve disciples.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "雅各（西庇太的儿子）",
+          "pinyin": "Yǎgè (Xībìtài de érzi)",
+          "english": "James, son of Zebedee",
+          "note": "One of the twelve disciples; not to be confused with James son of Alphaeus.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "约翰",
+          "pinyin": "Yuēhàn",
+          "english": "John",
+          "note": "Brother of James, one of the twelve disciples. Traditionally credited with the Gospel of John.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "腓力",
+          "pinyin": "Féilì",
+          "english": "Philip",
+          "note": "One of the twelve disciples.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "巴多罗买",
+          "pinyin": "Bāduōluómǎi",
+          "english": "Bartholomew",
+          "note": "One of the twelve disciples.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "多马",
+          "pinyin": "Duōmǎ",
+          "english": "Thomas",
+          "note": "One of the twelve disciples, known for doubting Jesus's resurrection at first.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "马太",
+          "pinyin": "Mǎtài",
+          "english": "Matthew",
+          "note": "A former tax collector, one of the twelve disciples. Traditionally credited with the Gospel of Matthew.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "雅各（亚勒腓的儿子）",
+          "pinyin": "Yǎgè (Yàléféi de érzi)",
+          "english": "James, son of Alphaeus",
+          "note": "One of the twelve disciples, distinct from James son of Zebedee.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "达太",
+          "pinyin": "Dátài",
+          "english": "Thaddaeus",
+          "note": "One of the twelve disciples.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "奋锐党的西门",
+          "pinyin": "Fènruì dǎng de Xīmén",
+          "english": "Simon the Zealot",
+          "note": "One of the twelve disciples, distinct from Simon Peter.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "加略人犹大",
+          "pinyin": "Jiālüè rén Yóudà",
+          "english": "Judas Iscariot",
+          "note": "One of the twelve disciples, who later betrayed Jesus.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "门徒",
+          "pinyin": "méntú",
+          "english": "disciple",
+          "note": "A general term for a follower of Jesus; also refers specifically to the Twelve.",
+          "taughtInLesson": 22
+        },
+        {
+          "chinese": "耶稣",
+          "pinyin": "Yēsū",
+          "english": "Jesus",
+          "note": "Used constantly on its own throughout the Gospels — this app previously only had the fuller 耶稣基督 (Jesus Christ).",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "基督",
+          "pinyin": "Jīdū",
+          "english": "Christ",
+          "note": "A title meaning 'Messiah' / 'Anointed One,' often used alone.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "大卫",
+          "pinyin": "Dàwèi",
+          "english": "David",
+          "note": "Used far more often alone than as 大卫王 (King David).",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "雅各",
+          "pinyin": "Yǎgè",
+          "english": "Jacob",
+          "note": "The Old Testament patriarch, son of Isaac, father of the twelve tribes — a completely different person from the two disciples also named 雅各 (James) in the New Testament. Same Chinese name, different eras — worth knowing when reading.",
+          "taughtInLesson": null
         }
       ]
     },
@@ -262,6 +367,20 @@
           "english": "Temple",
           "note": "",
           "taughtInLesson": 34
+        },
+        {
+          "chinese": "以色列",
+          "pinyin": "Yǐsèliè",
+          "english": "Israel",
+          "note": "The nation/people name itself — distinct from 以色列人 ('Israelites,' the people), already in this glossary.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "犹大",
+          "pinyin": "Yóudà",
+          "english": "Judah / Judea",
+          "note": "One of the twelve tribes, later the southern kingdom, and the region where Jerusalem sits — a major place and tribal name.",
+          "taughtInLesson": null
         }
       ]
     },
@@ -294,6 +413,48 @@
           "pinyin": "shènglíng jiànglínjié",
           "english": "Pentecost",
           "note": "Commemorates the Holy Spirit coming upon the early church.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "逾越节",
+          "pinyin": "yúyuèjié",
+          "english": "Passover",
+          "note": "Commemorates God delivering Israel from slavery in Egypt (Exodus 12).",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "除酵节",
+          "pinyin": "chúxiàojié",
+          "english": "Feast of Unleavened Bread",
+          "note": "Closely tied to Passover — eating bread without yeast for seven days.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "七七节",
+          "pinyin": "qīqījié",
+          "english": "Feast of Weeks",
+          "note": "An OT harvest festival, seven weeks after Passover — the origin of what the New Testament calls Pentecost (圣灵降临节).",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "住棚节",
+          "pinyin": "zhùpéngjié",
+          "english": "Feast of Tabernacles / Booths",
+          "note": "Commemorates Israel living in temporary shelters during the wilderness wanderings (Leviticus 23).",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "赎罪日",
+          "pinyin": "shúzuìrì",
+          "english": "Day of Atonement",
+          "note": "The most solemn day in the Jewish calendar, when the high priest atoned for the sins of the people (Leviticus 23).",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "普珥日",
+          "pinyin": "pǔ'ěrrì",
+          "english": "Purim",
+          "note": "Commemorates the Jewish people's deliverance from Haman's plot, recorded in the book of Esther.",
           "taughtInLesson": null
         }
       ]
@@ -452,6 +613,79 @@
           "english": "the Law",
           "note": "",
           "taughtInLesson": 26
+        }
+      ]
+    },
+    {
+      "name": "Biblical Vocabulary",
+      "entries": [
+        {
+          "chinese": "仆人",
+          "pinyin": "púrén",
+          "english": "servant",
+          "note": "A key biblical role term — used of Moses, David, and others as 'the LORD's servant.'",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "子孙",
+          "pinyin": "zǐsūn",
+          "english": "descendants / offspring",
+          "note": "Central to covenant language — God's promises to Abraham's 子孙, for example.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "荣耀",
+          "pinyin": "róngyào",
+          "english": "glory",
+          "note": "A major theological term — God's glory, and believers reflecting it.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "智慧",
+          "pinyin": "zhìhuì",
+          "english": "wisdom",
+          "note": "Central to wisdom literature (Proverbs, Ecclesiastes, James).",
+          "taughtInLesson": null
+        }
+      ]
+    },
+    {
+      "name": "Biblical Grammar",
+      "entries": [
+        {
+          "chinese": "因为",
+          "pinyin": "yīnwèi",
+          "english": "because",
+          "note": "Common in both speech and writing, but especially frequent in Scripture's explanatory clauses.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "所以",
+          "pinyin": "suǒyǐ",
+          "english": "therefore / so",
+          "note": "A very common connective introducing a conclusion — appears constantly in the Epistles' argument-building style.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "如此",
+          "pinyin": "rúcǐ",
+          "english": "thus / in this way",
+          "note": "A literary word for 'so/like this' — conversational Chinese would usually say 这样.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "于是",
+          "pinyin": "yúshì",
+          "english": "thereupon / then",
+          "note": "A formal connective marking the next event in a narrative sequence — very common in Old Testament storytelling.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "并且",
+          "pinyin": "bìngqiě",
+          "english": "and moreover / also",
+          "note": "A formal connective for adding a further point — more literary than a simple 也 or 还.",
+          "taughtInLesson": null
         }
       ]
     }

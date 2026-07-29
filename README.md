@@ -1,152 +1,645 @@
-# Discipline Diary (no-build version)
+# Koinect — Learn Chinese for Church
 
-Plain HTML/CSS/JS — no Node, no npm, no build step, no Terminal. Firebase is
-loaded directly from Google's CDN in the browser.
+A small, installable web app for learning Chinese phrases used in church life —
+greetings, introductions, a church tour, and following along in a Sunday service.
 
-## 1. Enable anonymous sign-in (invisible to your team, keeps the database locked to the app)
+No accounts, no backend, no build step. Progress is saved right in the browser,
+so closing the app and coming back tomorrow picks up exactly where you left off.
 
-1. Go to https://console.firebase.google.com → your `discipline-diary` project
-2. **Build → Authentication → Sign-in method**
-3. Click **Anonymous** in the list of providers, toggle it **on**, click **Save**
+## What's inside
 
-This lets the app quietly authenticate each visitor in the background so your
-Firestore security rules can still block anyone who doesn't go through the
-app itself — but nobody ever sees a login screen. They just type their name.
-
-## 2. Lock down Firestore
-
-1. Same project → **Build → Firestore Database → Rules** tab
-2. Paste in the contents of `firestore.rules` (in this folder)
-3. Click **Publish**
-
-## 2. Put it on GitHub (all in the browser)
-
-1. Go to https://github.com and sign in (or create a free account)
-2. Click the **+** icon (top right) → **New repository**
-3. Name it `discipline-diary`, keep it **Public** (needed for the free GitHub
-   Pages hosting below), click **Create repository**
-4. On the new repo page, click **"uploading an existing file"**
-5. Drag in every file from this folder (`index.html`, `style.css`, `app.js`,
-   `manifest.json`, `sw.js`, and the `icons` folder) — GitHub accepts
-   drag-and-drop for a whole folder
-6. Scroll down, click **Commit changes**
-
-## 3. Turn on GitHub Pages (makes it a live website)
-
-1. In your repo, click **Settings** (top menu)
-2. Left sidebar → **Pages**
-3. Under **Branch**, choose **main** and **/ (root)**, click **Save**
-4. Wait about a minute, then refresh — GitHub will show you a URL like:
-   `https://<your-username>.github.io/discipline-diary/`
-
-That URL is the app. Send it to your discipline team.
-
-## 4. First use
-
-1. Open the link
-2. Type your name and click **"Enter the log"** — that's it, no email or password
-3. Each teacher does the same the first time they open it on their device
-   (their name is remembered after that; "Not you?" in the header lets
-   someone switch names on a shared device)
-4. On phones: open the link in the browser, then use the browser's
-   **"Add to Home Screen"** option (Safari: Share button → Add to Home Screen)
-   — it'll behave like an installed app from then on
-
-## How data is structured
-
-**Discipline log** — `incidents` collection:
-- `studentName`, `date`, `issue`, `actionTaken`, `status` (Open / Monitoring / Resolved)
-- `loggedBy`, `loggedByUid`, `createdAt`
-- `followUps`: append-only list of `{ date, note, by }`
-- `history`: append-only audit trail of every creation, status change, and
-  follow-up, each stamped with who and when.
-
-**Suspensions** — `suspensions` collection:
-- `studentName`, `type` (ISS or OSS), `startDate`, `days` (duration), `venue`
-  (in-school suspension only), `reason`, `loggedBy`, `createdAt`
-- Status (Upcoming / Active / Completed) is calculated automatically from
-  today's date — nothing to update manually
-- The Suspensions tab shows a live count of who's currently in ISS and OSS,
-  plus the full history for reference
-
-Security rules block **deletes** on both collections entirely — nothing can
-be erased from the client, only added to.
-
-## Removing entries
-
-There's no true delete — matching the "nothing can be erased" promise above.
-Instead, clicking **"Remove entry"** (inside an expanded discipline entry) or
-**"Remove"** (on a suspension) asks for a password before hiding it from the
-normal views. The record itself stays in Firestore untouched, just tagged as
-removed, and shows up under the **"Deleted"** tab where it can be restored
-any time with no password needed.
-
-The password is set in `app.js`:
 ```
-const DELETE_PASSWORD = "shsm";
+index.html              the app shell
+style.css               all styling (colors, type, layout)
+app.js                  all app logic (lessons, quiz, progress saving)
+manifest.json           makes the app installable on phones/desktops
+sw.js                   service worker — caches everything for offline use
+data/lessons.json       all lesson content (edit this to add/change lessons)
+data/reference.json     Explore glossary (Bible books, people, places, terms)
+data/bible-full.json    the complete 66-book Bible, verse by verse
+data/highlights.json    the 5 fixed Key Highlights (Creed, Lord's Prayer, etc.)
+data/basics.json        the 8-lesson Chinese Basics mini-course
+data/proclaim.json      the 5-lesson Share Your Faith track
+icons/                  app icons
 ```
-Change it there (and re-commit to GitHub) any time you want a different one.
 
-**Important:** because this is a plain client-side app with no server, this
-password only stops accidental clicks in the interface — it's not
-cryptographically secure. Anyone who opened their browser's developer tools
-could bypass it and call the underlying delete function directly. It's a
-"are you sure, and do you know the code" gate, not a real access-control
-boundary. Real security here would need Firestore rules keyed to something
-the client can't see or fake (e.g. real per-teacher accounts with roles),
-which is a bigger step up from this project's current design.
+## Try it locally
 
-## Data safety / backups
+Browsers block `fetch()` on files opened directly (`file://`), so run a tiny local server:
 
-Two layers of protection, on top of the delete-blocking rule above:
+```bash
+# from inside the koinect folder
+python3 -m http.server 8000
+```
 
-1. **Automatic rolling snapshot.** Every time data changes, the full current
-   dataset (all incidents + all suspensions) is mirrored into a single
-   document: `backups/latest` in Firestore. If a bug ever corrupts or
-   overwrites something in the live data, open Firebase Console →
-   Firestore Database → Data → `backups` → `latest` to see the most recent
-   good copy in full, and manually copy values back into the affected
-   record.
-2. **Manual download.** The **"⬇ Backup"** button in the app header downloads
-   a dated `.json` file of everything, right to your device. Worth doing
-   this occasionally (e.g. weekly) and keeping a copy somewhere like Google
-   Drive — this one is safe even if your Firebase project itself ever has a
-   problem, since it isn't stored in Firebase at all.
-3. **Google Sheets mirror (optional but recommended).** Every entry created,
-   status change, follow-up, and suspension logged is also sent to a Google
-   Sheet you control — completely independent of Firebase. Setup:
-   1. Go to https://sheets.new to create a fresh spreadsheet
-   2. **Extensions → Apps Script**
-   3. Delete the placeholder code, paste in the contents of `apps-script.gs`
-      (in this folder)
-   4. Click **Deploy → New deployment** → gear icon → **Web app**
-      - Execute as: **Me**
-      - Who has access: **Anyone**
-   5. Click **Deploy**, click **Authorize access**, and approve (it's your
-      own script — this prompt is expected)
-   6. Copy the **Web app URL** it gives you
-   7. In `app.js`, find the line near the top that says:
-      `const SHEET_WEBHOOK_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";`
-      and replace the placeholder text with that URL
-   8. Commit the updated `app.js` to GitHub (same edit-in-browser process as
-      before)
+Then open **http://localhost:8000** in your browser.
 
-   From then on, a "Log" tab in that spreadsheet fills in automatically —
-   readable by anyone you share the sheet with, with zero dependency on
-   Firebase or this app staying online.
+## Deploy to GitHub Pages (free hosting)
 
-None of these are a substitute for the others — they're deliberately
-redundant. Firestore is the live source of truth the app reads from; the
-rolling snapshot and the Sheet are both independent copies for the (hopefully
-rare) day something goes wrong.
+1. Create a new GitHub repository (e.g. `koinect`).
+2. Push this folder's contents to the repository's `main` branch:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial Koinect app"
+   git branch -M main
+   git remote add origin https://github.com/YOUR-USERNAME/koinect.git
+   git push -u origin main
+   ```
+3. In the repo, go to **Settings → Pages**.
+4. Under "Build and deployment", set **Source** to `Deploy from a branch`,
+   branch `main`, folder `/ (root)`. Save.
+5. Wait a minute, then visit `https://YOUR-USERNAME.github.io/koinect/`.
 
-## Making changes later
+That's it — no build step, no server to maintain.
 
-Edit the files directly on GitHub (click a file → pencil icon → edit → commit),
-or download the repo, edit locally, and re-upload. Changes go live within
-about a minute of committing — no build or deploy command needed.
+## Installing it like an app
 
-## Icons
+Once it's live on GitHub Pages (or any HTTPS host), visiting the site on a
+phone will offer an **"Add to Home Screen"** / **"Install"** prompt (or it's
+in the browser's menu). After installing, it opens full-screen and works with
+no internet connection.
 
-Swap `icons/icon-192.png` and `icons/icon-512.png` for your school's own
-branding any time — same filenames, same sizes.
+## How progress is saved
+
+Progress is stored in the browser's `localStorage`, scoped to the site's URL.
+That means:
+
+- Closing the tab/app and returning later keeps your progress. ✅
+- It's per-device, per-browser — there's no login and nothing syncs between
+  devices. If you clear your browser's site data, progress resets.
+- Nothing is ever sent to a server. It all stays on the learner's device.
+
+## Language & terminology standard
+
+Vocabulary and phrasing follow **Singapore Protestant church usage**, and
+Bible-related terms follow the **Chinese Union Version, Simplified (CUVS /
+和合本)** — the translation most commonly used in Singapore churches. A few
+examples already reflected in the lessons:
+
+- **崇拜** (chóngbài) rather than 礼拜 for "worship service" — matches how
+  Singapore church bulletins print "主日崇拜." (礼拜 is noted as a common
+  colloquial alternative, especially in the phrase 做礼拜, "to attend church.")
+- **恩典**, **讲道**, **祷告** — standard CUVS/Singapore-church terms for
+  grace, sermon, and prayer.
+- **弟兄 / 姊妹** — the common Singapore-church terms for a fellow male/female
+  believer ("brother"/"sister" in Christ).
+- **主日学** — the standard Singapore-church term for Sunday school.
+- **平安** as a greeting, often short for 主内平安 ("peace in the Lord").
+
+When adding new lessons, keep this standard: favor the term you'd actually
+hear or read in a Singapore Protestant church bulletin or CUVS Bible reading,
+and use the vocabulary `note` field to flag any regional/denominational
+variation worth knowing.
+
+## Sound
+
+Correct answers, passing a lesson's quiz, and finishing a whole lesson each
+play a short, calm chime — synthesized in the browser (Web Audio API), so
+there are no audio files to download or cache. There's deliberately no sound
+for a wrong answer; feedback is shown as text only, matching Koinect's
+non-punitive design.
+
+## Review & retry
+
+Getting a question wrong doesn't stop the quiz — it quietly goes to the back
+of the line and comes back up after the others. Each time you get the *same*
+question wrong, that specific wrong option gets greyed out and can't be
+picked again, so repeated attempts narrow the choices down. A lesson's quiz
+only counts as passed once every question has been answered correctly at
+least once.
+
+## Home Dashboard
+
+The Home screen adapts to where you are:
+
+- **New user:** a plain "start your first lesson" card — no stats, no zeros.
+- **Active learner:** a Continue card pulled straight from the next lesson's
+  own scenario text, a streak pill (once it's more than 1 day — no fire
+  emoji, per Koinect's calm design philosophy), a stats strip (lessons done,
+  unique words met, current stage), and a "Today's Focus" row with two tiles:
+  words due for review, and a reminder of last lesson's real-world challenge
+  (dismissible once you've done it).
+- **All caught up:** the Continue card offers to revisit a past lesson
+  instead of leaving a dead end.
+
+Lessons are grouped by stage (Connect / Belong / Grow / Serve) with a
+completion count per stage. A stage with no lessons yet is shown honestly —
+"Lessons for this stage are still being written" — rather than just missing.
+
+## Daily Review (spaced repetition)
+
+Finishing a lesson quietly schedules its vocabulary for review, starting the
+next day. Koinect uses a simple 5-box Leitner schedule:
+
+- Get a word right → the gap before its next review roughly doubles
+  (1 → 2 → 4 → 7 → 14 days).
+- Get it wrong → it resets to box 1 and comes back tomorrow.
+
+The review session reuses the same gentle retry-with-elimination pattern as
+lesson quizzes: a wrong guess doesn't end the session, it just goes to the
+back of the queue and comes back around, with that specific wrong option
+greyed out on the retry. Only your *first* attempt at each word feeds the
+schedule — later retries in the same session are for reinforcement, not
+re-scoring.
+## Explore (reference glossary)
+
+Some vocabulary doesn't naturally emerge from a conversation — Bible book
+names, biblical people and places, festivals, and church roles are reference
+knowledge, not dialogue practice. Rather than force these into lesson
+dialogues, they live in a separate, searchable glossary — the 📖 Explore
+tab in the bottom navigation.
+
+- Organised into seven categories: Names & Titles of God, Books of the
+  Bible, Bible People, Bible Places, Festivals & Special Days, Church Roles
+  & Groups, and Biblical Groups & Peoples.
+- **All twelve disciples by name** — Simon Peter, Andrew, James (son of
+  Zebedee), John, Philip, Bartholomew, Thomas, Matthew, James (son of
+  Alphaeus), Thaddaeus, Simon the Zealot, and Judas Iscariot — pulled
+  directly from the verified text of Matthew 10:2-4, not reconstructed
+  from memory.
+- **Old Testament festivals** beyond Christmas/Easter/Pentecost: Passover
+  (逾越节), the Feast of Unleavened Bread (除酵节), the Feast of Weeks
+  (七七节 — the OT festival Pentecost descends from), the Feast of
+  Tabernacles/Booths (住棚节), the Day of Atonement (赎罪日), and Purim
+  (普珥日) — each term checked against real occurrences in Exodus,
+  Leviticus, Deuteronomy, and Esther before being added.
+- Search works by Chinese, pinyin (no need to type tone marks), or English,
+  and updates as you type.
+- Entries that are also taught inside a lesson show a "Taught in Lesson N"
+  link that jumps straight there.
+
+Data lives in `data/reference.json` — add entries the same way you'd add a
+lesson: copy an existing object, fill in `chinese`, `pinyin`, `english`,
+`note`, and `taughtInLesson` (or `null` if it isn't taught anywhere yet).
+
+## Cast & dialogue voices
+
+Dialogues use a small recurring cast rather than generic labels like
+"Leader" or "Friend" — each shown as Chinese characters plus English
+spelling together (e.g. "慧玲 Hui Ling"), so every appearance reinforces
+name recognition in both forms:
+
+- 伟明 Wei Ming
+- 慧玲 Hui Ling
+- 嘉慧 Jia Hui
+- 家豪 Kevin
+- 林嘉恩 Grace Lim
+- 高牧师 Pastor Koh
+- 陈阿姨 Auntie Tan
+- 瑞秋 Rachel
+- 丹尼尔 Daniel
+
+Names mix Chinese given names (the way Singaporeans actually address each
+other), English first names common among Singapore Christians, and
+honorifics like "Auntie" and "Pastor" for elders — deliberately not
+mainland-style full pinyin names. The Chinese-character mapping lives in
+`CHARACTER_CHINESE_NAME` in `app.js`, purely a display concern — the voice
+gender logic (`CHARACTER_GENDER`) still keys off the plain English label,
+so adding a name here never affects the audio.
+
+When you tap **Play Conversation**, each named character is assigned a
+gender. Two things happen to make male and female characters sound
+distinct:
+
+1. If the device has more than one Chinese voice installed, Koinect tries
+   to pick a different one for each gender.
+2. **Pitch is also adjusted per gender** (male characters pitched down,
+   female pitched up) — and this part works regardless of how many voices
+   exist. This matters because **many devices only ship one Chinese voice
+   at all** — iOS's default Mandarin voice, "Tingting," is female with no
+   built-in male alternative unless someone manually downloads another
+   voice in Settings. Relying on voice selection alone would mean every
+   character sounds identical (and female) on exactly those devices, no
+   matter how a character is labeled — which is what you'd hear if you
+   tested this before the pitch adjustment was added. With pitch also in
+   play, male and female characters sound different even on a single-voice
+   device.
+
+"You" is automatically given the opposite gender of whoever else is in the
+scene, so a two-person dialogue always has two distinct-sounding voices.
+
+## A Bible verse for every lesson
+
+Each of the 38 lessons ends with one Bible verse chosen specifically for
+what that lesson taught — not a generic highlight, a real thematic match.
+A few examples: Lesson 8 ("Exchanging Contact Info") pairs with Proverbs
+27:17, "as iron sharpens iron"; Lesson 15 ("When Someone is Sick") pairs
+with James 5:14, about calling the church's elders to pray over the sick;
+Lesson 36 ("Giving & Tithing") pairs with 2 Corinthians 9:7, "God loves a
+cheerful giver" — which directly echoes that lesson's own vocabulary word
+甘心乐意 ("willingly and cheerfully").
+
+The verse appears at the very end — after the quiz, alongside the Weekly
+Challenge, framed as "Carry This With You." It works as a closing thought
+rather than an opening one: you've just practiced the vocabulary and
+scenario, and the verse sends you off with something to actually reflect
+on and take into the week, rather than being read once at the start and
+forgotten by the time you finish.
+
+All 38 verses were pulled directly from the same verified
+`data/bible-full.json` used for the Read tab, not retyped or recalled from
+memory. Each lesson's tagged verse lives in its `verse` field (`reference`,
+`referenceEnglish`, `chinese`, `pinyin`).
+
+## Bible Reading (Read tab)
+
+The 📜 Read tab in the bottom navigation opens directly into the complete
+Bible — all 66 books, every chapter (1,189 chapters, 31,100 verses),
+navigable Book → Chapter → verse-by-verse reader, with Previous/Next
+chapter buttons for reading straight through, and its own per-book progress
+("Genesis · 3 of 50 chapters read").
+
+An earlier version of this also had a separate curated list of 19
+well-known passages sitting in front of the full Bible. That's been
+removed — it added an extra screen and a "which one do I use" decision
+without much benefit once the complete Bible was already one tap away.
+Read now goes straight to the book list.
+
+The reader itself: verse-by-verse Chinese text with pinyin, audio playback
+(Web Speech API), and a "Mark as Read" button per chapter.
+
+**Source and licensing:** The text is the Chinese Union Version, Simplified
+(和合本 / CUVS) — first published 1919, confirmed public domain (copyright
+expired; see [Wikipedia: Chinese Union
+Version](https://en.wikipedia.org/wiki/Chinese_Union_Version)). All 66
+books were parsed directly from the
+[seven1m/open-bibles](https://github.com/seven1m/open-bibles) repository's
+`chi-cuv-simp.usfx.xml` — a source that explicitly labels each translation's
+license per file (this one: Public Domain), rather than a source with a
+blanket "all rights reserved" disclaimer covering many translations at once.
+Pinyin for all 31,100 verses was generated automatically from that verified
+Chinese text using the `pypinyin` library — a deterministic transliteration
+tool, not a creative or copyrighted work.
+
+**A practical note on size:** `data/bible-full.json` is about 8.5MB — small
+for a modern app, but worth knowing about if you're watching total repo
+size or mobile data usage on first install. It's fetched lazily (only when
+someone actually opens the Read tab, not at every app launch) and cached by
+the service worker afterward, so it only costs bandwidth once.
+
+## Vocabulary: New vs. Review
+
+Each lesson's Vocabulary step labels every word **New** or **Review** —
+Review means that word was already introduced in an earlier lesson.
+
+This used to be mostly theoretical: an earlier version of this feature
+found that although lessons' *dialogue* naturally reused earlier words all
+the time (common connective vocabulary like 教会, 谢谢, 神, 一起, 祷告,
+对), those reused words were never actually added to the *vocabulary list*
+of the lessons reusing them — so the badge had almost nothing to show. An
+audit of all 38 lessons found **142 such hidden reuse instances** across
+the dialogues. Those have now all been formalized as explicit vocabulary
+entries in the lessons that use them, so the New/Review distinction (and
+therefore the spaced-repetition schedule) reflects what's actually in the
+dialogue text, not just what was originally listed. Lesson 38, for example,
+now correctly shows "5 new, 7 you've met before" instead of "12 new."
+
+This is a real content audit fix, not a rewrite — no dialogue text changed,
+no new Chinese was written or needed verification. It simply catalogues
+prior-knowledge reuse that was already present but invisible. Real
+Duolingo-style curriculum design — deliberately writing *new* dialogue that
+reuses prior vocabulary as a designed prerequisite chain — remains a
+separate, ongoing content-writing effort for future lessons, not something
+this pass created retroactively.
+
+## Every taught word actually appears in its lesson
+
+Each lesson's vocabulary list is meant to reflect words genuinely used in
+that lesson's dialogue — not just a word bank sitting alongside it. An
+audit found 9 lessons where a taught word never actually appeared in the
+spoken lines (e.g. Lesson 33 taught 传福音, "to share the Gospel," but
+nobody in the conversation ever says it — which makes sense, since it's an
+awkward thing to say about yourself mid-conversation). All 9 are fixed now,
+two different ways depending on the word:
+
+- **Small wording tweaks**, where the word just needed the right verb tense
+  or phrasing to appear exactly as taught (e.g. Lesson 21's "我信了主"
+  became "我决定信主" so 信主 appears as its own unit; Lesson 31's "我来带
+  查经" became "我来带领查经" to use the full taught verb 带领).
+- **A narrator line**, for words that are inherently *about* a
+  conversation rather than something said *within* one — 传福音 (to
+  evangelize) and 邀请 (to invite) are things you'd describe someone doing,
+  not things you'd say aloud to them. These lessons now open with a short
+  italicized, third-person scene-setter above the dialogue (e.g. "大卫今天
+  约了Daniel，要向他传福音" — "David arranged to meet Daniel today,
+  planning to share the Gospel with him"), read aloud as part of "Play
+  Conversation" like any other line, but visually distinct — no speech
+  bubble, no speaker name, just italic caption text.
+
+To add a narrator line to a future lesson, give it `"speaker": "Narrator"`
+in the dialogue array — the app renders it as scene-setting text
+automatically rather than a spoken bubble.
+
+## Lesson numbering
+
+Lessons are numbered in clean, sequential stage blocks: Connect 1–8, Belong
+9–16, Grow 17–28, Serve 29–38. Earlier on, lessons got their ids in the
+order they were written rather than the order they appear in the app, so a
+lesson like "Christmas at Church" (Belong) ended up sitting between two
+Grow-stage lessons in the numbering — confusing if you ever looked at the
+raw data or wondered why "Lesson 24" wasn't where you expected. That's
+fixed now; the id order matches the actual learner path.
+
+If you add a new lesson, give it the next free id *within its stage's
+block* to keep this clean — e.g. a new Connect lesson should be inserted
+before Belong's first id (9), which means shifting every later id up by
+one. It's a bit of manual bookkeeping, but keeps `id` a meaningful "lesson
+number" rather than just an arbitrary key.
+
+**Note on existing saved progress:** if anyone tested an earlier version
+of this app before the renumbering, their browser's saved progress refers
+to the *old* lesson ids. After this update, their previously-completed
+lessons won't be recognized as complete (harmless — nothing crashes, it
+just looks like starting over). This is a one-time consequence of the
+renumbering, not an ongoing concern.
+
+## First launch: name prompt
+
+The very first time the app opens, a short modal asks you to "Input Name
+for this Learning Journey." Entering a name personalizes greetings on Home
+("Good morning, Rachel." instead of just "Good morning."); tapping "Skip
+for now" is equally valid and just uses the generic greeting instead.
+Either way, this only appears once — stored as `nameOnboardingSeen` in
+progress, so it won't nag on later visits. Your name lives in
+`progress.userName`, same local-only storage as everything else.
+
+## Bottom navigation
+
+Home, Read, Explore, and Settings are the four persistent tabs, shown as a
+fixed bottom bar on those four top-level screens. Diving into something
+specific — a lesson, a single Bible reading, a Bible chapter, a review
+session — switches to a focused "task mode" instead: the bottom bar
+disappears and a back arrow takes its place, since at that point you're
+drilling into one thing rather than switching between sections.
+
+## Settings
+
+⚙️ Settings (in the bottom nav) now houses what used to be a separate Help
+screen, plus a real setting:
+
+- **Sound Effects & Speech** — a single on/off toggle that mutes both the
+  chime sounds (correct answer, lesson complete, etc.) and all spoken
+  audio (Play Conversation, 🔊 buttons, everywhere). One switch rather than
+  splitting into separate toggles, since most people either want audio or
+  don't. Stored in `progress.settings.soundEnabled`.
+- The app version number and the same "how Koinect works" explanations
+  that used to live on the Help screen.
+
+## Share Your Faith (sustained speech, not dialogue)
+
+Every conversational lesson, every practice exercise in this app trades
+turns between two people. But testifying, preaching, and sharing the
+gospel are **monologues** — sustained speech with a beginning, middle, and
+end, delivered *to* someone, not traded *with* them. Someone could finish
+all 38 lessons and Chinese Basics and still never have practiced producing
+four connected sentences in a row. This is a third, separate track built
+specifically to close that gap:
+
+1. **Discourse Markers for Speaking** — 首先/其次/最后, 换句话说, 总结来说,
+   让我们一起, 不但...而且... — the connecting words a two-person dialogue
+   never needed, but any structured talk does.
+2. **Telling Your Story** — the universal three-act testimony shape
+   (以前 / 后来 / 从此 — before / turning point / now), plus a **"Your
+   Turn"** phase: a scaffold and a free-text space to actually draft your
+   own testimony, saved locally (`progress.myTestimony`), never graded.
+3. **The Gospel in Order** — a memorizable four-verse sequence (Romans
+   3:23 → 6:23 → John 3:16 → Romans 10:9, sometimes called the "Romans
+   Road"), practiced as one continuous flow with a "Play in Order" button,
+   not as isolated verses.
+4. **Answering Common Questions** — objections genuinely specific to
+   Chinese-speaking contexts (family honor, ancestor veneration, "isn't
+   this a Western religion?"), with calm, respectful response patterns —
+   not generic Western apologetics.
+5. **Following a Sermon** — the bridge between one-verse Scripture Practice
+   and the fully-unaided Bible: a real, connected passage at natural
+   preaching length. Uses Peter's sermon at Pentecost (Acts 2:22-38) — the
+   first Christian sermon ever preached, verified from the same Bible data
+   as everywhere else, not invented "sermon-style" text.
+
+Structurally, this reuses the Explain → Practice pattern from Chinese
+Basics (a separate, simpler engine from the main 7-step lesson flow),
+extended with two new pieces: rendering a connected verse sequence
+(`isVerseSequence`) instead of a vocabulary grid, and the free-text
+"Your Turn" phase. Progress tracks separately in `progress.proclaimCompleted`,
+discoverable from its own Home card, alongside Basics — a third parallel
+track, not nested inside either of the other two.
+
+## Chinese Basics (optional mini-course)
+
+Every lesson shows pinyin with tone marks and uses grammar particles like
+吗/的/了 constantly — but nothing in the app ever explained what a tone
+*is*, how to read pinyin, or what those particles actually do. For someone
+with real Chinese background, that's fine — Koinect was built to extend
+existing foundations into church-specific vocabulary, not to re-teach
+Mandarin from scratch. But for a genuine beginner, that gap makes the rest
+of the app hard to access at all.
+
+**Chinese Basics is a deliberately separate 8-lesson mini-course** covering
+the real grammatical skeleton of Mandarin — not folded into the Connect →
+Belong → Grow → Serve numbering, since that represents the church
+participation journey, and this is a different, prerequisite axis
+entirely:
+
+1. **The Four Tones** — with real audio (via the same Web Speech API used
+   everywhere else) demonstrating 妈/麻/马/骂
+2. **Reading Pinyin** — the sounds that trip up English speakers: q, x,
+   zh/ch/sh vs. z/c/s, ü
+3. **Pronouns & 是 Sentences** — 我/你/他, "to be," negation
+4. **Yes/No Questions & Question Words** — 吗, 谁/什么/哪里/为什么/怎么
+5. **Numbers 0–100** — the actual counting system, not just memorized digits
+6. **Measure Words** — 个/位/本/杯, a whole grammatical category English
+   doesn't have
+7. **的 (Possession) & Negation** — 不 vs. 没有, a classic beginner mix-up
+8. **了 / 在 / 过** — completed action vs. ongoing vs. past experience
+
+Each lesson follows a simple two-phase structure: **Explain** (a short
+write-up, example words/sentences with audio) → **Practice** (multiple
+choice questions, using the same retry-with-elimination pattern as the
+main lessons — wrong answers get greyed out, not shamed). Lessons unlock
+in order; progress is tracked separately from the main 38 lessons in
+`progress.basicsCompleted`.
+
+**Discoverability, not a gate:** a card on Home links to it ("New to
+Chinese? Start with Basics" for new users, or a progress count once
+started), but it never blocks access to Connect — someone who already has
+these foundations can ignore it entirely.
+
+**A real bug this caught:** Basics Lesson 2's practice question about
+pronouncing ü used answer options containing literal quote marks (`"ee"
+with rounded lips`), which silently broke the button's HTML `data-opt`
+attribute when rendered — the embedded quote closed the attribute early.
+Fixed with a proper `escapeAttr()` helper, applied everywhere any quiz-style
+option gets rendered (5 places total: the main quiz, Respond Practice,
+Scripture Practice, Daily Review, and Basics) — not just the one spot that
+happened to trigger it, since the same risk existed anywhere option text
+might ever contain a quote character.
+
+## Respond Practice
+
+Every lesson's quiz tests word *recognition* — "what does this word mean."
+That's different from testing whether someone can produce or pick an
+*appropriate response* in a real exchange, which is what actually matters
+for holding a conversation. Each lesson now has one Respond Practice
+exercise (a new step between Quiz and Challenge), built from that lesson's
+own real dialogue rather than invented content, in one of two forms:
+
+- **Select the response** — shown a line from the dialogue (what the other
+  person said), pick the appropriate reply from three options. The correct
+  answer is the lesson's actual next line; the two wrong options are drawn
+  from a small pool of deliberately unrelated phrases (e.g. "What time is
+  it now?", "I don't like coffee") — obviously wrong regardless of the
+  specific conversation, not a subtle grammatical distinction. Used in 21
+  of the 38 lessons.
+- **Fill in the blank** — a real sentence from the dialogue with one word
+  blanked out, three word options to complete it. The two wrong options
+  are other vocabulary from the *same* lesson, chosen so they don't fit
+  the sentence grammatically (e.g. a noun where a verb is needed) — again,
+  ruled out by pattern, not nuance. Used in the other 17 lessons.
+
+This is single-attempt with immediate feedback and doesn't block finishing
+the lesson — a practice rep, not a second gate alongside the vocabulary
+quiz. Each lesson's exercise lives in its `respondPractice` field.
+
+## Scripture Reading Practice
+
+Being able to hold a conversation in Chinese and being able to *read the
+Chinese Bible* are genuinely different skills — 和合本 (CUVS) uses literary,
+early-20th-century Mandarin with classical connectives (乃, 惟, 凡, 若),
+archaic vocabulary, and dense theological terms that never show up in
+everyday speech or in this app's conversational dialogues. Finishing every
+lesson here doesn't by itself teach someone to open Romans and understand
+it on the page.
+
+Each lesson's Challenge screen now closes with a **Scripture Reading
+Practice** section, built directly from that lesson's own tagged verse (so
+it always stays on-theme) rather than a separate, disconnected track:
+
+- **Two literary/biblical-register vocabulary points**, genuinely present
+  in that specific verse — not generic "Bible words," but the actual
+  classical particles, archaic terms, or formal constructions found in the
+  text. A few examples: Lesson 18 (Salvation) flags 本乎 and 乃是 — both
+  built on the classical particle 乎/乃, never seen in spoken Mandarin;
+  Lesson 37 (Discipling) flags that 教训 means "teaching" here, but in
+  modern casual speech usually means "to scold someone" — a real register
+  trap worth knowing.
+- **One comprehension question** testing understanding of the verse
+  itself — not the lesson's invented dialogue. Single-attempt, immediate
+  feedback, doesn't block finishing the lesson (this is a bonus skill-
+  building layer, not a new pass/fail gate).
+
+Some vocabulary deliberately recurs across lessons on purpose — 凡事 (a
+classical "every/all" construction) appears in Lessons 6, 12, and 35; 万族
+and 万民 (both "all nations," same 万 + noun pattern) appear in Lessons 34
+and 38 — so the classical grammar patterns themselves get spaced
+repetition, the same way conversational vocabulary does elsewhere in the
+app.
+
+Each lesson's practice content lives in `verse.scriptureVocabulary` (an
+array of 2 items) and `verse.scriptureQuestion` — both built from the
+lesson's already-verified verse text, not written separately from it.
+
+## Closing the vocabulary gap (data-driven)
+
+Rather than guess what biblical vocabulary was missing, I computed real
+word-frequency statistics across all 31,100 verses (using `jieba` for
+Chinese word segmentation) and compared against every word already taught
+anywhere in the app. The biggest finding: **耶和华 (the LORD / Yahweh)
+appears 6,980 times — the single most common word in the entire Bible —
+and wasn't in the glossary at all.** That's fixed now, along with several
+other high-frequency names and terms the same analysis surfaced:
+
+- **Names & Titles of God** gained 耶和华.
+- **Bible People** gained standalone 耶稣, 基督, 大卫, and 雅各 — the last
+  with an explicit note that 雅各 is *also* how "James" is rendered for two
+  different New Testament disciples, so the same two characters mean a
+  completely different historical figure depending on context.
+- **Bible Places** gained 以色列 (the nation, distinct from 以色列人 "the
+  Israelites") and 犹大 (Judah/Judea).
+- Two new categories: **Biblical Vocabulary** (仆人, 子孙, 荣耀, 智慧) and
+  **Biblical Grammar** (因为, 所以, 如此, 于是, 并且) — recurring
+  literary connectives in the same spirit as Scripture Reading Practice.
+
+## Key Highlights & favoriting
+
+The Read tab now opens with a **Key Highlights** section, above the book
+list: five foundational texts worth committing to memory — the Apostles'
+Creed, the Lord's Prayer, the Great Commission, the Great Commandment, and
+John 3:16 — plus any verses you've favorited while reading.
+
+**Sourcing note:** four of the five are genuine Bible passages, pulled
+directly from the same verified `bible-full.json` used everywhere else. The
+Apostles' Creed is **not** Scripture, so it isn't in that file — it was
+sourced separately and cross-checked against three independent Protestant
+Chinese translations (Christian Reformed Church's official multilingual
+page, CPRC, and faithchinesechurch.org), which converge closely. It uses
+上帝 for God, as all three sources do, which differs from 神 used
+elsewhere in this app's Bible text — both are standard, valid Chinese terms
+for God from different Bible/confession editions, noted explicitly rather
+than silently changed to match.
+
+**Favoriting:** every verse in the Bible chapter reader has a ☆ button.
+Tapping it turns to ★ and adds that verse to Key Highlights immediately —
+no separate save step. Opening a favorited verse from Key Highlights offers
+a "Remove from Highlights" button; the five fixed texts don't have this,
+since they're permanent. Favorites live in `progress.favoriteVerses`.
+
+## Progress resumption — lessons and Bible reading both
+
+**Lessons:** reopening an unfinished lesson resumes at the furthest step
+you reached (scenario → dialogue → vocabulary → quiz → challenge), not
+back at the beginning — tracked in `progress.lessonProgress`. This is
+real across a full page reload, not just within one session. A lesson
+already marked complete still restarts fresh from the scenario when
+reopened, since that's a deliberate full review, not a resume. Home's
+lesson list shows a distinct **"In Progress"** state (with a small
+percentage bar) separate from Locked / Start / Completed, so it's always
+clear which lessons are mid-way through.
+
+**Bible reading:** scrolling through a chapter quietly tracks how far
+you've gotten as a percentage (throttled, saved to
+`progress.chapterPosition`), independent of the explicit "Mark as Read"
+button. Reopening a partially-read chapter scrolls back to roughly that
+position automatically. The chapter grid in the book browser shows
+partially-read chapters with a dashed gold border (hover/long-press for
+the exact percentage), distinct from the solid green of fully-read
+chapters.
+
+**A real bug this caught:** building the resume-position feature exposed
+that opening a Bible chapter or book's chapter list *before* ever visiting
+the Read tab in that session — e.g. a page refresh while already reading —
+left the underlying Bible text never loaded, since only the Read tab
+previously triggered fetching it. Both screens now independently ensure the
+text is loaded before rendering, so this works regardless of entry point.
+
+## Adding more lessons
+
+Open `data/lessons.json` and copy an existing lesson object. Each lesson needs:
+
+```json
+{
+  "id": 11,
+  "stage": "Grow",
+  "title": "Lesson Title",
+  "subtitle": "第十一课 · A short Chinese subtitle",
+  "scenario": "One or two sentences describing the real church situation.",
+  "dialogue": [ { "speaker": "...", "chinese": "...", "pinyin": "...", "english": "..." } ],
+  "vocabulary": [ { "chinese": "...", "pinyin": "...", "english": "...", "note": "" } ],
+  "quiz": [ { "question": "...", "options": ["...", "...", "..."], "answer": "..." } ],
+  "challenge": "One practical thing to try this week."
+}
+```
+
+`stage` must be one of `"Connect"`, `"Belong"`, `"Grow"`, or `"Serve"` —
+it's what drives the journey bar and the grouped lesson list on Home.
+
+Lessons unlock in order — a lesson becomes available once the previous one is
+completed. Add as many as you like; there's no limit built into the app.
+
+## Updating the app later
+
+Because everything is cached by the service worker, if you change the code and
+push an update, returning visitors' browsers will pick up the new files on
+their *next* visit after the new version is cached in the background (a normal
+PWA update pattern). Their saved lesson progress is untouched — it lives in
+`localStorage`, completely separate from the cached app files.

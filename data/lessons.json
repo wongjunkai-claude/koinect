@@ -140,7 +140,56 @@
         "reference": "罗马书 12:10",
         "referenceEnglish": "Romans 12:10",
         "chinese": "爱弟兄，要彼此亲热；恭敬人，要彼此推让。",
-        "pinyin": "ài dì xiōng， yào bǐ cǐ qīn rè； gōng jìng rén， yào bǐ cǐ tuī ràng。"
+        "pinyin": "ài dì xiōng， yào bǐ cǐ qīn rè； gōng jìng rén， yào bǐ cǐ tuī ràng。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "彼此",
+            "pinyin": "bǐ cǐ",
+            "english": "one another / each other",
+            "note": "The standard biblical-Chinese word for 'one another' — 互相 is more common in daily speech."
+          },
+          {
+            "chinese": "推让",
+            "pinyin": "tuī ràng",
+            "english": "to defer to / yield to",
+            "note": "A literary compound verb — not used in everyday conversation."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "According to this verse, how should believers treat one another in honor?",
+          "options": [
+            "Defer to one another",
+            "Compete with one another",
+            "Ignore one another"
+          ],
+          "answer": "Defer to one another"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "欢迎来教会！",
+          "pinyin": "huān yíng lái jiào huì！",
+          "english": "Welcome to church!"
+        },
+        "options": [
+          {
+            "chinese": "谢谢你！",
+            "pinyin": "xiè xiè nǐ！",
+            "english": "Thank you!"
+          },
+          {
+            "chinese": "现在几点？",
+            "pinyin": "xiàn zài jǐ diǎn？",
+            "english": "What time is it now?"
+          },
+          {
+            "chinese": "他是我的老师。",
+            "pinyin": "tā shì wǒ de lǎo shī。",
+            "english": "He is my teacher."
+          }
+        ],
+        "answer": "谢谢你！"
       }
     },
     {
@@ -277,7 +326,41 @@
         "reference": "罗马书 15:7",
         "referenceEnglish": "Romans 15:7",
         "chinese": "所以，你们要彼此接纳，如同基督接纳你们一样，使荣耀归与神。",
-        "pinyin": "suǒ yǐ， nǐ men yào bǐ cǐ jiē nà， rú tóng jī dū jiē nà nǐ men yī yàng， shǐ róng yào guī yǔ shén。"
+        "pinyin": "suǒ yǐ， nǐ men yào bǐ cǐ jiē nà， rú tóng jī dū jiē nà nǐ men yī yàng， shǐ róng yào guī yǔ shén。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "如同",
+            "pinyin": "rú tóng",
+            "english": "just as / like",
+            "note": "A literary comparison word — conversational Chinese would use 像 or 跟...一样."
+          },
+          {
+            "chinese": "归与",
+            "pinyin": "guī yǔ",
+            "english": "to be given to / ascribed to",
+            "note": "A formal construction meaning glory 'is given to' God — not conversational phrasing."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What does this verse compare our acceptance of others to?",
+          "options": [
+            "How Christ accepted us",
+            "How parents accept children",
+            "How friends accept gifts"
+          ],
+          "answer": "How Christ accepted us"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "我___大卫。你呢？",
+        "options": [
+          "叫",
+          "认识",
+          "高兴"
+        ],
+        "answer": "叫",
+        "englishHint": "My name is David. And you?"
       }
     },
     {
@@ -414,7 +497,56 @@
         "reference": "希伯来书 13:2",
         "referenceEnglish": "Hebrews 13:2",
         "chinese": "不可忘记用爱心接待客旅；因为曾有接待客旅的，不知不觉就接待了天使。",
-        "pinyin": "bù kě wàng jì yòng ài xīn jiē dài kè lǚ； yīn wèi céng yǒu jiē dài kè lǚ de， bù zhī bù jué jiù jiē dài le tiān shǐ。"
+        "pinyin": "bù kě wàng jì yòng ài xīn jiē dài kè lǚ； yīn wèi céng yǒu jiē dài kè lǚ de， bù zhī bù jué jiù jiē dài le tiān shǐ。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "客旅",
+            "pinyin": "kè lǚ",
+            "english": "traveler / stranger",
+            "note": "An older literary term for a stranger or guest — not a word used in modern spoken Chinese."
+          },
+          {
+            "chinese": "不知不觉",
+            "pinyin": "bù zhī bù jué",
+            "english": "without realizing it",
+            "note": "A four-character idiom meaning 'unknowingly' — common in written Chinese, less so in casual speech."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What might happen when you welcome a stranger, according to this verse?",
+          "options": [
+            "You might be welcoming an angel without knowing it",
+            "You might be scammed",
+            "You might make a new friend"
+          ],
+          "answer": "You might be welcoming an angel without knowing it"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "你住在附近吗？",
+          "pinyin": "nǐ zhù zài fù jìn ma？",
+          "english": "Do you live nearby?"
+        },
+        "options": [
+          {
+            "chinese": "对，我住得不远。",
+            "pinyin": "duì， wǒ zhù dé bù yuǎn。",
+            "english": "Yes, I don't live far."
+          },
+          {
+            "chinese": "谢谢你的礼物。",
+            "pinyin": "xiè xiè nǐ de lǐ wù。",
+            "english": "Thank you for the gift."
+          },
+          {
+            "chinese": "我要去机场。",
+            "pinyin": "wǒ yào qù jī chǎng。",
+            "english": "I need to go to the airport."
+          }
+        ],
+        "answer": "对，我住得不远。"
       }
     },
     {
@@ -551,7 +683,41 @@
         "reference": "诗篇 122:1",
         "referenceEnglish": "Psalms 122:1",
         "chinese": "（大卫上行之诗）人对我说：我们往耶和华的殿去，我就欢喜。",
-        "pinyin": "（ dà wèi shàng háng zhī shī） rén duì wǒ shuō： wǒ men wǎng yē hé huá de diàn qù， wǒ jiù huān xǐ。"
+        "pinyin": "（ dà wèi shàng háng zhī shī） rén duì wǒ shuō： wǒ men wǎng yē hé huá de diàn qù， wǒ jiù huān xǐ。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "上行之诗",
+            "pinyin": "shàng háng zhī shī",
+            "english": "a Song of Ascents",
+            "note": "A Psalm-heading term — 之 here is a classical possessive particle, replaced by 的 in modern speech."
+          },
+          {
+            "chinese": "殿",
+            "pinyin": "diàn",
+            "english": "temple / grand hall",
+            "note": "A formal, literary word for a temple — far more formal than any word for 'building' in daily conversation."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What made the psalmist glad, according to this verse?",
+          "options": [
+            "Being invited to the house of the LORD",
+            "Winning a prize",
+            "Finishing a journey"
+          ],
+          "answer": "Being invited to the house of the LORD"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "儿童主日学在___？",
+        "options": [
+          "哪里",
+          "左边",
+          "右边"
+        ],
+        "answer": "哪里",
+        "englishHint": "Where is children's Sunday school?"
       }
     },
     {
@@ -706,7 +872,56 @@
         "reference": "希伯来书 10:25",
         "referenceEnglish": "Hebrews 10:25",
         "chinese": "你们不可停止聚会，好像那些停止惯了的人，倒要彼此劝勉，既知道〔原文作看见〕那日子临近，就更当如此。",
-        "pinyin": "nǐ men bù kě tíng zhǐ jù huì， hǎo xiàng nà xiē tíng zhǐ guàn le de rén， dào yào bǐ cǐ quàn miǎn， jì zhī dào 〔 yuán wén zuò kàn jiàn 〕 nà rì zi lín jìn， jiù gèng dāng rú cǐ。"
+        "pinyin": "nǐ men bù kě tíng zhǐ jù huì， hǎo xiàng nà xiē tíng zhǐ guàn le de rén， dào yào bǐ cǐ quàn miǎn， jì zhī dào 〔 yuán wén zuò kàn jiàn 〕 nà rì zi lín jìn， jiù gèng dāng rú cǐ。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "倒",
+            "pinyin": "dào",
+            "english": "but rather / on the contrary",
+            "note": "A literary connective word for contrast — distinct from its common meaning 'to pour' or 'to fall over.'"
+          },
+          {
+            "chinese": "临近",
+            "pinyin": "lín jìn",
+            "english": "to draw near / approach",
+            "note": "A formal verb — everyday speech would more likely say 快到了."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What are believers told not to stop doing, according to this verse?",
+          "options": [
+            "Meeting together",
+            "Working",
+            "Traveling"
+          ],
+          "answer": "Meeting together"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "今天讲道是关于什么？",
+          "pinyin": "jīn tiān jiǎng dào shì guān yú shén me？",
+          "english": "What's today's sermon about?"
+        },
+        "options": [
+          {
+            "chinese": "是关于恩典的。",
+            "pinyin": "shì guān yú ēn diǎn de。",
+            "english": "It's about grace."
+          },
+          {
+            "chinese": "现在几点？",
+            "pinyin": "xiàn zài jǐ diǎn？",
+            "english": "What time is it now?"
+          },
+          {
+            "chinese": "我要去机场。",
+            "pinyin": "wǒ yào qù jī chǎng。",
+            "english": "I need to go to the airport."
+          }
+        ],
+        "answer": "是关于恩典的。"
       }
     },
     {
@@ -873,7 +1088,41 @@
         "reference": "传道书 3:1",
         "referenceEnglish": "Ecclesiastes 3:1",
         "chinese": "凡事都有定期，天下万务都有定时。",
-        "pinyin": "fán shì dōu yǒu dìng qī， tiān xià wàn wù dōu yǒu dìng shí。"
+        "pinyin": "fán shì dōu yǒu dìng qī， tiān xià wàn wù dōu yǒu dìng shí。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "凡事",
+            "pinyin": "fán shì",
+            "english": "everything / all things",
+            "note": "A classical construction (凡 + noun = 'every/all') — this exact pattern reappears in several other verses in this app."
+          },
+          {
+            "chinese": "万务",
+            "pinyin": "wàn wù",
+            "english": "all affairs / matters",
+            "note": "A formal, literary term for 'everything that happens' — not used conversationally."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What is this verse's main idea?",
+          "options": [
+            "Everything has its appointed time",
+            "Time moves quickly",
+            "Work is more important than rest"
+          ],
+          "answer": "Everything has its appointed time"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "___三点，可以吗？",
+        "options": [
+          "下午",
+          "星期几",
+          "半"
+        ],
+        "answer": "下午",
+        "englishHint": "3pm, is that okay?"
       }
     },
     {
@@ -1052,7 +1301,56 @@
         "reference": "约书亚记 24:15",
         "referenceEnglish": "Joshua 24:15",
         "chinese": "若是你们以事奉耶和华为不好，今日就可以选择所要事奉的：是你们列祖在大河那边所事奉的神呢？是你们所住这地的亚摩利人的神呢？至于我和我家，我们必定事奉耶和华。」",
-        "pinyin": "ruò shì nǐ men yǐ shì fèng yē hé huá wèi bù hǎo， jīn rì jiù kě yǐ xuǎn zé suǒ yào shì fèng de： shì nǐ men liè zǔ zài dà hé nà biān suǒ shì fèng de shén ne？ shì nǐ men suǒ zhù zhè dì de yà mó lì rén de shén ne？ zhì yú wǒ hé wǒ jiā， wǒ men bì dìng shì fèng yē hé huá 。」"
+        "pinyin": "ruò shì nǐ men yǐ shì fèng yē hé huá wèi bù hǎo， jīn rì jiù kě yǐ xuǎn zé suǒ yào shì fèng de： shì nǐ men liè zǔ zài dà hé nà biān suǒ shì fèng de shén ne？ shì nǐ men suǒ zhù zhè dì de yà mó lì rén de shén ne？ zhì yú wǒ hé wǒ jiā， wǒ men bì dìng shì fèng yē hé huá 。」",
+        "scriptureVocabulary": [
+          {
+            "chinese": "若是",
+            "pinyin": "ruò shì",
+            "english": "if",
+            "note": "A classical conditional connective — conversational Chinese uses 如果 or 要是 instead."
+          },
+          {
+            "chinese": "至于",
+            "pinyin": "zhì yú",
+            "english": "as for",
+            "note": "A formal transitional phrase introducing a shift in subject — common in writing, rare in speech."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What does Joshua declare he and his household will do?",
+          "options": [
+            "Serve the LORD",
+            "Move to a new land",
+            "Build a temple"
+          ],
+          "answer": "Serve the LORD"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "近况如何？家人都好吗？",
+          "pinyin": "jìn kuàng rú hé？ jiā rén dōu hǎo ma？",
+          "english": "How's it going? Is your family well?"
+        },
+        "options": [
+          {
+            "chinese": "都好，谢谢关心。",
+            "pinyin": "dōu hǎo， xiè xiè guān xīn。",
+            "english": "All good, thanks for asking."
+          },
+          {
+            "chinese": "我不喜欢咖啡。",
+            "pinyin": "wǒ bù xǐ huān kā fēi。",
+            "english": "I don't like coffee."
+          },
+          {
+            "chinese": "我要去机场。",
+            "pinyin": "wǒ yào qù jī chǎng。",
+            "english": "I need to go to the airport."
+          }
+        ],
+        "answer": "都好，谢谢关心。"
       }
     },
     {
@@ -1183,7 +1481,41 @@
         "reference": "箴言 27:17",
         "referenceEnglish": "Proverbs 27:17",
         "chinese": "铁磨铁，磨出刃来；朋友相感〔原文作磨朋友的脸〕也是如此。",
-        "pinyin": "tiě mó tiě， mó chū rèn lái； péng yǒu xiāng gǎn 〔 yuán wén zuò mó péng yǒu de liǎn 〕 yě shì rú cǐ。"
+        "pinyin": "tiě mó tiě， mó chū rèn lái； péng yǒu xiāng gǎn 〔 yuán wén zuò mó péng yǒu de liǎn 〕 yě shì rú cǐ。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "相感",
+            "pinyin": "xiāng gǎn",
+            "english": "to sharpen / affect one another",
+            "note": "A literary compound verb specific to this proverb — not used in ordinary speech."
+          },
+          {
+            "chinese": "也是如此",
+            "pinyin": "yě shì rú cǐ",
+            "english": "it is likewise / the same",
+            "note": "A formal closing phrase used to draw a comparison — 如此 itself is a literary word for 'this/so.'"
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What does iron do to iron, according to this proverb?",
+          "options": [
+            "It sharpens it",
+            "It breaks it",
+            "It melts it"
+          ],
+          "answer": "It sharpens it"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "我们___个联络方式吧。",
+        "options": [
+          "加",
+          "号码",
+          "太好了"
+        ],
+        "answer": "加",
+        "englishHint": "Let's exchange contact info."
       }
     },
     {
@@ -1356,7 +1688,56 @@
         "reference": "使徒行传 2:46",
         "referenceEnglish": "Acts 2:46",
         "chinese": "他们天天同心合意恒切的在殿里，且在家中擘饼，存着欢喜、诚实的心用饭，",
-        "pinyin": "tā men tiān tiān tóng xīn hé yì héng qiè de zài diàn lǐ， qiě zài jiā zhōng bāi bǐng， cún zhe huān xǐ、 chéng shí de xīn yòng fàn，"
+        "pinyin": "tā men tiān tiān tóng xīn hé yì héng qiè de zài diàn lǐ， qiě zài jiā zhōng bāi bǐng， cún zhe huān xǐ、 chéng shí de xīn yòng fàn，",
+        "scriptureVocabulary": [
+          {
+            "chinese": "同心合意",
+            "pinyin": "tóng xīn hé yì",
+            "english": "united in heart and mind",
+            "note": "A four-character classical idiom (成语) — a strong marker of literary register."
+          },
+          {
+            "chinese": "擘饼",
+            "pinyin": "bāi bǐng",
+            "english": "to break bread",
+            "note": "An archaic verb — 擘 (to split/break) is rarely used outside this specific biblical phrase."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What did the early believers do daily, according to this verse?",
+          "options": [
+            "Met together and broke bread",
+            "Traveled to Jerusalem",
+            "Built a new temple"
+          ],
+          "answer": "Met together and broke bread"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "你们小组什么时候聚会？",
+          "pinyin": "nǐ men xiǎo zǔ shén me shí hòu jù huì？",
+          "english": "When does your small group meet?"
+        },
+        "options": [
+          {
+            "chinese": "我们星期三晚上聚会。",
+            "pinyin": "wǒ men xīng qī sān wǎn shàng jù huì。",
+            "english": "We meet on Wednesday evenings."
+          },
+          {
+            "chinese": "谢谢你的礼物。",
+            "pinyin": "xiè xiè nǐ de lǐ wù。",
+            "english": "Thank you for the gift."
+          },
+          {
+            "chinese": "他是我的老师。",
+            "pinyin": "tā shì wǒ de lǎo shī。",
+            "english": "He is my teacher."
+          }
+        ],
+        "answer": "我们星期三晚上聚会。"
       }
     },
     {
@@ -1505,7 +1886,56 @@
         "reference": "雅各书 5:16",
         "referenceEnglish": "James 5:16",
         "chinese": "所以你们要彼此认罪，互相代求，使你们可以得医治。义人祈祷所发的力量是大有功效的。",
-        "pinyin": "suǒ yǐ nǐ men yào bǐ cǐ rèn zuì， hù xiāng dài qiú， shǐ nǐ men kě yǐ dé yī zhì。 yì rén qí dǎo suǒ fā de lì liàng shì dà yǒu gōng xiào de。"
+        "pinyin": "suǒ yǐ nǐ men yào bǐ cǐ rèn zuì， hù xiāng dài qiú， shǐ nǐ men kě yǐ dé yī zhì。 yì rén qí dǎo suǒ fā de lì liàng shì dà yǒu gōng xiào de。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "代求",
+            "pinyin": "dài qiú",
+            "english": "to intercede / pray on behalf of",
+            "note": "A specific theological term for praying for someone else."
+          },
+          {
+            "chinese": "大有功效",
+            "pinyin": "dà yǒu gōng xiào",
+            "english": "very effective / powerful",
+            "note": "A literary phrase — 功效 (efficacy) is a formal word not used casually."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What kind of prayer is described as powerful, according to this verse?",
+          "options": [
+            "The prayer of a righteous person",
+            "A long prayer",
+            "A prayer said in the temple"
+          ],
+          "answer": "The prayer of a righteous person"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "有没有代祷事项？",
+          "pinyin": "yǒu méi yǒu dài dǎo shì xiàng？",
+          "english": "Any prayer requests?"
+        },
+        "options": [
+          {
+            "chinese": "请为我的家人祷告。",
+            "pinyin": "qǐng wèi wǒ de jiā rén dǎo gào。",
+            "english": "Please pray for my family."
+          },
+          {
+            "chinese": "今天天气很好。",
+            "pinyin": "jīn tiān tiān qì hěn hǎo。",
+            "english": "The weather is nice today."
+          },
+          {
+            "chinese": "我要去机场。",
+            "pinyin": "wǒ yào qù jī chǎng。",
+            "english": "I need to go to the airport."
+          }
+        ],
+        "answer": "请为我的家人祷告。"
       }
     },
     {
@@ -1648,7 +2078,41 @@
         "reference": "帖撒罗尼迦前书 5:11",
         "referenceEnglish": "1 Thessalonians 5:11",
         "chinese": "所以，你们该彼此劝慰，互相建立，正如你们素常所行的。",
-        "pinyin": "suǒ yǐ， nǐ men gāi bǐ cǐ quàn wèi， hù xiāng jiàn lì， zhèng rú nǐ men sù cháng suǒ xíng de。"
+        "pinyin": "suǒ yǐ， nǐ men gāi bǐ cǐ quàn wèi， hù xiāng jiàn lì， zhèng rú nǐ men sù cháng suǒ xíng de。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "劝慰",
+            "pinyin": "quàn wèi",
+            "english": "to comfort / exhort",
+            "note": "A literary compound word combining 'persuade' and 'comfort' — not conversational."
+          },
+          {
+            "chinese": "素常",
+            "pinyin": "sù cháng",
+            "english": "usually / habitually",
+            "note": "An archaic adverb — modern speech would say 平常 or 通常."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What two things does this verse call believers to do for one another?",
+          "options": [
+            "Encourage and build up",
+            "Correct and warn",
+            "Feed and clothe"
+          ],
+          "answer": "Encourage and build up"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "神与你___，不要灰心。",
+        "options": [
+          "同在",
+          "鼓励",
+          "辛苦"
+        ],
+        "answer": "同在",
+        "englishHint": "God is with you, don't be discouraged."
       }
     },
     {
@@ -1797,7 +2261,56 @@
         "reference": "帖撒罗尼迦前书 5:18",
         "referenceEnglish": "1 Thessalonians 5:18",
         "chinese": "凡事谢恩；因为这是神在基督耶稣里向你们所定的旨意。",
-        "pinyin": "fán shì xiè ēn； yīn wèi zhè shì shén zài jī dū yē sū lǐ xiàng nǐ men suǒ dìng de zhǐ yì。"
+        "pinyin": "fán shì xiè ēn； yīn wèi zhè shì shén zài jī dū yē sū lǐ xiàng nǐ men suǒ dìng de zhǐ yì。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "旨意",
+            "pinyin": "zhǐ yì",
+            "english": "will / purpose (of God)",
+            "note": "A formal theological term for divine will — not used for everyday 'wishes.'"
+          },
+          {
+            "chinese": "凡事",
+            "pinyin": "fán shì",
+            "english": "in everything / all circumstances",
+            "note": "The same classical 凡 + noun construction from Lesson 6 — notice it reappearing here."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "In what circumstances should we give thanks, according to this verse?",
+          "options": [
+            "In everything",
+            "Only when things go well",
+            "Only in church"
+          ],
+          "answer": "In everything"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "我们来分享感恩事项吧。",
+          "pinyin": "wǒ men lái fēn xiǎng gǎn ēn shì xiàng ba。",
+          "english": "Let's share what we're thankful for."
+        },
+        "options": [
+          {
+            "chinese": "我感谢神赐给我的教会家庭。",
+            "pinyin": "wǒ gǎn xiè shén cì gěi wǒ de jiào huì jiā tíng。",
+            "english": "I'm thankful for the church family God has given me."
+          },
+          {
+            "chinese": "现在几点？",
+            "pinyin": "xiàn zài jǐ diǎn？",
+            "english": "What time is it now?"
+          },
+          {
+            "chinese": "他是我的老师。",
+            "pinyin": "tā shì wǒ de lǎo shī。",
+            "english": "He is my teacher."
+          }
+        ],
+        "answer": "我感谢神赐给我的教会家庭。"
       }
     },
     {
@@ -1952,7 +2465,41 @@
         "reference": "约翰福音 1:46",
         "referenceEnglish": "John 1:46",
         "chinese": "拿但业对他说：「拿撒勒还能出甚么好的么？」腓力说：「你来看！」",
-        "pinyin": "ná dàn yè duì tā shuō ：「 ná sā lēi hái néng chū shén me hǎo de me ？」 féi lì shuō ：「 nǐ lái kàn ！」"
+        "pinyin": "ná dàn yè duì tā shuō ：「 ná sā lēi hái néng chū shén me hǎo de me ？」 féi lì shuō ：「 nǐ lái kàn ！」",
+        "scriptureVocabulary": [
+          {
+            "chinese": "甚么",
+            "pinyin": "shén me",
+            "english": "what",
+            "note": "An older written form of 什么 — seeing 甚 instead of 什 is a sign of older-style CUV text."
+          },
+          {
+            "chinese": "么",
+            "pinyin": "me",
+            "english": "(question particle)",
+            "note": "An older question particle — modern spoken Chinese uses 吗 instead."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What was Philip's simple invitation to Nathanael?",
+          "options": [
+            "\"Come and see\"",
+            "\"Believe in me\"",
+            "\"Follow the crowd\""
+          ],
+          "answer": "\"Come and see\""
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "这个主日你___吗？",
+        "options": [
+          "有空",
+          "邀请",
+          "一起"
+        ],
+        "answer": "有空",
+        "englishHint": "Are you free this Sunday?"
       }
     },
     {
@@ -2095,7 +2642,56 @@
         "reference": "路加福音 2:11",
         "referenceEnglish": "Luke 2:11",
         "chinese": "因今天在大卫的城里，为你们生了救主，就是主基督。",
-        "pinyin": "yīn jīn tiān zài dà wèi de chéng lǐ， wèi nǐ men shēng le jiù zhǔ， jiù shì zhǔ jī dū。"
+        "pinyin": "yīn jīn tiān zài dà wèi de chéng lǐ， wèi nǐ men shēng le jiù zhǔ， jiù shì zhǔ jī dū。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "就是",
+            "pinyin": "jiù shì",
+            "english": "that is / namely",
+            "note": "A literary clarifying connector used to rename or specify — 'the Savior, that is, Christ the Lord.'"
+          },
+          {
+            "chinese": "大卫的城",
+            "pinyin": "dà wèi de chéng",
+            "english": "the city of David",
+            "note": "A fixed biblical place-name construction — refers to Bethlehem."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "Where was the Savior born, according to this verse?",
+          "options": [
+            "In the city of David",
+            "In Jerusalem's temple",
+            "In Nazareth"
+          ],
+          "answer": "In the city of David"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "报佳音是做什么？",
+          "pinyin": "bào jiā yīn shì zuò shén me？",
+          "english": "What does carolling involve?"
+        },
+        "options": [
+          {
+            "chinese": "我们唱圣诞歌，分享好消息。",
+            "pinyin": "wǒ men chàng shèng dàn gē， fēn xiǎng hǎo xiāo xī。",
+            "english": "We sing Christmas songs and share the good news."
+          },
+          {
+            "chinese": "我不喜欢咖啡。",
+            "pinyin": "wǒ bù xǐ huān kā fēi。",
+            "english": "I don't like coffee."
+          },
+          {
+            "chinese": "我要去机场。",
+            "pinyin": "wǒ yào qù jī chǎng。",
+            "english": "I need to go to the airport."
+          }
+        ],
+        "answer": "我们唱圣诞歌，分享好消息。"
       }
     },
     {
@@ -2238,7 +2834,56 @@
         "reference": "雅各书 5:14",
         "referenceEnglish": "James 5:14",
         "chinese": "你们中间有病了的呢，他就该请教会的长老来；他们可以奉主的名用油抹他，为他祷告。",
-        "pinyin": "nǐ men zhōng jiān yǒu bìng le de ne， tā jiù gāi qǐng jiào huì de zhǎng lǎo lái； tā men kě yǐ fèng zhǔ de míng yòng yóu mǒ tā， wèi tā dǎo gào。"
+        "pinyin": "nǐ men zhōng jiān yǒu bìng le de ne， tā jiù gāi qǐng jiào huì de zhǎng lǎo lái； tā men kě yǐ fèng zhǔ de míng yòng yóu mǒ tā， wèi tā dǎo gào。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "奉...的名",
+            "pinyin": "fèng ... de míng",
+            "english": "in the name of...",
+            "note": "A formal religious construction — 'in the name of the Lord' — a pattern that recurs throughout Scripture."
+          },
+          {
+            "chinese": "抹",
+            "pinyin": "mǒ",
+            "english": "to anoint / apply oil",
+            "note": "A specific ritual verb for applying oil — not a word used in daily life."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "Who should a sick believer call for, according to this verse?",
+          "options": [
+            "The elders of the church",
+            "A doctor",
+            "Their family"
+          ],
+          "answer": "The elders of the church"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "你听说了吗？王姐妹住院了。",
+          "pinyin": "nǐ tīng shuō le ma？ wáng jiě mèi zhù yuàn le。",
+          "english": "Did you hear? Sister Wang is hospitalised."
+        },
+        "options": [
+          {
+            "chinese": "我不知道，她怎么了？",
+            "pinyin": "wǒ bù zhī dào， tā zěn me le？",
+            "english": "I didn't know, what happened to her?"
+          },
+          {
+            "chinese": "谢谢你的礼物。",
+            "pinyin": "xiè xiè nǐ de lǐ wù。",
+            "english": "Thank you for the gift."
+          },
+          {
+            "chinese": "今天天气很好。",
+            "pinyin": "jīn tiān tiān qì hěn hǎo。",
+            "english": "The weather is nice today."
+          }
+        ],
+        "answer": "我不知道，她怎么了？"
       }
     },
     {
@@ -2411,7 +3056,41 @@
         "reference": "创世记 2:24",
         "referenceEnglish": "Genesis 2:24",
         "chinese": "因此，人要离开父母，与妻子连合，二人成为一体。",
-        "pinyin": "yīn cǐ， rén yào lí kāi fù mǔ， yǔ qī zǐ lián hé， èr rén chéng wéi yī tǐ。"
+        "pinyin": "yīn cǐ， rén yào lí kāi fù mǔ， yǔ qī zǐ lián hé， èr rén chéng wéi yī tǐ。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "连合",
+            "pinyin": "lián hé",
+            "english": "to be united / joined",
+            "note": "A formal word for union — related to but more literary than the conversational 结合."
+          },
+          {
+            "chinese": "成为一体",
+            "pinyin": "chéng wéi yī tǐ",
+            "english": "to become one flesh",
+            "note": "A literary phrase describing marriage — not a construction used in casual speech."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What do a man and woman become, according to this verse?",
+          "options": [
+            "One flesh",
+            "Business partners",
+            "Neighbors"
+          ],
+          "answer": "One flesh"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "在___举行，牧师会证婚。",
+        "options": [
+          "主堂",
+          "祝福",
+          "感恩"
+        ],
+        "answer": "主堂",
+        "englishHint": "It's in the main sanctuary, the pastor will officiate."
       }
     },
     {
@@ -2578,7 +3257,56 @@
         "reference": "诗篇 119:105",
         "referenceEnglish": "Psalms 119:105",
         "chinese": "你的话是我脚前的灯，是我路上的光。",
-        "pinyin": "nǐ de huà shì wǒ jiǎo qián de dēng， shì wǒ lù shàng de guāng。"
+        "pinyin": "nǐ de huà shì wǒ jiǎo qián de dēng， shì wǒ lù shàng de guāng。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "脚前",
+            "pinyin": "jiǎo qián",
+            "english": "before my feet",
+            "note": "A poetic construction — conversational Chinese would say 我脚的前面 instead."
+          },
+          {
+            "chinese": "路上",
+            "pinyin": "lù shàng",
+            "english": "on my path / road",
+            "note": "Used here poetically for 'my way in life,' beyond its literal meaning of 'on the road.'"
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What two things does God's word provide, according to this verse?",
+          "options": [
+            "A lamp and a light",
+            "Food and water",
+            "Gold and silver"
+          ],
+          "answer": "A lamp and a light"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "你每天都灵修吗？",
+          "pinyin": "nǐ měi tiān dōu líng xiū ma？",
+          "english": "Do you have a quiet time every day?"
+        },
+        "options": [
+          {
+            "chinese": "是的，我每天早上读经祷告。",
+            "pinyin": "shì de， wǒ měi tiān zǎo shàng dú jīng dǎo gào。",
+            "english": "Yes, I read the Bible and pray every morning."
+          },
+          {
+            "chinese": "我要去机场。",
+            "pinyin": "wǒ yào qù jī chǎng。",
+            "english": "I need to go to the airport."
+          },
+          {
+            "chinese": "他是我的老师。",
+            "pinyin": "tā shì wǒ de lǎo shī。",
+            "english": "He is my teacher."
+          }
+        ],
+        "answer": "是的，我每天早上读经祷告。"
       }
     },
     {
@@ -2733,7 +3461,41 @@
         "reference": "以弗所书 2:8",
         "referenceEnglish": "Ephesians 2:8",
         "chinese": "你们得救是本乎恩，也因着信；这并不是出于自己，乃是神所赐的；",
-        "pinyin": "nǐ men dé jiù shì běn hū ēn， yě yīn zhe xìn； zhè bìng bú shì chū yú zì jǐ， nǎi shì shén suǒ cì de；"
+        "pinyin": "nǐ men dé jiù shì běn hū ēn， yě yīn zhe xìn； zhè bìng bú shì chū yú zì jǐ， nǎi shì shén suǒ cì de；",
+        "scriptureVocabulary": [
+          {
+            "chinese": "本乎",
+            "pinyin": "běn hū",
+            "english": "based on / by means of",
+            "note": "A highly classical construction — 乎 is a classical particle almost never seen in modern writing or speech."
+          },
+          {
+            "chinese": "乃是",
+            "pinyin": "nǎi shì",
+            "english": "but rather / it is",
+            "note": "A classical connective (乃 = 'thus/rather') pairing with 是 — conversational Chinese just uses 是."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "According to this verse, is salvation earned by our own effort?",
+          "options": [
+            "No, it's a gift from God",
+            "Yes, through good deeds",
+            "Yes, through following rules"
+          ],
+          "answer": "No, it's a gift from God"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "救恩是神因着___赦免我们的罪。",
+        "options": [
+          "恩典",
+          "行为",
+          "罪"
+        ],
+        "answer": "恩典",
+        "englishHint": "Salvation is God forgiving our sins by grace."
       }
     },
     {
@@ -2900,7 +3662,56 @@
         "reference": "罗马书 6:4",
         "referenceEnglish": "Romans 6:4",
         "chinese": "所以，我们借着洗礼归入死，和他一同埋葬，原是叫我们一举一动有新生的样式，像基督借着父的荣耀从死里复活一样。",
-        "pinyin": "suǒ yǐ， wǒ men jiè zhe xǐ lǐ guī rù sǐ， hé tā yī tóng mái zàng， yuán shì jiào wǒ men yī jǔ yī dòng yǒu xīn shēng de yàng shì， xiàng jī dū jiè zhe fù de róng yào cóng sǐ lǐ fù huó yī yàng。"
+        "pinyin": "suǒ yǐ， wǒ men jiè zhe xǐ lǐ guī rù sǐ， hé tā yī tóng mái zàng， yuán shì jiào wǒ men yī jǔ yī dòng yǒu xīn shēng de yàng shì， xiàng jī dū jiè zhe fù de róng yào cóng sǐ lǐ fù huó yī yàng。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "借着",
+            "pinyin": "jiè zhe",
+            "english": "by means of / through",
+            "note": "A formal connective introducing the means by which something happens."
+          },
+          {
+            "chinese": "一举一动",
+            "pinyin": "yī jǔ yī dòng",
+            "english": "every action / movement",
+            "note": "A classical four-character idiom meaning literally 'every raise, every move.'"
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What does baptism symbolize, according to this verse?",
+          "options": [
+            "Being buried with Christ and rising to new life",
+            "Washing off dirt",
+            "Joining a club"
+          ],
+          "answer": "Being buried with Christ and rising to new life"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "洗礼班教些什么？",
+          "pinyin": "xǐ lǐ bān jiào xiē shén me？",
+          "english": "What does the baptism class teach?"
+        },
+        "options": [
+          {
+            "chinese": "教你信仰的基本要道。",
+            "pinyin": "jiào nǐ xìn yǎng de jī běn yào dào。",
+            "english": "It teaches the basics of the faith."
+          },
+          {
+            "chinese": "现在几点？",
+            "pinyin": "xiàn zài jǐ diǎn？",
+            "english": "What time is it now?"
+          },
+          {
+            "chinese": "今天天气很好。",
+            "pinyin": "jīn tiān tiān qì hěn hǎo。",
+            "english": "The weather is nice today."
+          }
+        ],
+        "answer": "教你信仰的基本要道。"
       }
     },
     {
@@ -3055,7 +3866,41 @@
         "reference": "哥林多前书 11:24",
         "referenceEnglish": "1 Corinthians 11:24",
         "chinese": "祝谢了，就擘开，说：「这是我的身体，为你们舍〔有古卷作：擘开〕的，你们应当如此行，为的是记念我。」",
-        "pinyin": "zhù xiè le， jiù bāi kāi， shuō ：「 zhè shì wǒ de shēn tǐ， wèi nǐ men shě 〔 yǒu gǔ juǎn zuò： bāi kāi 〕 de， nǐ men yīng dāng rú cǐ xíng， wèi de shì jì niàn wǒ 。」"
+        "pinyin": "zhù xiè le， jiù bāi kāi， shuō ：「 zhè shì wǒ de shēn tǐ， wèi nǐ men shě 〔 yǒu gǔ juǎn zuò： bāi kāi 〕 de， nǐ men yīng dāng rú cǐ xíng， wèi de shì jì niàn wǒ 。」",
+        "scriptureVocabulary": [
+          {
+            "chinese": "舍",
+            "pinyin": "shě",
+            "english": "to give up / sacrifice",
+            "note": "A weighty, formal verb for giving something up — stronger than conversational 给."
+          },
+          {
+            "chinese": "如此行",
+            "pinyin": "rú cǐ xíng",
+            "english": "do this",
+            "note": "A literary imperative — conversational Chinese would say 这样做."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What did Jesus ask His disciples to do 'in remembrance' of Him?",
+          "options": [
+            "Eat the bread",
+            "Build an altar",
+            "Sing a psalm"
+          ],
+          "answer": "Eat the bread"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "已经___的信徒都可以。",
+        "options": [
+          "受洗",
+          "记念",
+          "代表"
+        ],
+        "answer": "受洗",
+        "englishHint": "Any already-baptised believer can."
       }
     },
     {
@@ -3234,7 +4079,56 @@
         "reference": "彼得前书 3:15",
         "referenceEnglish": "1 Peter 3:15",
         "chinese": "只要心里尊主基督为圣。有人问你们心中盼望的缘由，就要常作准备，以温柔、敬畏的心回答各人；",
-        "pinyin": "zhǐ yào xīn lǐ zūn zhǔ jī dū wèi shèng。 yǒu rén wèn nǐ men xīn zhōng pàn wàng de yuán yóu， jiù yào cháng zuò zhǔn bèi， yǐ wēn róu、 jìng wèi de xīn huí dá gè rén；"
+        "pinyin": "zhǐ yào xīn lǐ zūn zhǔ jī dū wèi shèng。 yǒu rén wèn nǐ men xīn zhōng pàn wàng de yuán yóu， jiù yào cháng zuò zhǔn bèi， yǐ wēn róu、 jìng wèi de xīn huí dá gè rén；",
+        "scriptureVocabulary": [
+          {
+            "chinese": "缘由",
+            "pinyin": "yuán yóu",
+            "english": "reason / cause",
+            "note": "A formal, literary word for 'reason' — conversational Chinese would say 原因."
+          },
+          {
+            "chinese": "尊...为圣",
+            "pinyin": "zūn ... wèi shèng",
+            "english": "to regard...as holy",
+            "note": "A formal construction — 'regard Christ as Lord, holy.'"
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What should believers always be ready to do, according to this verse?",
+          "options": [
+            "Give an answer for their hope",
+            "Debate with strangers",
+            "Stay silent about their faith"
+          ],
+          "answer": "Give an answer for their hope"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "神怎样改变了你的生命？",
+          "pinyin": "shén zěn yàng gǎi biàn le nǐ de shēng mìng？",
+          "english": "How has God changed your life?"
+        },
+        "options": [
+          {
+            "chinese": "我学会了饶恕，也更有平安。",
+            "pinyin": "wǒ xué huì le ráo shù， yě gèng yǒu píng ān。",
+            "english": "I learned to forgive, and I have more peace."
+          },
+          {
+            "chinese": "我不喜欢咖啡。",
+            "pinyin": "wǒ bù xǐ huān kā fēi。",
+            "english": "I don't like coffee."
+          },
+          {
+            "chinese": "他是我的老师。",
+            "pinyin": "tā shì wǒ de lǎo shī。",
+            "english": "He is my teacher."
+          }
+        ],
+        "answer": "我学会了饶恕，也更有平安。"
       }
     },
     {
@@ -3389,7 +4283,41 @@
         "reference": "提摩太后书 3:16",
         "referenceEnglish": "2 Timothy 3:16",
         "chinese": "圣经都是神所默示的〔或作：凡神所默示的圣经〕，于教训、督责、使人归正、教导人学义都是有益的，",
-        "pinyin": "shèng jīng dōu shì shén suǒ mò shì de 〔 huò zuò： fán shén suǒ mò shì de shèng jīng 〕， yú jiào xùn、 dū zé、 shǐ rén guī zhèng、 jiào dǎo rén xué yì dōu shì yǒu yì de，"
+        "pinyin": "shèng jīng dōu shì shén suǒ mò shì de 〔 huò zuò： fán shén suǒ mò shì de shèng jīng 〕， yú jiào xùn、 dū zé、 shǐ rén guī zhèng、 jiào dǎo rén xué yì dōu shì yǒu yì de，",
+        "scriptureVocabulary": [
+          {
+            "chinese": "默示",
+            "pinyin": "mò shì",
+            "english": "to divinely inspire",
+            "note": "A specific theological term meaning God-breathed — very literary, used almost nowhere outside this doctrinal context."
+          },
+          {
+            "chinese": "归正",
+            "pinyin": "guī zhèng",
+            "english": "to correct / reform",
+            "note": "A formal word describing moral correction — not used in everyday speech."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "According to this verse, where does Scripture come from?",
+          "options": [
+            "It is inspired by God",
+            "It was written by kings",
+            "It was passed down orally only"
+          ],
+          "answer": "It is inspired by God"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "圣经分成___和新约。",
+        "options": [
+          "旧约",
+          "创世记",
+          "诗篇"
+        ],
+        "answer": "旧约",
+        "englishHint": "The Bible is divided into the Old Testament and New Testament."
       }
     },
     {
@@ -3574,7 +4502,56 @@
         "reference": "希伯来书 12:1",
         "referenceEnglish": "Hebrews 12:1",
         "chinese": "我们既有这许多的见证人，如同云彩围着我们，就当放下各样的重担，脱去容易缠累我们的罪，存心忍耐，奔那摆在我们前头的路程，",
-        "pinyin": "wǒ men jì yǒu zhè xǔ duō de jiàn zhèng rén， rú tóng yún cǎi wéi zhe wǒ men， jiù dāng fàng xià gè yàng de zhòng dàn， tuō qù róng yì chán lèi wǒ men de zuì， cún xīn rěn nài， bēn nà bǎi zài wǒ men qián tou de lù chéng，"
+        "pinyin": "wǒ men jì yǒu zhè xǔ duō de jiàn zhèng rén， rú tóng yún cǎi wéi zhe wǒ men， jiù dāng fàng xià gè yàng de zhòng dàn， tuō qù róng yì chán lèi wǒ men de zuì， cún xīn rěn nài， bēn nà bǎi zài wǒ men qián tou de lù chéng，",
+        "scriptureVocabulary": [
+          {
+            "chinese": "缠累",
+            "pinyin": "chán lèi",
+            "english": "to entangle / burden",
+            "note": "A very literary compound verb — describes sin 'wrapping around and weighing down.'"
+          },
+          {
+            "chinese": "摆在...前头",
+            "pinyin": "bǎi zài ... qián tou",
+            "english": "set before...",
+            "note": "A literary construction — 'the race set before us.'"
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What are believers pictured as running, in this verse?",
+          "options": [
+            "A race set before them",
+            "A business",
+            "A rescue mission"
+          ],
+          "answer": "A race set before them"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "牧师今天讲道提到摩西，他是谁？",
+          "pinyin": "mù shī jīn tiān jiǎng dào tí dào mó xī， tā shì shuí？",
+          "english": "The pastor mentioned Moses today — who is he?"
+        },
+        "options": [
+          {
+            "chinese": "摩西带领以色列人出埃及。",
+            "pinyin": "mó xī dài lǐng yǐ sè liè rén chū āi jí。",
+            "english": "Moses led the Israelites out of Egypt."
+          },
+          {
+            "chinese": "今天天气很好。",
+            "pinyin": "jīn tiān tiān qì hěn hǎo。",
+            "english": "The weather is nice today."
+          },
+          {
+            "chinese": "我要去机场。",
+            "pinyin": "wǒ yào qù jī chǎng。",
+            "english": "I need to go to the airport."
+          }
+        ],
+        "answer": "摩西带领以色列人出埃及。"
       }
     },
     {
@@ -3741,7 +4718,41 @@
         "reference": "哥林多后书 13:14",
         "referenceEnglish": "2 Corinthians 13:14",
         "chinese": "愿主耶稣基督的恩惠、神的慈爱、圣灵的感动，常与你们众人同在！",
-        "pinyin": "yuàn zhǔ yē sū jī dū de ēn huì、 shén de cí ài、 shèng líng de gǎn dòng， cháng yǔ nǐ men zhòng rén tóng zài！"
+        "pinyin": "yuàn zhǔ yē sū jī dū de ēn huì、 shén de cí ài、 shèng líng de gǎn dòng， cháng yǔ nǐ men zhòng rén tóng zài！",
+        "scriptureVocabulary": [
+          {
+            "chinese": "愿",
+            "pinyin": "yuàn",
+            "english": "may it be so",
+            "note": "A wish/blessing formula that opens many biblical benedictions — rarely used to start a sentence in daily speech."
+          },
+          {
+            "chinese": "众人",
+            "pinyin": "zhòng rén",
+            "english": "everyone / all people",
+            "note": "A formal, literary plural — conversational Chinese says 大家."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What three things does this blessing invoke?",
+          "options": [
+            "Grace, love, and fellowship",
+            "Wisdom, wealth, and health",
+            "Peace, joy, and rest"
+          ],
+          "answer": "Grace, love, and fellowship"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "圣灵___我们、引导我们。",
+        "options": [
+          "帮助",
+          "同在",
+          "意思"
+        ],
+        "answer": "帮助",
+        "englishHint": "The Holy Spirit helps and guides us."
       }
     },
     {
@@ -3908,7 +4919,56 @@
         "reference": "路加福音 24:6",
         "referenceEnglish": "Luke 24:6",
         "chinese": "他不在这里，已经复活了。当记念他还在加利利的时候怎样告诉你们，",
-        "pinyin": "tā bù zài zhè lǐ， yǐ jīng fù huó le。 dāng jì niàn tā hái zài jiā lì lì de shí hòu zěn yàng gào sù nǐ men，"
+        "pinyin": "tā bù zài zhè lǐ， yǐ jīng fù huó le。 dāng jì niàn tā hái zài jiā lì lì de shí hòu zěn yàng gào sù nǐ men，",
+        "scriptureVocabulary": [
+          {
+            "chinese": "当...的时候",
+            "pinyin": "dāng ... de shí hòu",
+            "english": "at the time when...",
+            "note": "A literary temporal construction — conversational speech would say ...的时候 alone, without 当."
+          },
+          {
+            "chinese": "记念",
+            "pinyin": "jì niàn",
+            "english": "to remember / call to mind",
+            "note": "A formal word for remembering, distinct from the everyday 记得."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What was the angels' announcement at the tomb?",
+          "options": [
+            "He is not here; He has risen",
+            "He has gone to Jerusalem",
+            "He will return next year"
+          ],
+          "answer": "He is not here; He has risen"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "坟墓是空的吗？",
+          "pinyin": "fén mù shì kōng de ma？",
+          "english": "Was the tomb empty?"
+        },
+        "options": [
+          {
+            "chinese": "是的，坟墓是空的！",
+            "pinyin": "shì de， fén mù shì kōng de！",
+            "english": "Yes, the tomb was empty!"
+          },
+          {
+            "chinese": "谢谢你的礼物。",
+            "pinyin": "xiè xiè nǐ de lǐ wù。",
+            "english": "Thank you for the gift."
+          },
+          {
+            "chinese": "他是我的老师。",
+            "pinyin": "tā shì wǒ de lǎo shī。",
+            "english": "He is my teacher."
+          }
+        ],
+        "answer": "是的，坟墓是空的！"
       }
     },
     {
@@ -4099,7 +5159,56 @@
         "reference": "路加福音 19:10",
         "referenceEnglish": "Luke 19:10",
         "chinese": "人子来，为要寻找、拯救失丧的人。」",
-        "pinyin": "rén zi lái， wèi yào xún zhǎo、 zhěng jiù shī sàng de rén 。」"
+        "pinyin": "rén zi lái， wèi yào xún zhǎo、 zhěng jiù shī sàng de rén 。」",
+        "scriptureVocabulary": [
+          {
+            "chinese": "人子",
+            "pinyin": "rén zi",
+            "english": "Son of Man",
+            "note": "A specific messianic title Jesus used for Himself — not a conversational term."
+          },
+          {
+            "chinese": "失丧",
+            "pinyin": "shī sàng",
+            "english": "lost / perished",
+            "note": "A literary compound word for being spiritually lost — stronger and more formal than 丢失 (to lose an object)."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What is the purpose of the Son of Man's coming, according to this verse?",
+          "options": [
+            "To seek and save the lost",
+            "To judge the nations",
+            "To build a kingdom on earth"
+          ],
+          "answer": "To seek and save the lost"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "撒都该人呢？",
+          "pinyin": "sā dōu gāi rén ne？",
+          "english": "What about the Sadducees?"
+        },
+        "options": [
+          {
+            "chinese": "撒都该人是祭司，不相信复活。",
+            "pinyin": "sā dōu gāi rén shì jì sī， bù xiāng xìn fù huó。",
+            "english": "The Sadducees were priests who didn't believe in resurrection."
+          },
+          {
+            "chinese": "现在几点？",
+            "pinyin": "xiàn zài jǐ diǎn？",
+            "english": "What time is it now?"
+          },
+          {
+            "chinese": "我要去机场。",
+            "pinyin": "wǒ yào qù jī chǎng。",
+            "english": "I need to go to the airport."
+          }
+        ],
+        "answer": "撒都该人是祭司，不相信复活。"
       }
     },
     {
@@ -4260,7 +5369,41 @@
         "reference": "使徒行传 3:19",
         "referenceEnglish": "Acts 3:19",
         "chinese": "所以，你们当悔改归正，使你们的罪得以涂抹，这样，那安舒的日子就必从主面前来到；",
-        "pinyin": "suǒ yǐ， nǐ men dāng huǐ gǎi guī zhèng， shǐ nǐ men de zuì dé yǐ tú mǒ， zhè yàng， nà ān shū de rì zi jiù bì cóng zhǔ miàn qián lái dào；"
+        "pinyin": "suǒ yǐ， nǐ men dāng huǐ gǎi guī zhèng， shǐ nǐ men de zuì dé yǐ tú mǒ， zhè yàng， nà ān shū de rì zi jiù bì cóng zhǔ miàn qián lái dào；",
+        "scriptureVocabulary": [
+          {
+            "chinese": "涂抹",
+            "pinyin": "tú mǒ",
+            "english": "to blot out / wipe away",
+            "note": "A literary verb used of erasing sin — not a word for everyday cleaning."
+          },
+          {
+            "chinese": "安舒",
+            "pinyin": "ān shū",
+            "english": "refreshing / restful",
+            "note": "A rare literary adjective describing a time of relief — not used in modern speech."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What happens to sins when someone repents, according to this verse?",
+          "options": [
+            "They are blotted out",
+            "They are remembered later",
+            "They are transferred to someone else"
+          ],
+          "answer": "They are blotted out"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "是承认自己的罪，___神。",
+        "options": [
+          "转向",
+          "跌倒",
+          "成长"
+        ],
+        "answer": "转向",
+        "englishHint": "It's admitting our sin and turning to God."
       }
     },
     {
@@ -4409,7 +5552,56 @@
         "reference": "加拉太书 5:22-23",
         "referenceEnglish": "Galatians 5:22-23",
         "chinese": "圣灵所结的果子，就是仁爱、喜乐、和平、忍耐、恩慈、良善、信实、温柔、节制。这样的事，没有律法禁止。",
-        "pinyin": "shèng líng suǒ jié de guǒ zi， jiù shì rén ài、 xǐ lè、 hé píng、 rěn nài、 ēn cí、 liáng shàn、 xìn shí、 wēn róu、 jié zhì。 zhè yàng de shì， méi yǒu lǜ fǎ jìn zhǐ。"
+        "pinyin": "shèng líng suǒ jié de guǒ zi， jiù shì rén ài、 xǐ lè、 hé píng、 rěn nài、 ēn cí、 liáng shàn、 xìn shí、 wēn róu、 jié zhì。 zhè yàng de shì， méi yǒu lǜ fǎ jìn zhǐ。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "结...果子",
+            "pinyin": "jié ... guǒ zi",
+            "english": "to bear fruit",
+            "note": "A metaphorical literary construction — 'the Spirit produces fruit,' not literal fruit."
+          },
+          {
+            "chinese": "禁止",
+            "pinyin": "jìn zhǐ",
+            "english": "to forbid / prohibit",
+            "note": "A formal word — here used in the striking phrase 'against such things there is no law.'"
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "How many qualities are listed as the fruit of the Spirit in this verse?",
+          "options": [
+            "Nine",
+            "Three",
+            "Twelve"
+          ],
+          "answer": "Nine"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "你知道自己的恩赐是什么吗？",
+          "pinyin": "nǐ zhī dào zì jǐ de ēn cì shì shén me ma？",
+          "english": "Do you know what your spiritual gift is?"
+        },
+        "options": [
+          {
+            "chinese": "我觉得是教导。",
+            "pinyin": "wǒ jué de shì jiào dǎo。",
+            "english": "I think it's teaching."
+          },
+          {
+            "chinese": "今天天气很好。",
+            "pinyin": "jīn tiān tiān qì hěn hǎo。",
+            "english": "The weather is nice today."
+          },
+          {
+            "chinese": "他是我的老师。",
+            "pinyin": "tā shì wǒ de lǎo shī。",
+            "english": "He is my teacher."
+          }
+        ],
+        "answer": "我觉得是教导。"
       }
     },
     {
@@ -4564,7 +5756,41 @@
         "reference": "马太福音 25:35",
         "referenceEnglish": "Matthew 25:35",
         "chinese": "因为我饿了，你们给我吃，渴了，你们给我喝；我作客旅，你们留我住；",
-        "pinyin": "yīn wèi wǒ è le， nǐ men gěi wǒ chī， kě le， nǐ men gěi wǒ hē； wǒ zuò kè lǚ， nǐ men liú wǒ zhù；"
+        "pinyin": "yīn wèi wǒ è le， nǐ men gěi wǒ chī， kě le， nǐ men gěi wǒ hē； wǒ zuò kè lǚ， nǐ men liú wǒ zhù；",
+        "scriptureVocabulary": [
+          {
+            "chinese": "作客旅",
+            "pinyin": "zuò kè lǚ",
+            "english": "was a stranger",
+            "note": "Reuses 客旅 from Lesson 3 — notice the same literary word for 'stranger' appearing again."
+          },
+          {
+            "chinese": "留...住",
+            "pinyin": "liú ... zhù",
+            "english": "took...in",
+            "note": "A literary phrasing for hospitality — 'you took me in.'"
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "According to this verse, what did they do when Jesus was hungry?",
+          "options": [
+            "Gave Him food",
+            "Ignored Him",
+            "Sent Him away"
+          ],
+          "answer": "Gave Him food"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "崇拜后欢迎___喝茶。",
+        "options": [
+          "留下来",
+          "位子",
+          "接待"
+        ],
+        "answer": "留下来",
+        "englishHint": "After the service, you're welcome to stay for tea."
       }
     },
     {
@@ -4725,7 +5951,56 @@
         "reference": "马太福音 19:14",
         "referenceEnglish": "Matthew 19:14",
         "chinese": "耶稣说：「让小孩子到我这里来，不要禁止他们；因为在天国的，正是这样的人。」",
-        "pinyin": "yē sū shuō ：「 ràng xiǎo hái zi dào wǒ zhè lǐ lái， bú yào jìn zhǐ tā men； yīn wèi zài tiān guó de， zhèng shì zhè yàng de rén 。」"
+        "pinyin": "yē sū shuō ：「 ràng xiǎo hái zi dào wǒ zhè lǐ lái， bú yào jìn zhǐ tā men； yīn wèi zài tiān guó de， zhèng shì zhè yàng de rén 。」",
+        "scriptureVocabulary": [
+          {
+            "chinese": "禁止",
+            "pinyin": "jìn zhǐ",
+            "english": "to forbid",
+            "note": "The same formal word from Lesson 28 — 'do not forbid the children to come.'"
+          },
+          {
+            "chinese": "正是",
+            "pinyin": "zhèng shì",
+            "english": "precisely / exactly is",
+            "note": "A literary emphatic construction — stronger than the plain 是."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "Who does Jesus say the kingdom of heaven belongs to?",
+          "options": [
+            "Those who come like children",
+            "Only adults",
+            "Only religious leaders"
+          ],
+          "answer": "Those who come like children"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "我需要做什么？",
+          "pinyin": "wǒ xū yào zuò shén me？",
+          "english": "What do I need to do?"
+        },
+        "options": [
+          {
+            "chinese": "你可以带一个圣经故事和游戏。",
+            "pinyin": "nǐ kě yǐ dài yí gè shèng jīng gù shì hé yóu xì。",
+            "english": "You can lead a Bible story and a game."
+          },
+          {
+            "chinese": "我不喜欢咖啡。",
+            "pinyin": "wǒ bù xǐ huān kā fēi。",
+            "english": "I don't like coffee."
+          },
+          {
+            "chinese": "我要去机场。",
+            "pinyin": "wǒ yào qù jī chǎng。",
+            "english": "I need to go to the airport."
+          }
+        ],
+        "answer": "你可以带一个圣经故事和游戏。"
       }
     },
     {
@@ -4880,7 +6155,41 @@
         "reference": "尼希米记 8:8",
         "referenceEnglish": "Nehemiah 8:8",
         "chinese": "他们清清楚楚的念神的律法书，讲明意思，使百姓明白所念的。",
-        "pinyin": "tā men qīng qīng chǔ chǔ de niàn shén de lǜ fǎ shū， jiǎng míng yì si， shǐ bǎi xìng míng bái suǒ niàn de。"
+        "pinyin": "tā men qīng qīng chǔ chǔ de niàn shén de lǜ fǎ shū， jiǎng míng yì si， shǐ bǎi xìng míng bái suǒ niàn de。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "清清楚楚",
+            "pinyin": "qīng qīng chǔ chǔ",
+            "english": "very clearly",
+            "note": "A reduplicated adjective (doubling 清楚 for emphasis) — a literary intensifying pattern."
+          },
+          {
+            "chinese": "百姓",
+            "pinyin": "bǎi xìng",
+            "english": "the people / common people",
+            "note": "A classical, formal term for 'the people' — modern speech says 人们."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What did they do so the people could understand the Law?",
+          "options": [
+            "Read it clearly and explained its meaning",
+            "Translated it into another language",
+            "Simply repeated it many times"
+          ],
+          "answer": "Read it clearly and explained its meaning"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "我们先读经文，___讨论问题。",
+        "options": [
+          "然后",
+          "一起",
+          "意思"
+        ],
+        "answer": "然后",
+        "englishHint": "Let's read the passage first, then discuss the questions."
       }
     },
     {
@@ -5035,7 +6344,56 @@
         "reference": "马太福音 25:36",
         "referenceEnglish": "Matthew 25:36",
         "chinese": "我赤身露体，你们给我穿；我病了、你们看顾我；我在监里，你们来看我。』",
-        "pinyin": "wǒ chì shēn lù tǐ， nǐ men gěi wǒ chuān； wǒ bìng le、 nǐ men kàn gù wǒ； wǒ zài jiān lǐ， nǐ men lái kàn wǒ 。』"
+        "pinyin": "wǒ chì shēn lù tǐ， nǐ men gěi wǒ chuān； wǒ bìng le、 nǐ men kàn gù wǒ； wǒ zài jiān lǐ， nǐ men lái kàn wǒ 。』",
+        "scriptureVocabulary": [
+          {
+            "chinese": "赤身露体",
+            "pinyin": "chì shēn lù tǐ",
+            "english": "naked / without clothing",
+            "note": "A four-character classical idiom — far more formal than any conversational phrase for being unclothed."
+          },
+          {
+            "chinese": "看顾",
+            "pinyin": "kàn gù",
+            "english": "to look after / care for",
+            "note": "A formal compound verb — conversational Chinese uses 照顾."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What three needs are mentioned in this verse?",
+          "options": [
+            "Clothing, care when sick, and visits in prison",
+            "Food, water, and shelter",
+            "Money, land, and family"
+          ],
+          "answer": "Clothing, care when sick, and visits in prison"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "你最近身体好吗？",
+          "pinyin": "nǐ zuì jìn shēn tǐ hǎo ma？",
+          "english": "How has your health been lately?"
+        },
+        "options": [
+          {
+            "chinese": "还好，谢谢关心。",
+            "pinyin": "hái hǎo， xiè xiè guān xīn。",
+            "english": "It's okay, thank you for your concern."
+          },
+          {
+            "chinese": "我要去机场。",
+            "pinyin": "wǒ yào qù jī chǎng。",
+            "english": "I need to go to the airport."
+          },
+          {
+            "chinese": "他是我的老师。",
+            "pinyin": "tā shì wǒ de lǎo shī。",
+            "english": "He is my teacher."
+          }
+        ],
+        "answer": "还好，谢谢关心。"
       }
     },
     {
@@ -5202,7 +6560,41 @@
         "reference": "罗马书 1:16",
         "referenceEnglish": "Romans 1:16",
         "chinese": "我不以福音为耻；这福音本是神的大能，要救一切相信的，先是犹太人，后是希利尼人。",
-        "pinyin": "wǒ bù yǐ fú yīn wèi chǐ； zhè fú yīn běn shì shén de dà néng， yào jiù yī qiè xiāng xìn de， xiān shì yóu tài rén， hòu shì xī lì ní rén。"
+        "pinyin": "wǒ bù yǐ fú yīn wèi chǐ； zhè fú yīn běn shì shén de dà néng， yào jiù yī qiè xiāng xìn de， xiān shì yóu tài rén， hòu shì xī lì ní rén。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "以...为耻",
+            "pinyin": "yǐ ... wèi chǐ",
+            "english": "to regard...as shameful",
+            "note": "A classical construction — 'I am not ashamed of the gospel.'"
+          },
+          {
+            "chinese": "希利尼人",
+            "pinyin": "xī lì ní rén",
+            "english": "Greeks",
+            "note": "An older transliteration used in this translation — modern Chinese would write 希腊人. A good reminder that older Bible translations use different transliterations than today's."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What does Paul say the gospel is the power of?",
+          "options": [
+            "Salvation for everyone who believes",
+            "Roman law",
+            "Jewish tradition"
+          ],
+          "answer": "Salvation for everyone who believes"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "只要相信耶稣，___祂做你的救主就可以了。",
+        "options": [
+          "接受",
+          "回应",
+          "世人"
+        ],
+        "answer": "接受",
+        "englishHint": "Just believe in Jesus and receive Him as your Savior."
       }
     },
     {
@@ -5375,7 +6767,56 @@
         "reference": "使徒行传 17:26",
         "referenceEnglish": "Acts 17:26",
         "chinese": "他从一本〔本：有古卷作血脉〕造出万族的人，住在全地上，并且预先定准他们的年限和所住的疆界，",
-        "pinyin": "tā cóng yī běn 〔 běn： yǒu gǔ juǎn zuò xuè mài 〕 zào chū wàn zú de rén， zhù zài quán dì shàng， bìng qiě yù xiān dìng zhǔn tā men de nián xiàn hé suǒ zhù de jiāng jiè，"
+        "pinyin": "tā cóng yī běn 〔 běn： yǒu gǔ juǎn zuò xuè mài 〕 zào chū wàn zú de rén， zhù zài quán dì shàng， bìng qiě yù xiān dìng zhǔn tā men de nián xiàn hé suǒ zhù de jiāng jiè，",
+        "scriptureVocabulary": [
+          {
+            "chinese": "万族",
+            "pinyin": "wàn zú",
+            "english": "all nations / all peoples",
+            "note": "The classical 万 + noun construction ('ten-thousand,' meaning 'all') — compare 万民 in Lesson 38."
+          },
+          {
+            "chinese": "疆界",
+            "pinyin": "jiāng jiè",
+            "english": "borders / boundaries",
+            "note": "A formal, literary word for national borders — not used in everyday conversation."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "Who determined the nations' times and boundaries, according to this verse?",
+          "options": [
+            "God",
+            "Kings",
+            "Explorers"
+          ],
+          "answer": "God"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "耶路撒冷是什么地方？",
+          "pinyin": "yé lù sā lěng shì shén me dì fāng？",
+          "english": "What kind of place is Jerusalem?"
+        },
+        "options": [
+          {
+            "chinese": "是圣殿所在的城市，很重要。",
+            "pinyin": "shì shèng diàn suǒ zài de chéng shì， hěn zhòng yào。",
+            "english": "It's the city where the Temple was, very important."
+          },
+          {
+            "chinese": "我不喜欢咖啡。",
+            "pinyin": "wǒ bù xǐ huān kā fēi。",
+            "english": "I don't like coffee."
+          },
+          {
+            "chinese": "他是我的老师。",
+            "pinyin": "tā shì wǒ de lǎo shī。",
+            "english": "He is my teacher."
+          }
+        ],
+        "answer": "是圣殿所在的城市，很重要。"
       }
     },
     {
@@ -5530,7 +6971,41 @@
         "reference": "诗篇 150:6",
         "referenceEnglish": "Psalms 150:6",
         "chinese": "凡有气息的都要赞美耶和华！你们要赞美耶和华！",
-        "pinyin": "fán yǒu qì xī de dōu yào zàn měi yē hé huá！ nǐ men yào zàn měi yē hé huá！"
+        "pinyin": "fán yǒu qì xī de dōu yào zàn měi yē hé huá！ nǐ men yào zàn měi yē hé huá！",
+        "scriptureVocabulary": [
+          {
+            "chinese": "凡有气息的",
+            "pinyin": "fán yǒu qì xī de",
+            "english": "all who have breath",
+            "note": "A classical relative-clause construction using 凡 — the same pattern behind 凡事 in Lessons 6 and 12."
+          },
+          {
+            "chinese": "赞美",
+            "pinyin": "zàn měi",
+            "english": "to praise",
+            "note": "The standard formal worship term for praise — more elevated than conversational words for 'compliment.'"
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "Who is called to praise the LORD, according to this verse?",
+          "options": [
+            "Everyone who has breath",
+            "Only priests",
+            "Only musicians"
+          ],
+          "answer": "Everyone who has breath"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "我___过一点钢琴。",
+        "options": [
+          "弹",
+          "加入",
+          "唱诗"
+        ],
+        "answer": "弹",
+        "englishHint": "I've played a little piano before."
       }
     },
     {
@@ -5661,7 +7136,56 @@
         "reference": "哥林多后书 9:7",
         "referenceEnglish": "2 Corinthians 9:7",
         "chinese": "各人要随本心所酌定的，不要作难，不要勉强，因为捐得乐意的人是神所喜爱的。",
-        "pinyin": "gè rén yào suí běn xīn suǒ zhuó dìng de， bú yào zuò nán， bú yào miǎn qiǎng， yīn wèi juān dé lè yì de rén shì shén suǒ xǐ ài de。"
+        "pinyin": "gè rén yào suí běn xīn suǒ zhuó dìng de， bú yào zuò nán， bú yào miǎn qiǎng， yīn wèi juān dé lè yì de rén shì shén suǒ xǐ ài de。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "酌定",
+            "pinyin": "zhuó dìng",
+            "english": "to decide after consideration",
+            "note": "A very formal, literary verb for making a careful decision."
+          },
+          {
+            "chinese": "勉强",
+            "pinyin": "miǎn qiǎng",
+            "english": "to force / act reluctantly",
+            "note": "Here used to mean giving 'under compulsion' — contrasted with giving cheerfully."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What kind of giver does God love, according to this verse?",
+          "options": [
+            "A cheerful giver",
+            "A wealthy giver",
+            "An anonymous giver"
+          ],
+          "answer": "A cheerful giver"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "奉献是必须的吗？",
+          "pinyin": "fèng xiàn shì bì xū de ma？",
+          "english": "Is giving an offering required?"
+        },
+        "options": [
+          {
+            "chinese": "不是必须，是甘心乐意的。",
+            "pinyin": "bú shì bì xū， shì gān xīn lè yì de。",
+            "english": "It's not required, it's given willingly and cheerfully."
+          },
+          {
+            "chinese": "谢谢你的礼物。",
+            "pinyin": "xiè xiè nǐ de lǐ wù。",
+            "english": "Thank you for the gift."
+          },
+          {
+            "chinese": "今天天气很好。",
+            "pinyin": "jīn tiān tiān qì hěn hǎo。",
+            "english": "The weather is nice today."
+          }
+        ],
+        "answer": "不是必须，是甘心乐意的。"
       }
     },
     {
@@ -5822,7 +7346,41 @@
         "reference": "提摩太后书 2:2",
         "referenceEnglish": "2 Timothy 2:2",
         "chinese": "你在许多见证人面前听见我所教训的，也要交托那忠心能教导别人的人。",
-        "pinyin": "nǐ zài xǔ duō jiàn zhèng rén miàn qián tīng jiàn wǒ suǒ jiào xùn de， yě yào jiāo tuō nà zhōng xīn néng jiào dǎo bié rén de rén。"
+        "pinyin": "nǐ zài xǔ duō jiàn zhèng rén miàn qián tīng jiàn wǒ suǒ jiào xùn de， yě yào jiāo tuō nà zhōng xīn néng jiào dǎo bié rén de rén。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "交托",
+            "pinyin": "jiāo tuō",
+            "english": "to entrust / commit",
+            "note": "A formal verb for handing something important to someone else's care."
+          },
+          {
+            "chinese": "教训",
+            "pinyin": "jiào xùn",
+            "english": "teaching / instruction",
+            "note": "Used here in its formal biblical sense — note that in modern casual Chinese, 教训 more often means 'to scold or lecture someone,' a real register shift worth knowing."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What is Timothy told to do with what he has heard?",
+          "options": [
+            "Entrust it to faithful people who can teach others",
+            "Keep it to himself",
+            "Write it down only"
+          ],
+          "answer": "Entrust it to faithful people who can teach others"
+        }
+      },
+      "respondPractice": {
+        "type": "fill-in-blank",
+        "template": "我们应该___见一次面？",
+        "options": [
+          "多久",
+          "愿意",
+          "回答"
+        ],
+        "answer": "多久",
+        "englishHint": "How often should we meet?"
       }
     },
     {
@@ -5989,7 +7547,56 @@
         "reference": "马太福音 28:19",
         "referenceEnglish": "Matthew 28:19",
         "chinese": "所以，你们要去，使万民作我的门徒，奉父、子、圣灵的名给他们施洗〔或作：给他们施洗，归于父、子、圣灵的名〕。",
-        "pinyin": "suǒ yǐ， nǐ men yào qù， shǐ wàn mín zuò wǒ de mén tú， fèng fù、 zi、 shèng líng de míng gěi tā men shī xǐ 〔 huò zuò： gěi tā men shī xǐ， guī yú fù、 zi、 shèng líng de míng 〕。"
+        "pinyin": "suǒ yǐ， nǐ men yào qù， shǐ wàn mín zuò wǒ de mén tú， fèng fù、 zi、 shèng líng de míng gěi tā men shī xǐ 〔 huò zuò： gěi tā men shī xǐ， guī yú fù、 zi、 shèng líng de míng 〕。",
+        "scriptureVocabulary": [
+          {
+            "chinese": "万民",
+            "pinyin": "wàn mín",
+            "english": "all nations / all peoples",
+            "note": "The same classical 万 + noun pattern as 万族 in Lesson 34 — the Great Commission's reach to 'all nations.'"
+          },
+          {
+            "chinese": "施洗",
+            "pinyin": "shī xǐ",
+            "english": "to administer baptism",
+            "note": "The formal verb for performing baptism on someone — distinct from 受洗 (to receive baptism, taught in Lesson 19). Notice the difference: 施 = to give/perform, 受 = to receive."
+          }
+        ],
+        "scriptureQuestion": {
+          "question": "What are the disciples commanded to do to all nations, according to this verse?",
+          "options": [
+            "Make disciples and baptize them",
+            "Conquer them",
+            "Send them gifts"
+          ],
+          "answer": "Make disciples and baptize them"
+        }
+      },
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "短宣队下个月出发。",
+          "pinyin": "duǎn xuān duì xià gè yuè chū fā。",
+          "english": "The short-term mission team departs next month."
+        },
+        "options": [
+          {
+            "chinese": "如果我参加，需要准备什么？",
+            "pinyin": "rú guǒ wǒ cān jiā， xū yào zhǔn bèi shén me？",
+            "english": "If I join, what do I need to prepare?"
+          },
+          {
+            "chinese": "现在几点？",
+            "pinyin": "xiàn zài jǐ diǎn？",
+            "english": "What time is it now?"
+          },
+          {
+            "chinese": "他是我的老师。",
+            "pinyin": "tā shì wǒ de lǎo shī。",
+            "english": "He is my teacher."
+          }
+        ],
+        "answer": "如果我参加，需要准备什么？"
       }
     }
   ]

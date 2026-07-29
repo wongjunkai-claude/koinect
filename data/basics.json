@@ -1,0 +1,787 @@
+{
+  "basics": [
+    {
+      "id": 1,
+      "title": "The Four Tones",
+      "subtitle": "第一课 · 四声",
+      "explanation": "Mandarin is a tonal language — the same syllable said with a different pitch pattern is a completely different word. Get comfortable with tones early, since every word in this app (and in Chinese) depends on them.",
+      "points": [
+        {
+          "label": "1st tone — high and flat",
+          "detail": "Your pitch stays level and high the whole time, like holding a note while singing."
+        },
+        {
+          "label": "2nd tone — rising",
+          "detail": "Your pitch rises, like asking \"what?\" in English."
+        },
+        {
+          "label": "3rd tone — dips then rises",
+          "detail": "Your pitch dips low, then comes back up — like a skeptical \"hm?\""
+        },
+        {
+          "label": "4th tone — sharp and falling",
+          "detail": "Your pitch drops fast, like giving a firm command: \"No!\""
+        },
+        {
+          "label": "Neutral tone — light and short",
+          "detail": "No strong pitch at all — quick and unstressed, often on a second syllable."
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "妈",
+          "pinyin": "mā",
+          "english": "mother",
+          "note": "1st tone — mā"
+        },
+        {
+          "chinese": "麻",
+          "pinyin": "má",
+          "english": "hemp / numb",
+          "note": "2nd tone — má"
+        },
+        {
+          "chinese": "马",
+          "pinyin": "mǎ",
+          "english": "horse",
+          "note": "3rd tone — mǎ"
+        },
+        {
+          "chinese": "骂",
+          "pinyin": "mà",
+          "english": "to scold",
+          "note": "4th tone — mà"
+        }
+      ],
+      "practice": [
+        {
+          "question": "Which tone stays high and flat the whole time?",
+          "options": [
+            "1st tone",
+            "3rd tone",
+            "4th tone"
+          ],
+          "answer": "1st tone"
+        },
+        {
+          "question": "Which word means \"horse\"?",
+          "options": [
+            "马",
+            "妈",
+            "骂"
+          ],
+          "answer": "马"
+        },
+        {
+          "question": "Which tone dips down, then rises back up?",
+          "options": [
+            "3rd tone",
+            "2nd tone",
+            "4th tone"
+          ],
+          "answer": "3rd tone"
+        },
+        {
+          "question": "妈 (mā) means...",
+          "options": [
+            "mother",
+            "horse",
+            "to scold"
+          ],
+          "answer": "mother"
+        },
+        {
+          "question": "Which tone drops sharply, like a firm \"No!\"?",
+          "options": [
+            "4th tone",
+            "1st tone",
+            "2nd tone"
+          ],
+          "answer": "4th tone"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Reading Pinyin",
+      "subtitle": "第二课 · 拼音",
+      "explanation": "Pinyin uses the English alphabet, but the letters don't always sound like they do in English. A few sounds trip up almost every beginner — here are the ones worth learning early.",
+      "points": [
+        {
+          "label": "q sounds like \"ch\"",
+          "detail": "请 (qǐng) sounds close to \"ching,\" not like an English \"q.\""
+        },
+        {
+          "label": "x sounds like a soft \"sh\"",
+          "detail": "谢谢 (xièxie) — softer and further forward in the mouth than English \"sh.\""
+        },
+        {
+          "label": "zh / ch / sh are retroflex",
+          "detail": "Curl your tongue tip back slightly — 中 (zhōng), 吃 (chī), 是 (shì)."
+        },
+        {
+          "label": "z / c / s are flat-tongued",
+          "detail": "No curling — 在 (zài), 才 (cái), 三 (sān). Easy to confuse with zh/ch/sh."
+        },
+        {
+          "label": "ü is not the same as u",
+          "detail": "Say \"ee\" with rounded lips — 女 (nǚ). Written as ü, or sometimes just u after j/q/x/y."
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "请",
+          "pinyin": "qǐng",
+          "english": "please",
+          "note": "q → \"ch\" sound"
+        },
+        {
+          "chinese": "谢谢",
+          "pinyin": "xiè xiè",
+          "english": "thank you",
+          "note": "x → soft \"sh\" sound"
+        },
+        {
+          "chinese": "中国",
+          "pinyin": "zhōng guó",
+          "english": "China",
+          "note": "zh → retroflex, tongue curled back"
+        },
+        {
+          "chinese": "女",
+          "pinyin": "nǚ",
+          "english": "woman",
+          "note": "ü → rounded-lip \"ee\""
+        }
+      ],
+      "practice": [
+        {
+          "question": "The pinyin \"q\" sounds closest to which English sound?",
+          "options": [
+            "ch",
+            "k",
+            "kw"
+          ],
+          "answer": "ch"
+        },
+        {
+          "question": "For zh/ch/sh, what do you do with your tongue?",
+          "options": [
+            "Curl it back slightly",
+            "Keep it flat",
+            "Touch your teeth"
+          ],
+          "answer": "Curl it back slightly"
+        },
+        {
+          "question": "How do you pronounce ü?",
+          "options": [
+            "\"ee\" with rounded lips",
+            "Like an English \"u\"",
+            "Like \"oo\""
+          ],
+          "answer": "\"ee\" with rounded lips"
+        },
+        {
+          "question": "Which pair is easy to confuse with zh/ch/sh?",
+          "options": [
+            "z / c / s",
+            "b / p / m",
+            "j / q / x"
+          ],
+          "answer": "z / c / s"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Pronouns & 是 Sentences",
+      "subtitle": "第三课 · 代词与「是」",
+      "explanation": "The most basic sentence pattern in Chinese: [Subject] 是 [Noun] — \"X is Y.\" Once you have pronouns and 是, you can make a huge number of simple sentences.",
+      "points": [
+        {
+          "label": "我 / 你 / 他 / 她",
+          "detail": "I, you, he, she — the core singular pronouns."
+        },
+        {
+          "label": "Add 们 for plural",
+          "detail": "我们 (we), 你们 (you all), 他们 (they) — 们 turns a pronoun plural."
+        },
+        {
+          "label": "是 = to be",
+          "detail": "[A] 是 [B] simply means \"A is B\" — no extra words needed."
+        },
+        {
+          "label": "不是 = to not be",
+          "detail": "Just add 不 before 是 to negate it — 不是 = \"is not.\""
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "我是学生。",
+          "pinyin": "wǒ shì xué shēng。",
+          "english": "I am a student.",
+          "note": ""
+        },
+        {
+          "chinese": "他不是老师。",
+          "pinyin": "tā bú shì lǎo shī。",
+          "english": "He is not a teacher.",
+          "note": ""
+        },
+        {
+          "chinese": "我们是弟兄姊妹。",
+          "pinyin": "wǒ men shì dì xiōng zǐ mèi。",
+          "english": "We are brothers and sisters (in Christ).",
+          "note": ""
+        },
+        {
+          "chinese": "她是我的朋友。",
+          "pinyin": "tā shì wǒ de péng yǒu。",
+          "english": "She is my friend.",
+          "note": ""
+        }
+      ],
+      "practice": [
+        {
+          "question": "How do you say \"we\"?",
+          "options": [
+            "我们",
+            "你们",
+            "他们"
+          ],
+          "answer": "我们"
+        },
+        {
+          "question": "How do you say \"is not\"?",
+          "options": [
+            "不是",
+            "是不",
+            "没是"
+          ],
+          "answer": "不是"
+        },
+        {
+          "question": "\"他是老师。\" means...",
+          "options": [
+            "He is a teacher.",
+            "He is not a teacher.",
+            "She is a teacher."
+          ],
+          "answer": "He is a teacher."
+        },
+        {
+          "question": "How do you say \"they\"?",
+          "options": [
+            "他们",
+            "我们",
+            "你们"
+          ],
+          "answer": "他们"
+        },
+        {
+          "question": "What word means \"to be\"?",
+          "options": [
+            "是",
+            "不",
+            "的"
+          ],
+          "answer": "是"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Yes/No Questions & Question Words",
+      "subtitle": "第四课 · 疑问句",
+      "explanation": "Turning a statement into a question in Chinese is simple — no word order changes needed, unlike English.",
+      "points": [
+        {
+          "label": "Add 吗 for yes/no questions",
+          "detail": "你是学生。 → 你是学生吗？ Just add 吗 to the end — nothing else changes."
+        },
+        {
+          "label": "Question words replace the answer",
+          "detail": "Unlike English, the question word sits exactly where the answer would go: 你是谁？ (literally \"you are who?\")"
+        },
+        {
+          "label": "谁 / 什么 / 哪里",
+          "detail": "who / what / where"
+        },
+        {
+          "label": "什么时候 / 为什么 / 怎么",
+          "detail": "when / why / how"
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "你是学生吗？",
+          "pinyin": "nǐ shì xué shēng ma？",
+          "english": "Are you a student?",
+          "note": ""
+        },
+        {
+          "chinese": "你叫什么名字？",
+          "pinyin": "nǐ jiào shén me míng zì？",
+          "english": "What is your name?",
+          "note": ""
+        },
+        {
+          "chinese": "洗手间在哪里？",
+          "pinyin": "xǐ shǒu jiān zài nǎ lǐ？",
+          "english": "Where is the restroom?",
+          "note": ""
+        },
+        {
+          "chinese": "你为什么迟到？",
+          "pinyin": "nǐ wèi shén me chí dào？",
+          "english": "Why are you late?",
+          "note": ""
+        }
+      ],
+      "practice": [
+        {
+          "question": "What word turns a statement into a yes/no question?",
+          "options": [
+            "吗",
+            "是",
+            "的"
+          ],
+          "answer": "吗"
+        },
+        {
+          "question": "How do you say \"who\"?",
+          "options": [
+            "谁",
+            "什么",
+            "哪里"
+          ],
+          "answer": "谁"
+        },
+        {
+          "question": "How do you say \"where\"?",
+          "options": [
+            "哪里",
+            "什么时候",
+            "为什么"
+          ],
+          "answer": "哪里"
+        },
+        {
+          "question": "How do you say \"why\"?",
+          "options": [
+            "为什么",
+            "怎么",
+            "谁"
+          ],
+          "answer": "为什么"
+        },
+        {
+          "question": "In \"你是谁？\" (you are who?), where does the question word go?",
+          "options": [
+            "Exactly where the answer would go",
+            "At the very front",
+            "It doesn't matter"
+          ],
+          "answer": "Exactly where the answer would go"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Numbers 0–100",
+      "subtitle": "第五课 · 数字",
+      "explanation": "Chinese numbers follow a simple, logical pattern once you know 0–10 — much more regular than English.",
+      "points": [
+        {
+          "label": "0–10",
+          "detail": "零 一 二 三 四 五 六 七 八 九 十"
+        },
+        {
+          "label": "11–19: 十 + digit",
+          "detail": "十一 (11) = ten-one, 十五 (15) = ten-five."
+        },
+        {
+          "label": "20, 30...: digit + 十",
+          "detail": "二十 (20) = two-ten, 三十 (30) = three-ten."
+        },
+        {
+          "label": "21, 35...: digit + 十 + digit",
+          "detail": "二十一 (21) = two-ten-one, 三十五 (35) = three-ten-five."
+        },
+        {
+          "label": "100: 一百",
+          "detail": "一百 = one hundred. The same building-block pattern continues from there."
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "十二",
+          "pinyin": "shí èr",
+          "english": "twelve",
+          "note": "十 (ten) + 二 (two)"
+        },
+        {
+          "chinese": "二十五",
+          "pinyin": "èr shí wǔ",
+          "english": "twenty-five",
+          "note": "二十 (twenty) + 五 (five)"
+        },
+        {
+          "chinese": "四十",
+          "pinyin": "sì shí",
+          "english": "forty",
+          "note": "四 (four) + 十 (ten)"
+        },
+        {
+          "chinese": "一百",
+          "pinyin": "yì bǎi",
+          "english": "one hundred",
+          "note": ""
+        }
+      ],
+      "practice": [
+        {
+          "question": "How do you say \"fifteen\"?",
+          "options": [
+            "十五",
+            "五十",
+            "十一"
+          ],
+          "answer": "十五"
+        },
+        {
+          "question": "How do you say \"thirty\"?",
+          "options": [
+            "三十",
+            "十三",
+            "三三"
+          ],
+          "answer": "三十"
+        },
+        {
+          "question": "二十五 means...",
+          "options": [
+            "25",
+            "52",
+            "205"
+          ],
+          "answer": "25"
+        },
+        {
+          "question": "How do you say \"one hundred\"?",
+          "options": [
+            "一百",
+            "十十",
+            "百一"
+          ],
+          "answer": "一百"
+        },
+        {
+          "question": "How is \"42\" formed?",
+          "options": [
+            "四十二 (four-ten-two)",
+            "二十四",
+            "四二十"
+          ],
+          "answer": "四十二 (four-ten-two)"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Measure Words",
+      "subtitle": "第六课 · 量词",
+      "explanation": "In English, some nouns need a \"counting word\" — \"a PIECE of paper,\" \"a CUP of tea.\" In Chinese, almost every noun needs one. This is one of the biggest adjustments for English speakers.",
+      "points": [
+        {
+          "label": "Pattern: number + measure word + noun",
+          "detail": "You can't just say \"number + noun\" like in English — a measure word always goes between them."
+        },
+        {
+          "label": "个 — the all-purpose one",
+          "detail": "Used for people and many generic objects when you're not sure which measure word fits."
+        },
+        {
+          "label": "位 — polite, for people",
+          "detail": "一位牧师 (one pastor) — more respectful than 个 when referring to people."
+        },
+        {
+          "label": "本 — for bound things",
+          "detail": "一本圣经 (one Bible), 一本书 (one book)."
+        },
+        {
+          "label": "杯 — for cups of liquid",
+          "detail": "一杯茶 (one cup of tea)."
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "一个人",
+          "pinyin": "yí gè rén",
+          "english": "one person",
+          "note": ""
+        },
+        {
+          "chinese": "一位牧师",
+          "pinyin": "yī wèi mù shī",
+          "english": "one pastor (polite)",
+          "note": ""
+        },
+        {
+          "chinese": "一本圣经",
+          "pinyin": "yī běn shèng jīng",
+          "english": "one Bible",
+          "note": ""
+        },
+        {
+          "chinese": "一杯茶",
+          "pinyin": "yī bēi chá",
+          "english": "one cup of tea",
+          "note": ""
+        }
+      ],
+      "practice": [
+        {
+          "question": "What goes between a number and a noun in Chinese?",
+          "options": [
+            "A measure word",
+            "Nothing extra",
+            "An article like \"a/the\""
+          ],
+          "answer": "A measure word"
+        },
+        {
+          "question": "Which measure word is used for a Bible or book?",
+          "options": [
+            "本",
+            "杯",
+            "位"
+          ],
+          "answer": "本"
+        },
+        {
+          "question": "Which measure word is more polite, for people?",
+          "options": [
+            "位",
+            "个",
+            "本"
+          ],
+          "answer": "位"
+        },
+        {
+          "question": "一杯茶 means...",
+          "options": [
+            "one cup of tea",
+            "one book of tea",
+            "one person's tea"
+          ],
+          "answer": "one cup of tea"
+        },
+        {
+          "question": "Which measure word works as a general, all-purpose choice?",
+          "options": [
+            "个",
+            "本",
+            "杯"
+          ],
+          "answer": "个"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "的 (Possession) & Negation",
+      "subtitle": "第七课 · 「的」与否定",
+      "explanation": "的 marks possession — like English's \"'s.\" And Chinese has two different negation words that beginners often mix up: 不 and 没(有).",
+      "points": [
+        {
+          "label": "的 = possessive marker",
+          "detail": "我的 (my/mine), 你的 (your/yours), 老师的书 (the teacher's book)."
+        },
+        {
+          "label": "不 negates most verbs and adjectives",
+          "detail": "不是 (is not), 不好 (not good), 不去 (not going)."
+        },
+        {
+          "label": "没(有) negates possession and past actions",
+          "detail": "没有钱 (don't have money), 没吃饭 (haven't eaten) — 没 pairs with 有 or completed actions, not with 是."
+        },
+        {
+          "label": "The key distinction",
+          "detail": "不是 = \"is not\" ✓ — but 没是 is wrong. 没有 = \"don't have\" ✓ — but 不有 is wrong."
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "我的圣经",
+          "pinyin": "wǒ de shèng jīng",
+          "english": "my Bible",
+          "note": ""
+        },
+        {
+          "chinese": "这不是我的。",
+          "pinyin": "zhè bú shì wǒ de。",
+          "english": "This is not mine.",
+          "note": ""
+        },
+        {
+          "chinese": "我没有时间。",
+          "pinyin": "wǒ méi yǒu shí jiān。",
+          "english": "I don't have time.",
+          "note": ""
+        },
+        {
+          "chinese": "我没吃饭。",
+          "pinyin": "wǒ méi chī fàn。",
+          "english": "I haven't eaten.",
+          "note": ""
+        }
+      ],
+      "practice": [
+        {
+          "question": "How do you say \"my\"?",
+          "options": [
+            "我的",
+            "我不",
+            "我没"
+          ],
+          "answer": "我的"
+        },
+        {
+          "question": "Which negation word pairs with 是?",
+          "options": [
+            "不",
+            "没",
+            "别"
+          ],
+          "answer": "不"
+        },
+        {
+          "question": "How do you say \"I don't have time\"?",
+          "options": [
+            "我没有时间。",
+            "我不有时间。",
+            "我的时间没。"
+          ],
+          "answer": "我没有时间。"
+        },
+        {
+          "question": "Which is correct for \"haven't eaten\"?",
+          "options": [
+            "没吃饭",
+            "不吃饭",
+            "的吃饭"
+          ],
+          "answer": "没吃饭"
+        },
+        {
+          "question": "What does 的 mark?",
+          "options": [
+            "Possession",
+            "A question",
+            "A negative"
+          ],
+          "answer": "Possession"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "了 / 在 / 过 — Talking About Time",
+      "subtitle": "第八课 · 时态标记",
+      "explanation": "Chinese doesn't change verb endings the way English does (\"eat\" → \"ate\"). Instead, small marker words show when something happens. These three trip up almost every beginner.",
+      "points": [
+        {
+          "label": "了 — completed action",
+          "detail": "我吃了 (I ate / I have eaten) — marks that the action is done."
+        },
+        {
+          "label": "在 — ongoing action (or location)",
+          "detail": "我在吃 (I am eating, right now) — or 我在家 (I am at home)."
+        },
+        {
+          "label": "过 — past experience",
+          "detail": "我去过中国 (I have been to China before) — marks \"have done this at some point,\" not necessarily recently."
+        },
+        {
+          "label": "Side by side",
+          "detail": "我吃了 = I ate (done). 我在吃 = I'm eating (now). 我吃过 = I've eaten (that dish) before (experience)."
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "我读了圣经。",
+          "pinyin": "wǒ dú le shèng jīng。",
+          "english": "I read the Bible (finished reading).",
+          "note": ""
+        },
+        {
+          "chinese": "我在读圣经。",
+          "pinyin": "wǒ zài dú shèng jīng。",
+          "english": "I am reading the Bible (right now).",
+          "note": ""
+        },
+        {
+          "chinese": "我读过圣经。",
+          "pinyin": "wǒ dú guò shèng jīng。",
+          "english": "I have read the Bible before (at some point).",
+          "note": ""
+        },
+        {
+          "chinese": "你受洗了吗？",
+          "pinyin": "nǐ shòu xǐ le ma？",
+          "english": "Have you been baptised? (completed action)",
+          "note": ""
+        }
+      ],
+      "practice": [
+        {
+          "question": "Which marker shows an action is completed?",
+          "options": [
+            "了",
+            "在",
+            "过"
+          ],
+          "answer": "了"
+        },
+        {
+          "question": "Which marker shows an action is happening right now?",
+          "options": [
+            "在",
+            "了",
+            "过"
+          ],
+          "answer": "在"
+        },
+        {
+          "question": "Which marker means \"have done this before, at some point\"?",
+          "options": [
+            "过",
+            "了",
+            "在"
+          ],
+          "answer": "过"
+        },
+        {
+          "question": "我在吃 means...",
+          "options": [
+            "I am eating (right now)",
+            "I ate",
+            "I have eaten before"
+          ],
+          "answer": "I am eating (right now)"
+        },
+        {
+          "question": "你受洗了吗？ is asking about...",
+          "options": [
+            "Whether baptism is complete",
+            "Whether baptism is ongoing",
+            "Whether you've ever considered baptism"
+          ],
+          "answer": "Whether baptism is complete"
+        }
+      ]
+    }
+  ]
+}

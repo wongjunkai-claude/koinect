@@ -1,0 +1,478 @@
+{
+  "proclaim": [
+    {
+      "id": 1,
+      "title": "Discourse Markers for Speaking",
+      "subtitle": "第一课 · 演讲连接词",
+      "explanation": "Holding a conversation and giving a short talk are different skills. A testimony, a devotional, or a gospel presentation needs connecting words that string several sentences together into one flow — words this app's conversational lessons never needed, since dialogue is short back-and-forth, not one person speaking at length.",
+      "points": [
+        {
+          "label": "首先 / 其次 / 最后",
+          "detail": "Firstly / secondly / finally — the basic skeleton for any structured talk with multiple points."
+        },
+        {
+          "label": "换句话说",
+          "detail": "\"In other words\" — useful for restating an idea more simply, which matters a lot when explaining faith to someone new to it."
+        },
+        {
+          "label": "总结来说",
+          "detail": "\"In summary\" — signals you're wrapping up, so listeners know a conclusion is coming."
+        },
+        {
+          "label": "让我们一起",
+          "detail": "\"Let's together...\" — a common way to invite a group into an action: praying, reading, reflecting."
+        },
+        {
+          "label": "不但...而且...",
+          "detail": "\"Not only... but also...\" — for building an idea in two connected parts, common in testimony and preaching."
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "首先，我想分享神在我生命中做的一件事。",
+          "pinyin": "shǒu xiān， wǒ xiǎng fēn xiǎng shén zài wǒ shēng mìng zhòng zuò de yī jiàn shì。",
+          "english": "Firstly, I'd like to share something God has done in my life.",
+          "note": ""
+        },
+        {
+          "chinese": "换句话说，恩典是我们不配得到，却白白得到的。",
+          "pinyin": "huàn jù huà shuō， ēn diǎn shì wǒ men bù pèi dé dào， què bái bái dé dào de。",
+          "english": "In other words, grace is something we don't deserve, yet receive freely.",
+          "note": ""
+        },
+        {
+          "chinese": "不但如此，神也赦免了我一切的罪。",
+          "pinyin": "bù dàn rú cǐ， shén yě shè miǎn le wǒ yī qiè de zuì。",
+          "english": "Not only that, God also forgave all my sins.",
+          "note": ""
+        },
+        {
+          "chinese": "总结来说，这就是我信主的原因。",
+          "pinyin": "zǒng jié lái shuō， zhè jiù shì wǒ xìn zhǔ de yuán yīn。",
+          "english": "In summary, this is why I believe in the Lord.",
+          "note": ""
+        }
+      ],
+      "practice": [
+        {
+          "question": "Which word means \"firstly\"?",
+          "options": [
+            "首先",
+            "最后",
+            "总结"
+          ],
+          "answer": "首先"
+        },
+        {
+          "question": "What does 换句话说 signal?",
+          "options": [
+            "Restating an idea more simply",
+            "Ending the talk",
+            "Asking a question"
+          ],
+          "answer": "Restating an idea more simply"
+        },
+        {
+          "question": "Which phrase means \"in summary\"?",
+          "options": [
+            "总结来说",
+            "首先",
+            "让我们一起"
+          ],
+          "answer": "总结来说"
+        },
+        {
+          "question": "\"不但...而且...\" is used to...",
+          "options": [
+            "Build an idea in two connected parts",
+            "Ask a yes/no question",
+            "Say goodbye"
+          ],
+          "answer": "Build an idea in two connected parts"
+        },
+        {
+          "question": "Which phrase invites a group into a shared action?",
+          "options": [
+            "让我们一起",
+            "换句话说",
+            "其次"
+          ],
+          "answer": "让我们一起"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Telling Your Story",
+      "subtitle": "第二课 · 分享你的见证",
+      "explanation": "Every testimony has the same basic three-act shape: what life was like before, what changed, and what's different now. Learning this structure — and the words that mark each part — makes it possible to tell your own story, not just recognize someone else's.",
+      "points": [
+        {
+          "label": "以前 — before",
+          "detail": "Sets the scene: what your life or thinking was like before this turning point."
+        },
+        {
+          "label": "后来 / 就在那时候 — then / that's when",
+          "detail": "Marks the turning point itself — the moment something changed."
+        },
+        {
+          "label": "从此 / 现在 — since then / now",
+          "detail": "Describes what's different in your life now, as a result."
+        },
+        {
+          "label": "A simple three-sentence scaffold",
+          "detail": "以前，我___。后来，___。从此，我___。 (\"Before, I ___. Then, ___. Since then, I ___.\") You can build a real testimony on just this shape."
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "以前，我不认识神。",
+          "pinyin": "yǐ qián， wǒ bù rèn shí shén。",
+          "english": "Before, I didn't know God.",
+          "note": ""
+        },
+        {
+          "chinese": "后来，一位朋友带我去教会。",
+          "pinyin": "hòu lái， yī wèi péng yǒu dài wǒ qù jiào huì。",
+          "english": "Then, a friend brought me to church.",
+          "note": ""
+        },
+        {
+          "chinese": "就在那时候，我明白了神的爱。",
+          "pinyin": "jiù zài nà shí hòu， wǒ míng bái le shén de ài。",
+          "english": "That's when I understood God's love.",
+          "note": ""
+        },
+        {
+          "chinese": "从此，我的生命完全不一样了。",
+          "pinyin": "cóng cǐ， wǒ de shēng mìng wán quán bù yí yàng le。",
+          "english": "Since then, my life has been completely different.",
+          "note": ""
+        }
+      ],
+      "practice": [
+        {
+          "question": "Which word sets up \"what life was like before\"?",
+          "options": [
+            "以前",
+            "从此",
+            "后来"
+          ],
+          "answer": "以前"
+        },
+        {
+          "question": "Which phrase marks the turning point itself?",
+          "options": [
+            "就在那时候",
+            "以前",
+            "现在"
+          ],
+          "answer": "就在那时候"
+        },
+        {
+          "question": "Which word describes life after the change?",
+          "options": [
+            "从此",
+            "以前",
+            "后来"
+          ],
+          "answer": "从此"
+        },
+        {
+          "question": "What are the three parts of this testimony structure, in order?",
+          "options": [
+            "Before → turning point → now",
+            "Now → before → turning point",
+            "Turning point → before → now"
+          ],
+          "answer": "Before → turning point → now"
+        }
+      ],
+      "yourTurn": {
+        "prompt": "Try writing 2-3 sentences of your own testimony using this structure. This isn't graded — it's just yours to keep and revisit.",
+        "scaffold": "以前，我___。\n后来，___。\n从此，我___。"
+      }
+    },
+    {
+      "id": 3,
+      "title": "The Gospel in Order",
+      "subtitle": "第三课 · 有次序地传福音",
+      "explanation": "Lesson 33 (back in the main lessons) modeled one realistic gospel conversation. This is different: a short, memorizable *sequence* of verses — sometimes called the \"Romans Road\" — that you can deliver on your own, start to finish, without needing someone else's side of a dialogue to prompt you.",
+      "points": [
+        {
+          "label": "1. Everyone has sinned",
+          "detail": "Romans 3:23 — the problem: sin separates everyone from God's glory."
+        },
+        {
+          "label": "2. The consequence and the gift",
+          "detail": "Romans 6:23 — sin's wage is death; God's gift is eternal life in Christ."
+        },
+        {
+          "label": "3. God's love and the solution",
+          "detail": "John 3:16 — God's response to the problem: sending His Son."
+        },
+        {
+          "label": "4. How to respond",
+          "detail": "Romans 10:9 — confess with your mouth, believe in your heart."
+        },
+        {
+          "label": "Practicing the sequence",
+          "detail": "Read all four aloud, in order, without stopping. That's the actual skill — not just recognizing each verse alone."
+        }
+      ],
+      "examples": [
+        {
+          "number": 23,
+          "chinese": "因为世人都犯了罪，亏缺了神的荣耀；",
+          "pinyin": "yīn wèi shì rén dōu fàn le zuì， kuī quē le shén de róng yào；"
+        },
+        {
+          "number": 23,
+          "chinese": "因为罪的工价乃是死；惟有神的恩赐，在我们的主基督耶稣里，乃是永生。",
+          "pinyin": "yīn wèi zuì de gōng jià nǎi shì sǐ； wéi yǒu shén de ēn cì， zài wǒ men de zhǔ jī dū yē sū lǐ， nǎi shì yǒng shēng。"
+        },
+        {
+          "number": 16,
+          "chinese": "神爱世人，甚至将他的独生子赐给他们，叫一切信他的，不至灭亡，反得永生。",
+          "pinyin": "shén ài shì rén， shèn zhì jiāng tā de dú shēng zi cì gěi tā men， jiào yī qiè xìn tā de， bù zhì miè wáng， fǎn dé yǒng shēng。"
+        },
+        {
+          "number": 9,
+          "chinese": "你若口里认耶稣为主，心里信神叫他从死里复活，就必得救。",
+          "pinyin": "nǐ ruò kǒu lǐ rèn yē sū wéi zhǔ， xīn lǐ xìn shén jiào tā cóng sǐ lǐ fù huó， jiù bì děi jiù。"
+        }
+      ],
+      "isVerseSequence": true,
+      "practice": [
+        {
+          "question": "What is the first step in this sequence?",
+          "options": [
+            "Everyone has sinned (Romans 3:23)",
+            "How to respond (Romans 10:9)",
+            "God's love (John 3:16)"
+          ],
+          "answer": "Everyone has sinned (Romans 3:23)"
+        },
+        {
+          "question": "According to Romans 6:23, what is God's gift?",
+          "options": [
+            "Eternal life",
+            "Wealth",
+            "Wisdom"
+          ],
+          "answer": "Eternal life"
+        },
+        {
+          "question": "Which verse describes God's response to the problem of sin?",
+          "options": [
+            "John 3:16",
+            "Romans 3:23",
+            "Romans 10:9"
+          ],
+          "answer": "John 3:16"
+        },
+        {
+          "question": "According to Romans 10:9, what are the two things someone does to respond?",
+          "options": [
+            "Confess with the mouth, believe in the heart",
+            "Attend church, give an offering",
+            "Read the Bible, pray daily"
+          ],
+          "answer": "Confess with the mouth, believe in the heart"
+        },
+        {
+          "question": "What is the value of practicing all four verses in order?",
+          "options": [
+            "Being able to deliver the whole sequence unprompted",
+            "Memorizing pinyin",
+            "Passing a test"
+          ],
+          "answer": "Being able to deliver the whole sequence unprompted"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Answering Common Questions",
+      "subtitle": "第四课 · 回答常见的疑问",
+      "explanation": "Sharing the gospel with Chinese speakers often runs into specific objections tied to family and culture — different from generic Western skepticism. Recognizing these, and having a calm, respectful response ready, matters more than having a perfect argument.",
+      "points": [
+        {
+          "label": "\"We're Chinese, we have our own beliefs\"",
+          "detail": "我们是中国人，有自己的信仰 — often about identity and heritage, not really a claim about truth. Respond by honoring their heritage while gently distinguishing culture from faith."
+        },
+        {
+          "label": "\"What will my family think?\"",
+          "detail": "家人会怎么想？ — reflects real fear of family conflict or dishonoring ancestors. This deserves genuine empathy, not a rushed answer."
+        },
+        {
+          "label": "\"Isn't this just a Western religion?\"",
+          "detail": "这不是西方的宗教吗？ — worth knowing: Christianity's roots are in the Middle East, and it has been present in China for centuries."
+        },
+        {
+          "label": "\"There are so many religions — how do you know?\"",
+          "detail": "宗教这么多，你怎么知道哪个对？ — an honest question worth taking seriously, not deflecting."
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "信耶稣不是要你不孝敬父母。",
+          "pinyin": "xìn yē sū bú shì yào nǐ bù xiào jìng fù mǔ。",
+          "english": "Believing in Jesus doesn't mean you stop honoring your parents.",
+          "note": "A gentle, respectful response to the family-honor objection."
+        },
+        {
+          "chinese": "基督教其实很早就传到中国了。",
+          "pinyin": "jī dū jiào qí shí hěn zǎo jiù chuán dào zhōng guó le。",
+          "english": "Christianity actually reached China quite early in history.",
+          "note": "A calm factual response to the \"Western religion\" objection."
+        },
+        {
+          "chinese": "我明白你的担心，我们可以慢慢聊。",
+          "pinyin": "wǒ míng bái nǐ de dān xīn， wǒ men kě yǐ màn màn liáo。",
+          "english": "I understand your concern, we can talk about this slowly.",
+          "note": "A patient opening line when someone raises a real fear."
+        },
+        {
+          "chinese": "这是一个很好的问题。",
+          "pinyin": "zhè shì yí gè hěn hǎo de wèn tí。",
+          "english": "That's a really good question.",
+          "note": "A respectful way to receive a genuine objection, not dismiss it."
+        }
+      ],
+      "practice": [
+        {
+          "question": "When someone says \"what will my family think?\", what matters most first?",
+          "options": [
+            "Responding with genuine empathy",
+            "Winning the argument",
+            "Changing the subject"
+          ],
+          "answer": "Responding with genuine empathy"
+        },
+        {
+          "question": "How do you say \"that's a really good question\"?",
+          "options": [
+            "这是一个很好的问题。",
+            "这不是好问题。",
+            "我不知道。"
+          ],
+          "answer": "这是一个很好的问题。"
+        },
+        {
+          "question": "What's a fair, calm response to \"isn't this a Western religion?\"",
+          "options": [
+            "Christianity actually reached China quite early in history.",
+            "Western things are always better.",
+            "That doesn't matter at all."
+          ],
+          "answer": "Christianity actually reached China quite early in history."
+        },
+        {
+          "question": "Believing in Jesus means you should stop honoring your parents.",
+          "options": [
+            "False — this is a common misunderstanding worth gently correcting",
+            "True",
+            "It depends on the family"
+          ],
+          "answer": "False — this is a common misunderstanding worth gently correcting"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Following a Sermon",
+      "subtitle": "第五课 · 听懂一篇讲道",
+      "explanation": "Scripture Reading Practice (in the main lessons) works with single verses. The full Bible (in Read) has no support at all. This is the bridge between them: a real, connected passage — Peter's sermon at Pentecost, the first Christian sermon ever preached — at a length closer to what you'd actually hear preached aloud.",
+      "points": [
+        {
+          "label": "施行异能、奇事神迹",
+          "detail": "\"performed miracles, wonders, and signs\" — a formal three-part phrase common in describing God's power in narrative Chinese."
+        },
+        {
+          "label": "钉在十字架上",
+          "detail": "\"nailed to the cross\" / crucified — already familiar from earlier lessons, reinforced here in a denser narrative context."
+        },
+        {
+          "label": "扎心",
+          "detail": "literally \"pierced the heart\" — describes being deeply, emotionally convicted, not just intellectually persuaded."
+        },
+        {
+          "label": "悔改，奉耶稣基督的名受洗",
+          "detail": "\"repent, and be baptised in the name of Jesus Christ\" — Peter's actual altar-call response, word for word."
+        }
+      ],
+      "examples": [
+        {
+          "number": 22,
+          "chinese": "「以色列人哪，请听我的话：神借着拿撒勒人耶稣在你们中间施行异能、奇事神迹，将他证明出来，这是你们自己知道的。",
+          "pinyin": "「 yǐ sè liè rén nǎ， qǐng tīng wǒ de huà： shén jiè zhe ná sā lēi rén yē sū zài nǐ men zhōng jiān shī xíng yì néng、 qí shì shén jì， jiāng tā zhèng míng chū lái， zhè shì nǐ men zì jǐ zhī dào de。"
+        },
+        {
+          "number": 23,
+          "chinese": "他既按着神的定旨先见被交与人，你们就借着无法之人的手，把他钉在十字架上杀了。",
+          "pinyin": "tā jì àn zhe shén de dìng zhǐ xiān jiàn bèi jiāo yǔ rén， nǐ men jiù jiè zhe wú fǎ zhī rén de shǒu， bǎ tā dīng zài shí zì jià shàng shā le。"
+        },
+        {
+          "number": 24,
+          "chinese": "神却将死的痛苦解释了，叫他复活，因为他原不能被死拘禁。",
+          "pinyin": "shén què jiāng sǐ de tòng kǔ jiě shì le， jiào tā fù huó， yīn wèi tā yuán bù néng bèi sǐ jū jìn。"
+        },
+        {
+          "number": 36,
+          "chinese": "「故此，以色列全家当确实的知道，你们钉在十字架上的这位耶稣，神已经立他为主，为基督了。」",
+          "pinyin": "「 gù cǐ， yǐ sè liè quán jiā dāng què shí de zhī dào， nǐ men dīng zài shí zì jià shàng de zhè wèi yē sū， shén yǐ jīng lì tā wéi zhǔ， wèi jī dū le 。」"
+        },
+        {
+          "number": 37,
+          "chinese": "众人听见这话，觉得扎心，就对彼得和其余的使徒说：「弟兄们，我们当怎样行？」",
+          "pinyin": "zhòng rén tīng jiàn zhè huà， jué de zhā xīn， jiù duì bǐ dé hé qí yú de shǐ tú shuō ：「 dì xiōng men， wǒ men dāng zěn yàng xíng ？」"
+        },
+        {
+          "number": 38,
+          "chinese": "彼得说：「你们各人要悔改，奉耶稣基督的名受洗，叫你们的罪得赦，就必领受所赐的圣灵；",
+          "pinyin": "bǐ dé shuō ：「 nǐ men gè rén yào huǐ gǎi， fèng yē sū jī dū de míng shòu xǐ， jiào nǐ men de zuì dé shè， jiù bì lǐng shòu suǒ cì de shèng líng；"
+        }
+      ],
+      "isVerseSequence": true,
+      "practice": [
+        {
+          "question": "What does 扎心 describe?",
+          "options": [
+            "Being deeply, emotionally convicted",
+            "Being physically hurt",
+            "Feeling confused"
+          ],
+          "answer": "Being deeply, emotionally convicted"
+        },
+        {
+          "question": "According to Acts 2:38, what two things does Peter tell the crowd to do?",
+          "options": [
+            "Repent and be baptised",
+            "Fast and pray",
+            "Sell everything they own"
+          ],
+          "answer": "Repent and be baptised"
+        },
+        {
+          "question": "What happened right after Peter's sermon, according to this passage?",
+          "options": [
+            "The crowd was pierced to the heart and asked what to do",
+            "The crowd left in anger",
+            "Nothing happened"
+          ],
+          "answer": "The crowd was pierced to the heart and asked what to do"
+        },
+        {
+          "question": "This passage is often called...",
+          "options": [
+            "The first Christian sermon",
+            "The Sermon on the Mount",
+            "The Lord's Prayer"
+          ],
+          "answer": "The first Christian sermon"
+        }
+      ]
+    }
+  ]
+}
