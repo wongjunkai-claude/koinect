@@ -9,13 +9,18 @@ so closing the app and coming back tomorrow picks up exactly where you left off.
 ## What's inside
 
 ```
-index.html        the app shell
-style.css         all styling (colors, type, layout)
-app.js            all app logic (lessons, quiz, progress saving)
-manifest.json     makes the app installable on phones/desktops
-sw.js             service worker — caches everything for offline use
-data/lessons.json all lesson content (edit this to add/change lessons)
-icons/            app icons
+index.html              the app shell
+style.css               all styling (colors, type, layout)
+app.js                  all app logic (lessons, quiz, progress saving)
+manifest.json           makes the app installable on phones/desktops
+sw.js                   service worker — caches everything for offline use
+data/lessons.json       all lesson content (edit this to add/change lessons)
+data/reference.json     Explore glossary (Bible books, people, places, terms)
+data/bible-full.json    the complete 66-book Bible, verse by verse
+data/highlights.json    the 5 fixed Key Highlights (Creed, Lord's Prayer, etc.)
+data/basics.json        the 8-lesson Chinese Basics mini-course
+data/proclaim.json      the 5-lesson Share Your Faith track
+icons/                  app icons
 ```
 
 ## Try it locally
@@ -145,17 +150,24 @@ knowledge, not dialogue practice. Rather than force these into lesson
 dialogues, they live in a separate, searchable glossary — the 📖 Explore
 tab in the bottom navigation.
 
-- Organised into six categories: Names & Titles of God, Books of the Bible,
-  Bible People, Bible Places, Festivals & Special Days, and Church Roles &
-  Groups.
+- Organised into seven categories: Names & Titles of God, Books of the
+  Bible, Bible People, Bible Places, Festivals & Special Days, Church Roles
+  & Groups, and Biblical Groups & Peoples.
+- **All twelve disciples by name** — Simon Peter, Andrew, James (son of
+  Zebedee), John, Philip, Bartholomew, Thomas, Matthew, James (son of
+  Alphaeus), Thaddaeus, Simon the Zealot, and Judas Iscariot — pulled
+  directly from the verified text of Matthew 10:2-4, not reconstructed
+  from memory.
+- **Old Testament festivals** beyond Christmas/Easter/Pentecost: Passover
+  (逾越节), the Feast of Unleavened Bread (除酵节), the Feast of Weeks
+  (七七节 — the OT festival Pentecost descends from), the Feast of
+  Tabernacles/Booths (住棚节), the Day of Atonement (赎罪日), and Purim
+  (普珥日) — each term checked against real occurrences in Exodus,
+  Leviticus, Deuteronomy, and Esther before being added.
 - Search works by Chinese, pinyin (no need to type tone marks), or English,
   and updates as you type.
 - Entries that are also taught inside a lesson show a "Taught in Lesson N"
-  link that jumps straight there — so the glossary can point back to real
-  context instead of becoming just a word list.
-- The glossary intentionally includes a few terms beyond what's taught in
-  lessons (e.g. 出埃及记 Exodus, 彼得 Peter, 圣灵降临节 Pentecost) so it's a
-  genuinely useful lookup tool, not just an index of lesson content.
+  link that jumps straight there.
 
 Data lives in `data/reference.json` — add entries the same way you'd add a
 lesson: copy an existing object, fill in `chinese`, `pinyin`, `english`,
@@ -187,53 +199,65 @@ gender logic (`CHARACTER_GENDER`) still keys off the plain English label,
 so adding a name here never affects the audio.
 
 When you tap **Play Conversation**, each named character is assigned a
-gender, and "You" is automatically given the opposite gender of whoever
-else is in the scene, so a two-person dialogue has two distinct voices.
-This depends on the device having more than one Chinese voice installed —
-some browsers/OSes only ship a single Chinese voice, in which case there's
-nothing to pick between and both roles will sound the same. Nothing breaks
-either way; it just can't sound like two people if the device only offers
-one voice to begin with.
+gender. Two things happen to make male and female characters sound
+distinct:
+
+1. If the device has more than one Chinese voice installed, Koinect tries
+   to pick a different one for each gender.
+2. **Pitch is also adjusted per gender** (male characters pitched down,
+   female pitched up) — and this part works regardless of how many voices
+   exist. This matters because **many devices only ship one Chinese voice
+   at all** — iOS's default Mandarin voice, "Tingting," is female with no
+   built-in male alternative unless someone manually downloads another
+   voice in Settings. Relying on voice selection alone would mean every
+   character sounds identical (and female) on exactly those devices, no
+   matter how a character is labeled — which is what you'd hear if you
+   tested this before the pitch adjustment was added. With pitch also in
+   play, male and female characters sound different even on a single-voice
+   device.
+
+"You" is automatically given the opposite gender of whoever else is in the
+scene, so a two-person dialogue always has two distinct-sounding voices.
 
 ## A Bible verse for every lesson
 
-Each of the 38 lessons now opens with one Bible verse chosen specifically
-for what that lesson teaches — not a generic highlight, a real thematic
-match. A few examples: Lesson 8 ("Exchanging Contact Info") pairs with
-Proverbs 27:17, "as iron sharpens iron"; Lesson 15 ("When Someone is Sick")
-pairs with James 5:14, about calling the church's elders to pray over the
-sick; Lesson 36 ("Giving & Tithing") pairs with 2 Corinthians 9:7, "God
-loves a cheerful giver" — which directly echoes that lesson's own
-vocabulary word 甘心乐意 ("willingly and cheerfully").
+Each of the 38 lessons ends with one Bible verse chosen specifically for
+what that lesson taught — not a generic highlight, a real thematic match.
+A few examples: Lesson 8 ("Exchanging Contact Info") pairs with Proverbs
+27:17, "as iron sharpens iron"; Lesson 15 ("When Someone is Sick") pairs
+with James 5:14, about calling the church's elders to pray over the sick;
+Lesson 36 ("Giving & Tithing") pairs with 2 Corinthians 9:7, "God loves a
+cheerful giver" — which directly echoes that lesson's own vocabulary word
+甘心乐意 ("willingly and cheerfully").
 
-The verse shows on the first screen of the lesson, right after the
-scenario — verse-by-verse Chinese text with pinyin (same `scripture-block`
-styling used in Read), and a 🔊 to hear it spoken. All 38 verses were pulled
-directly from the same verified `data/bible-full.json` used for the Read
-tab, not retyped or recalled from memory, so they carry the same sourcing
-guarantees documented above.
+The verse appears at the very end — after the quiz, alongside the Weekly
+Challenge, framed as "Carry This With You." It works as a closing thought
+rather than an opening one: you've just practiced the vocabulary and
+scenario, and the verse sends you off with something to actually reflect
+on and take into the week, rather than being read once at the start and
+forgotten by the time you finish.
 
-Each lesson's tagged verse lives in its `verse` field (`reference`,
-`referenceEnglish`, `chinese`, `pinyin`) — same shape as a Read tab passage,
-just singular and lesson-scoped.
+All 38 verses were pulled directly from the same verified
+`data/bible-full.json` used for the Read tab, not retyped or recalled from
+memory. Each lesson's tagged verse lives in its `verse` field (`reference`,
+`referenceEnglish`, `chinese`, `pinyin`).
 
 ## Bible Reading (Read tab)
 
-The 📜 Read tab in the bottom navigation has two parts:
+The 📜 Read tab in the bottom navigation opens directly into the complete
+Bible — all 66 books, every chapter (1,189 chapters, 31,100 verses),
+navigable Book → Chapter → verse-by-verse reader, with Previous/Next
+chapter buttons for reading straight through, and its own per-book progress
+("Genesis · 3 of 50 chapters read").
 
-**1. A curated reading plan** — 19 short, well-known passages (Genesis 1,
-the Ten Commandments, Psalm 23, the Beatitudes, John 3:16, the Lord's
-Prayer, etc.) with a progress bar, good as a starting point.
+An earlier version of this also had a separate curated list of 19
+well-known passages sitting in front of the full Bible. That's been
+removed — it added an extra screen and a "which one do I use" decision
+without much benefit once the complete Bible was already one tap away.
+Read now goes straight to the book list.
 
-**2. The complete Bible, browsable** — all 66 books, every chapter (1,189
-chapters, 31,100 verses), navigable Book → Chapter → verse-by-verse reader,
-with Previous/Next chapter buttons for reading straight through, and its
-own per-book progress ("Genesis · 3 of 50 chapters read"). This is the real
-"read the Chinese Bible" experience — the curated list above is a taster,
-not the whole thing.
-
-Both share the same reader: verse-by-verse Chinese text with pinyin, audio
-playback (Web Speech API), and a "Mark as Read" button.
+The reader itself: verse-by-verse Chinese text with pinyin, audio playback
+(Web Speech API), and a "Mark as Read" button per chapter.
 
 **Source and licensing:** The text is the Chinese Union Version, Simplified
 (和合本 / CUVS) — first published 1919, confirmed public domain (copyright
@@ -251,8 +275,8 @@ tool, not a creative or copyrighted work.
 **A practical note on size:** `data/bible-full.json` is about 8.5MB — small
 for a modern app, but worth knowing about if you're watching total repo
 size or mobile data usage on first install. It's fetched lazily (only when
-someone actually opens "Browse the Bible," not at every app launch) and
-cached by the service worker afterward, so it only costs bandwidth once.
+someone actually opens the Read tab, not at every app launch) and cached by
+the service worker afterward, so it only costs bandwidth once.
 
 ## Vocabulary: New vs. Review
 
@@ -361,6 +385,232 @@ screen, plus a real setting:
   don't. Stored in `progress.settings.soundEnabled`.
 - The app version number and the same "how Koinect works" explanations
   that used to live on the Help screen.
+
+## Share Your Faith (sustained speech, not dialogue)
+
+Every conversational lesson, every practice exercise in this app trades
+turns between two people. But testifying, preaching, and sharing the
+gospel are **monologues** — sustained speech with a beginning, middle, and
+end, delivered *to* someone, not traded *with* them. Someone could finish
+all 38 lessons and Chinese Basics and still never have practiced producing
+four connected sentences in a row. This is a third, separate track built
+specifically to close that gap:
+
+1. **Discourse Markers for Speaking** — 首先/其次/最后, 换句话说, 总结来说,
+   让我们一起, 不但...而且... — the connecting words a two-person dialogue
+   never needed, but any structured talk does.
+2. **Telling Your Story** — the universal three-act testimony shape
+   (以前 / 后来 / 从此 — before / turning point / now), plus a **"Your
+   Turn"** phase: a scaffold and a free-text space to actually draft your
+   own testimony, saved locally (`progress.myTestimony`), never graded.
+3. **The Gospel in Order** — a memorizable four-verse sequence (Romans
+   3:23 → 6:23 → John 3:16 → Romans 10:9, sometimes called the "Romans
+   Road"), practiced as one continuous flow with a "Play in Order" button,
+   not as isolated verses.
+4. **Answering Common Questions** — objections genuinely specific to
+   Chinese-speaking contexts (family honor, ancestor veneration, "isn't
+   this a Western religion?"), with calm, respectful response patterns —
+   not generic Western apologetics.
+5. **Following a Sermon** — the bridge between one-verse Scripture Practice
+   and the fully-unaided Bible: a real, connected passage at natural
+   preaching length. Uses Peter's sermon at Pentecost (Acts 2:22-38) — the
+   first Christian sermon ever preached, verified from the same Bible data
+   as everywhere else, not invented "sermon-style" text.
+
+Structurally, this reuses the Explain → Practice pattern from Chinese
+Basics (a separate, simpler engine from the main 7-step lesson flow),
+extended with two new pieces: rendering a connected verse sequence
+(`isVerseSequence`) instead of a vocabulary grid, and the free-text
+"Your Turn" phase. Progress tracks separately in `progress.proclaimCompleted`,
+discoverable from its own Home card, alongside Basics — a third parallel
+track, not nested inside either of the other two.
+
+## Chinese Basics (optional mini-course)
+
+Every lesson shows pinyin with tone marks and uses grammar particles like
+吗/的/了 constantly — but nothing in the app ever explained what a tone
+*is*, how to read pinyin, or what those particles actually do. For someone
+with real Chinese background, that's fine — Koinect was built to extend
+existing foundations into church-specific vocabulary, not to re-teach
+Mandarin from scratch. But for a genuine beginner, that gap makes the rest
+of the app hard to access at all.
+
+**Chinese Basics is a deliberately separate 8-lesson mini-course** covering
+the real grammatical skeleton of Mandarin — not folded into the Connect →
+Belong → Grow → Serve numbering, since that represents the church
+participation journey, and this is a different, prerequisite axis
+entirely:
+
+1. **The Four Tones** — with real audio (via the same Web Speech API used
+   everywhere else) demonstrating 妈/麻/马/骂
+2. **Reading Pinyin** — the sounds that trip up English speakers: q, x,
+   zh/ch/sh vs. z/c/s, ü
+3. **Pronouns & 是 Sentences** — 我/你/他, "to be," negation
+4. **Yes/No Questions & Question Words** — 吗, 谁/什么/哪里/为什么/怎么
+5. **Numbers 0–100** — the actual counting system, not just memorized digits
+6. **Measure Words** — 个/位/本/杯, a whole grammatical category English
+   doesn't have
+7. **的 (Possession) & Negation** — 不 vs. 没有, a classic beginner mix-up
+8. **了 / 在 / 过** — completed action vs. ongoing vs. past experience
+
+Each lesson follows a simple two-phase structure: **Explain** (a short
+write-up, example words/sentences with audio) → **Practice** (multiple
+choice questions, using the same retry-with-elimination pattern as the
+main lessons — wrong answers get greyed out, not shamed). Lessons unlock
+in order; progress is tracked separately from the main 38 lessons in
+`progress.basicsCompleted`.
+
+**Discoverability, not a gate:** a card on Home links to it ("New to
+Chinese? Start with Basics" for new users, or a progress count once
+started), but it never blocks access to Connect — someone who already has
+these foundations can ignore it entirely.
+
+**A real bug this caught:** Basics Lesson 2's practice question about
+pronouncing ü used answer options containing literal quote marks (`"ee"
+with rounded lips`), which silently broke the button's HTML `data-opt`
+attribute when rendered — the embedded quote closed the attribute early.
+Fixed with a proper `escapeAttr()` helper, applied everywhere any quiz-style
+option gets rendered (5 places total: the main quiz, Respond Practice,
+Scripture Practice, Daily Review, and Basics) — not just the one spot that
+happened to trigger it, since the same risk existed anywhere option text
+might ever contain a quote character.
+
+## Respond Practice
+
+Every lesson's quiz tests word *recognition* — "what does this word mean."
+That's different from testing whether someone can produce or pick an
+*appropriate response* in a real exchange, which is what actually matters
+for holding a conversation. Each lesson now has one Respond Practice
+exercise (a new step between Quiz and Challenge), built from that lesson's
+own real dialogue rather than invented content, in one of two forms:
+
+- **Select the response** — shown a line from the dialogue (what the other
+  person said), pick the appropriate reply from three options. The correct
+  answer is the lesson's actual next line; the two wrong options are drawn
+  from a small pool of deliberately unrelated phrases (e.g. "What time is
+  it now?", "I don't like coffee") — obviously wrong regardless of the
+  specific conversation, not a subtle grammatical distinction. Used in 21
+  of the 38 lessons.
+- **Fill in the blank** — a real sentence from the dialogue with one word
+  blanked out, three word options to complete it. The two wrong options
+  are other vocabulary from the *same* lesson, chosen so they don't fit
+  the sentence grammatically (e.g. a noun where a verb is needed) — again,
+  ruled out by pattern, not nuance. Used in the other 17 lessons.
+
+This is single-attempt with immediate feedback and doesn't block finishing
+the lesson — a practice rep, not a second gate alongside the vocabulary
+quiz. Each lesson's exercise lives in its `respondPractice` field.
+
+## Scripture Reading Practice
+
+Being able to hold a conversation in Chinese and being able to *read the
+Chinese Bible* are genuinely different skills — 和合本 (CUVS) uses literary,
+early-20th-century Mandarin with classical connectives (乃, 惟, 凡, 若),
+archaic vocabulary, and dense theological terms that never show up in
+everyday speech or in this app's conversational dialogues. Finishing every
+lesson here doesn't by itself teach someone to open Romans and understand
+it on the page.
+
+Each lesson's Challenge screen now closes with a **Scripture Reading
+Practice** section, built directly from that lesson's own tagged verse (so
+it always stays on-theme) rather than a separate, disconnected track:
+
+- **Two literary/biblical-register vocabulary points**, genuinely present
+  in that specific verse — not generic "Bible words," but the actual
+  classical particles, archaic terms, or formal constructions found in the
+  text. A few examples: Lesson 18 (Salvation) flags 本乎 and 乃是 — both
+  built on the classical particle 乎/乃, never seen in spoken Mandarin;
+  Lesson 37 (Discipling) flags that 教训 means "teaching" here, but in
+  modern casual speech usually means "to scold someone" — a real register
+  trap worth knowing.
+- **One comprehension question** testing understanding of the verse
+  itself — not the lesson's invented dialogue. Single-attempt, immediate
+  feedback, doesn't block finishing the lesson (this is a bonus skill-
+  building layer, not a new pass/fail gate).
+
+Some vocabulary deliberately recurs across lessons on purpose — 凡事 (a
+classical "every/all" construction) appears in Lessons 6, 12, and 35; 万族
+and 万民 (both "all nations," same 万 + noun pattern) appear in Lessons 34
+and 38 — so the classical grammar patterns themselves get spaced
+repetition, the same way conversational vocabulary does elsewhere in the
+app.
+
+Each lesson's practice content lives in `verse.scriptureVocabulary` (an
+array of 2 items) and `verse.scriptureQuestion` — both built from the
+lesson's already-verified verse text, not written separately from it.
+
+## Closing the vocabulary gap (data-driven)
+
+Rather than guess what biblical vocabulary was missing, I computed real
+word-frequency statistics across all 31,100 verses (using `jieba` for
+Chinese word segmentation) and compared against every word already taught
+anywhere in the app. The biggest finding: **耶和华 (the LORD / Yahweh)
+appears 6,980 times — the single most common word in the entire Bible —
+and wasn't in the glossary at all.** That's fixed now, along with several
+other high-frequency names and terms the same analysis surfaced:
+
+- **Names & Titles of God** gained 耶和华.
+- **Bible People** gained standalone 耶稣, 基督, 大卫, and 雅各 — the last
+  with an explicit note that 雅各 is *also* how "James" is rendered for two
+  different New Testament disciples, so the same two characters mean a
+  completely different historical figure depending on context.
+- **Bible Places** gained 以色列 (the nation, distinct from 以色列人 "the
+  Israelites") and 犹大 (Judah/Judea).
+- Two new categories: **Biblical Vocabulary** (仆人, 子孙, 荣耀, 智慧) and
+  **Biblical Grammar** (因为, 所以, 如此, 于是, 并且) — recurring
+  literary connectives in the same spirit as Scripture Reading Practice.
+
+## Key Highlights & favoriting
+
+The Read tab now opens with a **Key Highlights** section, above the book
+list: five foundational texts worth committing to memory — the Apostles'
+Creed, the Lord's Prayer, the Great Commission, the Great Commandment, and
+John 3:16 — plus any verses you've favorited while reading.
+
+**Sourcing note:** four of the five are genuine Bible passages, pulled
+directly from the same verified `bible-full.json` used everywhere else. The
+Apostles' Creed is **not** Scripture, so it isn't in that file — it was
+sourced separately and cross-checked against three independent Protestant
+Chinese translations (Christian Reformed Church's official multilingual
+page, CPRC, and faithchinesechurch.org), which converge closely. It uses
+上帝 for God, as all three sources do, which differs from 神 used
+elsewhere in this app's Bible text — both are standard, valid Chinese terms
+for God from different Bible/confession editions, noted explicitly rather
+than silently changed to match.
+
+**Favoriting:** every verse in the Bible chapter reader has a ☆ button.
+Tapping it turns to ★ and adds that verse to Key Highlights immediately —
+no separate save step. Opening a favorited verse from Key Highlights offers
+a "Remove from Highlights" button; the five fixed texts don't have this,
+since they're permanent. Favorites live in `progress.favoriteVerses`.
+
+## Progress resumption — lessons and Bible reading both
+
+**Lessons:** reopening an unfinished lesson resumes at the furthest step
+you reached (scenario → dialogue → vocabulary → quiz → challenge), not
+back at the beginning — tracked in `progress.lessonProgress`. This is
+real across a full page reload, not just within one session. A lesson
+already marked complete still restarts fresh from the scenario when
+reopened, since that's a deliberate full review, not a resume. Home's
+lesson list shows a distinct **"In Progress"** state (with a small
+percentage bar) separate from Locked / Start / Completed, so it's always
+clear which lessons are mid-way through.
+
+**Bible reading:** scrolling through a chapter quietly tracks how far
+you've gotten as a percentage (throttled, saved to
+`progress.chapterPosition`), independent of the explicit "Mark as Read"
+button. Reopening a partially-read chapter scrolls back to roughly that
+position automatically. The chapter grid in the book browser shows
+partially-read chapters with a dashed gold border (hover/long-press for
+the exact percentage), distinct from the solid green of fully-read
+chapters.
+
+**A real bug this caught:** building the resume-position feature exposed
+that opening a Bible chapter or book's chapter list *before* ever visiting
+the Read tab in that session — e.g. a page refresh while already reading —
+left the underlying Bible text never loaded, since only the Read tab
+previously triggered fetching it. Both screens now independently ensure the
+text is loaded before rendering, so this works regardless of entry point.
 
 ## Adding more lessons
 

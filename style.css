@@ -337,12 +337,37 @@ main.screen {
   border-color: var(--color-success);
   color: #fff;
 }
+.chapter-tile.in-progress {
+  border: 2px dashed var(--color-secondary);
+  background: #FBF6E7;
+}
 .chapter-nav-footer {
   display: flex;
   gap: 8px;
 }
 .chapter-nav-footer .btn { width: auto; flex: 1; padding-left: 8px; padding-right: 8px; font-size: 0.85rem; }
 .chapter-nav-footer #mark-chapter-btn { flex: 1.4; }
+
+/* ===== Favorite verse button (Bible reader) ===== */
+.scripture-block.has-favorite { padding-right: 40px; }
+.favorite-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2rem;
+  padding: 4px;
+  color: var(--color-text-muted);
+  line-height: 1;
+}
+.favorite-btn.favorited { color: var(--color-secondary); }
+
+/* ===== In-progress lesson card ===== */
+.lesson-card.in-progress .lesson-num {
+  background: var(--color-secondary);
+  color: #fff;
+  border-color: var(--color-secondary);
+}
+.lesson-card.in-progress .lesson-status { color: var(--color-secondary); }
 
 /* ===== Help screen ===== */
 .help-item { margin-bottom: 16px; }

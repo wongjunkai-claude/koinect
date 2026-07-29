@@ -11,8 +11,10 @@ const app = document.getElementById("app");
 
 let LESSONS = [];
 let REFERENCE = []; // reference glossary categories, loaded at boot
-let BIBLE_READINGS = []; // curated Bible reading plan, loaded at boot
 let BIBLE_FULL = []; // complete 66-book Bible text, loaded lazily (large file)
+let HIGHLIGHTS = []; // fixed Key Highlights (Creed, Lord's Prayer, etc.), loaded at boot
+let BASICS = []; // Chinese Basics mini-course, loaded at boot
+let PROCLAIM = []; // Share Your Faith / Proclaim track, loaded at boot
 let progress = loadProgress();
 
 let bibleFullLoadPromise = null;
@@ -89,7 +91,7 @@ const AudioFX = (() => {
 const Speech = (() => {
   const supported = "speechSynthesis" in window;
 
-  function speak(text, lang = "zh-CN", rate = 0.92, voice = null) {
+  function speak(text, lang = "zh-CN", rate = 0.92, voice = null, pitch = 1.0) {
     return new Promise((resolve) => {
       if (!supported || !isSoundEnabled()) {
         resolve();
@@ -98,6 +100,7 @@ const Speech = (() => {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = lang;
       utterance.rate = rate;
+      utterance.pitch = pitch;
       if (voice) utterance.voice = voice;
       utterance.onend = resolve;
       utterance.onerror = resolve;
@@ -206,6 +209,18 @@ function genderForSpeaker(speaker, lesson) {
   return "male"; // fallback for any unmapped name
 }
 
+// Many devices only ship ONE Chinese voice (e.g. iOS's default Mandarin
+// voice, "Tingting," is female with no built-in male alternative) — so
+// picking a different *voice* per gender often has nothing to pick from.
+// Pitch works regardless: it audibly separates speakers even when every
+// line uses the exact same underlying voice.
+const GENDER_PITCH = { male: 0.82, female: 1.15 };
+
+function pitchForSpeaker(speaker, lesson) {
+  if (speaker === "Narrator") return 1.0;
+  return GENDER_PITCH[genderForSpeaker(speaker, lesson)];
+}
+
 let dialoguePlaying = false;
 
 async function playDialogue(lesson) {
@@ -219,9 +234,11 @@ async function playDialogue(lesson) {
   for (let i = 0; i < lesson.dialogue.length; i++) {
     if (!dialoguePlaying) break; // stopped by the user mid-playback
     lines[i]?.classList.add("speaking");
-    const gender = genderForSpeaker(lesson.dialogue[i].speaker, lesson);
+    const speaker = lesson.dialogue[i].speaker;
+    const gender = genderForSpeaker(speaker, lesson);
     const voice = gender === "female" ? voices.female : voices.male;
-    await Speech.speak(lesson.dialogue[i].chinese, "zh-CN", 0.92, voice);
+    const pitch = pitchForSpeaker(speaker, lesson);
+    await Speech.speak(lesson.dialogue[i].chinese, "zh-CN", 0.92, voice, pitch);
     lines[i]?.classList.remove("speaking");
     await new Promise((r) => setTimeout(r, 200));
   }
@@ -230,9 +247,18 @@ async function playDialogue(lesson) {
   if (btnAfter) btnAfter.textContent = "▶ Play Conversation";
 }
 
+let activeScrollHandler = null;
+function clearScrollTracking() {
+  if (activeScrollHandler) {
+    window.removeEventListener("scroll", activeScrollHandler);
+    activeScrollHandler = null;
+  }
+}
+
 function stopDialogue() {
   dialoguePlaying = false;
   Speech.stop();
+  clearScrollTracking(); // called on every screen change, so this always runs too
 }
 
 // ---------- Progress persistence ----------
@@ -243,8 +269,13 @@ function loadProgress() {
     streak: 0,
     vocabReview: {}, // chinese word -> { box: 1-5, nextReview: "YYYY-MM-DD" }
     dismissedChallenges: [], // lesson ids whose challenge card has been marked done
-    completedReadings: [], // curated Bible reading plan ids marked as read
-    readChapters: [], // "BOOKID-N" chapter keys marked as read in the full Bible browser
+    readChapters: [], // "BOOKID-N" chapter keys marked fully read in the full Bible browser
+    chapterPosition: {}, // "BOOKID-N" -> { verseIndex, percent } — last reading position, even if not marked "read"
+    favoriteVerses: [], // { id, reference, referenceEnglish, verses: [...] } added from the Bible reader
+    lessonProgress: {}, // lessonId -> furthest step index reached (for resuming mid-lesson)
+    basicsCompleted: [], // ids of completed Chinese Basics mini-course lessons
+    proclaimCompleted: [], // ids of completed Share Your Faith lessons
+    myTestimony: "", // free-text testimony draft from the Telling Your Story lesson
     userName: null, // name entered on first launch, or null if skipped
     nameOnboardingSeen: false, // whether the name prompt has been shown/dismissed
     settings: { soundEnabled: true }, // master toggle for chimes + spoken audio
@@ -391,6 +422,7 @@ function isUnlocked(lesson, index) {
 function markCompleted(id) {
   if (!isCompleted(id)) {
     progress.completedLessons.push(id);
+    delete progress.lessonProgress[id]; // no longer "in progress" once done
     const lesson = LESSONS.find((l) => l.id === id);
     if (lesson) scheduleLessonVocabForReview(lesson);
     saveProgress();
@@ -407,6 +439,14 @@ function el(html) {
   const t = document.createElement("template");
   t.innerHTML = html.trim();
   return t.content.firstElementChild;
+}
+
+// Escapes a string for safe use inside an HTML attribute (e.g. data-opt="...").
+// Without this, option text containing a literal " (like an option explaining
+// how to pronounce ü) would prematurely close the attribute and corrupt the
+// rendered button — a real bug this caught in Chinese Basics Lesson 2.
+function escapeAttr(str) {
+  return String(str).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 }
 
 function shuffle(arr) {
@@ -438,17 +478,26 @@ function goRead() {
 function goSettings() {
   location.hash = "#/settings";
 }
-function goReading(id) {
-  location.hash = "#/read/" + id;
-}
-function goBibleBooks() {
-  location.hash = "#/bible";
-}
 function goBibleChapters(bookId) {
   location.hash = "#/bible/" + bookId;
 }
 function goBibleChapter(bookId, chapterNum) {
   location.hash = "#/bible/" + bookId + "/" + chapterNum;
+}
+function goHighlight(id) {
+  location.hash = "#/highlight/" + id;
+}
+function goBasics() {
+  location.hash = "#/basics";
+}
+function goBasicsLesson(id) {
+  location.hash = "#/basics/" + id;
+}
+function goProclaim() {
+  location.hash = "#/proclaim";
+}
+function goProclaimLesson(id) {
+  location.hash = "#/proclaim/" + id;
 }
 
 // ---------- Bottom navigation (persistent tab bar) ----------
@@ -493,14 +542,6 @@ function route() {
       return;
     }
   }
-  const readingMatch = hash.match(/^#\/read\/(.+)/);
-  if (readingMatch) {
-    const reading = BIBLE_READINGS.find((r) => r.id === readingMatch[1]);
-    if (reading) {
-      renderReadingDetail(reading);
-      return;
-    }
-  }
   const bibleChapterMatch = hash.match(/^#\/bible\/([A-Z0-9]+)\/(\d+)/);
   if (bibleChapterMatch) {
     renderBibleChapter(bibleChapterMatch[1], Number(bibleChapterMatch[2]));
@@ -509,6 +550,29 @@ function route() {
   const bibleBookMatch = hash.match(/^#\/bible\/([A-Z0-9]+)/);
   if (bibleBookMatch) {
     renderBibleChapterList(bibleBookMatch[1]);
+    return;
+  }
+  const highlightMatch = hash.match(/^#\/highlight\/(.+)/);
+  if (highlightMatch) {
+    renderHighlightDetail(highlightMatch[1]);
+    return;
+  }
+  const basicsLessonMatch = hash.match(/^#\/basics\/(\d+)/);
+  if (basicsLessonMatch) {
+    renderBasicsLesson(Number(basicsLessonMatch[1]));
+    return;
+  }
+  if (hash === "#/basics") {
+    renderBasicsList();
+    return;
+  }
+  const proclaimLessonMatch = hash.match(/^#\/proclaim\/(\d+)/);
+  if (proclaimLessonMatch) {
+    renderProclaimLesson(Number(proclaimLessonMatch[1]));
+    return;
+  }
+  if (hash === "#/proclaim") {
+    renderProclaimList();
     return;
   }
   if (hash === "#/review") {
@@ -525,10 +589,6 @@ function route() {
   }
   if (hash === "#/settings") {
     renderSettings();
-    return;
-  }
-  if (hash === "#/bible") {
-    renderBibleBooks();
     return;
   }
   renderHome();
@@ -644,6 +704,28 @@ function renderHome() {
             : ""
         }
 
+        <div class="card explore-card" id="basics-card" style="margin-top:20px;">
+          <p class="eyebrow">Optional Primer</p>
+          <h3 style="margin:6px 0 4px;">${
+            progress.basicsCompleted.length > 0
+              ? `Chinese Basics — ${progress.basicsCompleted.length} of ${BASICS.length} complete`
+              : "New to Chinese? Start with Basics"
+          }</h3>
+          <p class="muted" style="margin-bottom:12px;">Tones, pinyin, and the core grammar patterns behind every lesson — a short, optional primer if you're just starting out with Mandarin.</p>
+          <button class="btn btn-secondary btn-block" id="basics-card-btn">Open Chinese Basics</button>
+        </div>
+
+        <div class="card explore-card" id="proclaim-card" style="margin-top:12px;">
+          <p class="eyebrow">Beyond Conversation</p>
+          <h3 style="margin:6px 0 4px;">${
+            progress.proclaimCompleted.length > 0
+              ? `Share Your Faith — ${progress.proclaimCompleted.length} of ${PROCLAIM.length} complete`
+              : "Ready to testify, preach, or share the gospel?"
+          }</h3>
+          <p class="muted" style="margin-bottom:12px;">Sustained speech, not dialogue — your own testimony, a memorable gospel sequence, real objections, and following a full sermon.</p>
+          <button class="btn btn-secondary btn-block" id="proclaim-card-btn">Open Share Your Faith</button>
+        </div>
+
         <h3 style="margin:24px 0 12px;">All Lessons</h3>
         <div id="lesson-groups"></div>
       </main>
@@ -652,6 +734,8 @@ function renderHome() {
   `)
   );
   wireBottomNav(app);
+  app.querySelector("#basics-card-btn").addEventListener("click", goBasics);
+  app.querySelector("#proclaim-card-btn").addEventListener("click", goProclaim);
 
   // --- Continue card (three variants) ---
   const continueCard = app.querySelector("#continue-card");
@@ -731,14 +815,17 @@ function renderHome() {
       const i = LESSONS.indexOf(lesson);
       const unlocked = isUnlocked(lesson, i);
       const done = isCompleted(lesson.id);
+      const inProgress = isLessonInProgress(lesson.id);
+      const pct = inProgress ? Math.round(((progress.lessonProgress[lesson.id] || 0) / STEPS.length) * 100) : 0;
       const btn = el(`
-        <button class="lesson-card ${done ? "done" : ""}" ${unlocked ? "" : "disabled"}>
+        <button class="lesson-card ${done ? "done" : ""} ${inProgress ? "in-progress" : ""}" ${unlocked ? "" : "disabled"}>
           <div class="lesson-num">${done ? "✓" : lesson.id}</div>
           <div class="lesson-info">
             <h3>${lesson.title}</h3>
             <p class="zh">${lesson.subtitle}</p>
+            ${inProgress ? `<div class="progress-track" style="margin-top:6px;"><div class="progress-fill" style="width:${pct}%"></div></div>` : ""}
           </div>
-          <div class="lesson-status">${done ? "Completed" : unlocked ? "Start" : "Locked"}</div>
+          <div class="lesson-status">${done ? "Completed" : inProgress ? "Continue" : unlocked ? "Start" : "Locked"}</div>
         </button>
       `);
       if (unlocked) btn.addEventListener("click", () => goLesson(lesson.id));
@@ -750,12 +837,15 @@ function renderHome() {
 }
 
 // ---------- Lesson screen ----------
-const STEPS = ["scenario", "dialogue", "vocabulary", "quiz", "challenge"];
+const STEPS = ["scenario", "dialogue", "vocabulary", "quiz", "respond", "challenge"];
 
 function renderLesson(lesson) {
   const quizOrder = shuffle(lesson.quiz);
+  // Resume mid-lesson if there's saved progress and it isn't already
+  // completed (a completed lesson reopened is a deliberate full review).
+  const resumeStep = isCompleted(lesson.id) ? 0 : progress.lessonProgress[lesson.id] || 0;
   const state = {
-    stepIndex: 0,
+    stepIndex: Math.min(resumeStep, STEPS.length - 1),
     quizOrder, // fixed reference list, defines stable question numbering
     quizNumbering: new Map(quizOrder.map((q, i) => [q, i + 1])),
     quizQueue: [...quizOrder], // working queue: wrong answers get re-queued to the back
@@ -763,6 +853,52 @@ function renderLesson(lesson) {
     quizWrongOptions: new Map(), // question object -> Set of eliminated wrong options
   };
   renderLessonStep(lesson, state);
+}
+
+// Records how far into a lesson the learner has gotten, so reopening it
+// later resumes there instead of restarting from the scenario every time.
+function saveLessonStepProgress(lessonId, stepIndex) {
+  const existing = progress.lessonProgress[lessonId] || 0;
+  if (stepIndex > existing) {
+    progress.lessonProgress[lessonId] = stepIndex;
+    saveProgress();
+  }
+}
+
+function isLessonInProgress(lessonId) {
+  return !isCompleted(lessonId) && (progress.lessonProgress[lessonId] || 0) > 0;
+}
+
+// ---------- Chinese Basics (separate, optional mini-course) ----------
+function isBasicsCompleted(id) {
+  return progress.basicsCompleted.includes(id);
+}
+function markBasicsCompleted(id) {
+  if (!isBasicsCompleted(id)) {
+    progress.basicsCompleted.push(id);
+    saveProgress();
+  }
+}
+function isBasicsUnlocked(id) {
+  return id === 1 || isBasicsCompleted(id - 1);
+}
+
+// ---------- Share Your Faith / Proclaim (separate track, monologue-focused) ----------
+function isProclaimCompleted(id) {
+  return progress.proclaimCompleted.includes(id);
+}
+function markProclaimCompleted(id) {
+  if (!isProclaimCompleted(id)) {
+    progress.proclaimCompleted.push(id);
+    saveProgress();
+  }
+}
+function isProclaimUnlocked(id) {
+  return id === 1 || isProclaimCompleted(id - 1);
+}
+function saveMyTestimony(text) {
+  progress.myTestimony = text.slice(0, 2000);
+  saveProgress();
 }
 
 function lessonProgressPct(state) {
@@ -799,6 +935,7 @@ function renderLessonShell(lesson, state, bodyHtml) {
 
 function renderLessonStep(lesson, state) {
   const step = STEPS[state.stepIndex];
+  saveLessonStepProgress(lesson.id, state.stepIndex);
 
   if (step === "scenario") {
     renderLessonShell(
@@ -809,31 +946,12 @@ function renderLessonStep(lesson, state) {
         <p class="eyebrow step-eyebrow">Lesson ${lesson.id} · ${lesson.title}</p>
         <h1 class="zh">${lesson.subtitle}</h1>
         <p class="scenario-text">${lesson.scenario}</p>
-        ${
-          lesson.verse
-            ? `<div class="scripture-block lesson-verse">
-                <p class="eyebrow" style="margin-bottom:6px;">${lesson.verse.reference} <span class="muted" style="font-weight:400;text-transform:none;letter-spacing:0;">· ${lesson.verse.referenceEnglish}</span></p>
-                <div class="zh scripture-text">${lesson.verse.chinese}</div>
-                <div class="pinyin">${lesson.verse.pinyin}</div>
-                ${
-                  Speech.supported
-                    ? `<button class="icon-btn" id="play-verse-btn" aria-label="Hear this verse" style="margin-top:8px;">🔊</button>`
-                    : ""
-                }
-              </div>`
-            : ""
-        }
       </div>
       <div class="sticky-footer">
         <button class="btn btn-primary" id="next-btn">Start Lesson</button>
       </div>
     `
     );
-    if (lesson.verse) {
-      app
-        .querySelector("#play-verse-btn")
-        ?.addEventListener("click", () => Speech.speak(lesson.verse.chinese, "zh-CN"));
-    }
   }
 
   if (step === "dialogue") {
@@ -933,6 +1051,11 @@ function renderLessonStep(lesson, state) {
     renderQuizQuestion(lesson, state);
   }
 
+  if (step === "respond") {
+    renderRespondStep(lesson, state);
+    return;
+  }
+
   if (step === "challenge") {
     const mistakesReviewed = state.quizWrongOptions.size;
     renderLessonShell(
@@ -953,12 +1076,82 @@ function renderLessonStep(lesson, state) {
           <p class="eyebrow">This Week's Challenge</p>
           <p>${lesson.challenge}</p>
         </div>
+        ${
+          lesson.verse
+            ? `<p class="eyebrow" style="margin:20px 0 8px;">Carry This With You</p>
+              <div class="scripture-block lesson-verse">
+                <p class="eyebrow" style="margin-bottom:6px;">${lesson.verse.reference} <span class="muted" style="font-weight:400;text-transform:none;letter-spacing:0;">· ${lesson.verse.referenceEnglish}</span></p>
+                <div class="zh scripture-text">${lesson.verse.chinese}</div>
+                <div class="pinyin">${lesson.verse.pinyin}</div>
+                ${
+                  Speech.supported
+                    ? `<button class="icon-btn" id="play-verse-btn" aria-label="Hear this verse" style="margin-top:8px;">🔊</button>`
+                    : ""
+                }
+              </div>`
+            : ""
+        }
+        ${
+          lesson.verse?.scriptureVocabulary
+            ? `<p class="eyebrow" style="margin:20px 0 8px;">Understanding the Verse</p>
+              <p class="muted" style="margin-bottom:12px;">Chinese Bible text uses words and patterns you won't hear in everyday conversation. Here are two from this verse:</p>
+              <div class="vocab-grid">
+                ${lesson.verse.scriptureVocabulary
+                  .map(
+                    (v) => `
+                  <div class="vocab-card">
+                    <div class="vocab-top">
+                      <span class="zh">${v.chinese}</span>
+                      <span class="vocab-pinyin">${v.pinyin}</span>
+                      <span class="vocab-badge new" style="background:#EFF4F8;color:var(--color-primary);border-color:#D9E4EC;">Biblical</span>
+                    </div>
+                    <div class="vocab-en">${v.english}</div>
+                    <div class="vocab-note">${v.note}</div>
+                  </div>
+                `
+                  )
+                  .join("")}
+              </div>
+              <div class="quiz-question" style="margin-top:16px;">
+                <p style="font-weight:600;margin-bottom:10px;">${lesson.verse.scriptureQuestion.question}</p>
+                <div class="quiz-options" id="scripture-quiz-options">
+                  ${lesson.verse.scriptureQuestion.options
+                    .map((opt) => `<button class="option-btn" data-opt="${escapeAttr(opt)}">${opt}</button>`)
+                    .join("")}
+                </div>
+                <p class="feedback-text" id="scripture-feedback" aria-live="polite"></p>
+              </div>`
+            : ""
+        }
       </div>
       <div class="sticky-footer">
         <button class="btn btn-primary" id="finish-btn">Finish Lesson</button>
       </div>
     `
     );
+    if (lesson.verse) {
+      app
+        .querySelector("#play-verse-btn")
+        ?.addEventListener("click", () => Speech.speak(lesson.verse.chinese, "zh-CN"));
+    }
+    if (lesson.verse?.scriptureQuestion) {
+      const sq = lesson.verse.scriptureQuestion;
+      const sqButtons = [...app.querySelectorAll("#scripture-quiz-options .option-btn")];
+      const sqFeedback = app.querySelector("#scripture-feedback");
+      sqButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const isRight = btn.dataset.opt === sq.answer;
+          sqButtons.forEach((b) => {
+            b.disabled = true;
+            if (b.dataset.opt === sq.answer) b.classList.add("correct");
+            else if (b === btn && !isRight) b.classList.add("incorrect");
+          });
+          if (isRight) AudioFX.correct();
+          sqFeedback.textContent = isRight ? "Correct!" : `Not quite — the answer is "${sq.answer}."`;
+          sqFeedback.classList.add(isRight ? "correct" : "incorrect");
+        });
+      });
+    }
     app
       .querySelector("#finish-btn")
       .addEventListener("click", () => {
@@ -1017,7 +1210,7 @@ function renderQuizQuestion(lesson, state) {
             return `<div class="option-row">
               <button class="option-btn zh${
                 isEliminated ? " eliminated" : ""
-              }" data-opt="${opt}" ${isEliminated ? "disabled" : ""}>${opt}</button>
+              }" data-opt="${escapeAttr(opt)}" ${isEliminated ? "disabled" : ""}>${opt}</button>
               ${
                 Speech.supported
                   ? `<button class="icon-btn option-speak-btn" data-speak="${opt}" aria-label="Read this option aloud">🔊</button>`
@@ -1074,6 +1267,82 @@ function renderQuizQuestion(lesson, state) {
       footer.innerHTML = `<button class="btn btn-primary" id="quiz-next-btn">Continue</button>`;
       app.querySelector("#quiz-next-btn").addEventListener("click", () => {
         renderQuizQuestion(lesson, state);
+      });
+    });
+  });
+}
+
+// ---------- Respond Practice ----------
+// Tests picking/producing an appropriate response, not just word recognition.
+// Single-attempt with clear feedback — a practice step, not a hard gate.
+function renderRespondStep(lesson, state) {
+  const rp = lesson.respondPractice;
+  if (!rp) {
+    // No practice authored for this lesson — skip straight to the challenge.
+    state.stepIndex++;
+    renderLessonStep(lesson, state);
+    return;
+  }
+
+  const isFillBlank = rp.type === "fill-in-blank";
+  const options = shuffle(rp.options);
+
+  renderLessonShell(
+    lesson,
+    state,
+    `
+    <div class="step-section">
+      <p class="eyebrow step-eyebrow">${isFillBlank ? "Complete the Sentence" : "Choose the Right Response"}</p>
+      ${
+        isFillBlank
+          ? `<h2 class="zh" style="margin:8px 0 4px;font-size:1.3rem;">${rp.template}</h2>
+             <p class="muted" style="margin-bottom:16px;">${rp.englishHint}</p>`
+          : `<div class="dialogue-bubble" style="margin-bottom:16px;">
+               <div class="zh" style="font-size:1.1rem;">${rp.prompt.chinese}</div>
+               <div class="pinyin">${rp.prompt.pinyin}</div>
+               <div class="en">${rp.prompt.english}</div>
+             </div>
+             <p class="muted" style="margin-bottom:12px;">How would you respond?</p>`
+      }
+      <div class="quiz-options" id="respond-options">
+        ${options
+          .map((opt) => {
+            const label = isFillBlank ? opt : opt.chinese;
+            const value = isFillBlank ? opt : opt.chinese;
+            return `<button class="option-btn zh" data-opt="${escapeAttr(value)}">${label}</button>`;
+          })
+          .join("")}
+      </div>
+      <p class="feedback-text" id="respond-feedback" aria-live="polite"></p>
+    </div>
+    <div class="sticky-footer" id="respond-footer"></div>
+  `
+  );
+
+  const optionButtons = [...app.querySelectorAll("#respond-options .option-btn")];
+  const feedback = app.querySelector("#respond-feedback");
+  const footer = app.querySelector("#respond-footer");
+
+  optionButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isRight = btn.dataset.opt === rp.answer;
+      optionButtons.forEach((b) => {
+        b.disabled = true;
+        if (b.dataset.opt === rp.answer) b.classList.add("correct");
+        else if (b === btn) b.classList.add("incorrect");
+      });
+      if (isRight) {
+        AudioFX.correct();
+        feedback.textContent = "Correct!";
+        feedback.classList.add("correct");
+      } else {
+        feedback.textContent = `Not quite — the best response is "${rp.answer}."`;
+        feedback.classList.add("incorrect");
+      }
+      footer.innerHTML = `<button class="btn btn-primary" id="respond-next-btn">Continue</button>`;
+      app.querySelector("#respond-next-btn").addEventListener("click", () => {
+        state.stepIndex++;
+        renderLessonStep(lesson, state);
       });
     });
   });
@@ -1153,7 +1422,7 @@ function renderReviewWord(state) {
         ${options
           .map((opt) => {
             const isEliminated = eliminated.has(opt);
-            return `<button class="option-btn${isEliminated ? " eliminated" : ""}" data-opt="${opt}" ${
+            return `<button class="option-btn${isEliminated ? " eliminated" : ""}" data-opt="${escapeAttr(opt)}" ${
               isEliminated ? "disabled" : ""
             }>${opt}</button>`;
           })
@@ -1330,18 +1599,7 @@ function wireEntryButtons(container) {
   });
 }
 
-// ---------- Read (Bible reading plan) ----------
-function isReadingCompleted(id) {
-  return progress.completedReadings.includes(id);
-}
-
-function markReadingCompleted(id) {
-  if (!isReadingCompleted(id)) {
-    progress.completedReadings.push(id);
-    saveProgress();
-  }
-}
-
+// ---------- Read (Bible browser) ----------
 function chapterKey(bookId, chapterNum) {
   return bookId + "-" + chapterNum;
 }
@@ -1357,6 +1615,46 @@ function markChapterRead(bookId, chapterNum) {
 }
 function chaptersReadInBook(book) {
   return book.chapters.filter((_, i) => isChapterRead(book.id, i + 1)).length;
+}
+
+// Granular position within a chapter — a percentage of how far the learner
+// has scrolled, so reopening a partially-read chapter resumes near where
+// they left off instead of always starting at verse 1.
+function getChapterPercent(bookId, chapterNum) {
+  if (isChapterRead(bookId, chapterNum)) return 100;
+  return progress.chapterPosition[chapterKey(bookId, chapterNum)] || 0;
+}
+function saveChapterPercent(bookId, chapterNum, percent) {
+  const key = chapterKey(bookId, chapterNum);
+  const existing = progress.chapterPosition[key] || 0;
+  if (percent > existing) {
+    progress.chapterPosition[key] = percent;
+    saveProgress();
+  }
+}
+
+// ---------- Favorite verses (feed into Key Highlights) ----------
+function verseFavoriteId(bookId, chapterNum, verseNum) {
+  return `${bookId}-${chapterNum}-${verseNum}`;
+}
+function isVerseFavorited(bookId, chapterNum, verseNum) {
+  return progress.favoriteVerses.some((f) => f.id === verseFavoriteId(bookId, chapterNum, verseNum));
+}
+function toggleFavoriteVerse(book, chapterNum, verse) {
+  const id = verseFavoriteId(book.id, chapterNum, verse.n);
+  const idx = progress.favoriteVerses.findIndex((f) => f.id === id);
+  if (idx >= 0) {
+    progress.favoriteVerses.splice(idx, 1);
+  } else {
+    progress.favoriteVerses.push({
+      id,
+      reference: `${book.name} ${chapterNum}:${verse.n}`,
+      referenceEnglish: `${book.nameEnglish} ${chapterNum}:${verse.n}`,
+      verses: [{ number: verse.n, chinese: verse.c, pinyin: verse.p }],
+    });
+  }
+  saveProgress();
+  return idx < 0; // true if it was just added
 }
 
 // ---------- Help / About ----------
@@ -1436,166 +1734,32 @@ function renderSettings() {
   });
 }
 
-function renderRead() {
+async function renderRead() {
   stopDialogue();
   app.innerHTML = "";
-  const total = BIBLE_READINGS.length;
-  const doneCount = progress.completedReadings.length;
-  const pct = total > 0 ? Math.round((doneCount / total) * 100) : 0;
-
   const wrapper = el(`
     <div class="has-bottom-nav">
       <div class="topbar">
         <div class="brand"><span>Read</span></div>
       </div>
-      <main class="screen" id="read-body"></main>
+      <main class="screen" id="read-body">
+        <p class="muted" style="padding:16px 0;">Loading the Bible text…</p>
+      </main>
       ${bottomNavHtml("read")}
     </div>
   `);
   app.appendChild(wrapper);
   wireBottomNav(app);
 
-  const body = app.querySelector("#read-body");
-  body.innerHTML = `
-    <p class="muted" style="margin-bottom:16px;">
-      Read short passages of Scripture in Chinese, one at a time, at your own pace.
-    </p>
-    <div class="card" style="margin-bottom:20px;">
-      <p class="eyebrow">Reading Progress</p>
-      <h3 style="margin:6px 0 10px;">${doneCount} of ${total} passages read</h3>
-      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
-    </div>
-    <div class="lesson-list" id="reading-list"></div>
-
-    <div class="card explore-card" id="browse-bible-card" style="margin-top:20px;">
-      <p class="eyebrow">Full Bible</p>
-      <h3 style="margin:6px 0 4px;">Browse all 66 books</h3>
-      <p class="muted" style="margin-bottom:12px;">Read any book and chapter, at your own pace — not just the reading plan above.</p>
-      <button class="btn btn-secondary btn-block" id="browse-bible-btn">Browse the Bible</button>
-    </div>
-  `;
-  body.querySelector("#browse-bible-btn").addEventListener("click", goBibleBooks);
-
-  const list = body.querySelector("#reading-list");
-  BIBLE_READINGS.forEach((reading) => {
-    const done = isReadingCompleted(reading.id);
-    const card = el(`
-      <button class="lesson-card ${done ? "done" : ""}">
-        <div class="lesson-num">${done ? "✓" : "📖"}</div>
-        <div class="lesson-info">
-          <h3>${reading.title}</h3>
-          <p class="zh">${reading.reference}</p>
-        </div>
-        <div class="lesson-status">${done ? "Read" : "Open"}</div>
-      </button>
-    `);
-    card.addEventListener("click", () => goReading(reading.id));
-    list.appendChild(card);
-  });
-}
-
-function renderReadingDetail(reading) {
-  stopDialogue();
-  app.innerHTML = "";
-  const wrapper = el(`
-    <div>
-      <div class="lesson-header">
-        <button class="icon-btn" id="back-btn" aria-label="Back to Read">←</button>
-        <h2 style="margin:0;font-size:1.1rem;">${reading.reference}</h2>
-      </div>
-      <main class="screen" id="reading-body"></main>
-    </div>
-  `);
-  app.appendChild(wrapper);
-  app.querySelector("#back-btn").addEventListener("click", goRead);
-
-  const body = app.querySelector("#reading-body");
-  body.innerHTML = `
-    <div class="step-section">
-      <p class="eyebrow step-eyebrow">${reading.referenceEnglish}</p>
-      <h1 style="margin-bottom:16px;">${reading.title}</h1>
-      ${
-        Speech.supported
-          ? `<button class="btn btn-secondary" id="play-reading-btn" style="margin-bottom:20px;">▶ Play Passage</button>`
-          : ""
-      }
-      <div id="verse-list">
-        ${reading.verses
-          .map(
-            (v) => `
-          <div class="scripture-block" data-verse="${v.number}">
-            <span class="verse-number">${v.number}</span>
-            <div class="zh scripture-text">${v.chinese}</div>
-            <div class="pinyin">${v.pinyin}</div>
-          </div>
-        `
-          )
-          .join("")}
-      </div>
-      <p class="muted" style="margin-top:20px;">${reading.gloss}</p>
-    </div>
-    <div class="sticky-footer">
-      <button class="btn btn-primary" id="mark-read-btn">${
-        isReadingCompleted(reading.id) ? "Marked as Read ✓" : "Mark as Read"
-      }</button>
-    </div>
-  `;
-
-  const playBtn = body.querySelector("#play-reading-btn");
-  if (playBtn) {
-    playBtn.addEventListener("click", async () => {
-      if (dialoguePlaying) {
-        stopDialogue();
-        playBtn.textContent = "▶ Play Passage";
-        return;
-      }
-      dialoguePlaying = true;
-      playBtn.textContent = "⏸ Stop";
-      const blocks = [...body.querySelectorAll(".scripture-block")];
-      for (const verse of reading.verses) {
-        if (!dialoguePlaying) break;
-        const block = blocks.find((b) => b.dataset.verse === String(verse.number));
-        block?.classList.add("speaking");
-        await Speech.speak(verse.chinese, "zh-CN");
-        block?.classList.remove("speaking");
-        await new Promise((r) => setTimeout(r, 250));
-      }
-      dialoguePlaying = false;
-      playBtn.textContent = "▶ Play Passage";
-    });
-  }
-
-  const markBtn = body.querySelector("#mark-read-btn");
-  markBtn.addEventListener("click", () => {
-    markReadingCompleted(reading.id);
-    markBtn.textContent = "Marked as Read ✓";
-  });
-}
-
-// ---------- Browse Full Bible (all 66 books) ----------
-async function renderBibleBooks() {
-  stopDialogue();
-  app.innerHTML = "";
-  const wrapper = el(`
-    <div>
-      <div class="lesson-header">
-        <button class="icon-btn" id="back-btn" aria-label="Back to Read">←</button>
-        <h2 style="margin:0;font-size:1.1rem;">Browse the Bible</h2>
-      </div>
-      <main class="screen" id="bible-body">
-        <p class="muted" style="padding:16px 0;">Loading the Bible text…</p>
-      </main>
-    </div>
-  `);
-  app.appendChild(wrapper);
-  app.querySelector("#back-btn").addEventListener("click", goRead);
-
   await ensureBibleFullLoaded();
-  if (location.hash !== "#/bible") return; // user navigated away while loading
+  if (location.hash !== "#/read") return; // user navigated away while loading
 
-  const body = app.querySelector("#bible-body");
+  const body = app.querySelector("#read-body");
   const oldTestament = BIBLE_FULL.slice(0, 39);
   const newTestament = BIBLE_FULL.slice(39);
+  const totalChapters = BIBLE_FULL.reduce((sum, b) => sum + b.chapters.length, 0);
+  const doneChapters = progress.readChapters.length;
+  const pct = totalChapters > 0 ? Math.round((doneChapters / totalChapters) * 100) : 0;
 
   function renderBookGroup(title, books) {
     return `
@@ -1623,33 +1787,87 @@ async function renderBibleBooks() {
     `;
   }
 
-  body.innerHTML =
-    renderBookGroup("Old Testament", oldTestament) + renderBookGroup("New Testament", newTestament);
+  body.innerHTML = `
+    <div class="card" style="margin-bottom:20px;">
+      <p class="eyebrow">Reading Progress</p>
+      <h3 style="margin:6px 0 10px;">${doneChapters} of ${totalChapters} chapters read</h3>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+    </div>
+
+    <div class="stage-group">
+      <p class="stage-heading">Key Highlights</p>
+      <p class="muted" style="margin-bottom:10px;">Foundational texts worth committing to memory, plus verses you've favorited while reading.</p>
+      <div class="lesson-list">
+        ${HIGHLIGHTS.map(
+          (h) => `
+          <button class="lesson-card" data-highlight="${h.id}">
+            <div class="lesson-num">📌</div>
+            <div class="lesson-info">
+              <h3>${h.referenceEnglish}</h3>
+              <p class="zh">${h.reference}</p>
+            </div>
+            <div class="lesson-status">Open</div>
+          </button>
+        `
+        ).join("")}
+        ${progress.favoriteVerses
+          .map(
+            (f) => `
+          <button class="lesson-card" data-highlight="${f.id}">
+            <div class="lesson-num">★</div>
+            <div class="lesson-info">
+              <h3>${f.referenceEnglish}</h3>
+              <p class="zh">${f.reference}</p>
+            </div>
+            <div class="lesson-status">Open</div>
+          </button>
+        `
+          )
+          .join("")}
+        ${
+          progress.favoriteVerses.length === 0
+            ? `<p class="muted" style="font-size:0.85rem;">Tap ☆ next to any verse while reading to add your own favorites here.</p>`
+            : ""
+        }
+      </div>
+    </div>
+
+    ${renderBookGroup("Old Testament", oldTestament)}
+    ${renderBookGroup("New Testament", newTestament)}
+  `;
+  body.querySelectorAll("[data-highlight]").forEach((btn) => {
+    btn.addEventListener("click", () => goHighlight(btn.dataset.highlight));
+  });
 
   body.querySelectorAll("[data-book]").forEach((btn) => {
     btn.addEventListener("click", () => goBibleChapters(btn.dataset.book));
   });
 }
 
-function renderBibleChapterList(bookId) {
+async function renderBibleChapterList(bookId) {
   stopDialogue();
-  const book = BIBLE_FULL.find((b) => b.id === bookId);
-  if (!book) {
-    goBibleBooks();
-    return;
-  }
   app.innerHTML = "";
   const wrapper = el(`
     <div>
       <div class="lesson-header">
         <button class="icon-btn" id="back-btn" aria-label="Back to books">←</button>
-        <h2 style="margin:0;font-size:1.1rem;">${book.name}</h2>
+        <h2 style="margin:0;font-size:1.1rem;">Loading…</h2>
       </div>
       <main class="screen" id="chapters-body"></main>
     </div>
   `);
   app.appendChild(wrapper);
-  app.querySelector("#back-btn").addEventListener("click", goBibleBooks);
+  app.querySelector("#back-btn").addEventListener("click", goRead);
+
+  await ensureBibleFullLoaded();
+  if (location.hash !== "#/bible/" + bookId) return; // navigated elsewhere while loading
+
+  const book = BIBLE_FULL.find((b) => b.id === bookId);
+  if (!book) {
+    goRead();
+    return;
+  }
+  app.querySelector("h2").textContent = book.name;
 
   const readCount = chaptersReadInBook(book);
   const body = app.querySelector("#chapters-body");
@@ -1661,34 +1879,133 @@ function renderBibleChapterList(bookId) {
   book.chapters.forEach((_, i) => {
     const chapterNum = i + 1;
     const done = isChapterRead(bookId, chapterNum);
-    const btn = el(`<button class="chapter-tile ${done ? "done" : ""}">${chapterNum}</button>`);
+    const percent = getChapterPercent(bookId, chapterNum);
+    const inProgress = !done && percent > 0;
+    const btn = el(
+      `<button class="chapter-tile ${done ? "done" : ""} ${inProgress ? "in-progress" : ""}" title="${
+        inProgress ? percent + "% read" : ""
+      }">${chapterNum}</button>`
+    );
     btn.addEventListener("click", () => goBibleChapter(bookId, chapterNum));
     grid.appendChild(btn);
   });
 }
 
-function renderBibleChapter(bookId, chapterNum) {
+function renderHighlightDetail(id) {
   stopDialogue();
-  const book = BIBLE_FULL.find((b) => b.id === bookId);
-  if (!book || !book.chapters[chapterNum - 1]) {
-    goBibleBooks();
+  const fixed = HIGHLIGHTS.find((h) => h.id === id);
+  const favorite = progress.favoriteVerses.find((f) => f.id === id);
+  const item = fixed || favorite;
+  if (!item) {
+    goRead();
     return;
   }
-  const verses = book.chapters[chapterNum - 1];
-  const totalChapters = book.chapters.length;
 
   app.innerHTML = "";
   const wrapper = el(`
     <div>
       <div class="lesson-header">
+        <button class="icon-btn" id="back-btn" aria-label="Back to Read">←</button>
+        <h2 style="margin:0;font-size:1.1rem;">${item.reference}</h2>
+      </div>
+      <main class="screen" id="highlight-body"></main>
+    </div>
+  `);
+  app.appendChild(wrapper);
+  app.querySelector("#back-btn").addEventListener("click", goRead);
+
+  const body = app.querySelector("#highlight-body");
+  body.innerHTML = `
+    <div class="step-section">
+      <p class="eyebrow step-eyebrow">${item.referenceEnglish}</p>
+      ${item.note ? `<p class="muted" style="margin-bottom:16px;">${item.note}</p>` : ""}
+      ${
+        Speech.supported
+          ? `<button class="btn btn-secondary" id="play-highlight-btn" style="margin-bottom:20px;">▶ Play</button>`
+          : ""
+      }
+      <div id="highlight-verse-list">
+        ${item.verses
+          .map(
+            (v) => `
+          <div class="scripture-block" data-verse="${v.number}">
+            ${item.verses.length > 1 ? `<span class="verse-number">${v.number}</span>` : ""}
+            <div class="zh scripture-text">${v.chinese}</div>
+            <div class="pinyin">${v.pinyin}</div>
+          </div>
+        `
+          )
+          .join("")}
+      </div>
+      ${
+        !fixed
+          ? `<button class="btn btn-secondary btn-block" id="unfavorite-btn" style="margin-top:16px;">★ Remove from Highlights</button>`
+          : ""
+      }
+    </div>
+  `;
+
+  const playBtn = body.querySelector("#play-highlight-btn");
+  if (playBtn) {
+    playBtn.addEventListener("click", async () => {
+      if (dialoguePlaying) {
+        stopDialogue();
+        playBtn.textContent = "▶ Play";
+        return;
+      }
+      dialoguePlaying = true;
+      playBtn.textContent = "⏸ Stop";
+      const blocks = [...body.querySelectorAll(".scripture-block")];
+      for (const v of item.verses) {
+        if (!dialoguePlaying) break;
+        const block = blocks.find((b) => b.dataset.verse === String(v.number));
+        block?.classList.add("speaking");
+        await Speech.speak(v.chinese, "zh-CN");
+        block?.classList.remove("speaking");
+        await new Promise((r) => setTimeout(r, 250));
+      }
+      dialoguePlaying = false;
+      playBtn.textContent = "▶ Play";
+    });
+  }
+
+  body.querySelector("#unfavorite-btn")?.addEventListener("click", () => {
+    const idx = progress.favoriteVerses.findIndex((f) => f.id === id);
+    if (idx >= 0) {
+      progress.favoriteVerses.splice(idx, 1);
+      saveProgress();
+    }
+    goRead();
+  });
+}
+
+async function renderBibleChapter(bookId, chapterNum) {
+  stopDialogue();
+  app.innerHTML = "";
+  const loadingWrapper = el(`
+    <div>
+      <div class="lesson-header">
         <button class="icon-btn" id="back-btn" aria-label="Back to chapter list">←</button>
-        <h2 style="margin:0;font-size:1.1rem;">${book.name} ${chapterNum}</h2>
+        <h2 style="margin:0;font-size:1.1rem;">Loading…</h2>
       </div>
       <main class="screen" id="chapter-body"></main>
     </div>
   `);
-  app.appendChild(wrapper);
+  app.appendChild(loadingWrapper);
   app.querySelector("#back-btn").addEventListener("click", () => goBibleChapters(bookId));
+
+  await ensureBibleFullLoaded();
+  const expectedHash = "#/bible/" + bookId + "/" + chapterNum;
+  if (location.hash !== expectedHash) return; // navigated elsewhere while loading
+
+  const book = BIBLE_FULL.find((b) => b.id === bookId);
+  if (!book || !book.chapters[chapterNum - 1]) {
+    goRead();
+    return;
+  }
+  const verses = book.chapters[chapterNum - 1];
+  const totalChapters = book.chapters.length;
+  app.querySelector("h2").textContent = `${book.name} ${chapterNum}`;
 
   const body = app.querySelector("#chapter-body");
   body.innerHTML = `
@@ -1702,8 +2019,9 @@ function renderBibleChapter(bookId, chapterNum) {
         ${verses
           .map(
             (v) => `
-          <div class="scripture-block" data-verse="${v.n}">
+          <div class="scripture-block has-favorite" data-verse="${v.n}">
             <span class="verse-number">${v.n}</span>
+            <button class="icon-btn favorite-btn ${isVerseFavorited(bookId, chapterNum, v.n) ? "favorited" : ""}" data-verse-num="${v.n}" aria-label="Favorite this verse">${isVerseFavorited(bookId, chapterNum, v.n) ? "★" : "☆"}</button>
             <div class="zh scripture-text">${v.c}</div>
             <div class="pinyin">${v.p}</div>
           </div>
@@ -1745,6 +2063,16 @@ function renderBibleChapter(bookId, chapterNum) {
     });
   }
 
+  body.querySelectorAll(".favorite-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const verseNum = Number(btn.dataset.verseNum);
+      const verse = verses.find((v) => v.n === verseNum);
+      const nowFavorited = toggleFavoriteVerse(book, chapterNum, verse);
+      btn.textContent = nowFavorited ? "★" : "☆";
+      btn.classList.toggle("favorited", nowFavorited);
+    });
+  });
+
   body.querySelector("#mark-chapter-btn").addEventListener("click", (e) => {
     markChapterRead(bookId, chapterNum);
     e.target.textContent = "Read ✓";
@@ -1754,6 +2082,592 @@ function renderBibleChapter(bookId, chapterNum) {
   });
   body.querySelector("#next-chapter-btn")?.addEventListener("click", () => {
     if (chapterNum < totalChapters) goBibleChapter(bookId, chapterNum + 1);
+  });
+
+  // --- Granular reading position: track scroll %, resume near it next time ---
+  if (!isChapterRead(bookId, chapterNum)) {
+    let saveTimer = null;
+    activeScrollHandler = () => {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = scrollable > 0 ? Math.round((window.scrollY / scrollable) * 100) : 0;
+        saveChapterPercent(bookId, chapterNum, Math.min(percent, 99)); // 100% is reserved for "Mark as Read"
+      }, 400);
+    };
+    window.addEventListener("scroll", activeScrollHandler);
+
+    const savedPercent = getChapterPercent(bookId, chapterNum);
+    if (savedPercent > 0) {
+      requestAnimationFrame(() => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        if (scrollable > 0) window.scrollTo(0, (savedPercent / 100) * scrollable);
+      });
+    }
+  }
+}
+
+// ---------- Chinese Basics (list + lesson) ----------
+function renderBasicsList() {
+  stopDialogue();
+  app.innerHTML = "";
+  const wrapper = el(`
+    <div>
+      <div class="lesson-header">
+        <button class="icon-btn" id="back-btn" aria-label="Back to home">←</button>
+        <h2 style="margin:0;font-size:1.1rem;">Chinese Basics</h2>
+      </div>
+      <main class="screen" id="basics-body"></main>
+    </div>
+  `);
+  app.appendChild(wrapper);
+  app.querySelector("#back-btn").addEventListener("click", goHome);
+
+  const doneCount = progress.basicsCompleted.length;
+  const pct = Math.round((doneCount / BASICS.length) * 100);
+  const body = app.querySelector("#basics-body");
+  body.innerHTML = `
+    <p class="muted" style="margin-bottom:16px;">
+      A short, optional primer for anyone brand new to Mandarin — tones, pinyin, and the core grammar patterns
+      that show up in every lesson. If you already have these foundations, feel free to skip straight to the
+      main lessons on Home.
+    </p>
+    <div class="card" style="margin-bottom:20px;">
+      <p class="eyebrow">Basics Progress</p>
+      <h3 style="margin:6px 0 10px;">${doneCount} of ${BASICS.length} complete</h3>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+    </div>
+    <div class="lesson-list" id="basics-list"></div>
+  `;
+
+  const list = body.querySelector("#basics-list");
+  BASICS.forEach((b) => {
+    const done = isBasicsCompleted(b.id);
+    const unlocked = isBasicsUnlocked(b.id);
+    const btn = el(`
+      <button class="lesson-card ${done ? "done" : ""}" ${unlocked ? "" : "disabled"}>
+        <div class="lesson-num">${done ? "✓" : b.id}</div>
+        <div class="lesson-info">
+          <h3>${b.title}</h3>
+          <p class="zh">${b.subtitle}</p>
+        </div>
+        <div class="lesson-status">${done ? "Completed" : unlocked ? "Start" : "Locked"}</div>
+      </button>
+    `);
+    if (unlocked) btn.addEventListener("click", () => goBasicsLesson(b.id));
+    list.appendChild(btn);
+  });
+}
+
+function renderBasicsLesson(id) {
+  stopDialogue();
+  const b = BASICS.find((x) => x.id === id);
+  if (!b) {
+    goBasics();
+    return;
+  }
+  const state = { phase: "explain" }; // "explain" -> "practice" -> done
+  renderBasicsPhase(b, state);
+}
+
+function renderBasicsPhase(b, state) {
+  if (state.phase === "explain") {
+    app.innerHTML = "";
+    const wrapper = el(`
+      <div>
+        <div class="lesson-header">
+          <button class="icon-btn" id="back-btn" aria-label="Back to Basics">←</button>
+          <h2 style="margin:0;font-size:1.1rem;">${b.title}</h2>
+        </div>
+        <main class="screen" id="basics-explain-body"></main>
+      </div>
+    `);
+    app.appendChild(wrapper);
+    app.querySelector("#back-btn").addEventListener("click", goBasics);
+
+    const body = app.querySelector("#basics-explain-body");
+    body.innerHTML = `
+      <div class="step-section">
+        <p class="eyebrow step-eyebrow">${b.subtitle}</p>
+        <p class="scenario-text" style="margin-bottom:16px;">${b.explanation}</p>
+        ${b.points
+          .map(
+            (p) => `
+          <div class="help-item">
+            <h3>${p.label}</h3>
+            <p class="muted">${p.detail}</p>
+          </div>
+        `
+          )
+          .join("")}
+        <p class="eyebrow" style="margin:20px 0 8px;">Examples</p>
+        <div class="vocab-grid">
+          ${b.examples
+            .map(
+              (ex) => `
+            <div class="vocab-card">
+              <div class="vocab-top">
+                <span class="zh">${ex.chinese}</span>
+                <span class="vocab-pinyin">${ex.pinyin}</span>
+                ${
+                  Speech.supported
+                    ? `<button class="icon-btn option-speak-btn" data-speak="${ex.chinese}" aria-label="Hear this">🔊</button>`
+                    : ""
+                }
+              </div>
+              <div class="vocab-en">${ex.english}</div>
+              ${ex.note ? `<div class="vocab-note">${ex.note}</div>` : ""}
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+      <div class="sticky-footer">
+        <button class="btn btn-primary" id="to-practice-btn">Practice</button>
+      </div>
+    `;
+    body.querySelectorAll(".option-speak-btn").forEach((btn) => {
+      btn.addEventListener("click", () => Speech.speak(btn.dataset.speak, "zh-CN"));
+    });
+    body.querySelector("#to-practice-btn").addEventListener("click", () => {
+      state.phase = "practice";
+      state.queue = shuffle(b.practice);
+      state.numbering = new Map(state.queue.map((q, i) => [q, i + 1]));
+      state.resolved = new Set();
+      state.wrongOptions = new Map();
+      renderBasicsPhase(b, state);
+    });
+    return;
+  }
+
+  if (state.phase === "practice") {
+    renderBasicsPracticeQuestion(b, state);
+    return;
+  }
+
+  // phase === "done"
+  markBasicsCompleted(b.id);
+  AudioFX.lessonComplete();
+  app.innerHTML = "";
+  app.appendChild(
+    el(`
+    <main class="screen complete-screen">
+      <div class="complete-badge">✓</div>
+      <h1>${b.title} — Done</h1>
+      <p class="muted" style="margin:12px 0 32px;">Nicely done. On to the next one whenever you're ready.</p>
+      <button class="btn btn-primary" id="basics-home-btn">Back to Basics</button>
+    </main>
+  `)
+  );
+  app.querySelector("#basics-home-btn").addEventListener("click", goBasics);
+}
+
+function renderBasicsPracticeQuestion(b, state) {
+  if (state.queue.length === 0) {
+    state.phase = "done";
+    renderBasicsPhase(b, state);
+    return;
+  }
+  const q = state.queue[0];
+  const isReview = state.wrongOptions.has(q);
+  const eliminated = state.wrongOptions.get(q) || new Set();
+  const options = shuffle(q.options);
+
+  app.innerHTML = "";
+  const wrapper = el(`
+    <div>
+      <div class="lesson-header">
+        <button class="icon-btn" id="back-btn" aria-label="Back to Basics">←</button>
+        <div class="progress-track"><div class="progress-fill" style="width:${Math.round(
+          (state.resolved.size / state.numbering.size) * 100
+        )}%"></div></div>
+      </div>
+      <main class="screen" id="basics-practice-body"></main>
+    </div>
+  `);
+  app.appendChild(wrapper);
+  app.querySelector("#back-btn").addEventListener("click", goBasics);
+
+  const body = app.querySelector("#basics-practice-body");
+  body.innerHTML = `
+    <div class="step-section">
+      <p class="eyebrow step-eyebrow">${
+        isReview ? "Let's try that one again" : `Question ${state.numbering.get(q)} of ${state.numbering.size}`
+      }</p>
+      <h2 style="margin-bottom:16px;">${q.question}</h2>
+      <div class="quiz-options" id="basics-options">
+        ${options
+          .map((opt) => {
+            const isEliminated = eliminated.has(opt);
+            return `<button class="option-btn zh${isEliminated ? " eliminated" : ""}" data-opt="${escapeAttr(opt)}" ${
+              isEliminated ? "disabled" : ""
+            }>${opt}</button>`;
+          })
+          .join("")}
+      </div>
+      <p class="feedback-text" id="basics-feedback" aria-live="polite"></p>
+    </div>
+    <div class="sticky-footer" id="basics-footer"></div>
+  `;
+
+  const optionButtons = [...body.querySelectorAll(".option-btn:not(.eliminated)")];
+  const feedback = body.querySelector("#basics-feedback");
+  const footer = body.querySelector("#basics-footer");
+
+  optionButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isRight = btn.dataset.opt === q.answer;
+      optionButtons.forEach((b) => {
+        b.disabled = true;
+        if (isRight && b.dataset.opt === q.answer) b.classList.add("correct");
+        else if (!isRight && b === btn) b.classList.add("incorrect");
+      });
+      if (isRight) {
+        AudioFX.correct();
+        feedback.textContent = "Correct!";
+        feedback.classList.add("correct");
+        state.resolved.add(q);
+        state.queue.shift();
+      } else {
+        feedback.textContent = "Not quite — give it another try.";
+        feedback.classList.add("incorrect");
+        if (!state.wrongOptions.has(q)) state.wrongOptions.set(q, new Set());
+        state.wrongOptions.get(q).add(btn.dataset.opt);
+        state.queue.shift();
+        state.queue.push(q);
+      }
+      footer.innerHTML = `<button class="btn btn-primary" id="basics-next-btn">Continue</button>`;
+      footer.querySelector("#basics-next-btn").addEventListener("click", () => {
+        renderBasicsPracticeQuestion(b, state);
+      });
+    });
+  });
+}
+
+// ---------- Share Your Faith / Proclaim (list + lesson) ----------
+function renderProclaimList() {
+  stopDialogue();
+  app.innerHTML = "";
+  const wrapper = el(`
+    <div>
+      <div class="lesson-header">
+        <button class="icon-btn" id="back-btn" aria-label="Back to home">←</button>
+        <h2 style="margin:0;font-size:1.1rem;">Share Your Faith</h2>
+      </div>
+      <main class="screen" id="proclaim-body"></main>
+    </div>
+  `);
+  app.appendChild(wrapper);
+  app.querySelector("#back-btn").addEventListener("click", goHome);
+
+  const doneCount = progress.proclaimCompleted.length;
+  const pct = Math.round((doneCount / PROCLAIM.length) * 100);
+  const body = app.querySelector("#proclaim-body");
+  body.innerHTML = `
+    <p class="muted" style="margin-bottom:16px;">
+      Conversations trade turns — testifying, preaching, and sharing the gospel don't. This is about producing
+      sustained speech: your own testimony, a memorable gospel sequence, real objections you'll actually hear,
+      and following a real sermon at natural length.
+    </p>
+    <div class="card" style="margin-bottom:20px;">
+      <p class="eyebrow">Progress</p>
+      <h3 style="margin:6px 0 10px;">${doneCount} of ${PROCLAIM.length} complete</h3>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+    </div>
+    <div class="lesson-list" id="proclaim-list"></div>
+  `;
+
+  const list = body.querySelector("#proclaim-list");
+  PROCLAIM.forEach((p) => {
+    const done = isProclaimCompleted(p.id);
+    const unlocked = isProclaimUnlocked(p.id);
+    const btn = el(`
+      <button class="lesson-card ${done ? "done" : ""}" ${unlocked ? "" : "disabled"}>
+        <div class="lesson-num">${done ? "✓" : p.id}</div>
+        <div class="lesson-info">
+          <h3>${p.title}</h3>
+          <p class="zh">${p.subtitle}</p>
+        </div>
+        <div class="lesson-status">${done ? "Completed" : unlocked ? "Start" : "Locked"}</div>
+      </button>
+    `);
+    if (unlocked) btn.addEventListener("click", () => goProclaimLesson(p.id));
+    list.appendChild(btn);
+  });
+}
+
+function renderProclaimLesson(id) {
+  stopDialogue();
+  const p = PROCLAIM.find((x) => x.id === id);
+  if (!p) {
+    goProclaim();
+    return;
+  }
+  const state = { phase: "explain" };
+  renderProclaimPhase(p, state);
+}
+
+function renderProclaimPhase(p, state) {
+  if (state.phase === "explain") {
+    app.innerHTML = "";
+    const wrapper = el(`
+      <div>
+        <div class="lesson-header">
+          <button class="icon-btn" id="back-btn" aria-label="Back to Share Your Faith">←</button>
+          <h2 style="margin:0;font-size:1.1rem;">${p.title}</h2>
+        </div>
+        <main class="screen" id="proclaim-explain-body"></main>
+      </div>
+    `);
+    app.appendChild(wrapper);
+    app.querySelector("#back-btn").addEventListener("click", goProclaim);
+
+    const body = app.querySelector("#proclaim-explain-body");
+    const examplesHtml = p.isVerseSequence
+      ? `<div id="verse-list">
+          ${p.examples
+            .map(
+              (v) => `
+            <div class="scripture-block" data-verse="${v.number}">
+              <span class="verse-number">${v.number}</span>
+              <div class="zh scripture-text">${v.chinese}</div>
+              <div class="pinyin">${v.pinyin}</div>
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+        ${
+          Speech.supported
+            ? `<button class="btn btn-secondary" id="play-sequence-btn" style="margin-top:12px;">▶ Play in Order</button>`
+            : ""
+        }`
+      : `<div class="vocab-grid">
+          ${p.examples
+            .map(
+              (ex) => `
+            <div class="vocab-card">
+              <div class="vocab-top">
+                <span class="zh">${ex.chinese}</span>
+                <span class="vocab-pinyin">${ex.pinyin}</span>
+                ${
+                  Speech.supported
+                    ? `<button class="icon-btn option-speak-btn" data-speak="${escapeAttr(ex.chinese)}" aria-label="Hear this">🔊</button>`
+                    : ""
+                }
+              </div>
+              <div class="vocab-en">${ex.english}</div>
+              ${ex.note ? `<div class="vocab-note">${ex.note}</div>` : ""}
+            </div>
+          `
+            )
+            .join("")}
+        </div>`;
+
+    body.innerHTML = `
+      <div class="step-section">
+        <p class="eyebrow step-eyebrow">${p.subtitle}</p>
+        <p class="scenario-text" style="margin-bottom:16px;">${p.explanation}</p>
+        ${p.points
+          .map(
+            (pt) => `
+          <div class="help-item">
+            <h3>${pt.label}</h3>
+            <p class="muted">${pt.detail}</p>
+          </div>
+        `
+          )
+          .join("")}
+        <p class="eyebrow" style="margin:20px 0 8px;">${p.isVerseSequence ? "The Sequence" : "Examples"}</p>
+        ${examplesHtml}
+      </div>
+      <div class="sticky-footer">
+        <button class="btn btn-primary" id="proclaim-next-phase-btn">${p.yourTurn ? "Your Turn" : "Practice"}</button>
+      </div>
+    `;
+    body.querySelectorAll(".option-speak-btn").forEach((btn) => {
+      btn.addEventListener("click", () => Speech.speak(btn.dataset.speak, "zh-CN"));
+    });
+    const playSeqBtn = body.querySelector("#play-sequence-btn");
+    if (playSeqBtn) {
+      playSeqBtn.addEventListener("click", async () => {
+        if (dialoguePlaying) {
+          stopDialogue();
+          playSeqBtn.textContent = "▶ Play in Order";
+          return;
+        }
+        dialoguePlaying = true;
+        playSeqBtn.textContent = "⏸ Stop";
+        const blocks = [...body.querySelectorAll(".scripture-block")];
+        for (const v of p.examples) {
+          if (!dialoguePlaying) break;
+          const block = blocks.find((b) => b.dataset.verse === String(v.number));
+          block?.classList.add("speaking");
+          await Speech.speak(v.chinese, "zh-CN");
+          block?.classList.remove("speaking");
+          await new Promise((r) => setTimeout(r, 250));
+        }
+        dialoguePlaying = false;
+        playSeqBtn.textContent = "▶ Play in Order";
+      });
+    }
+    body.querySelector("#proclaim-next-phase-btn").addEventListener("click", () => {
+      state.phase = p.yourTurn ? "yourTurn" : "practice";
+      if (state.phase === "practice") {
+        state.queue = shuffle(p.practice);
+        state.numbering = new Map(state.queue.map((q, i) => [q, i + 1]));
+        state.resolved = new Set();
+        state.wrongOptions = new Map();
+      }
+      renderProclaimPhase(p, state);
+    });
+    return;
+  }
+
+  if (state.phase === "yourTurn") {
+    app.innerHTML = "";
+    const wrapper = el(`
+      <div>
+        <div class="lesson-header">
+          <button class="icon-btn" id="back-btn" aria-label="Back to Share Your Faith">←</button>
+          <h2 style="margin:0;font-size:1.1rem;">Your Turn</h2>
+        </div>
+        <main class="screen" id="proclaim-yourturn-body"></main>
+      </div>
+    `);
+    app.appendChild(wrapper);
+    app.querySelector("#back-btn").addEventListener("click", goProclaim);
+
+    const body = app.querySelector("#proclaim-yourturn-body");
+    body.innerHTML = `
+      <div class="step-section">
+        <p class="muted" style="margin-bottom:16px;">${p.yourTurn.prompt}</p>
+        <div class="card" style="margin-bottom:16px;">
+          <p class="eyebrow" style="margin-bottom:8px;">Scaffold</p>
+          <p class="zh muted" style="white-space:pre-line;line-height:1.8;">${p.yourTurn.scaffold}</p>
+        </div>
+        <textarea id="testimony-textarea" class="explore-search" style="width:100%;min-height:140px;text-align:left;resize:vertical;" placeholder="Write in Chinese, pinyin, or English — whatever helps you think it through.">${progress.myTestimony || ""}</textarea>
+        <p class="muted" style="font-size:0.8rem;margin-top:6px;">Saved automatically on this device. Not graded — just yours.</p>
+      </div>
+      <div class="sticky-footer">
+        <button class="btn btn-primary" id="proclaim-to-practice-btn">Continue to Practice</button>
+      </div>
+    `;
+    const textarea = body.querySelector("#testimony-textarea");
+    textarea.addEventListener("input", () => saveMyTestimony(textarea.value));
+    body.querySelector("#proclaim-to-practice-btn").addEventListener("click", () => {
+      state.phase = "practice";
+      state.queue = shuffle(p.practice);
+      state.numbering = new Map(state.queue.map((q, i) => [q, i + 1]));
+      state.resolved = new Set();
+      state.wrongOptions = new Map();
+      renderProclaimPhase(p, state);
+    });
+    return;
+  }
+
+  if (state.phase === "practice") {
+    renderProclaimPracticeQuestion(p, state);
+    return;
+  }
+
+  // phase === "done"
+  markProclaimCompleted(p.id);
+  AudioFX.lessonComplete();
+  app.innerHTML = "";
+  app.appendChild(
+    el(`
+    <main class="screen complete-screen">
+      <div class="complete-badge">✓</div>
+      <h1>${p.title} — Done</h1>
+      <p class="muted" style="margin:12px 0 32px;">Well done. On to the next one whenever you're ready.</p>
+      <button class="btn btn-primary" id="proclaim-home-btn">Back to Share Your Faith</button>
+    </main>
+  `)
+  );
+  app.querySelector("#proclaim-home-btn").addEventListener("click", goProclaim);
+}
+
+function renderProclaimPracticeQuestion(p, state) {
+  if (state.queue.length === 0) {
+    state.phase = "done";
+    renderProclaimPhase(p, state);
+    return;
+  }
+  const q = state.queue[0];
+  const isReview = state.wrongOptions.has(q);
+  const eliminated = state.wrongOptions.get(q) || new Set();
+  const options = shuffle(q.options);
+
+  app.innerHTML = "";
+  const wrapper = el(`
+    <div>
+      <div class="lesson-header">
+        <button class="icon-btn" id="back-btn" aria-label="Back to Share Your Faith">←</button>
+        <div class="progress-track"><div class="progress-fill" style="width:${Math.round(
+          (state.resolved.size / state.numbering.size) * 100
+        )}%"></div></div>
+      </div>
+      <main class="screen" id="proclaim-practice-body"></main>
+    </div>
+  `);
+  app.appendChild(wrapper);
+  app.querySelector("#back-btn").addEventListener("click", goProclaim);
+
+  const body = app.querySelector("#proclaim-practice-body");
+  body.innerHTML = `
+    <div class="step-section">
+      <p class="eyebrow step-eyebrow">${
+        isReview ? "Let's try that one again" : `Question ${state.numbering.get(q)} of ${state.numbering.size}`
+      }</p>
+      <h2 style="margin-bottom:16px;">${q.question}</h2>
+      <div class="quiz-options" id="proclaim-options">
+        ${options
+          .map((opt) => {
+            const isEliminated = eliminated.has(opt);
+            return `<button class="option-btn zh${isEliminated ? " eliminated" : ""}" data-opt="${escapeAttr(
+              opt
+            )}" ${isEliminated ? "disabled" : ""}>${opt}</button>`;
+          })
+          .join("")}
+      </div>
+      <p class="feedback-text" id="proclaim-feedback" aria-live="polite"></p>
+    </div>
+    <div class="sticky-footer" id="proclaim-footer"></div>
+  `;
+
+  const optionButtons = [...body.querySelectorAll(".option-btn:not(.eliminated)")];
+  const feedback = body.querySelector("#proclaim-feedback");
+  const footer = body.querySelector("#proclaim-footer");
+
+  optionButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isRight = btn.dataset.opt === q.answer;
+      optionButtons.forEach((b) => {
+        b.disabled = true;
+        if (isRight && b.dataset.opt === q.answer) b.classList.add("correct");
+        else if (!isRight && b === btn) b.classList.add("incorrect");
+      });
+      if (isRight) {
+        AudioFX.correct();
+        feedback.textContent = "Correct!";
+        feedback.classList.add("correct");
+        state.resolved.add(q);
+        state.queue.shift();
+      } else {
+        feedback.textContent = "Not quite — give it another try.";
+        feedback.classList.add("incorrect");
+        if (!state.wrongOptions.has(q)) state.wrongOptions.set(q, new Set());
+        state.wrongOptions.get(q).add(btn.dataset.opt);
+        state.queue.shift();
+        state.queue.push(q);
+      }
+      footer.innerHTML = `<button class="btn btn-primary" id="proclaim-next-btn">Continue</button>`;
+      footer.querySelector("#proclaim-next-btn").addEventListener("click", () => {
+        renderProclaimPracticeQuestion(p, state);
+      });
+    });
   });
 }
 
@@ -1812,15 +2726,19 @@ function renderNameModal(onDone) {
 
 async function boot() {
   try {
-    const [lessonsRes, referenceRes, readingRes] = await Promise.all([
+    const [lessonsRes, referenceRes, highlightsRes, basicsRes, proclaimRes] = await Promise.all([
       fetch("data/lessons.json"),
       fetch("data/reference.json"),
-      fetch("data/bible-reading.json"),
+      fetch("data/highlights.json"),
+      fetch("data/basics.json"),
+      fetch("data/proclaim.json"),
     ]);
     const data = await lessonsRes.json();
     LESSONS = data.lessons;
     REFERENCE = (await referenceRes.json()).categories;
-    BIBLE_READINGS = (await readingRes.json()).readings;
+    HIGHLIGHTS = (await highlightsRes.json()).highlights;
+    BASICS = (await basicsRes.json()).basics;
+    PROCLAIM = (await proclaimRes.json()).proclaim;
     buildVocabIndex();
     updateStreak();
     await Speech.ready();
