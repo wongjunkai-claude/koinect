@@ -1,6 +1,94 @@
 {
   "proclaim": [
     {
+      "id": 6,
+      "title": "Linking Sentences Together",
+      "subtitle": "第零课 · 连接句子",
+      "explanation": "Before tackling discourse markers, testimony, and the gospel sequence, there's a smaller skill worth building first: saying two or three plain sentences in a row, connected, without a listener prompting you between each one. This is the actual bridge between short dialogue exchanges and everything else in this track.",
+      "points": [
+        {
+          "label": "Start smaller than you think",
+          "detail": "Two connected sentences is a real, complete skill — not a lesser version of a longer speech. Master this before adding more."
+        },
+        {
+          "label": "然后 (then) is the simplest connector",
+          "detail": "It links one action or idea to the next without needing anything fancy — 我先读经，然后祷告 (I read Scripture first, then pray)."
+        },
+        {
+          "label": "因为...所以... (because...so...) links a reason to a result",
+          "detail": "One of the most common patterns in real speech, including everything from Discourse Markers ahead."
+        },
+        {
+          "label": "Say it out loud, not just in your head",
+          "detail": "Reading a sentence silently and actually saying two linked sentences aloud are different skills — this track is about speaking, so practice speaking."
+        }
+      ],
+      "examples": [
+        {
+          "chinese": "我先读经，然后祷告。",
+          "pinyin": "wǒ xiān dú jīng， rán hòu dǎo gào。",
+          "english": "I read Scripture first, then I pray.",
+          "note": "Two actions linked with 然后."
+        },
+        {
+          "chinese": "因为神爱我们，所以耶稣来了。",
+          "pinyin": "yīn wèi shén ài wǒ men， suǒ yǐ yē sū lái le。",
+          "english": "Because God loves us, Jesus came.",
+          "note": "A reason linked to a result with 因为...所以..."
+        },
+        {
+          "chinese": "我以前不认识神，后来朋友带我去教会。",
+          "pinyin": "wǒ yǐ qián bù rèn shí shén， hòu lái péng yǒu dài wǒ qù jiào huì。",
+          "english": "I didn't know God before; later, a friend brought me to church.",
+          "note": "Two connected ideas — the same shape a testimony's opening needs."
+        },
+        {
+          "chinese": "我们先唱诗，然后听讲道，最后一起祷告。",
+          "pinyin": "wǒ men xiān chàng shī， rán hòu tīng jiǎng dào， zuì hòu yì qǐ dǎo gào。",
+          "english": "We sing first, then hear the sermon, and finally pray together.",
+          "note": "Three linked actions — one step further than two."
+        }
+      ],
+      "practice": [
+        {
+          "question": "What's the simplest word to link one action to the next?",
+          "options": [
+            "然后",
+            "但是",
+            "或者"
+          ],
+          "answer": "然后"
+        },
+        {
+          "question": "Which pattern links a reason to a result?",
+          "options": [
+            "因为...所以...",
+            "先...再...",
+            "虽然...还是..."
+          ],
+          "answer": "因为...所以..."
+        },
+        {
+          "question": "\"我先读经，然后祷告\" means...",
+          "options": [
+            "I read Scripture first, then I pray",
+            "I want to read Scripture or pray",
+            "I never read Scripture or pray"
+          ],
+          "answer": "I read Scripture first, then I pray"
+        },
+        {
+          "question": "What's the actual goal of this lesson?",
+          "options": [
+            "Saying two or three linked sentences aloud, not just silently",
+            "Memorizing as many connectors as possible",
+            "Skipping ahead to the hardest lesson first"
+          ],
+          "answer": "Saying two or three linked sentences aloud, not just silently"
+        }
+      ]
+    },
+    {
       "id": 1,
       "title": "Discourse Markers for Speaking",
       "subtitle": "第一课 · 演讲连接词",
@@ -307,11 +395,15 @@
         },
         {
           "label": "\"Isn't this just a Western religion?\"",
-          "detail": "这不是西方的宗教吗？ — worth knowing: Christianity's roots are in the Middle East, and it has been present in China for centuries."
+          "detail": "这不是西方的宗教吗？ — like the family objection, this deserves acknowledgment before information: many people wonder this. Then, worth knowing: Christianity's roots are in the Middle East, and it has been present in China for centuries — not a fact to win an argument with, but something to offer gently."
         },
         {
           "label": "\"There are so many religions — how do you know?\"",
           "detail": "宗教这么多，你怎么知道哪个对？ — an honest question worth taking seriously, not deflecting."
+        },
+        {
+          "label": "\"What do I do when my family does ancestor rituals?\"",
+          "detail": "家里拜拜的时候，我要怎么办？ — this isn't a one-time fear, it's a recurring practical tension for many new believers with non-Christian families. There's rarely one universally correct answer; being present respectfully without participating in the ritual itself is a common approach, but this is genuinely worth discussing with a pastor or mentor who knows the specific family situation, not resolving alone."
         }
       ],
       "examples": [
@@ -322,16 +414,22 @@
           "note": "A gentle, respectful response to the family-honor objection."
         },
         {
-          "chinese": "基督教其实很早就传到中国了。",
-          "pinyin": "jī dū jiào qí shí hěn zǎo jiù chuán dào zhōng guó le。",
-          "english": "Christianity actually reached China quite early in history.",
-          "note": "A calm factual response to the \"Western religion\" objection."
+          "chinese": "这个问题很多人都问过。基督教其实很早就传到中国了。",
+          "pinyin": "zhè ge wèn tí hěn duō rén dōu wèn guò。 jī dū jiào qí shí hěn zǎo jiù chuán dào zhōng guó le。",
+          "english": "Many people ask this. Christianity actually reached China quite early in history.",
+          "note": "Acknowledges the question is common before offering the historical point — not a debate-winning fact dropped cold."
         },
         {
           "chinese": "我明白你的担心，我们可以慢慢聊。",
           "pinyin": "wǒ míng bái nǐ de dān xīn， wǒ men kě yǐ màn màn liáo。",
           "english": "I understand your concern, we can talk about this slowly.",
           "note": "A patient opening line when someone raises a real fear."
+        },
+        {
+          "chinese": "每个宗教都有道理，但我自己经历过耶稣的爱，想邀请你也来看看。",
+          "pinyin": "měi gè zōng jiào dōu yǒu dào lǐ， dàn wǒ zì jǐ jīng lì guò yē sū de ài， xiǎng yāo qǐng nǐ yě lái kàn kàn。",
+          "english": "Every religion has its reasoning, but I've personally experienced Jesus's love, and I want to invite you to see for yourself too.",
+          "note": "A personal, experiential response to \"how do you know\" — not an attempt to out-argue every other religion."
         },
         {
           "chinese": "这是一个很好的问题。",
@@ -342,40 +440,40 @@
       ],
       "practice": [
         {
-          "question": "When someone says \"what will my family think?\", what matters most first?",
+          "question": "When someone raises an objection, what should generally come first — information or empathy?",
           "options": [
-            "Responding with genuine empathy",
-            "Winning the argument",
-            "Changing the subject"
+            "Empathy — acknowledging the question before offering information",
+            "Information — winning the argument first",
+            "Neither — change the subject"
           ],
-          "answer": "Responding with genuine empathy"
+          "answer": "Empathy — acknowledging the question before offering information"
         },
         {
-          "question": "How do you say \"that's a really good question\"?",
+          "question": "What's a genuine, honest way to respond to \"how do you know Christianity is true, with so many religions out there?\"",
           "options": [
-            "这是一个很好的问题。",
-            "这不是好问题。",
-            "我不知道。"
+            "A personal, experiential answer about your own faith",
+            "A comparative-religion debate to prove other religions wrong",
+            "Avoiding the question entirely"
           ],
-          "answer": "这是一个很好的问题。"
-        },
-        {
-          "question": "What's a fair, calm response to \"isn't this a Western religion?\"",
-          "options": [
-            "Christianity actually reached China quite early in history.",
-            "Western things are always better.",
-            "That doesn't matter at all."
-          ],
-          "answer": "Christianity actually reached China quite early in history."
+          "answer": "A personal, experiential answer about your own faith"
         },
         {
           "question": "Believing in Jesus means you should stop honoring your parents.",
           "options": [
-            "False — this is a common misunderstanding worth gently correcting",
+            "False — a common misunderstanding worth gently correcting",
             "True",
             "It depends on the family"
           ],
-          "answer": "False — this is a common misunderstanding worth gently correcting"
+          "answer": "False — a common misunderstanding worth gently correcting"
+        },
+        {
+          "question": "What's the best approach when a new believer asks what to do during family ancestor rituals?",
+          "options": [
+            "Discuss it with a pastor or mentor who knows their specific family situation",
+            "Give one universal rule that applies to everyone",
+            "Tell them to avoid the question entirely"
+          ],
+          "answer": "Discuss it with a pastor or mentor who knows their specific family situation"
         }
       ]
     },

@@ -11,10 +11,10 @@
           "taughtInLesson": null
         },
         {
-          "chinese": "神",
+          "chinese": "神 / 上帝",
           "pinyin": "shén",
           "english": "God",
-          "note": "The standard CUVS term for God.",
+          "note": "Both terms are standard and widely used — different Bible/church editions choose one or the other.",
           "taughtInLesson": 11
         },
         {
@@ -73,78 +73,11 @@
           "note": "",
           "taughtInLesson": null
         }
-      ]
+      ],
+      "nameZh": "神的名字与称号"
     },
     {
-      "name": "Books of the Bible",
-      "entries": [
-        {
-          "chinese": "旧约",
-          "pinyin": "jiùyuē",
-          "english": "Old Testament",
-          "note": "",
-          "taughtInLesson": 22
-        },
-        {
-          "chinese": "新约",
-          "pinyin": "xīnyuē",
-          "english": "New Testament",
-          "note": "",
-          "taughtInLesson": 22
-        },
-        {
-          "chinese": "创世记",
-          "pinyin": "Chuàngshìjì",
-          "english": "Genesis",
-          "note": "The first book of the Bible.",
-          "taughtInLesson": 22
-        },
-        {
-          "chinese": "出埃及记",
-          "pinyin": "Chū'āijíjì",
-          "english": "Exodus",
-          "note": "",
-          "taughtInLesson": null
-        },
-        {
-          "chinese": "诗篇",
-          "pinyin": "shīpiān",
-          "english": "Psalms",
-          "note": "",
-          "taughtInLesson": 22
-        },
-        {
-          "chinese": "箴言",
-          "pinyin": "zhēnyán",
-          "english": "Proverbs",
-          "note": "",
-          "taughtInLesson": null
-        },
-        {
-          "chinese": "福音书",
-          "pinyin": "fúyīnshū",
-          "english": "the Gospels",
-          "note": "Refers to Matthew, Mark, Luke, and John.",
-          "taughtInLesson": 22
-        },
-        {
-          "chinese": "罗马书",
-          "pinyin": "Luómǎshū",
-          "english": "Romans",
-          "note": "",
-          "taughtInLesson": null
-        },
-        {
-          "chinese": "启示录",
-          "pinyin": "Qǐshìlù",
-          "english": "Revelation",
-          "note": "The last book of the Bible.",
-          "taughtInLesson": null
-        }
-      ]
-    },
-    {
-      "name": "Bible People",
+      "name": "Bible Characters",
       "entries": [
         {
           "chinese": "摩西",
@@ -301,20 +234,21 @@
           "taughtInLesson": null
         },
         {
-          "chinese": "大卫",
-          "pinyin": "Dàwèi",
-          "english": "David",
-          "note": "Used far more often alone than as 大卫王 (King David).",
-          "taughtInLesson": null
-        },
-        {
           "chinese": "雅各",
           "pinyin": "Yǎgè",
           "english": "Jacob",
           "note": "The Old Testament patriarch, son of Isaac, father of the twelve tribes — a completely different person from the two disciples also named 雅各 (James) in the New Testament. Same Chinese name, different eras — worth knowing when reading.",
           "taughtInLesson": null
+        },
+        {
+          "chinese": "歌利亚",
+          "pinyin": "Gēlìyà",
+          "english": "Goliath",
+          "note": "The Philistine giant defeated by young David — a story taught from Sunday school onward.",
+          "taughtInLesson": null
         }
-      ]
+      ],
+      "nameZh": "圣经人物"
     },
     {
       "name": "Bible Places",
@@ -382,7 +316,8 @@
           "note": "One of the twelve tribes, later the southern kingdom, and the region where Jerusalem sits — a major place and tribal name.",
           "taughtInLesson": null
         }
-      ]
+      ],
+      "nameZh": "圣经地名"
     },
     {
       "name": "Festivals & Special Days",
@@ -457,61 +392,8 @@
           "note": "Commemorates the Jewish people's deliverance from Haman's plot, recorded in the book of Esther.",
           "taughtInLesson": null
         }
-      ]
-    },
-    {
-      "name": "Church Roles & Groups",
-      "entries": [
-        {
-          "chinese": "牧师",
-          "pinyin": "mùshī",
-          "english": "pastor",
-          "note": "",
-          "taughtInLesson": null
-        },
-        {
-          "chinese": "长老",
-          "pinyin": "zhǎnglǎo",
-          "english": "elder",
-          "note": "",
-          "taughtInLesson": null
-        },
-        {
-          "chinese": "执事",
-          "pinyin": "zhíshì",
-          "english": "deacon",
-          "note": "",
-          "taughtInLesson": null
-        },
-        {
-          "chinese": "弟兄",
-          "pinyin": "dìxiōng",
-          "english": "brother (in Christ)",
-          "note": "",
-          "taughtInLesson": 2
-        },
-        {
-          "chinese": "姊妹",
-          "pinyin": "zǐmèi",
-          "english": "sister (in Christ)",
-          "note": "",
-          "taughtInLesson": 2
-        },
-        {
-          "chinese": "信徒",
-          "pinyin": "xìntú",
-          "english": "believer",
-          "note": "",
-          "taughtInLesson": 20
-        },
-        {
-          "chinese": "基督徒",
-          "pinyin": "Jīdūtú",
-          "english": "Christian",
-          "note": "",
-          "taughtInLesson": 33
-        }
-      ]
+      ],
+      "nameZh": "节期与特别日子"
     },
     {
       "name": "Biblical Groups & Peoples",
@@ -614,7 +496,70 @@
           "note": "",
           "taughtInLesson": 26
         }
-      ]
+      ],
+      "nameZh": "圣经中的群体"
+    },
+    {
+      "name": "Church Roles & Groups",
+      "entries": [
+        {
+          "chinese": "牧师",
+          "pinyin": "mùshī",
+          "english": "Pastor / Reverend",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "长老",
+          "pinyin": "zhǎnglǎo",
+          "english": "elder",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "执事",
+          "pinyin": "zhíshì",
+          "english": "deacon",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "弟兄",
+          "pinyin": "dìxiōng",
+          "english": "brother (in Christ)",
+          "note": "",
+          "taughtInLesson": 2
+        },
+        {
+          "chinese": "姊妹",
+          "pinyin": "zǐmèi",
+          "english": "sister (in Christ)",
+          "note": "",
+          "taughtInLesson": 2
+        },
+        {
+          "chinese": "信徒",
+          "pinyin": "xìntú",
+          "english": "believer",
+          "note": "",
+          "taughtInLesson": 20
+        },
+        {
+          "chinese": "基督徒",
+          "pinyin": "Jīdūtú",
+          "english": "Christian",
+          "note": "",
+          "taughtInLesson": 33
+        },
+        {
+          "chinese": "传道",
+          "pinyin": "chuándào",
+          "english": "preacher / evangelist",
+          "note": "A minister who preaches and teaches, sometimes distinct from a 牧师 (ordained pastor) depending on the church's structure.",
+          "taughtInLesson": null
+        }
+      ],
+      "nameZh": "教会角色与群体"
     },
     {
       "name": "Biblical Vocabulary",
@@ -646,8 +591,211 @@
           "english": "wisdom",
           "note": "Central to wisdom literature (Proverbs, Ecclesiastes, James).",
           "taughtInLesson": null
+        },
+        {
+          "chinese": "十字架",
+          "pinyin": "shízìjià",
+          "english": "the Cross",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "血",
+          "pinyin": "xuè",
+          "english": "blood",
+          "note": "Central to atonement language — Christ's blood.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "赎罪",
+          "pinyin": "shúzuì",
+          "english": "atonement",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "救赎",
+          "pinyin": "jiùshú",
+          "english": "redemption",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "称义",
+          "pinyin": "chēngyì",
+          "english": "justification",
+          "note": "Being declared righteous before God.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "悔改",
+          "pinyin": "huǐgǎi",
+          "english": "repentance",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "永生",
+          "pinyin": "yǒngshēng",
+          "english": "eternal life",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "恩典",
+          "pinyin": "ēndiǎn",
+          "english": "grace",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "圣洁",
+          "pinyin": "shèngjié",
+          "english": "holiness",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "怜悯",
+          "pinyin": "liánmǐn",
+          "english": "mercy",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "慈爱",
+          "pinyin": "cí'ài",
+          "english": "loving-kindness / steadfast love",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "天国",
+          "pinyin": "tiānguó",
+          "english": "the kingdom of heaven",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "审判",
+          "pinyin": "shěnpàn",
+          "english": "judgment",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "复活",
+          "pinyin": "fùhuó",
+          "english": "resurrection",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "敬拜",
+          "pinyin": "jìngbài",
+          "english": "worship (the act of)",
+          "note": "Distinct from 崇拜, the worship service itself.",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "赞美",
+          "pinyin": "zànměi",
+          "english": "praise",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "信心",
+          "pinyin": "xìnxīn",
+          "english": "faith",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "盼望",
+          "pinyin": "pànwàng",
+          "english": "hope",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "爱",
+          "pinyin": "ài",
+          "english": "love",
+          "note": "The everyday word for love — see also 仁爱 in Fruit of the Spirit, a more formal biblical term.",
+          "taughtInLesson": null
         }
-      ]
+      ],
+      "nameZh": "圣经词汇"
+    },
+    {
+      "name": "Fruit of the Spirit",
+      "entries": [
+        {
+          "chinese": "仁爱",
+          "pinyin": "rén'ài",
+          "english": "love",
+          "note": "",
+          "taughtInLesson": 28
+        },
+        {
+          "chinese": "喜乐",
+          "pinyin": "xǐlè",
+          "english": "joy",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "和平",
+          "pinyin": "hépíng",
+          "english": "peace",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "忍耐",
+          "pinyin": "rěnnài",
+          "english": "patience / endurance",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "恩慈",
+          "pinyin": "ēncí",
+          "english": "kindness",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "良善",
+          "pinyin": "liángshàn",
+          "english": "goodness",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "信实",
+          "pinyin": "xìnshí",
+          "english": "faithfulness",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "温柔",
+          "pinyin": "wēnróu",
+          "english": "gentleness",
+          "note": "",
+          "taughtInLesson": null
+        },
+        {
+          "chinese": "节制",
+          "pinyin": "jiézhì",
+          "english": "self-control",
+          "note": "",
+          "taughtInLesson": null
+        }
+      ],
+      "nameZh": "圣灵的果子"
     },
     {
       "name": "Biblical Grammar",
@@ -687,7 +835,8 @@
           "note": "A formal connective for adding a further point — more literary than a simple 也 or 还.",
           "taughtInLesson": null
         }
-      ]
+      ],
+      "nameZh": "圣经文法"
     }
   ]
 }

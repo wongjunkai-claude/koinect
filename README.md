@@ -123,6 +123,26 @@ hear or read in a Singapore Protestant church bulletin or CUVS Bible reading,
 and use the vocabulary `note` field to flag any regional/denominational
 variation worth knowing.
 
+**On dialogue naturalness:** an earlier review pass fixed the handful of
+lines the app's actual user personally caught as stiff or unnatural (see
+git history / prior conversation), but explicitly left the other ~30
+lessons unreviewed at the time. A second self-critical pass went back
+through all 38 dialogues looking specifically for the same pattern flagged
+before — lessons that read like catechism Q&A ("What is X? X is Y.") rather
+than something two people would actually say. Most held up fine on
+re-reading; **Lesson 18 (Salvation)** was the clearest remaining offender
+and was rewritten to include a believer's realistic misconception ("don't
+we need lots of good deeds first?") and a personal follow-up ("what if I
+mess up, will God still forgive me?") rather than a flat definition-only
+exchange — while keeping every vocabulary word and the exact sentence used
+by Respond Practice's fill-in-blank exercise intact.
+
+**The same honest limit still applies**: this catches structural/pattern
+issues (catechetical cadence, unnatural questions) that a careful re-read
+can find, not idiomatic word-choice naturalness a native Singaporean
+Chinese-speaking churchgoer would catch instantly. That still needs a real
+person's read, not more rounds of self-review.
+
 ## Sound
 
 Correct answers, passing a lesson's quiz, and finishing a whole lesson each
@@ -498,8 +518,23 @@ considering this settled.
 ## Settings
 
 ⚙️ Settings (in the bottom nav) now houses what used to be a separate Help
-screen, plus a real setting:
+screen, plus a real setting and a full progress dashboard:
 
+- **My Progress** — before this existed, progress was scattered: Home
+  showed main lesson progress, Basics and Proclaim each had their own list
+  screen with their own count, Read had chapter progress buried in its own
+  tab, and there was no single place to see everything. This is that
+  single place: total lessons complete across all three tracks combined
+  (main lessons + Basics + Proclaim, out of 51), a per-track breakdown
+  with its own progress bar, Bible reading (chapters read out of 1,189,
+  books fully complete out of 66), favourite verses saved, and vocabulary
+  (unique words met, how many are in the spaced-repetition rotation, how
+  many are due today). Tapping any stat card jumps straight to that
+  section. Not a 6th bottom-nav tab — reached from Settings instead, to
+  keep the already-full 5-tab bar from getting more crowded. Verified
+  directly: fresh install shows 0 of 51 correctly, completing a lesson
+  updates the dashboard's numbers immediately, and favoriting a verse or
+  marking a chapter read does the same.
 - **Sound Effects & Speech** — a single on/off toggle that mutes both the
   chime sounds (correct answer, lesson complete, etc.) and all spoken
   audio (Play Conversation, 🔊 buttons, everywhere). One switch rather than
@@ -530,22 +565,50 @@ specifically to close that gap:
    Road"), practiced as one continuous flow with a "Play in Order" button,
    not as isolated verses.
 4. **Answering Common Questions** — objections genuinely specific to
-   Chinese-speaking contexts (family honor, ancestor veneration, "isn't
-   this a Western religion?"), with calm, respectful response patterns —
-   not generic Western apologetics.
+   Chinese-speaking contexts: family/identity ("we have our own beliefs"),
+   family fear ("what will they think?"), "isn't this Western?",
+   pluralism ("how do you know, with so many religions?"), and the
+   ongoing practical tension of ancestor rituals for a new believer with a
+   non-Christian family — not generic Western apologetics.
 5. **Following a Sermon** — the bridge between one-verse Scripture Practice
    and the fully-unaided Bible: a real, connected passage at natural
    preaching length. Uses Peter's sermon at Pentecost (Acts 2:22-38) — the
    first Christian sermon ever preached, verified from the same Bible data
    as everywhere else, not invented "sermon-style" text.
 
-Structurally, this reuses the Explain → Practice pattern from Chinese
-Basics (a separate, simpler engine from the main 7-step lesson flow),
-extended with two new pieces: rendering a connected verse sequence
-(`isVerseSequence`) instead of a vocabulary grid, and the free-text
-"Your Turn" phase. Progress tracks separately in `progress.proclaimCompleted`,
-discoverable from its own Home card, alongside Basics — a third parallel
-track, not nested inside either of the other two.
+Structurally, this shares Chinese Basics' guided, one-at-a-time explain
+flow (intro → each point individually → examples/verse-sequence grouped
+together → practice), extended with two Proclaim-specific pieces: a
+connected verse sequence display (`isVerseSequence`, used for the Gospel
+sequence and Peter's sermon) instead of a vocabulary grid, and — only for
+"Telling Your Story" — an extra "Your Turn" step at the very end of the
+explain flow, right before practice, holding the free-text testimony
+scaffold. Progress tracks separately in `progress.proclaimCompleted`, with
+the same step-level resume as Basics in `progress.proclaimLessonProgress`
+(furthest explain-step reached, so leaving mid-lesson and reopening it
+resumes at the exact same point) — discoverable from its own Home card,
+alongside Basics, a third parallel track, not nested inside either of the
+other two.
+
+**A review pass on "Answering Common Questions":** this was flagged early
+as the least-tested content in the app — designed reasoning from the
+outside, not lived cross-cultural evangelism experience. A self-critical
+review found two real gaps worth fixing without waiting for outside
+input: the pluralism objection ("how do you know, with so many
+religions?") had a point but no actual example modeling a response to
+it — the other three objections did — so a genuine, experience-based
+answer was added rather than a comparative-religion debate point. And the
+"Western religion" response jumped straight to a historical fact, unlike
+the family objection, which correctly led with empathy first; it now
+leads the same way. A fifth point was also added: not just the one-time
+fear of telling family, but the *recurring* practical question of what to
+do during actual ancestor-ritual moments as an ongoing believer — framed
+honestly as something to work through with a pastor or mentor who knows
+the specific family, not a single correct rule. **A real bug caught while
+making this edit**: appending the pluralism point without checking it
+already existed created an exact duplicate, which would have shown the
+same screen twice in the guided flow. Caught by testing the actual
+click-through, not by reading the edit script.
 
 ## Chinese Basics (optional mini-course)
 
@@ -575,11 +638,27 @@ entirely:
 7. **的 (Possession) & Negation** — 不 vs. 没有, a classic beginner mix-up
 8. **了 / 在 / 过** — completed action vs. ongoing vs. past experience
 
-Each lesson follows a simple two-phase structure: **Explain** (a short
-write-up, example words/sentences with audio) → **Practice** (multiple
+Each lesson follows a guided, one-at-a-time flow: **intro** → each teaching
+point shown individually, one screen at a time, with its own "Next" → all
+**examples grouped together** at the end (comparison value is high there —
+e.g. seeing all four tone examples side by side) → **Practice** (multiple
 choice questions, using the same retry-with-elimination pattern as the
-main lessons — wrong answers get greyed out, not shamed). Lessons unlock
-in order; progress is tracked separately from the main 38 lessons in
+main lessons — wrong answers get greyed out, not shamed). A progress bar
+at the top tracks how far through the explain steps you are.
+
+This wasn't the original design — the first version dumped the whole
+explanation, every point, and all the examples onto one long scrolling
+screen with a single "Practice" button at the bottom, which is closer to
+a reference page than a guided lesson. Restructured after specific
+feedback that it "felt like being handed a list of things to read," not
+taught step by step.
+
+**Resume works the same way the main 38 lessons do now.** Leaving a Basics
+lesson mid-explanation and reopening it resumes at the exact point you
+left, tracked in `progress.basicsLessonProgress` (furthest explain-step
+reached) — not just "was this lesson finished or not." Home's Basics list
+shows a distinct "in progress" state with a percentage, same as the main
+lessons. Lessons unlock in order; full completion is tracked separately in
 `progress.basicsCompleted`.
 
 **Discoverability, not a gate:** a card on Home links to it ("New to
@@ -587,15 +666,24 @@ Chinese? Start with Basics" for new users, or a progress count once
 started), but it never blocks access to Connect — someone who already has
 these foundations can ignore it entirely.
 
-**A real bug this caught:** Basics Lesson 2's practice question about
-pronouncing ü used answer options containing literal quote marks (`"ee"
-with rounded lips`), which silently broke the button's HTML `data-opt`
-attribute when rendered — the embedded quote closed the attribute early.
-Fixed with a proper `escapeAttr()` helper, applied everywhere any quiz-style
-option gets rendered (5 places total: the main quiz, Respond Practice,
-Scripture Practice, Daily Review, and Basics) — not just the one spot that
-happened to trigger it, since the same risk existed anywhere option text
-might ever contain a quote character.
+**A real bug this caught (content):** Basics Lesson 2's practice question
+about pronouncing ü used answer options containing literal quote marks
+(`"ee" with rounded lips`), which silently broke the button's HTML
+`data-opt` attribute when rendered — the embedded quote closed the
+attribute early. Fixed with a proper `escapeAttr()` helper, applied
+everywhere any quiz-style option gets rendered (5 places: the main quiz,
+Respond Practice, Scripture Practice, Daily Review, and Basics) — not just
+the one spot that happened to trigger it.
+
+**A real bug this caught (progress):** after completing a Basics lesson,
+its "in progress" tracking entry wasn't actually being removed from
+storage. `markBasicsCompleted()` saves progress internally — but that save
+ran *before* a later `delete progress.basicsLessonProgress[id]` line, so
+the delete happened only in memory and was never persisted. Fixed by
+saving again explicitly after the delete. The main 38 lessons' equivalent
+function never had this bug (it deletes before its own save, correctly);
+this only affected the newer Basics/Proclaim code. Verified clean across
+all 8 Basics lessons and all 5 Proclaim lessons after the fix.
 
 ### Placement test
 
@@ -777,6 +865,62 @@ the Read tab in that session — e.g. a page refresh while already reading —
 left the underlying Bible text never loaded, since only the Read tab
 previously triggered fetching it. Both screens now independently ensure the
 text is loaded before rendering, so this works regardless of entry point.
+
+## Curriculum resequencing: checkpoints and a bridge lesson
+
+The most valuable version of this idea — moving grammar earlier so it's
+taught before content that needs it, e.g. 了/在/过 currently sitting in
+Chinese Basics Lesson 8, after material that already assumed it — would
+require reordering existing content, which directly conflicts with this
+project's own rule against ever reordering shipped lesson ids (see
+"Progress safety across updates"). That rule exists specifically to
+protect real people's saved progress; it doesn't get overridden for a
+good idea. What follows is what could be built safely instead — pure
+addition, no reordering of anything already shipped.
+
+**A structural fix first:** Basics and Proclaim originally unlocked by
+raw id subtraction (`isBasicsUnlocked` checked `id - 1` directly), unlike
+the main lessons, which unlock by array position
+(`LESSONS[index - 1]`). That meant new content could only ever be
+*appended* to the end of Basics/Proclaim, never inserted earlier in the
+sequence where it might actually belong — which would have made a
+"bridge lesson before the hard content" structurally impossible without
+renumbering. Both were switched to array-position-based unlocking,
+identical in behavior for all existing content (ids and positions
+already matched 1:1), but now capable of having new lessons inserted
+anywhere in the learning sequence using entirely new, never-reused ids.
+
+**Four stage checkpoints**, one after each of Connect/Belong/Grow/Serve —
+new lessons (ids 39–42, never reusing 1–38) built from real,
+already-taught vocabulary pulled directly from that stage's own lessons,
+not new content. Each is a natural "catching up with someone" capstone
+scenario using the full lesson engine exactly like every other lesson
+(scenario, dialogue, vocabulary, quiz, Respond Practice, challenge,
+tagged verse) — so every taught word in a checkpoint automatically shows
+a "Review" badge, not "New," since it was genuinely taught earlier.
+Inserted into the `LESSONS` array at the correct pedagogical position
+(right after their stage's last lesson, not appended at the very end),
+which the array-position-based unlock logic honors automatically. Shown
+with a 🎯 icon instead of a number on Home's lesson list and a
+"Checkpoint" label instead of "Lesson N" inside the lesson itself, since
+a badge jumping from "8" to "39" would otherwise look like a bug.
+
+**One Proclaim bridge lesson**, "Linking Sentences Together" (id 6, but
+positioned *first* in the array, before ids 1–5) — the missing stepping
+stone between short dialogue exchanges and the bigger asks the rest of
+Share Your Faith makes (discourse markers, a four-verse memorized
+sequence, following a full sermon). Teaches the smaller, genuinely
+underlying skill: saying two or three plain sentences aloud, connected
+with 然后 or 因为...所以..., before adding anything more. Since the list
+now shows a position-based display number (not the raw id) for exactly
+this reason, it correctly shows as "1" despite its id being 6.
+
+**Verified together**, not separately: completed all 42 main lessons
+including all 4 checkpoints (confirmed all four ended up in
+`completedLessons`), completed all 6 Proclaim lessons in their actual
+unlock order starting with the bridge lesson, and confirmed My Progress's
+dashboard totals updated correctly to reflect the new lesson counts (48
+of 56 after that run) — not just that each new lesson works in isolation.
 
 ## Adding more lessons
 

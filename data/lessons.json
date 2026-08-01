@@ -1519,6 +1519,161 @@
       }
     },
     {
+      "id": 39,
+      "stage": "Connect",
+      "title": "Looking Back: Connect",
+      "subtitle": "第三十九课 · 回顾：Connect",
+      "scenario": "It's been a few weeks. You run into Wei Ming again after service — this time, the conversation flows further than your very first greeting did.",
+      "dialogue": [
+        {
+          "speaker": "Wei Ming",
+          "chinese": "你好！最近怎么样？还记得我们第一次见面吗？",
+          "pinyin": "nǐ hǎo！ zuì jìn zěn me yàng？ hái jì de wǒ men dì yī cì jiàn miàn ma？",
+          "english": "Hi! How's it been lately? Remember when we first met?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "当然记得！谢谢你那时候欢迎我。",
+          "pinyin": "dāng rán jì de！ xiè xiè nǐ nà shí hòu huān yíng wǒ。",
+          "english": "Of course I remember! Thanks for welcoming me back then."
+        },
+        {
+          "speaker": "Wei Ming",
+          "chinese": "你现在住得还习惯吗？附近方便吗？",
+          "pinyin": "nǐ xiàn zài zhù dé hái xí guàn ma？ fù jìn fāng biàn ma？",
+          "english": "Are you settling in okay? Is the area convenient?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "习惯了，谢谢关心。我们要不要加个联络方式？",
+          "pinyin": "xí guàn le， xiè xiè guān xīn。 wǒ men yào bù yào jiā gè lián luò fāng shì？",
+          "english": "Yes, thanks for asking. Should we exchange contact info?"
+        },
+        {
+          "speaker": "Wei Ming",
+          "chinese": "好啊！我们星期几比较方便见面？",
+          "pinyin": "hǎo a！ wǒ men xīng qī jǐ bǐ jiào fāng biàn jiàn miàn？",
+          "english": "Sure! Which day works better for us to meet up?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "星期五晚上，可以吗？我可以带我的家人一起来。",
+          "pinyin": "xīng qī wǔ wǎn shàng， kě yǐ ma？ wǒ kě yǐ dài wǒ de jiā rén yì qǐ lái。",
+          "english": "Friday evening, is that okay? I can bring my family along too."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "最近",
+          "pinyin": "zuì jìn",
+          "english": "recently"
+        },
+        {
+          "chinese": "记得",
+          "pinyin": "jì de",
+          "english": "to remember"
+        },
+        {
+          "chinese": "习惯",
+          "pinyin": "xí guàn",
+          "english": "used to / accustomed"
+        },
+        {
+          "chinese": "联络方式",
+          "pinyin": "lián luò fāng shì",
+          "english": "contact info"
+        },
+        {
+          "chinese": "方便",
+          "pinyin": "fāng biàn",
+          "english": "convenient"
+        },
+        {
+          "chinese": "家人",
+          "pinyin": "jiā rén",
+          "english": "family members"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 记得 mean?",
+          "answer": "to remember",
+          "options": [
+            "to remember",
+            "to forget",
+            "to introduce"
+          ]
+        },
+        {
+          "question": "What does 习惯 mean here?",
+          "answer": "used to / accustomed",
+          "options": [
+            "used to / accustomed",
+            "far away",
+            "difficult"
+          ]
+        },
+        {
+          "question": "How do you say \"contact info\"?",
+          "answer": "联络方式",
+          "options": [
+            "联络方式",
+            "手机号码",
+            "电子邮件"
+          ]
+        },
+        {
+          "question": "What does 方便 mean?",
+          "answer": "convenient",
+          "options": [
+            "convenient",
+            "expensive",
+            "crowded"
+          ]
+        },
+        {
+          "question": "How do you say \"family members\"?",
+          "answer": "家人",
+          "options": [
+            "家人",
+            "朋友",
+            "弟兄姊妹"
+          ]
+        }
+      ],
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "你现在住得还习惯吗？",
+          "english": "Are you settling in okay?"
+        },
+        "options": [
+          "习惯了，谢谢关心。",
+          "现在几点？",
+          "我不喜欢咖啡。"
+        ],
+        "answer": "习惯了，谢谢关心。"
+      },
+      "challenge": "Reach out to the very first person you met at church and ask how they're doing — using at least one word from your first week here.",
+      "verse": {
+        "reference": "申命记 8:2",
+        "referenceEnglish": "Deuteronomy 8:2",
+        "chinese": "你也要记念耶和华你的神在旷野引导你这四十年，是要苦炼你，试验你，要知道你心内如何，肯守他的诫命不肯。",
+        "pinyin": "nǐ yě yào jì niàn yē hé huá nǐ de shén zài kuàng yě yǐn dǎo nǐ zhè sì shí nián， shì yào kǔ liàn nǐ， shì yàn nǐ， yào zhī dào nǐ xīn nèi rú hé， kěn shǒu tā de jiè mìng bù kěn。",
+        "scriptureVocabulary": [],
+        "scriptureQuestion": {
+          "question": "What is the main idea of Deuteronomy 8:2?",
+          "options": [
+            "Moses tells Israel to remember the whole journey — not just the destination.",
+            "A command to fast",
+            "A warning about false teachers"
+          ],
+          "answer": "Moses tells Israel to remember the whole journey — not just the destination."
+        }
+      },
+      "isCheckpoint": true
+    },
+    {
       "id": 9,
       "stage": "Belong",
       "title": "Joining a Small Group",
@@ -3094,6 +3249,161 @@
       }
     },
     {
+      "id": 40,
+      "stage": "Belong",
+      "title": "Looking Back: Belong",
+      "subtitle": "第四十课 · 回顾：Belong",
+      "scenario": "Your small group is planning a season of thanksgiving and prayer together. Grace Lim checks in on how you've found belonging so far.",
+      "dialogue": [
+        {
+          "speaker": "Grace Lim",
+          "chinese": "你加入小组已经一段时间了，感觉怎么样？",
+          "pinyin": "nǐ jiā rù xiǎo zǔ yǐ jīng yī duàn shí jiān le， gǎn jué zěn me yàng？",
+          "english": "You've been in the small group for a while now — how does it feel?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "很感恩！我觉得这里像家一样。",
+          "pinyin": "hěn gǎn ēn！ wǒ jué de zhè lǐ xiàng jiā yī yàng。",
+          "english": "I'm so thankful! It feels like family here."
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "有没有什么代祷事项，我们可以一起祷告？",
+          "pinyin": "yǒu méi yǒu shén me dài dǎo shì xiàng， wǒ men kě yǐ yì qǐ dǎo gào？",
+          "english": "Any prayer requests we can pray for together?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "有，请为我的工作祷告，也为我哥哥祷告，他还没信主。",
+          "pinyin": "yǒu， qǐng wèi wǒ de gōng zuò dǎo gào， yě wèi wǒ gē gē dǎo gào， tā hái méi xìn zhǔ。",
+          "english": "Yes, please pray for my work, and for my brother — he hasn't come to faith yet."
+        },
+        {
+          "speaker": "Grace Lim",
+          "chinese": "好的，我们记下来，也会鼓励你。",
+          "pinyin": "hǎo de， wǒ men jì xià lái， yě huì gǔ lì nǐ。",
+          "english": "Okay, we'll note that down, and we'll encourage you too."
+        },
+        {
+          "speaker": "You",
+          "chinese": "谢谢大家。神与我们同在，真的不孤单。",
+          "pinyin": "xiè xiè dà jiā。 shén yǔ wǒ men tóng zài， zhēn de bù gū dān。",
+          "english": "Thank you all. God is with us — I really don't feel alone."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "一段时间",
+          "pinyin": "yī duàn shí jiān",
+          "english": "a period of time"
+        },
+        {
+          "chinese": "感恩",
+          "pinyin": "gǎn ēn",
+          "english": "thankful"
+        },
+        {
+          "chinese": "代祷事项",
+          "pinyin": "dài dǎo shì xiàng",
+          "english": "prayer request"
+        },
+        {
+          "chinese": "鼓励",
+          "pinyin": "gǔ lì",
+          "english": "to encourage"
+        },
+        {
+          "chinese": "同在",
+          "pinyin": "tóng zài",
+          "english": "to be present with"
+        },
+        {
+          "chinese": "孤单",
+          "pinyin": "gū dān",
+          "english": "lonely"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 代祷事项 mean?",
+          "answer": "prayer request",
+          "options": [
+            "prayer request",
+            "worship song",
+            "small group"
+          ]
+        },
+        {
+          "question": "What does 鼓励 mean?",
+          "answer": "to encourage",
+          "options": [
+            "to encourage",
+            "to forgive",
+            "to explain"
+          ]
+        },
+        {
+          "question": "What does 同在 mean?",
+          "answer": "to be present with",
+          "options": [
+            "to be present with",
+            "to be far from",
+            "to be busy"
+          ]
+        },
+        {
+          "question": "What does 孤单 mean?",
+          "answer": "lonely",
+          "options": [
+            "lonely",
+            "joyful",
+            "tired"
+          ]
+        },
+        {
+          "question": "How do you say \"thankful\"?",
+          "answer": "感恩",
+          "options": [
+            "感恩",
+            "担心",
+            "生气"
+          ]
+        }
+      ],
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "有没有什么代祷事项？",
+          "english": "Any prayer requests?"
+        },
+        "options": [
+          "有，请为我的工作祷告。",
+          "他是我的老师。",
+          "今天天气很好。"
+        ],
+        "answer": "有，请为我的工作祷告。"
+      },
+      "challenge": "Share one genuine prayer request with your small group this week — not just a general one, a real one.",
+      "verse": {
+        "reference": "希伯来书 10:24",
+        "referenceEnglish": "Hebrews 10:24",
+        "chinese": "又要彼此相顾，激发爱心，勉励行善。",
+        "pinyin": "yòu yào bǐ cǐ xiāng gù， jī fā ài xīn， miǎn lì xíng shàn。",
+        "scriptureVocabulary": [],
+        "scriptureQuestion": {
+          "question": "What is the main idea of Hebrews 10:24?",
+          "options": [
+            "Belonging isn't passive — it's actively spurring one another toward love.",
+            "A command to fast",
+            "A warning about false teachers"
+          ],
+          "answer": "Belonging isn't passive — it's actively spurring one another toward love."
+        }
+      },
+      "isCheckpoint": true
+    },
+    {
       "id": 17,
       "stage": "Grow",
       "title": "Reading the Bible",
@@ -3319,38 +3629,38 @@
         {
           "speaker": "Jia Hui",
           "chinese": "什么是救恩？",
-          "pinyin": "Shénme shì jiù'ēn?",
+          "pinyin": "shén me shì jiù ēn？",
           "english": "What is salvation?"
         },
         {
           "speaker": "You",
           "chinese": "救恩是神因着恩典赦免我们的罪。",
-          "pinyin": "Jiù'ēn shì shén yīnzhe ēndiǎn shèmiǎn wǒmen de zuì.",
+          "pinyin": "jiù ēn shì shén yīn zhe ēn diǎn shè miǎn wǒ men de zuì。",
           "english": "Salvation is God forgiving our sins by grace."
         },
         {
           "speaker": "Jia Hui",
-          "chinese": "我们要怎么得到救恩？",
-          "pinyin": "Wǒmen yào zěnme dédào jiù'ēn?",
-          "english": "How do we receive salvation?"
+          "chinese": "听起来很简单，是不是要靠行为才能得救？",
+          "pinyin": "tīng qǐ lái hěn jiǎn dān， shì bú shì yào kào xíng wéi cái néng dé jiù？",
+          "english": "That sounds simple — don't we need to be saved through good works?"
         },
         {
           "speaker": "You",
-          "chinese": "因信耶稣基督，我们就得救了。",
-          "pinyin": "Yīn xìn Yēsū Jīdū, wǒmen jiù déjiù le.",
-          "english": "By believing in Jesus Christ, we are saved."
+          "chinese": "不是，得救不是靠行为，而是因信耶稣基督。",
+          "pinyin": "bú shì， dé jiù bú shì kào xíng wéi， ér shì yīn xìn yē sū jī dū。",
+          "english": "No, being saved isn't through works, but through faith in Jesus Christ."
         },
         {
           "speaker": "Jia Hui",
-          "chinese": "这是靠行为吗？",
-          "pinyin": "Zhè shì kào xíngwéi ma?",
-          "english": "Is this based on good works?"
+          "chinese": "那如果我做错事呢？神还会赦免我吗？",
+          "pinyin": "nà rú guǒ wǒ zuò cuò shì ne？ shén hái huì shè miǎn wǒ ma？",
+          "english": "What if I do something wrong? Will God still forgive me?"
         },
         {
           "speaker": "You",
-          "chinese": "不是，是神的恩典，不是行为。",
-          "pinyin": "Bùshì, shì shén de ēndiǎn, bùshì xíngwéi.",
-          "english": "No, it's by God's grace, not works."
+          "chinese": "会的，神愿意赦免每一个愿意悔改的人。",
+          "pinyin": "huì de， shén yuàn yì shè miǎn měi yí gè yuàn yì huǐ gǎi de rén。",
+          "english": "Yes, God is willing to forgive everyone who's willing to repent."
         }
       ],
       "vocabulary": [
@@ -5605,6 +5915,161 @@
       }
     },
     {
+      "id": 41,
+      "stage": "Grow",
+      "title": "Looking Back: Grow",
+      "subtitle": "第四十一课 · 回顾：Grow",
+      "scenario": "Jia Hui asks you to help explain the basics of the faith to someone else who's new — a good test of what you've actually absorbed.",
+      "dialogue": [
+        {
+          "speaker": "Jia Hui",
+          "chinese": "有一个朋友想多了解信仰，你可以帮忙解释吗？",
+          "pinyin": "yǒu yí gè péng yǒu xiǎng duō liǎo jiě xìn yǎng， nǐ kě yǐ bāng máng jiě shì ma？",
+          "english": "A friend wants to understand the faith more — can you help explain it?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "可以。救恩是神因着恩典赦免我们的罪，不是靠行为。",
+          "pinyin": "kě yǐ。 jiù ēn shì shén yīn zhe ēn diǎn shè miǎn wǒ men de zuì， bú shì kào xíng wéi。",
+          "english": "Sure. Salvation is God forgiving our sins by grace, not through works."
+        },
+        {
+          "speaker": "Jia Hui",
+          "chinese": "受洗代表什么？",
+          "pinyin": "shòu xǐ dài biǎo shén me？",
+          "english": "What does baptism represent?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "受洗代表我们的生命有了新的开始，跟随耶稣基督。",
+          "pinyin": "shòu xǐ dài biǎo wǒ men de shēng mìng yǒu le xīn de kāi shǐ， gēn suí yē sū jī dū。",
+          "english": "Baptism represents a new beginning in our life, following Jesus Christ."
+        },
+        {
+          "speaker": "Jia Hui",
+          "chinese": "圣灵住在信徒心里，对吗？",
+          "pinyin": "shèng líng zhù zài xìn tú xīn lǐ， duì ma？",
+          "english": "The Holy Spirit lives in believers' hearts, right?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "对，圣灵引导我们，也帮助我们悔改、成长。",
+          "pinyin": "duì， shèng líng yǐn dǎo wǒ men， yě bāng zhù wǒ men huǐ gǎi、 chéng zhǎng。",
+          "english": "Right, the Holy Spirit guides us, and helps us repent and grow."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "救恩",
+          "pinyin": "jiù ēn",
+          "english": "salvation"
+        },
+        {
+          "chinese": "恩典",
+          "pinyin": "ēn diǎn",
+          "english": "grace"
+        },
+        {
+          "chinese": "受洗",
+          "pinyin": "shòu xǐ",
+          "english": "to be baptised"
+        },
+        {
+          "chinese": "圣灵",
+          "pinyin": "shèng líng",
+          "english": "Holy Spirit"
+        },
+        {
+          "chinese": "引导",
+          "pinyin": "yǐn dǎo",
+          "english": "to guide"
+        },
+        {
+          "chinese": "成长",
+          "pinyin": "chéng zhǎng",
+          "english": "to grow"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 救恩 mean?",
+          "answer": "salvation",
+          "options": [
+            "salvation",
+            "sin",
+            "prayer"
+          ]
+        },
+        {
+          "question": "What does 受洗 mean?",
+          "answer": "to be baptised",
+          "options": [
+            "to be baptised",
+            "to repent",
+            "to worship"
+          ]
+        },
+        {
+          "question": "What does 圣灵 mean?",
+          "answer": "Holy Spirit",
+          "options": [
+            "Holy Spirit",
+            "Bible",
+            "church"
+          ]
+        },
+        {
+          "question": "What does 引导 mean?",
+          "answer": "to guide",
+          "options": [
+            "to guide",
+            "to forgive",
+            "to remember"
+          ]
+        },
+        {
+          "question": "What does 成长 mean?",
+          "answer": "to grow",
+          "options": [
+            "to grow",
+            "to forget",
+            "to arrive"
+          ]
+        }
+      ],
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "受洗代表什么？",
+          "english": "What does baptism represent?"
+        },
+        "options": [
+          "代表我们的生命有了新的开始。",
+          "我不喜欢咖啡。",
+          "他是我的老师。"
+        ],
+        "answer": "代表我们的生命有了新的开始。"
+      },
+      "challenge": "Explain one thing you've learned about the faith this stage to someone else — out loud, in your own words.",
+      "verse": {
+        "reference": "腓立比书 1:6",
+        "referenceEnglish": "Philippians 1:6",
+        "chinese": "我深信那在你们心里动了善工的，必成全这工，直到耶稣基督的日子。",
+        "pinyin": "wǒ shēn xìn nà zài nǐ men xīn lǐ dòng le shàn gōng de， bì chéng quán zhè gōng， zhí dào yē sū jī dū de rì zi。",
+        "scriptureVocabulary": [],
+        "scriptureQuestion": {
+          "question": "What is the main idea of Philippians 1:6?",
+          "options": [
+            "Growth is God's ongoing work, not a finished project.",
+            "A command to fast",
+            "A warning about false teachers"
+          ],
+          "answer": "Growth is God's ongoing work, not a finished project."
+        }
+      },
+      "isCheckpoint": true
+    },
+    {
       "id": 29,
       "stage": "Serve",
       "title": "Welcoming Visitors",
@@ -7598,6 +8063,161 @@
         ],
         "answer": "如果我参加，需要准备什么？"
       }
+    },
+    {
+      "id": 42,
+      "stage": "Serve",
+      "title": "Looking Back: Serve",
+      "subtitle": "第四十二课 · 回顾：Serve",
+      "scenario": "Pastor Koh thanks the serving team and asks what you've learned about ministry so far — a natural moment to look back before looking ahead.",
+      "dialogue": [
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "谢谢你这段时间的服事，感觉怎么样？",
+          "pinyin": "xiè xiè nǐ zhè duàn shí jiān de fú shì， gǎn jué zěn me yàng？",
+          "english": "Thank you for your service this season — how has it felt?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "很有意义。我学会了怎么接待新朋友，也带过查经。",
+          "pinyin": "hěn yǒu yì yì。 wǒ xué huì le zěn me jiē dài xīn péng yǒu， yě dài guò chá jīng。",
+          "english": "Very meaningful. I've learned how to welcome newcomers, and led a Bible study too."
+        },
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "奉献和探访呢？",
+          "pinyin": "fèng xiàn hé tàn fǎng ne？",
+          "english": "What about giving and home visitation?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "我明白了奉献是甘心乐意的，探访也让我更关心弟兄姊妹。",
+          "pinyin": "wǒ míng bái le fèng xiàn shì gān xīn lè yì de， tàn fǎng yě ràng wǒ gèng guān xīn dì xiōng zǐ mèi。",
+          "english": "I understand giving is willingly and cheerfully done, and visitation helped me care more for the brothers and sisters."
+        },
+        {
+          "speaker": "Pastor Koh",
+          "chinese": "很好。你准备好把这些经历带到宣教工场了吗？",
+          "pinyin": "hěn hǎo。 nǐ zhǔn bèi hǎo bǎ zhè xiē jīng lì dài dào xuān jiào gōng chǎng le ma？",
+          "english": "Good. Are you ready to bring these experiences to the mission field?"
+        },
+        {
+          "speaker": "You",
+          "chinese": "我愿意，也会继续祷告预备自己。",
+          "pinyin": "wǒ yuàn yì， yě huì jì xù dǎo gào yù bèi zì jǐ。",
+          "english": "I'm willing, and I'll keep praying to prepare myself."
+        }
+      ],
+      "vocabulary": [
+        {
+          "chinese": "有意义",
+          "pinyin": "yǒu yì yì",
+          "english": "meaningful"
+        },
+        {
+          "chinese": "接待",
+          "pinyin": "jiē dài",
+          "english": "to welcome / host"
+        },
+        {
+          "chinese": "甘心乐意",
+          "pinyin": "gān xīn lè yì",
+          "english": "willingly and cheerfully"
+        },
+        {
+          "chinese": "探访",
+          "pinyin": "tàn fǎng",
+          "english": "to visit (pastorally)"
+        },
+        {
+          "chinese": "经历",
+          "pinyin": "jīng lì",
+          "english": "experience"
+        },
+        {
+          "chinese": "预备",
+          "pinyin": "yù bèi",
+          "english": "to prepare"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What does 接待 mean?",
+          "answer": "to welcome / host",
+          "options": [
+            "to welcome / host",
+            "to forgive",
+            "to worship"
+          ]
+        },
+        {
+          "question": "What does 甘心乐意 mean?",
+          "answer": "willingly and cheerfully",
+          "options": [
+            "willingly and cheerfully",
+            "reluctantly",
+            "urgently"
+          ]
+        },
+        {
+          "question": "What does 探访 mean?",
+          "answer": "to visit (pastorally)",
+          "options": [
+            "to visit (pastorally)",
+            "to teach",
+            "to sing"
+          ]
+        },
+        {
+          "question": "What does 经历 mean?",
+          "answer": "experience",
+          "options": [
+            "experience",
+            "instruction",
+            "argument"
+          ]
+        },
+        {
+          "question": "What does 预备 mean?",
+          "answer": "to prepare",
+          "options": [
+            "to prepare",
+            "to forget",
+            "to complain"
+          ]
+        }
+      ],
+      "respondPractice": {
+        "type": "select-response",
+        "prompt": {
+          "chinese": "奉献和探访呢？",
+          "english": "What about giving and home visitation?"
+        },
+        "options": [
+          "我明白了奉献是甘心乐意的。",
+          "现在几点？",
+          "我不喜欢咖啡。"
+        ],
+        "answer": "我明白了奉献是甘心乐意的。"
+      },
+      "challenge": "Write down one way you've served this stage, and one way you'd like to serve next.",
+      "verse": {
+        "reference": "哥林多前书 15:58",
+        "referenceEnglish": "1 Corinthians 15:58",
+        "chinese": "所以，我亲爱的弟兄们，你们务要坚固，不可摇动，常常竭力多作主工；因为知道，你们的劳苦在主里面不是徒然的。",
+        "pinyin": "suǒ yǐ， wǒ qīn ài de dì xiōng men， nǐ men wù yào jiān gù， bù kě yáo dòng， cháng cháng jié lì duō zuò zhǔ gōng； yīn wèi zhī dào， nǐ men de láo kǔ zài zhǔ lǐ miàn bú shì tú rán de。",
+        "scriptureVocabulary": [],
+        "scriptureQuestion": {
+          "question": "What is the main idea of 1 Corinthians 15:58?",
+          "options": [
+            "A fitting close to Serve — the labor genuinely isn't wasted.",
+            "A command to fast",
+            "A warning about false teachers"
+          ],
+          "answer": "A fitting close to Serve — the labor genuinely isn't wasted."
+        }
+      },
+      "isCheckpoint": true
     }
   ]
 }

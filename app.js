@@ -4,7 +4,7 @@
 
 // Bump this whenever a notable change ships — shown on the Help screen so
 // anyone reporting a bug can say which version they're on.
-const APP_VERSION = "1.5.0";
+const APP_VERSION = "1.8.0";
 
 // NEVER change this — it's the only pointer to every existing user's saved
 // progress. Changing it orphans all prior data instead of migrating it.
@@ -350,7 +350,9 @@ function loadProgress() {
     favoritesSortMode: "manual", // "manual" | "color" | "book" | "icon" | "alphabetical"
     lessonProgress: {}, // lessonId -> furthest step index reached (for resuming mid-lesson)
     basicsCompleted: [], // ids of completed Chinese Basics mini-course lessons
+    basicsLessonProgress: {}, // basics lesson id -> furthest explain-step reached (for resuming mid-lesson)
     proclaimCompleted: [], // ids of completed Share Your Faith lessons
+    proclaimLessonProgress: {}, // proclaim lesson id -> furthest explain-step reached (for resuming mid-lesson)
     myTestimony: "", // free-text testimony draft from the Telling Your Story lesson
     userName: null, // name entered on first launch, or null if skipped
     nameOnboardingSeen: false, // whether the name prompt has been shown/dismissed
@@ -562,6 +564,9 @@ function goFavorites() {
 function goSettings() {
   location.hash = "#/settings";
 }
+function goProgress() {
+  location.hash = "#/progress";
+}
 function goBibleChapters(bookId) {
   location.hash = "#/bible/" + bookId;
 }
@@ -678,6 +683,10 @@ function route() {
   }
   if (hash === "#/settings") {
     renderSettings();
+    return;
+  }
+  if (hash === "#/progress") {
+    renderProgressDashboard();
     return;
   }
   renderHome();
@@ -908,7 +917,7 @@ function renderHome() {
       const pct = inProgress ? Math.round(((progress.lessonProgress[lesson.id] || 0) / STEPS.length) * 100) : 0;
       const btn = el(`
         <button class="lesson-card ${done ? "done" : ""} ${inProgress ? "in-progress" : ""}" ${unlocked ? "" : "disabled"}>
-          <div class="lesson-num">${done ? "✓" : lesson.id}</div>
+          <div class="lesson-num">${done ? "✓" : lesson.isCheckpoint ? "🎯" : lesson.id}</div>
           <div class="lesson-info">
             <h3>${lesson.title}</h3>
             <p class="zh">${lesson.subtitle}</p>
@@ -969,7 +978,22 @@ function markBasicsCompleted(id) {
   }
 }
 function isBasicsUnlocked(id) {
-  return id === 1 || isBasicsCompleted(id - 1);
+  const index = BASICS.findIndex((b) => b.id === id);
+  if (index === 0) return true;
+  return isBasicsCompleted(BASICS[index - 1].id);
+}
+function basicsExplainStepCount(b) {
+  return b.points.length + 2; // intro (0) + one per point + examples (last)
+}
+function saveBasicsStepProgress(lessonId, step) {
+  const existing = progress.basicsLessonProgress[lessonId] || 0;
+  if (step > existing) {
+    progress.basicsLessonProgress[lessonId] = step;
+    saveProgress();
+  }
+}
+function isBasicsInProgress(lessonId) {
+  return !isBasicsCompleted(lessonId) && (progress.basicsLessonProgress[lessonId] || 0) > 0;
 }
 
 // ---------- Share Your Faith / Proclaim (separate track, monologue-focused) ----------
@@ -983,7 +1007,23 @@ function markProclaimCompleted(id) {
   }
 }
 function isProclaimUnlocked(id) {
-  return id === 1 || isProclaimCompleted(id - 1);
+  const index = PROCLAIM.findIndex((p) => p.id === id);
+  if (index === 0) return true;
+  return isProclaimCompleted(PROCLAIM[index - 1].id);
+}
+function proclaimExplainStepCount(p) {
+  // intro + one per point + examples/sequence + (yourTurn, only for lesson 2)
+  return p.points.length + 2 + (p.yourTurn ? 1 : 0);
+}
+function saveProclaimStepProgress(lessonId, step) {
+  const existing = progress.proclaimLessonProgress[lessonId] || 0;
+  if (step > existing) {
+    progress.proclaimLessonProgress[lessonId] = step;
+    saveProgress();
+  }
+}
+function isProclaimInProgress(lessonId) {
+  return !isProclaimCompleted(lessonId) && (progress.proclaimLessonProgress[lessonId] || 0) > 0;
 }
 function saveMyTestimony(text) {
   progress.myTestimony = text.slice(0, 2000);
@@ -1032,7 +1072,7 @@ function renderLessonStep(lesson, state) {
       state,
       `
       <div class="step-section">
-        <p class="eyebrow step-eyebrow">Lesson ${lesson.id} · ${lesson.title}</p>
+        <p class="eyebrow step-eyebrow">${lesson.isCheckpoint ? "Checkpoint" : "Lesson " + lesson.id} · ${lesson.title}</p>
         <h1 class="zh">${lesson.subtitle}</h1>
         <p class="scenario-text">${lesson.scenario}</p>
       </div>
@@ -1889,6 +1929,18 @@ function renderSettings() {
   const body = app.querySelector("#settings-body");
   body.innerHTML = `
     <div class="stage-group">
+      <p class="stage-heading">Progress</p>
+      <button class="lesson-card" id="my-progress-btn">
+        <div class="lesson-num">📊</div>
+        <div class="lesson-info">
+          <h3>My Progress</h3>
+          <p class="zh" style="font-family:var(--font-ui);">Everything in one place — lessons, Basics, Share Your Faith, Bible reading, and more</p>
+        </div>
+        <div class="lesson-status">Open</div>
+      </button>
+    </div>
+
+    <div class="stage-group">
       <p class="stage-heading">Sound</p>
       <button class="lesson-card" id="sound-toggle-btn">
         <div class="lesson-num">${isSoundEnabled() ? "🔊" : "🔇"}</div>
@@ -1934,6 +1986,134 @@ function renderSettings() {
   body.querySelector("#sound-toggle-btn").addEventListener("click", () => {
     toggleSound();
     renderSettings();
+  });
+  body.querySelector("#my-progress-btn").addEventListener("click", goProgress);
+}
+
+// ---------- My Progress (unified dashboard) ----------
+async function renderProgressDashboard() {
+  stopDialogue();
+  app.innerHTML = "";
+  const wrapper = el(`
+    <div>
+      <div class="lesson-header">
+        <button class="icon-btn" id="back-btn" aria-label="Back to Settings">←</button>
+        <h2 style="margin:0;font-size:1.1rem;">My Progress</h2>
+      </div>
+      <main class="screen" id="progress-body">
+        <p class="muted" style="padding:16px 0;">Loading…</p>
+      </main>
+    </div>
+  `);
+  app.appendChild(wrapper);
+  app.querySelector("#back-btn").addEventListener("click", goSettings);
+
+  await ensureBibleFullLoaded();
+  if (location.hash !== "#/progress") return; // navigated away while loading
+
+  const body = app.querySelector("#progress-body");
+
+  const lessonsDone = progress.completedLessons.length;
+  const basicsDone = progress.basicsCompleted.length;
+  const proclaimDone = progress.proclaimCompleted.length;
+  const totalLessons = LESSONS.length + BASICS.length + PROCLAIM.length;
+  const totalDone = lessonsDone + basicsDone + proclaimDone;
+
+  const totalChapters = BIBLE_FULL.reduce((sum, b) => sum + b.chapters.length, 0);
+  const chaptersRead = progress.readChapters.length;
+  const booksFullyRead = BIBLE_FULL.filter((b) => chaptersReadInBook(b) === b.chapters.length).length;
+
+  const wordsLearned = getUniqueWordsLearnedCount();
+  const wordsInRotation = Object.keys(progress.vocabReview).length;
+  const wordsDueToday = getWordsDueToday().length;
+
+  function statCard(icon, title, subtitle, pct, actionLabel, action) {
+    return `
+      <button class="lesson-card" data-action="${action}">
+        <div class="lesson-num">${icon}</div>
+        <div class="lesson-info">
+          <h3>${title}</h3>
+          <p class="zh" style="font-family:var(--font-ui);">${subtitle}</p>
+          ${pct !== null ? `<div class="progress-track" style="margin-top:6px;"><div class="progress-fill" style="width:${pct}%"></div></div>` : ""}
+        </div>
+        <div class="lesson-status">${actionLabel}</div>
+      </button>
+    `;
+  }
+
+  body.innerHTML = `
+    <div class="card" style="text-align:center;margin-bottom:20px;">
+      <p class="eyebrow">Overall</p>
+      <h2 style="margin:6px 0 4px;">${totalDone} of ${totalLessons} lessons complete</h2>
+      ${progress.streak > 1 ? `<p class="muted">${progress.streak} day streak</p>` : ""}
+      <div class="progress-track" style="margin-top:10px;"><div class="progress-fill" style="width:${Math.round(
+        (totalDone / totalLessons) * 100
+      )}%"></div></div>
+    </div>
+
+    <div class="stage-group">
+      <p class="stage-heading">Learning Tracks</p>
+      <div class="lesson-list">
+        ${statCard(
+          "📖",
+          "Main Lessons",
+          `Connect, Belong, Grow, Serve — ${lessonsDone} of ${LESSONS.length}`,
+          Math.round((lessonsDone / LESSONS.length) * 100),
+          "View",
+          "home"
+        )}
+        ${statCard(
+          "🔤",
+          "Chinese Basics",
+          `${basicsDone} of ${BASICS.length} complete`,
+          Math.round((basicsDone / BASICS.length) * 100),
+          "View",
+          "basics"
+        )}
+        ${statCard(
+          "🗣️",
+          "Share Your Faith",
+          `${proclaimDone} of ${PROCLAIM.length} complete`,
+          Math.round((proclaimDone / PROCLAIM.length) * 100),
+          "View",
+          "proclaim"
+        )}
+      </div>
+    </div>
+
+    <div class="stage-group">
+      <p class="stage-heading">Bible Reading</p>
+      <div class="lesson-list">
+        ${statCard(
+          "📜",
+          "Chapters Read",
+          `${chaptersRead} of ${totalChapters} chapters · ${booksFullyRead} of 66 books complete`,
+          Math.round((chaptersRead / totalChapters) * 100),
+          "View",
+          "read"
+        )}
+        ${statCard("⭐", "Favourite Verses", `${progress.favoriteVerses.length} saved`, null, "View", "favorites")}
+      </div>
+    </div>
+
+    <div class="stage-group">
+      <p class="stage-heading">Vocabulary</p>
+      <div class="lesson-list">
+        <div class="lesson-card" style="cursor:default;">
+          <div class="lesson-num">🧠</div>
+          <div class="lesson-info">
+            <h3>${wordsLearned} words met</h3>
+            <p class="zh" style="font-family:var(--font-ui);">${wordsInRotation} in your review rotation · ${wordsDueToday} due today</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  body.querySelectorAll("[data-action]").forEach((btn) => {
+    const dest = btn.dataset.action;
+    const goMap = { home: goHome, basics: goBasics, proclaim: goProclaim, read: goRead, favorites: goFavorites };
+    btn.addEventListener("click", () => goMap[dest]?.());
   });
 }
 
@@ -2463,14 +2643,19 @@ function renderBasicsList() {
   BASICS.forEach((b) => {
     const done = isBasicsCompleted(b.id);
     const unlocked = isBasicsUnlocked(b.id);
+    const inProgress = isBasicsInProgress(b.id);
+    const pct = inProgress
+      ? Math.round(((progress.basicsLessonProgress[b.id] || 0) / basicsExplainStepCount(b)) * 100)
+      : 0;
     const btn = el(`
-      <button class="lesson-card ${done ? "done" : ""}" ${unlocked ? "" : "disabled"}>
+      <button class="lesson-card ${done ? "done" : ""} ${inProgress ? "in-progress" : ""}" ${unlocked ? "" : "disabled"}>
         <div class="lesson-num">${done ? "✓" : b.id}</div>
         <div class="lesson-info">
           <h3>${b.title}</h3>
           <p class="zh">${b.subtitle}</p>
+          ${inProgress ? `<div class="progress-track" style="margin-top:6px;"><div class="progress-fill" style="width:${pct}%"></div></div>` : ""}
         </div>
-        <div class="lesson-status">${done ? "Completed" : unlocked ? "Start" : "Locked"}</div>
+        <div class="lesson-status">${done ? "Completed" : inProgress ? "Continue" : unlocked ? "Start" : "Locked"}</div>
       </button>
     `);
     if (unlocked) btn.addEventListener("click", () => goBasicsLesson(b.id));
@@ -2609,88 +2794,41 @@ function renderBasicsLesson(id) {
     goBasics();
     return;
   }
-  const state = { phase: "explain" }; // "explain" -> "practice" -> done
+  const totalExplainSteps = basicsExplainStepCount(b);
+  const savedStep = isBasicsCompleted(id) ? 0 : progress.basicsLessonProgress[id] || 0;
+  let state;
+  if (savedStep >= totalExplainSteps) {
+    const queue = shuffle(b.practice);
+    state = {
+      phase: "practice",
+      queue,
+      numbering: new Map(queue.map((q, i) => [q, i + 1])),
+      resolved: new Set(),
+      wrongOptions: new Map(),
+    };
+  } else {
+    state = { phase: "explain", explainStep: savedStep };
+  }
   renderBasicsPhase(b, state);
 }
 
 function renderBasicsPhase(b, state) {
   if (state.phase === "explain") {
-    app.innerHTML = "";
-    const wrapper = el(`
-      <div>
-        <div class="lesson-header">
-          <button class="icon-btn" id="back-btn" aria-label="Back to Basics">←</button>
-          <h2 style="margin:0;font-size:1.1rem;">${b.title}</h2>
-        </div>
-        <main class="screen" id="basics-explain-body"></main>
-      </div>
-    `);
-    app.appendChild(wrapper);
-    app.querySelector("#back-btn").addEventListener("click", goBasics);
-
-    const body = app.querySelector("#basics-explain-body");
-    body.innerHTML = `
-      <div class="step-section">
-        <p class="eyebrow step-eyebrow">${b.subtitle}</p>
-        <p class="scenario-text" style="margin-bottom:16px;">${b.explanation}</p>
-        ${b.points
-          .map(
-            (p) => `
-          <div class="help-item">
-            <h3>${p.label}</h3>
-            <p class="muted">${p.detail}</p>
-          </div>
-        `
-          )
-          .join("")}
-        <p class="eyebrow" style="margin:20px 0 8px;">Examples</p>
-        <div class="vocab-grid">
-          ${b.examples
-            .map(
-              (ex) => `
-            <div class="vocab-card">
-              <div class="vocab-top">
-                <span class="zh">${ex.chinese}</span>
-                <span class="vocab-pinyin">${ex.pinyin}</span>
-                ${
-                  Speech.supported
-                    ? `<button class="icon-btn option-speak-btn" data-speak="${ex.chinese}" aria-label="Hear this">🔊</button>`
-                    : ""
-                }
-              </div>
-              <div class="vocab-en">${ex.english}</div>
-              ${ex.note ? `<div class="vocab-note">${ex.note}</div>` : ""}
-            </div>
-          `
-            )
-            .join("")}
-        </div>
-      </div>
-      <div class="sticky-footer">
-        <button class="btn btn-primary" id="to-practice-btn">Practice</button>
-      </div>
-    `;
-    body.querySelectorAll(".option-speak-btn").forEach((btn) => {
-      btn.addEventListener("click", () => Speech.speak(btn.dataset.speak, "zh-CN"));
-    });
-    body.querySelector("#to-practice-btn").addEventListener("click", () => {
-      state.phase = "practice";
-      state.queue = shuffle(b.practice);
-      state.numbering = new Map(state.queue.map((q, i) => [q, i + 1]));
-      state.resolved = new Set();
-      state.wrongOptions = new Map();
-      renderBasicsPhase(b, state);
-    });
+    saveBasicsStepProgress(b.id, state.explainStep);
+    renderBasicsExplainStep(b, state);
     return;
   }
 
   if (state.phase === "practice") {
+    saveBasicsStepProgress(b.id, basicsExplainStepCount(b)); // explain fully done
     renderBasicsPracticeQuestion(b, state);
     return;
   }
 
   // phase === "done"
   markBasicsCompleted(b.id);
+  delete progress.basicsLessonProgress[b.id]; // no longer "in progress" once done
+  saveProgress(); // markBasicsCompleted already saved, but before this delete — save again
   AudioFX.lessonComplete();
   app.innerHTML = "";
   app.appendChild(
@@ -2704,6 +2842,101 @@ function renderBasicsPhase(b, state) {
   `)
   );
   app.querySelector("#basics-home-btn").addEventListener("click", goBasics);
+}
+
+// One point at a time: intro, then each of b.points individually, then all
+// examples together (comparison value is high there — e.g. seeing all four
+// tone examples side by side). This is the guided version of what used to
+// be a single long scrolling screen with everything dumped at once.
+function renderBasicsExplainStep(b, state) {
+  const total = basicsExplainStepCount(b);
+  const step = state.explainStep;
+
+  app.innerHTML = "";
+  const wrapper = el(`
+    <div>
+      <div class="lesson-header">
+        <button class="icon-btn" id="back-btn" aria-label="Back to Basics">←</button>
+        <div class="progress-track"><div class="progress-fill" style="width:${Math.round((step / total) * 100)}%"></div></div>
+      </div>
+      <main class="screen" id="basics-explain-body"></main>
+    </div>
+  `);
+  app.appendChild(wrapper);
+  app.querySelector("#back-btn").addEventListener("click", goBasics);
+
+  const body = app.querySelector("#basics-explain-body");
+  const isIntro = step === 0;
+  const isExamples = step === total - 1;
+  const pointIndex = step - 1; // only meaningful when neither isIntro nor isExamples
+
+  let contentHtml, nextLabel;
+  if (isIntro) {
+    contentHtml = `
+      <p class="eyebrow step-eyebrow">${b.subtitle}</p>
+      <p class="scenario-text">${b.explanation}</p>
+    `;
+    nextLabel = "Start";
+  } else if (isExamples) {
+    contentHtml = `
+      <p class="eyebrow step-eyebrow">Examples</p>
+      <div class="vocab-grid">
+        ${b.examples
+          .map(
+            (ex) => `
+          <div class="vocab-card">
+            <div class="vocab-top">
+              <span class="zh">${ex.chinese}</span>
+              <span class="vocab-pinyin">${ex.pinyin}</span>
+              ${
+                Speech.supported
+                  ? `<button class="icon-btn option-speak-btn" data-speak="${escapeAttr(ex.chinese)}" aria-label="Hear this">🔊</button>`
+                  : ""
+              }
+            </div>
+            <div class="vocab-en">${ex.english}</div>
+            ${ex.note ? `<div class="vocab-note">${ex.note}</div>` : ""}
+          </div>
+        `
+          )
+          .join("")}
+      </div>
+    `;
+    nextLabel = "Practice";
+  } else {
+    const p = b.points[pointIndex];
+    contentHtml = `
+      <p class="eyebrow step-eyebrow">${b.subtitle} · ${pointIndex + 1} of ${b.points.length}</p>
+      <div class="help-item">
+        <h3 style="font-size:1.15rem;">${p.label}</h3>
+        <p class="muted" style="font-size:1rem;">${p.detail}</p>
+      </div>
+    `;
+    nextLabel = "Next";
+  }
+
+  body.innerHTML = `
+    <div class="step-section">${contentHtml}</div>
+    <div class="sticky-footer">
+      <button class="btn btn-primary" id="basics-explain-next-btn">${nextLabel}</button>
+    </div>
+  `;
+  body.querySelectorAll(".option-speak-btn").forEach((btn) => {
+    btn.addEventListener("click", () => Speech.speak(btn.dataset.speak, "zh-CN"));
+  });
+  body.querySelector("#basics-explain-next-btn").addEventListener("click", () => {
+    if (isExamples) {
+      const queue = shuffle(b.practice);
+      state.phase = "practice";
+      state.queue = queue;
+      state.numbering = new Map(queue.map((q, i) => [q, i + 1]));
+      state.resolved = new Set();
+      state.wrongOptions = new Map();
+    } else {
+      state.explainStep++;
+    }
+    renderBasicsPhase(b, state);
+  });
 }
 
 function renderBasicsPracticeQuestion(b, state) {
@@ -2840,14 +3073,19 @@ function renderProclaimList() {
   PROCLAIM.forEach((p) => {
     const done = isProclaimCompleted(p.id);
     const unlocked = isProclaimUnlocked(p.id);
+    const inProgress = isProclaimInProgress(p.id);
+    const pct = inProgress
+      ? Math.round(((progress.proclaimLessonProgress[p.id] || 0) / proclaimExplainStepCount(p)) * 100)
+      : 0;
     const btn = el(`
-      <button class="lesson-card ${done ? "done" : ""}" ${unlocked ? "" : "disabled"}>
-        <div class="lesson-num">${done ? "✓" : p.id}</div>
+      <button class="lesson-card ${done ? "done" : ""} ${inProgress ? "in-progress" : ""}" ${unlocked ? "" : "disabled"}>
+        <div class="lesson-num">${done ? "✓" : PROCLAIM.indexOf(p) + 1}</div>
         <div class="lesson-info">
           <h3>${p.title}</h3>
           <p class="zh">${p.subtitle}</p>
+          ${inProgress ? `<div class="progress-track" style="margin-top:6px;"><div class="progress-fill" style="width:${pct}%"></div></div>` : ""}
         </div>
-        <div class="lesson-status">${done ? "Completed" : unlocked ? "Start" : "Locked"}</div>
+        <div class="lesson-status">${done ? "Completed" : inProgress ? "Continue" : unlocked ? "Start" : "Locked"}</div>
       </button>
     `);
     if (unlocked) btn.addEventListener("click", () => goProclaimLesson(p.id));
@@ -2862,26 +3100,111 @@ function renderProclaimLesson(id) {
     goProclaim();
     return;
   }
-  const state = { phase: "explain" };
+  const total = proclaimExplainStepCount(p);
+  const savedStep = isProclaimCompleted(id) ? 0 : progress.proclaimLessonProgress[id] || 0;
+  let state;
+  if (savedStep >= total) {
+    const queue = shuffle(p.practice);
+    state = {
+      phase: "practice",
+      queue,
+      numbering: new Map(queue.map((q, i) => [q, i + 1])),
+      resolved: new Set(),
+      wrongOptions: new Map(),
+    };
+  } else {
+    state = { phase: "explain", explainStep: savedStep };
+  }
   renderProclaimPhase(p, state);
 }
 
 function renderProclaimPhase(p, state) {
   if (state.phase === "explain") {
-    app.innerHTML = "";
-    const wrapper = el(`
-      <div>
-        <div class="lesson-header">
-          <button class="icon-btn" id="back-btn" aria-label="Back to Share Your Faith">←</button>
-          <h2 style="margin:0;font-size:1.1rem;">${p.title}</h2>
-        </div>
-        <main class="screen" id="proclaim-explain-body"></main>
-      </div>
-    `);
-    app.appendChild(wrapper);
-    app.querySelector("#back-btn").addEventListener("click", goProclaim);
+    saveProclaimStepProgress(p.id, state.explainStep);
+    renderProclaimExplainStep(p, state);
+    return;
+  }
 
-    const body = app.querySelector("#proclaim-explain-body");
+  if (state.phase === "practice") {
+    saveProclaimStepProgress(p.id, proclaimExplainStepCount(p)); // explain fully done
+    renderProclaimPracticeQuestion(p, state);
+    return;
+  }
+
+  // phase === "done"
+  markProclaimCompleted(p.id);
+  delete progress.proclaimLessonProgress[p.id]; // no longer "in progress" once done
+  saveProgress(); // markProclaimCompleted already saved, but before this delete — save again
+  AudioFX.lessonComplete();
+  app.innerHTML = "";
+  app.appendChild(
+    el(`
+    <main class="screen complete-screen">
+      <div class="complete-badge">✓</div>
+      <h1>${p.title} — Done</h1>
+      <p class="muted" style="margin:12px 0 32px;">Well done. On to the next one whenever you're ready.</p>
+      <button class="btn btn-primary" id="proclaim-home-btn">Back to Share Your Faith</button>
+    </main>
+  `)
+  );
+  app.querySelector("#proclaim-home-btn").addEventListener("click", goProclaim);
+}
+
+// Guided, one step at a time: intro, then each point individually, then
+// examples/verse-sequence, then (lesson 2 only) the free-text "Your Turn"
+// reflection — before finally moving into practice questions.
+function renderProclaimExplainStep(p, state) {
+  const total = proclaimExplainStepCount(p);
+  const step = state.explainStep;
+  const contentStepIndex = p.yourTurn ? total - 2 : total - 1; // examples/sequence step
+  const isIntro = step === 0;
+  const isExamples = step === contentStepIndex;
+  const isYourTurn = !!p.yourTurn && step === total - 1;
+  const pointIndex = step - 1;
+
+  app.innerHTML = "";
+  const wrapper = el(`
+    <div>
+      <div class="lesson-header">
+        <button class="icon-btn" id="back-btn" aria-label="Back to Share Your Faith">←</button>
+        <div class="progress-track"><div class="progress-fill" style="width:${Math.round((step / total) * 100)}%"></div></div>
+      </div>
+      <main class="screen" id="proclaim-explain-body"></main>
+    </div>
+  `);
+  app.appendChild(wrapper);
+  app.querySelector("#back-btn").addEventListener("click", goProclaim);
+  const body = app.querySelector("#proclaim-explain-body");
+
+  if (isIntro) {
+    body.innerHTML = `
+      <div class="step-section">
+        <p class="eyebrow step-eyebrow">${p.subtitle}</p>
+        <p class="scenario-text">${p.explanation}</p>
+      </div>
+      <div class="sticky-footer">
+        <button class="btn btn-primary" id="proclaim-explain-next-btn">Start</button>
+      </div>
+    `;
+  } else if (isYourTurn) {
+    body.innerHTML = `
+      <div class="step-section">
+        <p class="eyebrow step-eyebrow">Your Turn</p>
+        <p class="muted" style="margin-bottom:16px;">${p.yourTurn.prompt}</p>
+        <div class="card" style="margin-bottom:16px;">
+          <p class="eyebrow" style="margin-bottom:8px;">Scaffold</p>
+          <p class="zh muted" style="white-space:pre-line;line-height:1.8;">${p.yourTurn.scaffold}</p>
+        </div>
+        <textarea id="testimony-textarea" class="explore-search" style="width:100%;min-height:140px;text-align:left;resize:vertical;" placeholder="Write in Chinese, pinyin, or English — whatever helps you think it through.">${progress.myTestimony || ""}</textarea>
+        <p class="muted" style="font-size:0.8rem;margin-top:6px;">Saved automatically on this device. Not graded — just yours.</p>
+      </div>
+      <div class="sticky-footer">
+        <button class="btn btn-primary" id="proclaim-explain-next-btn">Continue to Practice</button>
+      </div>
+    `;
+    const textarea = body.querySelector("#testimony-textarea");
+    textarea.addEventListener("input", () => saveMyTestimony(textarea.value));
+  } else if (isExamples) {
     const examplesHtml = p.isVerseSequence
       ? `<div id="verse-list">
           ${p.examples
@@ -2922,26 +3245,13 @@ function renderProclaimPhase(p, state) {
             )
             .join("")}
         </div>`;
-
     body.innerHTML = `
       <div class="step-section">
-        <p class="eyebrow step-eyebrow">${p.subtitle}</p>
-        <p class="scenario-text" style="margin-bottom:16px;">${p.explanation}</p>
-        ${p.points
-          .map(
-            (pt) => `
-          <div class="help-item">
-            <h3>${pt.label}</h3>
-            <p class="muted">${pt.detail}</p>
-          </div>
-        `
-          )
-          .join("")}
-        <p class="eyebrow" style="margin:20px 0 8px;">${p.isVerseSequence ? "The Sequence" : "Examples"}</p>
+        <p class="eyebrow step-eyebrow">${p.isVerseSequence ? "The Sequence" : "Examples"}</p>
         ${examplesHtml}
       </div>
       <div class="sticky-footer">
-        <button class="btn btn-primary" id="proclaim-next-phase-btn">${p.yourTurn ? "Your Turn" : "Practice"}</button>
+        <button class="btn btn-primary" id="proclaim-explain-next-btn">${p.yourTurn ? "Your Turn" : "Practice"}</button>
       </div>
     `;
     body.querySelectorAll(".option-speak-btn").forEach((btn) => {
@@ -2970,82 +3280,38 @@ function renderProclaimPhase(p, state) {
         playSeqBtn.textContent = "▶ Play in Order";
       });
     }
-    body.querySelector("#proclaim-next-phase-btn").addEventListener("click", () => {
-      state.phase = p.yourTurn ? "yourTurn" : "practice";
-      if (state.phase === "practice") {
-        state.queue = shuffle(p.practice);
-        state.numbering = new Map(state.queue.map((q, i) => [q, i + 1]));
-        state.resolved = new Set();
-        state.wrongOptions = new Map();
-      }
-      renderProclaimPhase(p, state);
-    });
-    return;
-  }
-
-  if (state.phase === "yourTurn") {
-    app.innerHTML = "";
-    const wrapper = el(`
-      <div>
-        <div class="lesson-header">
-          <button class="icon-btn" id="back-btn" aria-label="Back to Share Your Faith">←</button>
-          <h2 style="margin:0;font-size:1.1rem;">Your Turn</h2>
-        </div>
-        <main class="screen" id="proclaim-yourturn-body"></main>
-      </div>
-    `);
-    app.appendChild(wrapper);
-    app.querySelector("#back-btn").addEventListener("click", goProclaim);
-
-    const body = app.querySelector("#proclaim-yourturn-body");
+  } else {
+    const pt = p.points[pointIndex];
     body.innerHTML = `
       <div class="step-section">
-        <p class="muted" style="margin-bottom:16px;">${p.yourTurn.prompt}</p>
-        <div class="card" style="margin-bottom:16px;">
-          <p class="eyebrow" style="margin-bottom:8px;">Scaffold</p>
-          <p class="zh muted" style="white-space:pre-line;line-height:1.8;">${p.yourTurn.scaffold}</p>
+        <p class="eyebrow step-eyebrow">${p.subtitle} · ${pointIndex + 1} of ${p.points.length}</p>
+        <div class="help-item">
+          <h3 style="font-size:1.15rem;">${pt.label}</h3>
+          <p class="muted" style="font-size:1rem;">${pt.detail}</p>
         </div>
-        <textarea id="testimony-textarea" class="explore-search" style="width:100%;min-height:140px;text-align:left;resize:vertical;" placeholder="Write in Chinese, pinyin, or English — whatever helps you think it through.">${progress.myTestimony || ""}</textarea>
-        <p class="muted" style="font-size:0.8rem;margin-top:6px;">Saved automatically on this device. Not graded — just yours.</p>
       </div>
       <div class="sticky-footer">
-        <button class="btn btn-primary" id="proclaim-to-practice-btn">Continue to Practice</button>
+        <button class="btn btn-primary" id="proclaim-explain-next-btn">Next</button>
       </div>
     `;
-    const textarea = body.querySelector("#testimony-textarea");
-    textarea.addEventListener("input", () => saveMyTestimony(textarea.value));
-    body.querySelector("#proclaim-to-practice-btn").addEventListener("click", () => {
+  }
+
+  body.querySelector("#proclaim-explain-next-btn").addEventListener("click", () => {
+    const isLastExplainStep = isYourTurn || (isExamples && !p.yourTurn);
+    if (isLastExplainStep) {
+      const queue = shuffle(p.practice);
       state.phase = "practice";
-      state.queue = shuffle(p.practice);
-      state.numbering = new Map(state.queue.map((q, i) => [q, i + 1]));
+      state.queue = queue;
+      state.numbering = new Map(queue.map((q, i) => [q, i + 1]));
       state.resolved = new Set();
       state.wrongOptions = new Map();
-      renderProclaimPhase(p, state);
-    });
-    return;
-  }
-
-  if (state.phase === "practice") {
-    renderProclaimPracticeQuestion(p, state);
-    return;
-  }
-
-  // phase === "done"
-  markProclaimCompleted(p.id);
-  AudioFX.lessonComplete();
-  app.innerHTML = "";
-  app.appendChild(
-    el(`
-    <main class="screen complete-screen">
-      <div class="complete-badge">✓</div>
-      <h1>${p.title} — Done</h1>
-      <p class="muted" style="margin:12px 0 32px;">Well done. On to the next one whenever you're ready.</p>
-      <button class="btn btn-primary" id="proclaim-home-btn">Back to Share Your Faith</button>
-    </main>
-  `)
-  );
-  app.querySelector("#proclaim-home-btn").addEventListener("click", goProclaim);
+    } else {
+      state.explainStep++;
+    }
+    renderProclaimPhase(p, state);
+  });
 }
+
 
 function renderProclaimPracticeQuestion(p, state) {
   if (state.queue.length === 0) {

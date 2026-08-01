@@ -57,11 +57,11 @@
         {
           "question": "Which tone stays high and flat the whole time?",
           "options": [
-            "1st tone",
-            "3rd tone",
-            "4th tone"
+            "1st tone (ā)",
+            "3rd tone (ǎ)",
+            "4th tone (à)"
           ],
-          "answer": "1st tone"
+          "answer": "1st tone (ā)"
         },
         {
           "question": "Which word means \"horse\"?",
@@ -75,11 +75,11 @@
         {
           "question": "Which tone dips down, then rises back up?",
           "options": [
-            "3rd tone",
-            "2nd tone",
-            "4th tone"
+            "3rd tone (ǎ)",
+            "2nd tone (á)",
+            "4th tone (à)"
           ],
-          "answer": "3rd tone"
+          "answer": "3rd tone (ǎ)"
         },
         {
           "question": "妈 (mā) means...",
@@ -93,11 +93,11 @@
         {
           "question": "Which tone drops sharply, like a firm \"No!\"?",
           "options": [
-            "4th tone",
-            "1st tone",
-            "2nd tone"
+            "4th tone (à)",
+            "1st tone (ā)",
+            "2nd tone (á)"
           ],
-          "answer": "4th tone"
+          "answer": "4th tone (à)"
         }
       ]
     },
