@@ -1,16 +1,14 @@
 {
-  "name": "Koinect — Learn Chinese for Church",
-  "short_name": "Koinect",
-  "description": "Learn Chinese for church life through small, real lessons.",
-  "start_url": "./index.html",
+  "name": "Discipline Diary",
+  "short_name": "Discipline",
+  "description": "Shared discipline log & follow-up register",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#FAF7F0",
-  "theme_color": "#1B3A5C",
-  "orientation": "portrait",
+  "background_color": "#E3E1D6",
+  "theme_color": "#1B2A41",
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }
