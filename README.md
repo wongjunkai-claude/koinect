@@ -70,6 +70,37 @@ That means:
   devices. If you clear your browser's site data, progress resets.
 - Nothing is ever sent to a server. It all stays on the learner's device.
 
+## Progress safety across updates
+
+Shipping updates to an app that stores everything in `localStorage` carries
+a real risk: change the wrong thing, and existing users' progress silently
+resets or breaks. This already happened once in this project — an early
+lesson renumbering meant anyone who'd tested before that point had their
+completed lessons stop being recognized. Three rules now guard against it
+happening again, enforced with actual code, not just intention:
+
+1. **`STORAGE_KEY` never changes.** It's the only pointer to a user's saved
+   data — changing it orphans everything under the old key rather than
+   migrating it.
+2. **Lesson / Basics / Proclaim ids are never reordered or reused once
+   shipped.** New content always gets the next free id in its own track.
+   (This is the rule the earlier renumbering incident led directly to.)
+3. **Any future change to progress's *shape*** — not just adding a new
+   field, but changing what an existing field means — goes through
+   `PROGRESS_SCHEMA_VERSION` and a real `migrateProgress()` function in
+   `app.js`, not ad hoc handling.
+
+Practically, this means: `loadProgress()` merges whatever's saved onto a
+full set of defaults (so a field that didn't exist yet when someone last
+used the app fills in safely instead of crashing), and nested objects like
+`settings` merge one level deep too — so an old saved preference (e.g.
+sound already turned off) survives a later update that adds a brand new
+setting alongside it, rather than the whole object being silently
+replaced. Verified directly: simulated a very early saved-progress shape
+(missing every field added since — Basics, Proclaim, favorites, the
+lesson-resume system, all of it) and confirmed it loads with zero data
+loss and no crash, real device testing aside.
+
 ## Language & terminology standard
 
 Vocabulary and phrasing follow **Singapore Protestant church usage**, and
@@ -96,9 +127,11 @@ variation worth knowing.
 
 Correct answers, passing a lesson's quiz, and finishing a whole lesson each
 play a short, calm chime — synthesized in the browser (Web Audio API), so
-there are no audio files to download or cache. There's deliberately no sound
-for a wrong answer; feedback is shown as text only, matching Koinect's
-non-punitive design.
+there are no audio files to download or cache. Wrong answers now play a
+sound too — deliberately quiet and low, a neutral "not quite" rather than
+a buzzer, and quieter than the correct sound. Feedback is always shown as
+text too; the sound just reinforces it, never replaces it or feels like
+punishment. Both sounds live in `AudioFX` in `app.js`.
 
 ## Review & retry
 
@@ -144,20 +177,37 @@ schedule — later retries in the same session are for reinforcement, not
 re-scoring.
 ## Explore (reference glossary)
 
-Some vocabulary doesn't naturally emerge from a conversation — Bible book
-names, biblical people and places, festivals, and church roles are reference
-knowledge, not dialogue practice. Rather than force these into lesson
-dialogues, they live in a separate, searchable glossary — the 📖 Explore
-tab in the bottom navigation.
+Some vocabulary doesn't naturally emerge from a conversation — biblical
+people and places, festivals, and church roles are reference knowledge,
+not dialogue practice. Rather than force these into lesson dialogues, they
+live in a separate, searchable glossary — the 📖 Explore tab in the bottom
+navigation.
 
-- Organised into seven categories: Names & Titles of God, Books of the
-  Bible, Bible People, Bible Places, Festivals & Special Days, Church Roles
-  & Groups, and Biblical Groups & Peoples.
+- **Nine collapsible categories**, closed by default, each with an English
+  and Chinese name: Names & Titles of God 神的名字与称号, Bible Characters
+  圣经人物, Bible Places 圣经地名, Festivals & Special Days
+  节期与特别日子, Biblical Groups & Peoples 圣经中的群体, Church Roles &
+  Groups 教会角色与群体, Biblical Vocabulary 圣经词汇, Fruit of the Spirit
+  圣灵的果子, and Biblical Grammar 圣经文法. Built with native
+  `<details>`/`<summary>` — no custom JS needed for the expand/collapse
+  behavior. (Books of the Bible was removed as its own category here,
+  since the Read tab's book list — with its own icon per book — covers
+  that better than a flat glossary entry could.)
 - **All twelve disciples by name** — Simon Peter, Andrew, James (son of
   Zebedee), John, Philip, Bartholomew, Thomas, Matthew, James (son of
   Alphaeus), Thaddaeus, Simon the Zealot, and Judas Iscariot — pulled
   directly from the verified text of Matthew 10:2-4, not reconstructed
-  from memory.
+  from memory. Goliath (歌利亚) is in too, alongside the twelve — the kind
+  of character taught from Sunday school onward.
+- **神 shows both common terms** — 神 / 上帝 — since different Bible and
+  church editions use one or the other; the definition is simply "God,"
+  not a note about which translation convention it follows.
+- **A broader Biblical Vocabulary set**: each of the nine Fruit of the
+  Spirit terms individually (仁爱/喜乐/和平/忍耐/恩慈/良善/信实/温柔/节制)
+  in their own category, plus core theological vocabulary that wasn't
+  covered before — 十字架 (the Cross), 恩典 (grace), 救赎 (redemption),
+  称义 (justification), 圣洁 (holiness), 天国 (the kingdom of heaven), and
+  more.
 - **Old Testament festivals** beyond Christmas/Easter/Pentecost: Passover
   (逾越节), the Feast of Unleavened Bread (除酵节), the Feast of Weeks
   (七七节 — the OT festival Pentecost descends from), the Feast of
@@ -165,13 +215,15 @@ tab in the bottom navigation.
   (普珥日) — each term checked against real occurrences in Exodus,
   Leviticus, Deuteronomy, and Esther before being added.
 - Search works by Chinese, pinyin (no need to type tone marks), or English,
-  and updates as you type.
+  and updates as you type — search results show as a flat list regardless
+  of category, not nested inside the collapsed accordion.
 - Entries that are also taught inside a lesson show a "Taught in Lesson N"
   link that jumps straight there.
 
 Data lives in `data/reference.json` — add entries the same way you'd add a
 lesson: copy an existing object, fill in `chinese`, `pinyin`, `english`,
 `note`, and `taughtInLesson` (or `null` if it isn't taught anywhere yet).
+Each category also has a `nameZh` field for its Chinese header.
 
 ## Cast & dialogue voices
 
@@ -248,7 +300,12 @@ The 📜 Read tab in the bottom navigation opens directly into the complete
 Bible — all 66 books, every chapter (1,189 chapters, 31,100 verses),
 navigable Book → Chapter → verse-by-verse reader, with Previous/Next
 chapter buttons for reading straight through, and its own per-book progress
-("Genesis · 3 of 50 chapters read").
+("Genesis · 3 of 50 chapters read"). The book list is grouped under
+"Old Testament 旧约" and "New Testament 新约," and each book has its own
+symbolic icon (🌱 for Genesis, 🎵 for Psalms, 👑 for Matthew, 🌟 for
+Revelation, and so on) instead of one generic book emoji for all 66 —
+`BOOK_ICONS` in `app.js`. These are original icon choices made for this
+app, not a reproduction of any Bible publisher's copyrighted icon set.
 
 An earlier version of this also had a separate curated list of 19
 well-known passages sitting in front of the full Bible. That's been
@@ -356,20 +413,21 @@ renumbering, not an ongoing concern.
 
 ## First launch: name prompt
 
-The very first time the app opens, a short modal asks you to "Input Name
-for this Learning Journey." Entering a name personalizes greetings on Home
-("Good morning, Rachel." instead of just "Good morning."); tapping "Skip
-for now" is equally valid and just uses the generic greeting instead.
-Either way, this only appears once — stored as `nameOnboardingSeen` in
-progress, so it won't nag on later visits. Your name lives in
+The very first time the app opens, a modal requires entering a name before
+continuing — "Input Name for this Learning Journey." This is mandatory,
+not skippable: submitting empty or whitespace-only shows an inline error
+and blocks continuing until a real name is entered. The name personalizes
+greetings on Home ("Good morning, Rachel." instead of just "Good
+morning."). This only appears once — stored as `nameOnboardingSeen` in
+progress, so it won't reappear on later visits. Your name lives in
 `progress.userName`, same local-only storage as everything else.
 
 ## Bottom navigation
 
-Home, Read, Explore, and Settings are the four persistent tabs, shown as a
-fixed bottom bar on those four top-level screens. Diving into something
-specific — a lesson, a single Bible reading, a Bible chapter, a review
-session — switches to a focused "task mode" instead: the bottom bar
+Home, Favourites, Read, Explore, and Settings are the five persistent tabs,
+shown as a fixed bottom bar on those top-level screens. Diving into
+something specific — a lesson, a Bible chapter, a favourite verse's detail
+view — switches to a focused "task mode" instead: the bottom bar
 disappears and a back arrow takes its place, since at that point you're
 drilling into one thing rather than switching between sections.
 
@@ -475,6 +533,27 @@ Scripture Practice, Daily Review, and Basics) — not just the one spot that
 happened to trigger it, since the same risk existed anywhere option text
 might ever contain a quote character.
 
+### Placement test
+
+For anyone who already knows some Chinese, a "Take Placement Check" card
+sits above the lesson list — 8 questions, one per Basics lesson, reusing
+each lesson's own first practice question rather than authoring separate
+diagnostic content. Single-attempt (no retry-until-correct — this is
+diagnostic, not teaching). Get a question right and that lesson is marked
+complete immediately, which also unlocks whatever comes next in the
+sequence — verified with a scattered-correctness scenario (right, wrong,
+wrong, right, wrong...) to confirm the unlock cascade correctly handles
+gaps, not just a clean run from the start.
+
+**A real bug this caught:** the placement test's "Cancel" and "Done"
+buttons originally called `goBasics()`, which sets `location.hash` to
+`#/basics` — but the hash was already `#/basics` the whole time (the test
+flow renders in place, never actually navigating away). Setting a hash to
+its current value doesn't fire `hashchange`, so nothing re-rendered;
+clicking either button just left the stale results screen showing. Fixed
+by calling `renderBasicsList()` directly instead of relying on routing for
+what's actually an in-place state transition.
+
 ## Respond Practice
 
 Every lesson's quiz tests word *recognition* — "what does this word mean."
@@ -560,12 +639,15 @@ other high-frequency names and terms the same analysis surfaced:
   **Biblical Grammar** (因为, 所以, 如此, 于是, 并且) — recurring
   literary connectives in the same spirit as Scripture Reading Practice.
 
-## Key Highlights & favoriting
+## Favourites tab: Key Highlights, personalization, and sorting
 
-The Read tab now opens with a **Key Highlights** section, above the book
-list: five foundational texts worth committing to memory — the Apostles'
-Creed, the Lord's Prayer, the Great Commission, the Great Commandment, and
-John 3:16 — plus any verses you've favorited while reading.
+⭐ Favourites is its own tab now (moved out of Read, which was getting
+crowded with two different kinds of content). It has two parts:
+
+**Key Highlights** — five fixed, pinned texts worth committing to
+memory: the Apostles' Creed, the Lord's Prayer, the Great Commission, the
+Great Commandment, and John 3:16. Not personalizable — they're permanent
+reference texts, not personal favorites.
 
 **Sourcing note:** four of the five are genuine Bible passages, pulled
 directly from the same verified `bible-full.json` used everywhere else. The
@@ -578,11 +660,31 @@ elsewhere in this app's Bible text — both are standard, valid Chinese terms
 for God from different Bible/confession editions, noted explicitly rather
 than silently changed to match.
 
-**Favoriting:** every verse in the Bible chapter reader has a ☆ button.
-Tapping it turns to ★ and adds that verse to Key Highlights immediately —
-no separate save step. Opening a favorited verse from Key Highlights offers
-a "Remove from Highlights" button; the five fixed texts don't have this,
-since they're permanent. Favorites live in `progress.favoriteVerses`.
+**My Favourite Verses** — every verse in the Bible chapter reader has a ☆
+button; tapping it turns to ★ and adds that verse here immediately, no
+separate save step. Unlike Key Highlights, these are personal and fully
+customizable:
+
+- **Icon and colour**: tap a favourite's icon to open a picker — 12 icon
+  choices, 8 colours. Selecting either applies and saves immediately, no
+  separate "save" step. The colour also tints the card's left border for
+  quick visual scanning.
+- **Sorting**: Manual, By Book (canonical Bible order, using `BIBLE_FULL`'s
+  own book sequence), By Colour, By Icon, or A–Z. Non-manual sorts are
+  **computed display-only views** — they never touch the underlying stored
+  order, so switching back to Manual always restores exactly how you last
+  arranged things by hand. Verified directly: sorted a mixed set of OT/NT
+  favorites every way, then confirmed the manual order survived unchanged
+  underneath.
+- **Manual reordering**: hold the ⠿ handle and drag (built with Pointer
+  Events, which unify mouse and touch handling) — only active when Manual
+  sort is selected, since dragging inside a computed view wouldn't make
+  sense. On release, the new order is read directly from the DOM and saved.
+
+Opening a favourite's detail view offers a "Remove from Favourites" button;
+the five fixed Key Highlights don't have this, since they're permanent.
+Favorites live in `progress.favoriteVerses`, each with `icon`, `color`,
+and `bookId` (for sorting) alongside the verse data itself.
 
 ## Progress resumption — lessons and Bible reading both
 

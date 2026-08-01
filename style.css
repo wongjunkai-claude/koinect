@@ -253,6 +253,28 @@ main.screen {
 }
 .stage-empty-note { font-size: 0.85rem; margin-bottom: 4px; }
 
+/* ===== Explore accordion categories ===== */
+.explore-category { margin-bottom: 12px; border-bottom: 1px solid var(--color-border); padding-bottom: 12px; }
+.explore-category summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 0;
+}
+.explore-category summary::-webkit-details-marker { display: none; }
+.explore-category summary::before {
+  content: "▸";
+  color: var(--color-secondary);
+  font-size: 0.7rem;
+  transition: transform 0.15s ease;
+}
+.explore-category[open] summary::before { transform: rotate(90deg); }
+.category-zh { text-transform: none; letter-spacing: 0; font-weight: 500; color: var(--color-text-muted); }
+.category-count { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--color-text-muted); margin-left: auto; }
+.explore-category-content { margin-top: 10px; }
+
 /* ===== Review word card ===== */
 .review-word-card {
   text-align: center;
@@ -360,6 +382,68 @@ main.screen {
   line-height: 1;
 }
 .favorite-btn.favorited { color: var(--color-secondary); }
+
+/* ===== Favourites tab ===== */
+.sort-row {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  margin-bottom: 12px;
+  padding-bottom: 2px;
+}
+.sort-btn {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.sort-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+
+.favorite-card { display: flex; align-items: center; gap: 4px; padding-left: 10px; }
+.favorite-card.dragging { opacity: 0.5; }
+.drag-handle {
+  cursor: grab;
+  touch-action: none;
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  padding: 8px 4px;
+  line-height: 1;
+}
+.favorite-icon-btn {
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 4px;
+  flex-shrink: 0;
+}
+.favorite-open-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 10px 4px;
+  min-width: 0;
+}
+
+/* ===== Icon / colour picker ===== */
+.picker-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.picker-swatch {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.picker-swatch.selected { border-color: var(--color-primary); box-shadow: 0 0 0 2px var(--color-primary) inset; }
+.picker-swatch.color-swatch { border-color: transparent; }
+.picker-swatch.color-swatch.selected { border-color: var(--color-text); }
 
 /* ===== In-progress lesson card ===== */
 .lesson-card.in-progress .lesson-num {

@@ -4,14 +4,53 @@
 
 // Bump this whenever a notable change ships — shown on the Help screen so
 // anyone reporting a bug can say which version they're on.
-const APP_VERSION = "1.1.0";
+const APP_VERSION = "1.3.0";
 
+// NEVER change this — it's the only pointer to every existing user's saved
+// progress. Changing it orphans all prior data instead of migrating it.
 const STORAGE_KEY = "koinect-progress-v1";
+
+// See the big comment above loadProgress() for what this protects.
+const PROGRESS_SCHEMA_VERSION = 1;
 const app = document.getElementById("app");
 
 let LESSONS = [];
 let REFERENCE = []; // reference glossary categories, loaded at boot
 let BIBLE_FULL = []; // complete 66-book Bible text, loaded lazily (large file)
+
+// One symbolic icon per book, for the Read tab's book list. These are my
+// own thematic choices (not a reproduction of any publisher's copyrighted
+// icon artwork, which I have no access to and shouldn't copy).
+const BOOK_ICONS = {
+  GEN: "🌱", EXO: "🔥", LEV: "🕯️", NUM: "🔢", DEU: "📜",
+  JOS: "⚔️", JDG: "🛡️", RUT: "🌾", "1SA": "👑", "2SA": "👑",
+  "1KI": "🏛️", "2KI": "🏛️", "1CH": "📖", "2CH": "📖", EZR: "🧱",
+  NEH: "🧱", EST: "👸", JOB: "🌪️", PSA: "🎵", PRO: "🦉",
+  ECC: "⏳", SNG: "🌹", ISA: "🌟", JER: "😢", LAM: "😭",
+  EZK: "👁️", DAN: "🦁", HOS: "💔", JOL: "🦗", AMO: "⚖️",
+  OBA: "🏔️", JON: "🐋", MIC: "⚖️", NAM: "🦁", HAB: "❓",
+  ZEP: "📯", HAG: "🏗️", ZEC: "🕊️", MAL: "🔥",
+  MAT: "👑", MRK: "⚡", LUK: "❤️", JHN: "💡", ACT: "🔥",
+  ROM: "⚖️", "1CO": "✝️", "2CO": "✝️", GAL: "🔓", EPH: "🏛️",
+  PHP: "😊", COL: "👑", "1TH": "⏰", "2TH": "⏰", "1TI": "📋",
+  "2TI": "📋", TIT: "📋", PHM: "🤝", HEB: "✝️", JAS: "🛠️",
+  "1PE": "👑", "2PE": "⚠️", "1JN": "❤️", "2JN": "✉️", "3JN": "✉️",
+  JUD: "⚠️", REV: "🌟",
+};
+
+// Options offered in the favorite-verse icon/color picker.
+const FAVORITE_ICON_OPTIONS = ["⭐", "❤️", "🙏", "✝️", "🕊️", "💡", "🔥", "☀️", "💎", "🎯", "📌", "🌟"];
+const FAVORITE_COLOR_OPTIONS = [
+  "#D9A441", // gold (default)
+  "#C1554A", // red
+  "#D98A3D", // orange
+  "#8FA35E", // green
+  "#4E7DA6", // blue
+  "#8067B0", // purple
+  "#C97AA0", // pink
+  "#6B7280", // gray
+];
+
 let HIGHLIGHTS = []; // fixed Key Highlights (Creed, Lord's Prayer, etc.), loaded at boot
 let BASICS = []; // Chinese Basics mini-course, loaded at boot
 let PROCLAIM = []; // Share Your Faith / Proclaim track, loaded at boot
@@ -67,6 +106,13 @@ const AudioFX = (() => {
     correct() {
       tone(880, 0, 0.12);
       tone(1175, 0.09, 0.16);
+    },
+    // A single answer picked incorrectly — quiet and low, a gentle "not
+    // quite" rather than a buzzer. Deliberately understated: the goal is a
+    // neutral acknowledgment, never something that feels like punishment.
+    incorrect() {
+      tone(330, 0, 0.11, 0.09);
+      tone(294, 0.09, 0.14, 0.09);
     },
     // A lesson's quiz/topic is fully passed (every question answered
     // correctly, including after review) — a gentle three-note rise.
@@ -262,8 +308,37 @@ function stopDialogue() {
 }
 
 // ---------- Progress persistence ----------
+//
+// THREE HARD RULES that protect existing users' progress across updates.
+// Breaking any of these silently resets or corrupts real people's saved
+// progress — it already happened once in this project (see rule 2).
+//
+// 1. STORAGE_KEY must never change. It's the only pointer to a user's
+//    data; changing it orphans everything under the old key.
+// 2. Lesson / Basics / Proclaim ids must never be reordered or reused
+//    once shipped. New content gets the next free id in its own track —
+//    never renumber existing ones. (This project's lesson ids WERE
+//    cleaned up once, before this rule was written down — anyone who had
+//    tested before that point lost lesson-completion tracking. Never again.)
+// 3. Any future change to progress's *shape* (not just adding a new
+//    field, but changing what an existing field means or how it's
+//    structured) must go through PROGRESS_SCHEMA_VERSION + migrateProgress()
+//    below, not ad hoc handling. (Declared near the top of the file,
+//    above, since loadProgress() runs at module load time — before this
+//    point in the file would even execute.)
+
+function migrateProgress(p) {
+  // No migrations exist yet — this is a deliberate no-op scaffold. If a
+  // future change ever needs one, add `if (p.schemaVersion < N) { ... }`
+  // blocks here, then bump PROGRESS_SCHEMA_VERSION. Never rewrite old
+  // fields directly in loadProgress() itself.
+  p.schemaVersion = PROGRESS_SCHEMA_VERSION;
+  return p;
+}
+
 function loadProgress() {
   const defaults = {
+    schemaVersion: PROGRESS_SCHEMA_VERSION,
     completedLessons: [],
     lastVisitDate: null,
     streak: 0,
@@ -271,7 +346,8 @@ function loadProgress() {
     dismissedChallenges: [], // lesson ids whose challenge card has been marked done
     readChapters: [], // "BOOKID-N" chapter keys marked fully read in the full Bible browser
     chapterPosition: {}, // "BOOKID-N" -> { verseIndex, percent } — last reading position, even if not marked "read"
-    favoriteVerses: [], // { id, reference, referenceEnglish, verses: [...] } added from the Bible reader
+    favoriteVerses: [], // { id, reference, referenceEnglish, verses: [...], icon, color } added from the Bible reader
+    favoritesSortMode: "manual", // "manual" | "color" | "book" | "icon" | "alphabetical"
     lessonProgress: {}, // lessonId -> furthest step index reached (for resuming mid-lesson)
     basicsCompleted: [], // ids of completed Chinese Basics mini-course lessons
     proclaimCompleted: [], // ids of completed Share Your Faith lessons
@@ -284,13 +360,18 @@ function loadProgress() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       // Merge onto defaults so progress saved before a field existed (e.g. an
-      // older version of the app) doesn't crash on a missing key.
-      return { ...defaults, ...JSON.parse(raw) };
+      // older version of the app) doesn't crash on a missing key. Nested
+      // objects are merged one level deep too — otherwise old saved data
+      // with a "settings" object would silently drop any new setting added
+      // in a later update, since a shallow spread takes the old object whole.
+      const saved = JSON.parse(raw);
+      const merged = { ...defaults, ...saved, settings: { ...defaults.settings, ...(saved.settings || {}) } };
+      return migrateProgress(merged);
     }
   } catch (e) {
     console.warn("Could not read saved progress, starting fresh.", e);
   }
-  return defaults;
+  return migrateProgress(defaults);
 }
 
 function saveProgress() {
@@ -475,6 +556,9 @@ function goExplore() {
 function goRead() {
   location.hash = "#/read";
 }
+function goFavorites() {
+  location.hash = "#/favorites";
+}
 function goSettings() {
   location.hash = "#/settings";
 }
@@ -503,6 +587,7 @@ function goProclaimLesson(id) {
 // ---------- Bottom navigation (persistent tab bar) ----------
 const BOTTOM_NAV_TABS = [
   { id: "home", icon: "🏠", label: "Home", go: goHome },
+  { id: "favorites", icon: "⭐", label: "Favourites", go: goFavorites },
   { id: "read", icon: "📜", label: "Read", go: goRead },
   { id: "explore", icon: "📖", label: "Explore", go: goExplore },
   { id: "settings", icon: "⚙️", label: "Settings", go: goSettings },
@@ -585,6 +670,10 @@ function route() {
   }
   if (hash === "#/read") {
     renderRead();
+    return;
+  }
+  if (hash === "#/favorites") {
+    renderFavorites();
     return;
   }
   if (hash === "#/settings") {
@@ -1147,6 +1236,7 @@ function renderLessonStep(lesson, state) {
             else if (b === btn && !isRight) b.classList.add("incorrect");
           });
           if (isRight) AudioFX.correct();
+          else AudioFX.incorrect();
           sqFeedback.textContent = isRight ? "Correct!" : `Not quite — the answer is "${sq.answer}."`;
           sqFeedback.classList.add(isRight ? "correct" : "incorrect");
         });
@@ -1256,6 +1346,7 @@ function renderQuizQuestion(lesson, state) {
         state.quizResolved.add(q);
         state.quizQueue.shift(); // done with this question
       } else {
+        AudioFX.incorrect();
         feedback.textContent = "Not quite — give it another try.";
         feedback.classList.add("incorrect");
         if (!state.quizWrongOptions.has(q)) state.quizWrongOptions.set(q, new Set());
@@ -1336,6 +1427,7 @@ function renderRespondStep(lesson, state) {
         feedback.textContent = "Correct!";
         feedback.classList.add("correct");
       } else {
+        AudioFX.incorrect();
         feedback.textContent = `Not quite — the best response is "${rp.answer}."`;
         feedback.classList.add("incorrect");
       }
@@ -1466,6 +1558,7 @@ function renderReviewWord(state) {
         state.resolved.add(word);
         state.queue.shift();
       } else {
+        AudioFX.incorrect();
         feedback.textContent = "Not quite — give it another try.";
         feedback.classList.add("incorrect");
         if (!state.wrongOptions.has(word)) state.wrongOptions.set(word, new Set());
@@ -1516,7 +1609,7 @@ function renderExplore(query = "") {
   const body = app.querySelector("#explore-body");
   body.innerHTML = `
     <p class="muted" style="margin-bottom:16px;">
-      Bible books, people, places, festivals, and church terms — for quick lookup any time.
+      Bible characters, places, festivals, and church terms — for quick lookup any time. Tap a category to open it.
     </p>
     <input type="text" id="explore-search" class="explore-search" placeholder="Search by Chinese, pinyin, or English…" value="${query}">
     <div id="explore-results"></div>
@@ -1559,10 +1652,14 @@ function stripTones(str) {
 
 function renderCategorySection(cat) {
   return `
-    <div class="stage-group">
-      <p class="stage-heading">${cat.name}</p>
-      ${cat.entries.map((e) => renderEntryCard(e)).join("")}
-    </div>
+    <details class="explore-category">
+      <summary class="stage-heading">${cat.name}${
+    cat.nameZh ? ` <span class="zh category-zh">${cat.nameZh}</span>` : ""
+  } <span class="category-count">(${cat.entries.length})</span></summary>
+      <div class="explore-category-content">
+        ${cat.entries.map((e) => renderEntryCard(e)).join("")}
+      </div>
+    </details>
   `;
 }
 
@@ -1648,13 +1745,68 @@ function toggleFavoriteVerse(book, chapterNum, verse) {
   } else {
     progress.favoriteVerses.push({
       id,
+      bookId: book.id, // used for "sort by book"
       reference: `${book.name} ${chapterNum}:${verse.n}`,
       referenceEnglish: `${book.nameEnglish} ${chapterNum}:${verse.n}`,
       verses: [{ number: verse.n, chinese: verse.c, pinyin: verse.p }],
+      icon: "⭐",
+      color: "#D9A441",
     });
   }
   saveProgress();
   return idx < 0; // true if it was just added
+}
+
+function setFavoriteIcon(id, icon) {
+  const f = progress.favoriteVerses.find((x) => x.id === id);
+  if (f) {
+    f.icon = icon;
+    saveProgress();
+  }
+}
+function setFavoriteColor(id, color) {
+  const f = progress.favoriteVerses.find((x) => x.id === id);
+  if (f) {
+    f.color = color;
+    saveProgress();
+  }
+}
+function setFavoritesSortMode(mode) {
+  progress.favoritesSortMode = mode;
+  saveProgress();
+}
+function bookOrderIndex(bookId) {
+  const i = BIBLE_FULL.findIndex((b) => b.id === bookId);
+  return i === -1 ? 999 : i;
+}
+// Returns a sorted COPY for display — never mutates the stored (manual)
+// order, so switching back to "manual" always restores the true order the
+// learner last arranged by hand.
+function sortedFavorites() {
+  const list = [...progress.favoriteVerses];
+  switch (progress.favoritesSortMode) {
+    case "color":
+      return list.sort((a, b) => (a.color || "").localeCompare(b.color || ""));
+    case "book":
+      return list.sort((a, b) => bookOrderIndex(a.bookId) - bookOrderIndex(b.bookId));
+    case "icon":
+      return list.sort((a, b) => (a.icon || "").localeCompare(b.icon || ""));
+    case "alphabetical":
+      return list.sort((a, b) => a.referenceEnglish.localeCompare(b.referenceEnglish));
+    default:
+      return list; // "manual" — stored order as-is
+  }
+}
+// Reorders the underlying stored array by favorite id (drag-and-drop result).
+// Only meaningful in "manual" sort mode — other modes are computed views.
+function reorderFavorites(draggedId, beforeId) {
+  const list = progress.favoriteVerses;
+  const fromIdx = list.findIndex((f) => f.id === draggedId);
+  if (fromIdx === -1) return;
+  const [item] = list.splice(fromIdx, 1);
+  const toIdx = beforeId ? list.findIndex((f) => f.id === beforeId) : list.length;
+  list.splice(toIdx === -1 ? list.length : toIdx, 0, item);
+  saveProgress();
 }
 
 // ---------- Help / About ----------
@@ -1761,10 +1913,10 @@ async function renderRead() {
   const doneChapters = progress.readChapters.length;
   const pct = totalChapters > 0 ? Math.round((doneChapters / totalChapters) * 100) : 0;
 
-  function renderBookGroup(title, books) {
+  function renderBookGroup(title, titleZh, books) {
     return `
       <div class="stage-group">
-        <p class="stage-heading">${title}</p>
+        <p class="stage-heading">${title} <span class="zh category-zh">${titleZh}</span></p>
         <div class="lesson-list">
           ${books
             .map((b) => {
@@ -1772,7 +1924,7 @@ async function renderRead() {
               const done = readCount === b.chapters.length;
               return `
               <button class="lesson-card ${done ? "done" : ""}" data-book="${b.id}">
-                <div class="lesson-num">${done ? "✓" : "📖"}</div>
+                <div class="lesson-num">${done ? "✓" : BOOK_ICONS[b.id] || "📖"}</div>
                 <div class="lesson-info">
                   <h3>${b.name}</h3>
                   <p class="zh">${b.nameEnglish} · ${b.chapters.length} chapters</p>
@@ -1794,51 +1946,9 @@ async function renderRead() {
       <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
     </div>
 
-    <div class="stage-group">
-      <p class="stage-heading">Key Highlights</p>
-      <p class="muted" style="margin-bottom:10px;">Foundational texts worth committing to memory, plus verses you've favorited while reading.</p>
-      <div class="lesson-list">
-        ${HIGHLIGHTS.map(
-          (h) => `
-          <button class="lesson-card" data-highlight="${h.id}">
-            <div class="lesson-num">📌</div>
-            <div class="lesson-info">
-              <h3>${h.referenceEnglish}</h3>
-              <p class="zh">${h.reference}</p>
-            </div>
-            <div class="lesson-status">Open</div>
-          </button>
-        `
-        ).join("")}
-        ${progress.favoriteVerses
-          .map(
-            (f) => `
-          <button class="lesson-card" data-highlight="${f.id}">
-            <div class="lesson-num">★</div>
-            <div class="lesson-info">
-              <h3>${f.referenceEnglish}</h3>
-              <p class="zh">${f.reference}</p>
-            </div>
-            <div class="lesson-status">Open</div>
-          </button>
-        `
-          )
-          .join("")}
-        ${
-          progress.favoriteVerses.length === 0
-            ? `<p class="muted" style="font-size:0.85rem;">Tap ☆ next to any verse while reading to add your own favorites here.</p>`
-            : ""
-        }
-      </div>
-    </div>
-
-    ${renderBookGroup("Old Testament", oldTestament)}
-    ${renderBookGroup("New Testament", newTestament)}
+    ${renderBookGroup("Old Testament", "旧约", oldTestament)}
+    ${renderBookGroup("New Testament", "新约", newTestament)}
   `;
-  body.querySelectorAll("[data-highlight]").forEach((btn) => {
-    btn.addEventListener("click", () => goHighlight(btn.dataset.highlight));
-  });
-
   body.querySelectorAll("[data-book]").forEach((btn) => {
     btn.addEventListener("click", () => goBibleChapters(btn.dataset.book));
   });
@@ -1891,13 +2001,204 @@ async function renderBibleChapterList(bookId) {
   });
 }
 
+// ---------- Favourites tab ----------
+const FAVORITES_SORT_OPTIONS = [
+  { mode: "manual", label: "Manual" },
+  { mode: "book", label: "By Book" },
+  { mode: "color", label: "By Colour" },
+  { mode: "icon", label: "By Icon" },
+  { mode: "alphabetical", label: "A–Z" },
+];
+
+function renderFavorites() {
+  stopDialogue();
+  app.innerHTML = "";
+  const wrapper = el(`
+    <div class="has-bottom-nav">
+      <div class="topbar">
+        <div class="brand"><span>Favourites</span></div>
+      </div>
+      <main class="screen" id="favorites-body"></main>
+      ${bottomNavHtml("favorites")}
+    </div>
+  `);
+  app.appendChild(wrapper);
+  wireBottomNav(app);
+  renderFavoritesBody();
+}
+
+function renderFavoritesBody() {
+  const body = app.querySelector("#favorites-body");
+  const mode = progress.favoritesSortMode;
+  const favorites = sortedFavorites();
+
+  body.innerHTML = `
+    <div class="stage-group">
+      <p class="stage-heading">Key Highlights</p>
+      <p class="muted" style="margin-bottom:10px;">Foundational texts worth committing to memory.</p>
+      <div class="lesson-list">
+        ${HIGHLIGHTS.map(
+          (h) => `
+          <button class="lesson-card" data-highlight="${h.id}">
+            <div class="lesson-num">📌</div>
+            <div class="lesson-info">
+              <h3>${h.referenceEnglish}</h3>
+              <p class="zh">${h.reference}</p>
+            </div>
+            <div class="lesson-status">Open</div>
+          </button>
+        `
+        ).join("")}
+      </div>
+    </div>
+
+    <div class="stage-group">
+      <p class="stage-heading">My Favourite Verses</p>
+      ${
+        favorites.length > 0
+          ? `<div class="sort-row" id="favorites-sort-row">
+              ${FAVORITES_SORT_OPTIONS.map(
+                (o) => `<button class="sort-btn ${o.mode === mode ? "active" : ""}" data-sort="${o.mode}">${o.label}</button>`
+              ).join("")}
+            </div>`
+          : ""
+      }
+      <div class="lesson-list" id="favorites-list">
+        ${
+          favorites.length === 0
+            ? `<p class="muted" style="font-size:0.85rem;">Tap ☆ next to any verse while reading to add your own favorites here.</p>`
+            : favorites
+                .map(
+                  (f) => `
+              <div class="lesson-card favorite-card" data-fav-id="${f.id}" style="border-left:4px solid ${f.color}">
+                ${mode === "manual" ? `<span class="drag-handle" data-drag-id="${f.id}">⠿</span>` : ""}
+                <button class="favorite-icon-btn" data-icon-for="${f.id}" aria-label="Change icon or colour" style="color:${f.color}">${f.icon}</button>
+                <button class="favorite-open-btn" data-highlight="${f.id}">
+                  <div class="lesson-info">
+                    <h3>${f.referenceEnglish}</h3>
+                    <p class="zh">${f.reference}</p>
+                  </div>
+                </button>
+              </div>
+            `
+                )
+                .join("")
+        }
+      </div>
+    </div>
+  `;
+
+  body.querySelectorAll("[data-highlight]").forEach((btn) => {
+    btn.addEventListener("click", () => goHighlight(btn.dataset.highlight));
+  });
+  body.querySelectorAll(".favorite-open-btn").forEach((btn) => {
+    btn.addEventListener("click", () => goHighlight(btn.dataset.highlight));
+  });
+  body.querySelectorAll(".favorite-icon-btn").forEach((btn) => {
+    btn.addEventListener("click", () => renderFavoriteIconPicker(btn.dataset.iconFor));
+  });
+  body.querySelector("#favorites-sort-row")?.querySelectorAll(".sort-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setFavoritesSortMode(btn.dataset.sort);
+      renderFavoritesBody();
+    });
+  });
+
+  if (mode === "manual") wireFavoritesDragReorder(body);
+}
+
+function renderFavoriteIconPicker(favoriteId) {
+  const fav = progress.favoriteVerses.find((f) => f.id === favoriteId);
+  if (!fav) return;
+  const overlay = el(`
+    <div class="modal-overlay" id="icon-picker-overlay">
+      <div class="modal-card" style="text-align:left;">
+        <h2 style="margin-bottom:4px;text-align:center;">Personalise</h2>
+        <p class="muted" style="margin-bottom:16px;text-align:center;">${fav.referenceEnglish}</p>
+        <p class="eyebrow" style="margin-bottom:8px;">Icon</p>
+        <div class="picker-grid" id="icon-grid">
+          ${FAVORITE_ICON_OPTIONS.map(
+            (i) => `<button class="picker-swatch ${i === fav.icon ? "selected" : ""}" data-icon="${i}">${i}</button>`
+          ).join("")}
+        </div>
+        <p class="eyebrow" style="margin:16px 0 8px;">Colour</p>
+        <div class="picker-grid" id="color-grid">
+          ${FAVORITE_COLOR_OPTIONS.map(
+            (c) =>
+              `<button class="picker-swatch color-swatch ${c === fav.color ? "selected" : ""}" data-color="${c}" style="background:${c}"></button>`
+          ).join("")}
+        </div>
+        <button class="btn btn-primary" id="icon-picker-done-btn" style="margin-top:20px;">Done</button>
+      </div>
+    </div>
+  `);
+  document.body.appendChild(overlay);
+
+  overlay.querySelectorAll("#icon-grid .picker-swatch").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setFavoriteIcon(favoriteId, btn.dataset.icon);
+      overlay.querySelectorAll("#icon-grid .picker-swatch").forEach((b) => b.classList.remove("selected"));
+      btn.classList.add("selected");
+    });
+  });
+  overlay.querySelectorAll("#color-grid .picker-swatch").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setFavoriteColor(favoriteId, btn.dataset.color);
+      overlay.querySelectorAll("#color-grid .picker-swatch").forEach((b) => b.classList.remove("selected"));
+      btn.classList.add("selected");
+    });
+  });
+  overlay.querySelector("#icon-picker-done-btn").addEventListener("click", () => {
+    overlay.remove();
+    renderFavoritesBody();
+  });
+}
+
+// Hold-and-drag reordering (manual sort mode only) using pointer events,
+// which unify mouse and touch handling in modern browsers.
+function wireFavoritesDragReorder(body) {
+  const list = body.querySelector("#favorites-list");
+  if (!list) return;
+  let draggingEl = null;
+
+  list.querySelectorAll(".drag-handle").forEach((handle) => {
+    handle.addEventListener("pointerdown", (e) => {
+      const card = handle.closest(".favorite-card");
+      draggingEl = card;
+      card.classList.add("dragging");
+      if (handle.setPointerCapture) handle.setPointerCapture(e.pointerId);
+    });
+    handle.addEventListener("pointermove", (e) => {
+      if (!draggingEl) return;
+      const cards = [...list.querySelectorAll(".favorite-card")];
+      const afterEl = cards.find((c) => {
+        if (c === draggingEl) return false;
+        const rect = c.getBoundingClientRect();
+        return e.clientY < rect.top + rect.height / 2;
+      });
+      if (afterEl) list.insertBefore(draggingEl, afterEl);
+      else list.appendChild(draggingEl);
+    });
+    const commit = () => {
+      if (!draggingEl) return;
+      draggingEl.classList.remove("dragging");
+      const newOrderIds = [...list.querySelectorAll(".favorite-card")].map((c) => c.dataset.favId);
+      progress.favoriteVerses.sort((a, b) => newOrderIds.indexOf(a.id) - newOrderIds.indexOf(b.id));
+      saveProgress();
+      draggingEl = null;
+    };
+    handle.addEventListener("pointerup", commit);
+    handle.addEventListener("pointercancel", commit);
+  });
+}
+
 function renderHighlightDetail(id) {
   stopDialogue();
   const fixed = HIGHLIGHTS.find((h) => h.id === id);
   const favorite = progress.favoriteVerses.find((f) => f.id === id);
   const item = fixed || favorite;
   if (!item) {
-    goRead();
+    goFavorites();
     return;
   }
 
@@ -1905,14 +2206,14 @@ function renderHighlightDetail(id) {
   const wrapper = el(`
     <div>
       <div class="lesson-header">
-        <button class="icon-btn" id="back-btn" aria-label="Back to Read">←</button>
+        <button class="icon-btn" id="back-btn" aria-label="Back to Favourites">←</button>
         <h2 style="margin:0;font-size:1.1rem;">${item.reference}</h2>
       </div>
       <main class="screen" id="highlight-body"></main>
     </div>
   `);
   app.appendChild(wrapper);
-  app.querySelector("#back-btn").addEventListener("click", goRead);
+  app.querySelector("#back-btn").addEventListener("click", goFavorites);
 
   const body = app.querySelector("#highlight-body");
   body.innerHTML = `
@@ -1939,7 +2240,7 @@ function renderHighlightDetail(id) {
       </div>
       ${
         !fixed
-          ? `<button class="btn btn-secondary btn-block" id="unfavorite-btn" style="margin-top:16px;">★ Remove from Highlights</button>`
+          ? `<button class="btn btn-secondary btn-block" id="unfavorite-btn" style="margin-top:16px;">★ Remove from Favourites</button>`
           : ""
       }
     </div>
@@ -1975,7 +2276,7 @@ function renderHighlightDetail(id) {
       progress.favoriteVerses.splice(idx, 1);
       saveProgress();
     }
-    goRead();
+    goFavorites();
   });
 }
 
@@ -2132,13 +2433,20 @@ function renderBasicsList() {
       that show up in every lesson. If you already have these foundations, feel free to skip straight to the
       main lessons on Home.
     </p>
-    <div class="card" style="margin-bottom:20px;">
+    <div class="card" style="margin-bottom:16px;">
       <p class="eyebrow">Basics Progress</p>
       <h3 style="margin:6px 0 10px;">${doneCount} of ${BASICS.length} complete</h3>
       <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
     </div>
+    <div class="card explore-card" id="placement-test-card" style="margin-bottom:20px;">
+      <p class="eyebrow">Already know some Chinese?</p>
+      <h3 style="margin:6px 0 4px;">Take a quick placement check</h3>
+      <p class="muted" style="margin-bottom:12px;">8 questions, one per lesson below. Get a question right and that lesson is marked complete — so you only spend time on what's actually new to you.</p>
+      <button class="btn btn-secondary btn-block" id="placement-test-btn">Start Placement Check</button>
+    </div>
     <div class="lesson-list" id="basics-list"></div>
   `;
+  body.querySelector("#placement-test-btn").addEventListener("click", () => renderBasicsPlacementTest());
 
   const list = body.querySelector("#basics-list");
   BASICS.forEach((b) => {
@@ -2157,6 +2465,116 @@ function renderBasicsList() {
     if (unlocked) btn.addEventListener("click", () => goBasicsLesson(b.id));
     list.appendChild(btn);
   });
+}
+
+// ---------- Basics placement test ----------
+// Diagnostic only, not a teaching moment: single-attempt questions, no
+// retry loop. Reuses each lesson's own first practice question rather
+// than authoring separate diagnostic content.
+function renderBasicsPlacementTest() {
+  stopDialogue();
+  const questions = BASICS.map((b) => ({ lessonId: b.id, lessonTitle: b.title, ...b.practice[0] }));
+  renderPlacementQuestion(questions, { index: 0, results: {} });
+}
+
+function renderPlacementQuestion(questions, state) {
+  if (state.index >= questions.length) {
+    renderPlacementResults(questions, state);
+    return;
+  }
+  const q = questions[state.index];
+  const options = shuffle(q.options);
+
+  app.innerHTML = "";
+  const wrapper = el(`
+    <div>
+      <div class="lesson-header">
+        <button class="icon-btn" id="back-btn" aria-label="Cancel placement check">←</button>
+        <div class="progress-track"><div class="progress-fill" style="width:${Math.round(
+          (state.index / questions.length) * 100
+        )}%"></div></div>
+      </div>
+      <main class="screen" id="placement-body"></main>
+    </div>
+  `);
+  app.appendChild(wrapper);
+  app.querySelector("#back-btn").addEventListener("click", renderBasicsList);
+
+  const body = app.querySelector("#placement-body");
+  body.innerHTML = `
+    <div class="step-section">
+      <p class="eyebrow step-eyebrow">Question ${state.index + 1} of ${questions.length} · ${q.lessonTitle}</p>
+      <h2 style="margin-bottom:16px;">${q.question}</h2>
+      <div class="quiz-options" id="placement-options">
+        ${options
+          .map((opt) => `<button class="option-btn zh" data-opt="${escapeAttr(opt)}">${opt}</button>`)
+          .join("")}
+      </div>
+      <p class="feedback-text" id="placement-feedback" aria-live="polite"></p>
+    </div>
+    <div class="sticky-footer" id="placement-footer"></div>
+  `;
+  const buttons = [...body.querySelectorAll(".option-btn")];
+  const feedback = body.querySelector("#placement-feedback");
+  const footer = body.querySelector("#placement-footer");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isRight = btn.dataset.opt === q.answer;
+      buttons.forEach((b) => {
+        b.disabled = true;
+        if (b.dataset.opt === q.answer) b.classList.add("correct");
+        else if (b === btn && !isRight) b.classList.add("incorrect");
+      });
+      if (isRight) AudioFX.correct();
+      else AudioFX.incorrect();
+      feedback.textContent = isRight ? "Correct!" : `The answer was "${q.answer}."`;
+      feedback.classList.add(isRight ? "correct" : "incorrect");
+      state.results[q.lessonId] = isRight;
+
+      footer.innerHTML = `<button class="btn btn-primary" id="placement-next-btn">${
+        state.index + 1 < questions.length ? "Next" : "See Results"
+      }</button>`;
+      footer.querySelector("#placement-next-btn").addEventListener("click", () => {
+        state.index++;
+        renderPlacementQuestion(questions, state);
+      });
+    });
+  });
+}
+
+function renderPlacementResults(questions, state) {
+  const known = questions.filter((q) => state.results[q.lessonId]);
+  const stillNew = questions.filter((q) => !state.results[q.lessonId]);
+  known.forEach((q) => markBasicsCompleted(q.lessonId));
+
+  app.innerHTML = "";
+  app.appendChild(
+    el(`
+    <main class="screen complete-screen">
+      <div class="complete-badge">✓</div>
+      <h1>Placement Check Done</h1>
+      <p class="muted" style="margin:12px 0 20px;">
+        ${
+          known.length > 0
+            ? `${known.length} of ${questions.length} lesson${
+                known.length > 1 ? "s" : ""
+              } marked complete — you already know that material.`
+            : "Looks like these will all be genuinely new to you — that's exactly what Basics is for."
+        }
+      </p>
+      ${
+        stillNew.length > 0
+          ? `<p class="muted" style="margin-bottom:32px;">Still worth going through: ${stillNew
+              .map((q) => q.lessonTitle)
+              .join(", ")}.</p>`
+          : `<p class="muted" style="margin-bottom:32px;">You're set — head back to Home whenever you're ready.</p>`
+      }
+      <button class="btn btn-primary" id="placement-done-btn">Back to Basics</button>
+    </main>
+  `)
+  );
+  app.querySelector("#placement-done-btn").addEventListener("click", renderBasicsList);
 }
 
 function renderBasicsLesson(id) {
@@ -2330,6 +2748,7 @@ function renderBasicsPracticeQuestion(b, state) {
         state.resolved.add(q);
         state.queue.shift();
       } else {
+        AudioFX.incorrect();
         feedback.textContent = "Not quite — give it another try.";
         feedback.classList.add("incorrect");
         if (!state.wrongOptions.has(q)) state.wrongOptions.set(q, new Set());
@@ -2656,6 +3075,7 @@ function renderProclaimPracticeQuestion(p, state) {
         state.resolved.add(q);
         state.queue.shift();
       } else {
+        AudioFX.incorrect();
         feedback.textContent = "Not quite — give it another try.";
         feedback.classList.add("incorrect");
         if (!state.wrongOptions.has(q)) state.wrongOptions.set(q, new Set());
@@ -2698,29 +3118,38 @@ function renderNameModal(onDone) {
         <span class="brand-mark zh" style="display:inline-flex;width:44px;height:44px;font-size:1.3rem;margin-bottom:14px;">语</span>
         <h2 style="margin-bottom:6px;">Welcome to Koinect</h2>
         <p class="muted" style="margin-bottom:20px;">Input Name for this Learning Journey</p>
-        <input type="text" id="name-modal-input" class="explore-search" style="margin-bottom:16px;text-align:center;" placeholder="Your name" maxlength="40">
-        <button class="btn btn-primary" id="name-modal-start-btn" style="margin-bottom:10px;">Start My Journey</button>
-        <button class="btn btn-secondary" id="name-modal-skip-btn">Skip for now</button>
+        <input type="text" id="name-modal-input" class="explore-search" style="margin-bottom:8px;text-align:center;" placeholder="Your name" maxlength="40">
+        <p class="feedback-text incorrect" id="name-modal-error" style="min-height:1.2em;margin-bottom:8px;"></p>
+        <button class="btn btn-primary" id="name-modal-start-btn">Start My Journey</button>
       </div>
     </div>
   `);
   document.body.appendChild(overlay);
 
   const input = overlay.querySelector("#name-modal-input");
+  const error = overlay.querySelector("#name-modal-error");
   input.focus();
 
-  function finish(name) {
-    progress.userName = name ? name.slice(0, 40) : null;
+  function attemptFinish() {
+    const name = input.value.trim();
+    if (!name) {
+      error.textContent = "Please enter a name to continue.";
+      input.focus();
+      return;
+    }
+    progress.userName = name.slice(0, 40);
     progress.nameOnboardingSeen = true;
     saveProgress();
     overlay.remove();
     onDone();
   }
 
-  overlay.querySelector("#name-modal-start-btn").addEventListener("click", () => finish(input.value.trim()));
-  overlay.querySelector("#name-modal-skip-btn").addEventListener("click", () => finish(null));
+  overlay.querySelector("#name-modal-start-btn").addEventListener("click", attemptFinish);
   input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") finish(input.value.trim());
+    if (e.key === "Enter") attemptFinish();
+  });
+  input.addEventListener("input", () => {
+    if (error.textContent) error.textContent = "";
   });
 }
 
