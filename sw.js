@@ -1,21 +1,58 @@
-const CACHE = "discipline-diary-v20";
-const ASSETS = ["./", "./index.html", "./style.css", "./app.js", "./manifest.json", "./icons/icon-192.png", "./icons/icon-512.png"];
+// Koinect service worker — caches the app shell and lesson content
+// so everything keeps working with no internet connection.
 
-self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)));
+const CACHE_NAME = "koinect-v2";
+const ASSETS = [
+  "./",
+  "./index.html",
+  "./style.css",
+  "./app.js",
+  "./manifest.json",
+  "./data/lessons.json",
+  "./data/reference.json",
+  "./data/highlights.json",
+  "./data/basics.json",
+  "./data/proclaim.json",
+  "./data/bible-full.json",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
+  "./icons/icon-maskable-512.png"
+];
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+  );
   self.skipWaiting();
 });
 
-self.addEventListener("activate", (e) => {
-  e.waitUntil(
-    caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(
+        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+      )
+    )
   );
   self.clients.claim();
 });
 
-// App shell cached for install/offline launch. Firestore reads/writes still
-// need a live network connection — this only caches the static files.
-self.addEventListener("fetch", (e) => {
-  if (e.request.mode === "navigate") return; // let network handle live navigation
-  e.respondWith(caches.match(e.request).then((res) => res || fetch(e.request)));
+// Cache-first strategy: instant loads, works fully offline.
+// Falls back to the network for anything not yet cached, and
+// re-caches it for next time.
+self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") return;
+
+  event.respondWith(
+    caches.match(event.request).then((cached) => {
+      if (cached) return cached;
+      return fetch(event.request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          return response;
+        })
+        .catch(() => cached);
+    })
+  );
 });
