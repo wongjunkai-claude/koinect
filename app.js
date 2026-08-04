@@ -4,7 +4,7 @@
 
 // Bump this whenever a notable change ships — shown on the Help screen so
 // anyone reporting a bug can say which version they're on.
-const APP_VERSION = "1.8.0";
+const APP_VERSION = "1.8.1";
 
 // NEVER change this — it's the only pointer to every existing user's saved
 // progress. Changing it orphans all prior data instead of migrating it.
